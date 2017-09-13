@@ -3067,7 +3067,7 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
 
    
 })
-.controller("TipsCtrl",function($rootScope,$scope,$http,$location,$ionicSideMenuDelegate,ProfileData,Utils){
+.controller("TipsCtrl",function($rootScope, $scope, $http, $location, $ionicSideMenuDelegate, ProfileData, Utils, $ionicLoading, $document, SweetAlert, $ionicModal, $state, OrderData){
     
     $ionicSideMenuDelegate.canDragContent(false)
     Utils.checkLogin();
@@ -3077,6 +3077,42 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
     $scope.userId=localStorage.Id;
     
  
+})
+.controller("AdjustTipsCtrl",function($rootScope, $scope, $http, $location, $ionicSideMenuDelegate, ProfileData, Utils, $ionicLoading, $document, SweetAlert, $ionicModal, $state, OrderData){
+
+    $ionicSideMenuDelegate.canDragContent(false)
+    Utils.checkLogin();
+
+    $scope.profile=ProfileData.getProperty();
+    $scope.authenticationToken=localStorage.AccessToken;
+    $scope.userId=localStorage.Id;
+
+    // stuff list for tips
+    $scope.employees = [{
+        'name': 'A',
+        'amount': 0.00
+    },{
+        'name': 'B',
+        'amount': 1.00
+    }];
+
+    // set class to stuff
+    $scope.setClass = function ($event,index){
+        var scope_var ="my-row-"+index;
+        var my_row_element = angular.element($document[0].querySelector('#my-row-'+index));
+        var my_button_element = angular.element($document[0].querySelector('#my-button-'+index));
+
+        if(my_row_element.hasClass('shift-left'))
+            my_row_element.removeClass('shift-left').addClass("shift-right");
+        else
+            my_row_element.addClass('shift-left').removeClass("shift-right");
+
+        if(my_button_element.hasClass('button-shift-right'))
+            my_button_element.removeClass('button-shift-right').addClass("button-shift-left");
+        else
+            my_button_element.addClass('button-shift-right').removeClass("button-shift-left");
+    };
+
 })
 .controller("AdminToolsCtrl",function($rootScope,$scope,$http,$location,$ionicSideMenuDelegate,ProfileData,Utils){
     

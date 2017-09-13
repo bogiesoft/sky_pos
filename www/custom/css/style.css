@@ -275,8 +275,7 @@ h1.title img{
 }     
 .sub-header h2{
   color: #FFFFFF!important;  
-  text-align: left!important;   
-  font-weight: 19px!important;
+  text-align: left!important;
   margin-left: 15px!important; 
 }
 
@@ -320,7 +319,7 @@ h1.title img{
     font-size: 50px;
   }
  .top-block{
-  float: righ`t;
+  /*float: right;*/
   width: auto;
   position: absolute;
   top: 10px;
@@ -505,8 +504,8 @@ a{
   font-weight: bold;
 }
 .has-error{
-    border: 1px solid!important;
-    border-color:  #a94442!important;
+    border: 1px solid !important;
+    border-color: #a94442 !important;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
 }
 .thumb img.active{
@@ -664,6 +663,12 @@ input[type="checkbox"]:checked + label:after {
    background-size: 28px 28px;
     background-position: center 5px;
    background-repeat: no-repeat;
+}
+.icon-search-items{
+    background-image: url("../../custom/Assets/Tips/ic_tip_search_receipt.png");
+    background-size: 28px 28px;
+    background-position: center 5px;
+    background-repeat: no-repeat;
 }
 .icon-dine-in{
    background-image: url("../../custom/Assets/order/ic_right_angle_white.png");  
@@ -858,6 +863,9 @@ input[type="checkbox"]:checked + label:after {
 .split-textbox {
     border-bottom: 1px solid #009245 !important;
 }
+.split-textbox-label {
+    margin-top: 15px;
+}
 .col-30 {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 30%;
@@ -878,4 +886,19 @@ input[type="checkbox"]:checked + label:after {
 }
 .assigned-total {
     margin-left: 15px;
+}
+
+/* Tips */
+.stuff-item {
+    padding-top: 15px;
+}
+.small-btn {
+    padding: 2px 8px;
+    border: 0;
+    border-radius: 0;
+    background: #EEE;
+    font-size: 20px;
+}
+.tip-payment-wrapper {
+    padding: 10px 15px 25px 15px;
 }

@@ -1,0 +1,89 @@
+<ion-view view-title="Order" hide-nav-bar="true" cache-view="false">
+    <ion-header-bar align-title="left"  class="bar-dark sky-pos-green" cache-view="false">
+        <div class="buttons">
+            <a href="#/app/tips" class="button button-icon button-clear icon ion-arrow-left-c" >
+                <span class="order-page-header-menu-text"></span>
+            </a>
+        </div>
+        <h1 class="title text-left order-header-title"  align-title="left" style="text-align:left">Tip Adjustment</h1>
+        <div class="buttons">
+            <button type="button" ng-click="adjustTips()" class="order-header-icon button button-icon button-clear ion-checkmark"></button>
+        </div>
+    </ion-header-bar>
+
+    <ion-content scroll="true" has-bouncing="false" class="has-header has-footer has-sub-header">
+
+
+        <div class="my-container" style="">
+
+            <div class="tip-payment-wrapper">
+                <div class="row">
+                    <div class="col-30 split-textbox-label">Receipt No#:</div>
+                    <div class="col-60">
+                        <input class="split-textbox" type="text" ng-model="order_id" />
+                    </div>
+                    <div class="col-10">
+                        <button class="tip-payment small-btn" ng-click="searchOrder()">
+                            <i class="ion-search"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-30 split-textbox-label">Tip Amount:</div>
+                    <div class="col-70">
+                        <input class="split-textbox" type="text" ng-model="tip_amount" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- stuff -->
+            <div style="overflow:hidden;margin-right:0px" class="row item item-body" ng-repeat="item in employees">
+                <div style="padding:0px"  class="col">
+                    <div style="padding:0px"  class="row recall-list" id="my-row-{{$index}}">
+                        <div class="col col-90">
+                                <div class="stuff-item my-item" style="float:left;margin-left:10px;">
+                                    <span class="customer">Employee Name {{item.name}}</span>
+                                </div>
+                                <div class="stuff-item my-item" style="float:right;margin-right:10px;">
+                                    <span class="customer">${{item.amount}}</span>
+                                </div>
+                                <span class="item-note">
+                                    <p style="white-space:pre-wrap; text-align:right;color:#607d8b;" ng-bind-html="splitDate(data.ODate)"></p>
+                                </span>
+                        </div>
+                        <div class="col" style="text-align:right;"><h3><a style="cursor:pointer;cursor:hand;" class="" ng-click="setClass($event,$index)"><img check-image ng-src="custom/Assets/order/ic_vertical_ellipsis.png" style="height:30px;width:30px;"></a></h3></div>
+                    </div>
+
+                    <div style="position:absolute;padding:0px;margin:0px;top:0px;" id="my-button-{{$index}}" class=" button-shift-right">
+                        <div>
+                            <button  type="button" ng-click="gotoSplitBillByTotal($index)" style="border-radius:0px;line-height: 36px;width:70px; height:100%;font-size:14px;padding-top:2px;"  class="order-edit-button button icon-center  button-assertive sky-pos-light-green"> <img src="custom/Assets/Bill/ic_split_scissors.png" style="width:18px;margin-top:5px;padding-top:2px;" /> <br />Split</button>
+                            <button  type="button" ng-click="showServiceChargeModal($index)" style="padding:2px 5px;border-radius:0px;line-height: 36px;width:70px; font-size:12px;margin-left:-4px;white-space:nowrap;" class="order-edit-button button icon-center  button-assertive sky-pos-green"><img src="custom/Assets/Bill/ic_pay_wallet.png" style="width:18px;margin-top:5px;" /><br />Pay Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /stuff -->
+        </div>
+
+
+    </ion-content>
+    <div style="margin-top:140px;" class="bar bar-footer sky-pos-light-green">
+        <div class="row">
+            <div class="col">
+                <div class="text-white" style="text-align:center;width:100%">
+                    <span>Search Receipt</span><br>
+                    <a  type="button" ng-click="search_receipt();" style="color:#FFF;margin-top:-65px;" class="button sky-pos-light-green icon-search-items top"></a>
+
+                </div>
+            </div>
+            <div class="col">
+                <div class="text-white" style="text-align:center;width:100%">
+                    <span>Add Stuff</span><br>
+                    <button  type="button" ng-click="add_stuff()" style="color:#FFF;margin-top:-65px;" class="button sky-pos-light-green icon-add-items top"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</ion-view>

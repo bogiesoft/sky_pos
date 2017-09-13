@@ -205,6 +205,15 @@ angular.module('skypos', ['ionic', 'skypos.controllers','ngCordova','ngCordovaOa
       }
     }
   })
+  .state('app.adjust-tips', {
+    url: '/adjust-tips',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/tips/adjust-tips.html',
+        controller: 'AdjustTipsCtrl'
+      }
+    }
+  })
   .state('app.admin_tools', {
     url: '/admin_tools',
     views: {
