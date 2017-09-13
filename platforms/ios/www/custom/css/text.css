@@ -1,0 +1,304 @@
+
+@font-face {
+    font-family: 'latoblack';
+    src: url('fonts/lato-black-webfont.eot');
+    src: url('fonts/lato-black-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/lato-black-webfont.woff2') format('woff2'),
+         url('fonts/lato-black-webfont.woff') format('woff'),
+         url('fonts/lato-black-webfont.ttf') format('truetype'),
+         url('fonts/lato-black-webfont.svg#latoblack') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'latoblack_italic';
+    src: url('fonts/lato-blackitalic-webfont.eot');
+    src: url('fonts/lato-blackitalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/lato-blackitalic-webfont.woff2') format('woff2'),
+         url('fonts/lato-blackitalic-webfont.woff') format('woff'),
+         url('fonts/lato-blackitalic-webfont.ttf') format('truetype'),
+         url('fonts/lato-blackitalic-webfont.svg#latoblack_italic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'latolight';
+    src: url('fonts/lato-light-webfont.eot');
+    src: url('fonts/lato-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/lato-light-webfont.woff2') format('woff2'),
+         url('fonts/lato-light-webfont.woff') format('woff'),
+         url('fonts/lato-light-webfont.ttf') format('truetype'),
+         url('fonts/lato-light-webfont.svg#latolight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'latobold';
+    src: url('fonts/lato-bold-webfont.eot');
+    src: url('fonts/lato-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/lato-bold-webfont.woff2') format('woff2'),
+         url('fonts/lato-bold-webfont.woff') format('woff'),
+         url('fonts/lato-bold-webfont.ttf') format('truetype'),
+         url('fonts/lato-bold-webfont.svg#latobold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'latoitalic';
+    src: url('fonts/lato-italic-webfont.eot');
+    src: url('fonts/lato-italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/lato-italic-webfont.woff2') format('woff2'),
+         url('fonts/lato-italic-webfont.woff') format('woff'),
+         url('fonts/lato-italic-webfont.ttf') format('truetype'),
+         url('fonts/lato-italic-webfont.svg#latoitalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'latoregular';
+    src: url('fonts/lato-regular-webfont.eot');
+    src: url('fonts/lato-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/lato-regular-webfont.woff2') format('woff2'),
+         url('fonts/lato-regular-webfont.woff') format('woff'),
+         url('fonts/lato-regular-webfont.ttf') format('truetype'),
+         url('fonts/lato-regular-webfont.svg#latoregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'latohairline_italic';
+    src: url('fonts/lato-hairlineitalic-webfont.eot');
+    src: url('fonts/lato-hairlineitalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/lato-hairlineitalic-webfont.woff2') format('woff2'),
+         url('fonts/lato-hairlineitalic-webfont.woff') format('woff'),
+         url('fonts/lato-hairlineitalic-webfont.ttf') format('truetype'),
+         url('fonts/lato-hairlineitalic-webfont.svg#latohairline_italic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'latohairline';
+    src: url('fonts/lato-hairline-webfont.eot');
+    src: url('fonts/lato-hairline-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/lato-hairline-webfont.woff2') format('woff2'),
+         url('fonts/lato-hairline-webfont.woff') format('woff'),
+         url('fonts/lato-hairline-webfont.ttf') format('truetype'),
+         url('fonts/lato-hairline-webfont.svg#latohairline') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'latolight_italic';
+    src: url('fonts/lato-lightitalic-webfont.eot');
+    src: url('fonts/lato-lightitalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/lato-lightitalic-webfont.woff2') format('woff2'),
+         url('fonts/lato-lightitalic-webfont.woff') format('woff'),
+         url('fonts/lato-lightitalic-webfont.ttf') format('truetype'),
+         url('fonts/lato-lightitalic-webfont.svg#latolight_italic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'latobold_italic';
+    src: url('fonts/lato-bolditalic-webfont.eot');
+    src: url('fonts/lato-bolditalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/lato-bolditalic-webfont.woff2') format('woff2'),
+         url('fonts/lato-bolditalic-webfont.woff') format('woff'),
+         url('fonts/lato-bolditalic-webfont.ttf') format('truetype'),
+         url('fonts/lato-bolditalic-webfont.svg#latobold_italic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+@font-face{
+font-family:"Humanist 777 W01 Bold";
+src:url("fonts/360008b1-17f4-423e-9b0a-75707d0e29d8.eot?#iefix");
+src:url("fonts/360008b1-17f4-423e-9b0a-75707d0e29d8.eot?#iefix") format("eot"),
+    url("fonts/2b035f87-6f24-4cd7-8ae8-4cf649b881a2.woff") format("woff"),
+    url("fonts/28bba2ba-2cbd-4785-a828-43f17d6a0a4a.ttf") format("truetype"),
+    url("fonts/fa581b51-6094-4457-a564-dca4d133c03b.svg#fa581b51-6094-4457-a564-dca4d133c03b") format("svg");
+}
+@font-face{
+font-family:"Humanist 777 W01 Light";
+src:url("fonts/2556bb0d-c346-4a43-b1d2-b5dc50849fe3.eot?#iefix");
+src:url("fonts/2556bb0d-c346-4a43-b1d2-b5dc50849fe3.eot?#iefix") format("eot"),
+    url("fonts/c4c7aa5b-2143-4482-9f77-e73f8cbe6c90.woff") format("woff"),
+    url("fonts/fe716a25-b02f-47b0-9a86-45828541fca2.ttf") format("truetype"),
+    url("fonts/cac92846-8ca6-4c96-af64-7ec8f2441ad3.svg#cac92846-8ca6-4c96-af64-7ec8f2441ad3") format("svg");
+}
+@font-face{
+font-family:"Humanist 777 W01 Black";
+src:url("fonts/56049dac-ce83-452f-9772-f57c0b75e40a.eot?#iefix");
+src:url("fonts/56049dac-ce83-452f-9772-f57c0b75e40a.eot?#iefix") format("eot"),
+    url("fonts/4a3caf40-7178-43aa-b59f-ef74501ba256.woff") format("woff"),
+    url("fonts/2356c5ea-266c-4dd0-b462-a3f8e2771422.ttf") format("truetype"),
+    url("fonts/31e90e69-310c-4e73-bcf3-443c74dc6ef7.svg#31e90e69-310c-4e73-bcf3-443c74dc6ef7") format("svg");
+}
+@font-face{
+font-family:"Humanist777W01-LightCd";
+src:url("fonts/45641cb8-7f4f-4810-bb23-a8bc906324e8.eot?#iefix");
+src:url("fonts/45641cb8-7f4f-4810-bb23-a8bc906324e8.eot?#iefix") format("eot"),
+    url("fonts/ad499fca-6752-4ddf-92ad-07cebed3f3c6.woff") format("woff"),
+    url("fonts/77037cd6-7fa1-4111-8b88-0a6a5a9b7bdb.ttf") format("truetype"),
+    url("fonts/517fbe5a-4cff-461b-9474-c3562bbf7ab8.svg#517fbe5a-4cff-461b-9474-c3562bbf7ab8") format("svg");
+}
+@font-face{
+font-family:"Humanist777W01-Condense";
+src:url("fonts/a96df05b-eab8-4386-b33c-bfe800e2c802.eot?#iefix");
+src:url("fonts/a96df05b-eab8-4386-b33c-bfe800e2c802.eot?#iefix") format("eot"),
+    url("fonts/472700d3-4c36-4dc6-ac3f-20f056c2a915.woff") format("woff"),
+    url("fonts/e90f3c7e-73ad-4b24-b580-19ce2ff93081.ttf") format("truetype"),
+    url("fonts/b25a1482-177c-4743-a68f-74129be0ba10.svg#b25a1482-177c-4743-a68f-74129be0ba10") format("svg");
+}
+@font-face {
+    font-family: 'open-sans-regular';
+    src: url('fonts/open-sans/opensans-regular-webfont.eot');
+    src: url('fonts/open-sans/opensans-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/open-sans/opensans-regular-webfont.woff') format('woff'),
+         url('fonts/open-sans/opensans-regular-webfont.ttf') format('truetype'),
+         url('fonts/open-sans/opensans-regular-webfont.svg#open_sansregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'open-sans-light';
+    src: url('fonts/open-sans/opensans-light-webfont.eot');
+    src: url('fonts/open-sans/opensans-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/open-sans/opensans-light-webfont.woff') format('woff'),
+         url('fonts/open-sans/opensans-light-webfont.ttf') format('truetype'),
+         url('fonts/open-sans/opensans-light-webfont.svg#open_sans_lightregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'humnst777_btitalic';
+    src: url('fonts/Humanist 777 Italic BT-webfont.eot');
+    src: url('fonts/Humanist 777 Italic BT-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/Humanist 777 Italic BT-webfont.woff2') format('woff2'),
+         url('fonts/Humanist 777 Italic BT-webfont.woff') format('woff'),
+         url('fonts/Humanist 777 Italic BT-webfont.ttf') format('truetype'),
+         url('fonts/Humanist 777 Italic BT-webfont.svg#humnst777_btitalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'gotham-medium';
+    src: url('fonts/gotham-medium.eot');
+    src: url('fonts/gotham-medium.eot?#iefix') format('embedded-opentype'),
+         url('fonts/gotham-medium.woff2') format('woff2'),
+         url('fonts/gotham-medium.woff') format('woff'),
+         url('fonts/gotham-medium.ttf') format('truetype'),
+         url('fonts/gotham-medium.svg#humnst777_btitalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+body
+{
+ font: 13px/1.5 Humanist 777 W01 Light, 'latoregular', Arial,'Liberation Sans',FreeSans,sans-serif ;
+}
+
+a:focus
+{
+    outline:none;
+}
+hr
+{
+    border: 0 #ccc solid;
+    border-top-width: 1px;
+    clear: both;
+    height: 0;
+}
+h1
+{
+    font-size: 25px;
+}
+h2
+{
+    font-size: 23px;
+}
+h3
+{
+    font-size: 21px;
+}
+h4
+{
+    font-size: 19px;
+}
+h5
+{
+    font-size: 17px;
+}
+h6
+{
+    font-size: 15px;
+}
+ol
+{
+    list-style: decimal;
+}
+ul
+{
+    list-style: disc;
+}
+li
+{
+
+}
+p, dl, hr, h1, h2, h3, h4, h5, h6, ol, ul, pre, table, address, fieldset
+{
+   /* margin-bottom: 20px; */
+}

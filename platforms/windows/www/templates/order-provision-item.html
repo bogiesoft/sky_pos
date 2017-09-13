@@ -1,0 +1,71 @@
+<ion-view view-title="Order" hide-nav-bar="true" cache-view="false">
+  <ion-header-bar align-title="center"  class="bar-dark sky-pos-green" cache-view="false">
+    <div class="buttons">
+      <button  type="button" class="button button-icon button-clear ion-navicon" ng-click="toggleMenu()">
+      	<span class="order-page-header-menu-text">Menu</span>
+       </button>
+    </div>
+    <h1 class="title text-left order-header-title"  align-title="left" style="text-left"></h1>
+     <div class="buttons">
+       <div class="searchBar"> <div class="searchTxt ng-hide" ng-show="ngModel.show">
+        <div class="bgdiv"></div><div class="bgtxt"><input type="text" placeholder="Search..." ng-model="ngModel.txt" class="ng-pristine ng-valid"></div></div>
+        <i class="order-header-icon icon  button-icon {{ngModel.show ? 'ion-close' : 'ion-search'}}  " ng-click="ngModel.txt='';ngModel.show=!ngModel.show"></i>
+        <i ng-show="page_referer" class="hand-cursor order-header-icon icon  button-icon ion-checkmark " ng-click="orderProvisionItem('{{current_order_type}}')"></i>
+       </div>
+    </div>
+</ion-header-bar>
+
+<ion-content scroll="true" has-bouncing="false" class="has-header  has-footer-provision-item {{page_referer!='order_edit' ? 'has-footer' : ''}}">
+  <div class = "tabs-striped tabs-background-positive sky-pos-green  tabs-color-light ">
+    <div class = "tabs my-tabs sky-pos-light-green">
+      <a  class = "tab-item {{selected_tab=='order' ? 'active' : ''}} ">
+         Order
+      </a>
+      <a ng-href="#/app/recall" class = "tab-item {{selected_tab=='recall' ? 'active' : ''}}">
+             Recall
+      </a>
+      <a ng-href="#/app/bill"  class = "tab-item {{selected_tab=='bill' ? 'active' : ''}}">
+             Bill
+      </a>
+     </div>
+    </div>
+    <div class="my-container" style="">
+          <div style="width:auto;" class="">
+              <div class="list">
+                <div ng-repeat="item in items | filter:ngModel.txt" ng-click="selectProvisionItem($index)" class="item  item-icon-left item-button-right item-checkbox-right" >
+                  <i class="icon"><img check-image ng-src="{{image_base_url}}{{item.ImageUrl}}" style="height:36px;width:36px;"></i>
+                  <h3>{{item.Name}}</h3>
+                     <small>Price : ${{item.Price | number: 2 }}</small>
+                     <span class="checkbox">
+                     <input id="chk" ng-model="provision_items[$index]"   ng-value="$index"  type="checkbox">
+                     <label for="chk"></label>
+                   </span>
+                </div>
+              </div>
+    	    </div>
+    </div>    
+  </ion-content>
+<div ng-show="!page_referer" style="margin-top:140px;" class="bar bar-footer sky-pos-light-green"> 
+  <div class="row">
+    <div class="col col-33">  
+      <div style="text-align:center;width:100%">
+       <button  type="button" ng-click="showCustomerDeliveryInfoModal()" style="width:70px;height:70px;border-radius:50px;color:#FFF;margin-top:-40px;" class="button sky-pos-light-green icon-delivery"><br> Delivery</button>
+      </div> 
+    </div>
+    
+     <div class="col col-33">  
+      <div style="text-align:center;width:100%">
+        <button type="button" ng-click="orderProvisionItem('take_out')" style="width:70px;height:70px;border-radius:50px;color:#FFF;margin-top:-40px;" class="button sky-pos-light-green  icon-take-out"><br>Take out</button>
+      </div> 
+    </div>
+
+     <div class="col col-33">  
+      <div style="text-align:center;width:100%">
+        <button type="button" ng-click="orderProvisionItem('dine_in')" style="width:70px;height:70px;border-radius:50px;color:#FFF;margin-top:-40px;" class="button sky-pos-light-green  icon-dine-in"><br>Dine in</button>
+      </div> 
+    </div>  
+  </div>
+</div>
+  
+</ion-view>
+

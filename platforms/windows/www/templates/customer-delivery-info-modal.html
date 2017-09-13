@@ -1,0 +1,30 @@
+<ion-modal-view>
+
+
+
+  <ion-content style="background-color:#FFF;">
+    <form ng-submit="doLogin()">
+      <div class="list">
+        <label class="item item-input">
+          <input type="text" placeholder="Name" ng-model="customer_delivery_info_model.name">
+        </label>
+        <label class="item item-input">
+          <input type="text" placeholder="Phone" ng-model="customer_delivery_info_model.phone">
+        </label>
+        <label class="item item-input">
+          <textarea placeholder="Address" ng-model="customer_delivery_info_model.address"></textarea>
+        </label>
+        <div class="item_">
+          <div class="row"> 
+              <div class="col">  
+                <button ng-click="orderProvisionItem('delivery')" class="button button-block sky-pos-light-green text-white" type="submit">DONE</button> 
+              </div>
+              <div class="col">  
+                 <button ng-click="closeCustomerDeliveryInfoModal();" class="button button-block button-assertive text-white" type="submit">CANCEL</button>
+               </div>   
+        </div>
+        </div>
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view>

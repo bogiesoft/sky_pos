@@ -1,0 +1,36 @@
+  <ion-modal-view>
+        <ion-header-bar align-title="center">
+            <button class="button button-icon ion-close" ng-click="closeModal();"></button>
+
+            <h1 class="title" style="right: 56px; left: 56px;" ng-if="multipleSelect.enableSearch">
+                <label class="item item-icon-left" style="height: 100%;top: -6px;padding: 0px 0px 0px 32px !important;">
+                  <i class="icon ion-android-search" style="font-size: 20px; left: 0 !important;top: 7px;"></i>
+                  <input type="text" placeholder="{{multipleSelect.title}}" ng-model="multipleSelect.searchvalue" style="width: 90%;height: 100%;margin-top: 7px;" />
+                </label>
+                <i ng-if="multipleSelect.searchvalue.length > 0" on-tap="clearSearch()" class="icon ion-close" style="top:0px;right: 0px;position:absolute;cursor:pointer;z-index: 2;"></i>
+            </h1>
+
+
+            <h1 ng-if="!multipleSelect.enableSearch" class="title">{{multipleSelect.title}}</h1>
+            <button class="button button-icon ion-checkmark" ng-click="saveOptions();"></button>
+        </ion-header-bar>
+        <ion-content scroll="false">
+            <ul class="list">
+                <li class="item item-toggle" ng-repeat="option in multipleSelect.tempOptions | filter: multipleSelect.searchvalue" ng-if="!multipleSelect.renderCheckbox">
+                    {{ option[multipleSelect.valueProperty] }}
+                    <label class="toggle toggle-assertive">
+                        <input type="checkbox" ng-model="option[multipleSelect.selectedProperty]">
+                        <div class="track">
+                            <div class="handle"></div>
+                        </div>
+                    </label>
+                </li>
+                <li class="item item-checkbox" ng-repeat="option in multipleSelect.tempOptions | filter: multipleSelect.searchvalue" ng-if="multipleSelect.renderCheckbox">
+                   <label class="checkbox">
+                     <input type="checkbox" ng-model="option[multipleSelect.selectedProperty]">
+                   </label>
+                   {{ option[multipleSelect.valueProperty] }}
+                </li>
+            </ul>
+        </ion-content>
+    </ion-modal-view>

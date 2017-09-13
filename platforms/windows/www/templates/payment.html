@@ -1,0 +1,112 @@
+<ion-view view-title="Order" hide-nav-bar="true" cache-view="false">
+  
+ 
+
+  <ion-header-bar align-title="center"  class="bar-dark sky-pos-green" cache-view="false">
+  <div class="buttons">
+    <button  type="button" class="button button-icon button-clear ion-navicon" ng-click="toggleMenu()">
+    	<span class="order-page-header-menu-text">Menu</span>
+          </button>
+  </div>
+  <h1 class="title text-left order-header-title"  align-title="left" style="text-left"></h1>
+   <div ng-show="false" class="buttons">
+           <div class="searchBar"> <div class="searchTxt ng-hide" ng-show="ngModel.show">
+           	<div class="bgdiv"></div><div class="bgtxt"><input type="text" placeholder="Search..." ng-model="ngModel.txt" class="ng-pristine ng-valid"></div></div>
+      
+          <i class="order-header-icon icon  button-icon {{ngModel.show ? 'ion-close' : 'ion-search'}}  " ng-click="ngModel.txt='';ngModel.show=!ngModel.show"></i> </div>
+  </div>
+</ion-header-bar>
+
+
+
+    <ion-content scroll="true" has-bouncing="false" class="has-header ">
+    <div class = "tabs-striped tabs-background-positive sky-pos-green  tabs-color-light ">
+       <div class = "tabs my-tabs sky-pos-light-green">
+          <a ng-href="#/app/order" class = "tab-item {{selected_tab=='order' ? 'active' : ''}} ">
+             Order
+          </a>
+    		
+          <a ng-href="#/app/recall" class = "tab-item {{selected_tab=='recall' ? 'active' : ''}}">
+             Recall
+          </a>
+    		
+          <a   class = "tab-item {{selected_tab=='bill' ? 'active' : ''}}">
+             Bill
+          </a>
+       </div>
+    </div>
+     
+	 <div style="font-size:11px">
+     <div class="row">
+        <div class="col">Original Order</div><div class="col">: {{order_data.OrderID}}</div>
+        <div class="col">Customer</div><div class="col">: {{order_data.CustomerFirstName}}</div>
+     </div>
+     <div class="row">
+         <div class="col">Item Count</div><div class="col">: {{order_data.OrderDetails.length}}</div>
+         <div class="col">Sub Total</div><div class="col">: ${{order_data.OSum | number:2}}</div>
+      </div>
+     <div class="row">
+        <div class="col">Service Charge</div><div class="col">: ${{order_data.ServiceCharge | number:2}}</div>
+        <div class="col">Tax</div><div class="col">: ${{order_data.Tax | number:2}}</div>
+     </div>
+     <div class="row">
+        <div class="col">Discount</div><div class="col">: ${{order_data.Discount | number:2}}</div>
+        <div class="col">Total</div><div class="col">: ${{order_data.OSum*1+order_data.Tax*1+order_data.ServiceCharge*1-order_data.Discount*1  | number:2}}</div>
+      </div>
+	</div>  
+     
+     <div style="padding-left:10px;padding-right:10px;">
+      <button ng-click="showOrderDetailsModal()" class="button button-calm sky-pos-light-green button-block">DETAILS</button>
+    </div>
+
+    
+    <div style="width: 100%">
+      <div class="list  payment-option-list text-black" style="margin-left:15px;margin-right:15px;background-color:#000;">
+         <div ng-click="showCashPaymentModal('cash')" class="item  item-icon-left item-icon-right  ">
+            <i class="icon"><img src="custom/Assets/Payment/ic_payment_cash.png" style="height:30px;width:30px;"></i>
+            CASH
+            <i class="icon"><a ><img src="custom/Assets/Dashboard/ic_right_angle_black.png" style="height:24px;width:24px;"></a></i>
+         </div>
+         <div ng-click="showChequePaymentModal('cheque')"  class="item  item-icon-left item-icon-right  text-black">
+            <i class="icon"><img src="custom/Assets/Payment/ic_payment_cheque.png" style="height:30px;width:30px;"></i>
+            CHECK
+            <i class="icon"><a><img src="custom/Assets/Dashboard/ic_right_angle_black.png" style="height:24px;width:24px;"></a></i>
+         </div>
+        <div ng-click="showCcPaymentModal('cc')"  class="item  item-icon-left item-icon-right  text-black">
+            <i class="icon "><img src="custom/Assets/Payment/ic_payment_credit_card.png" style="height:30px;width:30px;"></i>
+            CREDIT CARD
+            <i class="icon"><a ><img src="custom/Assets/Dashboard/ic_right_angle_black.png" style="height:24px;width:24px;"></a></i>
+         </div>
+
+         <div ng-click="gotoPage('admin_tools')"  class="item  item-icon-left item-icon-right  text-black">
+            <i class="icon"><img src="custom/Assets/Payment/ic_payment_analog.png" style="height:30px;width:30px;"></i>
+            ANALOG
+            <i class="icon"><a><img src="custom/Assets/Dashboard/ic_right_angle_black.png" style="height:24px;width:24px;"></a></i>
+         </div>
+		 
+		 <div ng-click="Utils.showAlert('Not implemented yet','It will be implemented with promotion module',true,'warning')"  class="item  item-icon-left item-icon-right  text-black">
+            <i class="icon"><img src="custom/Assets/Payment/ic_payment_gift_certificate.png" style="height:30px;width:30px;"></i>
+            GIFT CERTIFICATED
+            <i class="icon"><a><img src="custom/Assets/Dashboard/ic_right_angle_black.png" style="height:24px;width:24px;"></a></i>
+         </div>
+		 <div ng-click="Utils.showAlert('Not implemented yet','It will be implemented with promotion module',true,'warning')"  class="item  item-icon-left item-icon-right  text-black">
+            <i class="icon"><img src="custom/Assets/Payment/ic_payment_service_charge.png" style="height:30px;width:30px;"></i>
+            SERVICE CHARGE
+            <i class="icon"><a><img src="custom/Assets/Dashboard/ic_right_angle_black.png" style="height:24px;width:24px;"></a></i>
+         </div>
+		 <div ng-click="showDpPaymentModal('dp')" style="margin-bottom:0px;"  class="item  item-icon-left item-icon-right text-black">
+            <i class="icon"><img src="custom/Assets/Payment/ic_payment_discount_promotion.png" style="height:30px;width:30px;"></i>
+            DISCOUNT PROMOTION
+            <i class="icon"><a><img src="custom/Assets/Dashboard/ic_right_angle_black.png" style="height:24px;width:24px;"></a></i>
+         </div>
+       </div>
+       </div> 
+
+
+ 
+    </ion-content>
+
+
+  
+</ion-view>
+

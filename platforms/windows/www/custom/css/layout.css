@@ -1,0 +1,605 @@
+html, body  {
+	background-color:#efefef;
+	font-family: 'latoregular';
+	color:#2e2e2e;
+	text-align:left;
+	overflow-style:auto;
+	margin:auto;
+	font-size:14px;
+}
+a{
+	text-decoration: none;
+}
+.nav-mlm {
+	text-align:left !important;
+}
+.nav-mlm .navbar-toggle {
+	float:left;
+	margin-left:10px;
+}
+.brand-section {
+	padding-top:10px;
+	padding-bottom:10px;
+}
+
+.txt-brand p{
+	font-weight:bold;
+	margin-top:5px;
+	text-align:center;
+	font-size:14px;
+	font-family: 'latoregular';
+}
+.txt-brand span{
+	font-weight:bold;
+	margin-top:5px;
+	color:#2d76b6;
+	font-size:12px;
+}
+.brand-logo {
+	padding-left:2px;
+}
+.brand-logo img{
+	margin-top:10px;
+}
+/*-------------------------accordion-----------------------------------*/
+
+
+.toggle_container {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #fbfafa;
+    border-color: #e4e4e4;
+    border-image: none;
+    border-style: solid;
+    border-width: 0 1px 1px;
+    clear: both;
+    margin: 0;
+    overflow: hidden;
+    padding: 5px 10px;
+}
+
+h2.active {
+    background: #f3f3f3 none repeat scroll 0 0;
+}
+h2.trigger {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: #fff none repeat scroll 0 0;
+    border-color: #e4e4e4;
+    border-image: none;
+    border-style: solid;
+    border-width: 0 1px 1px;
+    font-size: 14px;
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
+}
+h2.active span {
+    background: #2e3977 url("../images/toggle-down.png") no-repeat scroll 10px  16px;
+    border: 1px solid #e7e7e7;
+    color: #fff;
+}
+h2.trigger span {
+    border: 1px solid #e7e7e7;
+    color: #1b82c4;
+    cursor: pointer;
+    display: block;
+    font-size: 14px;
+    line-height: 42px;
+    padding-left: 5px;
+    text-decoration: none;
+	background-position:right 15px 15px;
+}
+.achievement-level{
+color: #1b82c4;
+}
+.bg-white {
+	background-color:#FFF;
+	padding:10px;
+	border: 1px solid #e7e7e7;
+/*	box-shadow: -1px 1px 2px 3px #d3d3d3;*/
+}
+.contents-body {
+	padding-top:20px;
+	text-align:left;
+}
+.title-row span {
+	color:#1b82c4;
+	margin-bottom:5px;
+}
+.title-row {
+	margin-bottom:5px;
+}
+.number-bg {
+	 background-image: url("../images/blank-bg-number.png");
+    background-repeat: no-repeat;
+    color: #fff;
+    height: 30px;
+    padding-left: 9px;
+    padding-top: 5px;
+    width: 30px;
+	margin-top:10px;
+}
+.text-qa {
+	margin-top:10px;
+	}
+
+.text-qa p{
+	margin-left:7px;
+}
+
+.point-circle span {
+	margin-right:5px;
+	margin-left:10px;
+}
+
+.calender-left {
+	background-color:#3a383d;
+	text-align:center;
+	padding-top:10px;
+	padding-bottom:10px;
+}
+.dashboard-title-fix {
+	text-align:center;
+	width:68%;
+}
+.point-circle p {
+	margin-bottom:0;}
+.ico-green {
+		text-align:right;}
+.ico-green span {
+	color:#7fc379;
+	margin-left:15px;
+	margin-right:1px;
+}
+.margin-top-30 {
+	margin-top:-35px;
+}
+.margin-top-10{
+	margin-top:-10px;
+}
+.txt-blue {
+	color:#337ab7;
+}
+.number-txt {
+	color:#337ab7;
+	font-size:16px;
+	font-weight:bold;
+	
+}
+.title-number {
+	font-size:14px}
+.box-green-line {
+
+	border-left:3px solid #6fbd76;
+
+	margin-top:5px;
+	height:35px;
+}
+.box-fix-2 {
+	padding-left:4px;}
+.box-border-gray {
+	border: 1px solid #CCC;}
+.border-top-gray {
+	border-top:1px solid #e4e4e4;
+	margin-top:8px;
+	margin-bottom:5px;
+}
+.star-yellow {
+	color:#ffea00;
+}
+.circle-gray {
+	color:#CCC;
+	margin-left:5px;
+	margin-right:5px;
+	font-size:12px;
+}
+.heart-gray {
+	color:#5a5a5a;
+	font-size:12px;
+}
+.leg-contents {
+	text-align:center;
+	margin-top:20px;
+}
+.title-graph {
+	margin-bottom:10px;}
+
+.center-align {
+	text-align:center;
+}
+
+.ico-business {
+	margin-right:10px;
+}
+.align-center {
+	text-align:center;
+}
+.btn-green {
+	background-color:#74bf7b;
+	color:#FFF;
+}
+.btn-blue {
+	background-color:#2f79b9!important;
+	color:#FFF!important;
+}
+.align-right {
+	text-align:right;
+	float:right;
+}
+.trash-gray {
+	color:#999;
+}
+.left-margin-60 {
+	margin-left:60px;
+}
+.chk-box {
+	position:relative;
+	top:3px;
+	left:6px;
+}
+.txt-red {
+	color:#ce6360;
+}
+.font-size-11 {
+	font-size:11px;}
+	
+.list-items{
+	margin-left:10px;
+}	
+.list-items li{
+	margin-left:5px;
+	color: #1b82c4;
+}
+.yellow-border {
+	height:35px;
+	border-left:3px solid #f3b85a;
+	padding-left:5px;
+}
+.txt-green {
+	color:#66bf00;
+}	
+.title-login  {
+	font-size:20px;
+	color:#2692a4;
+}
+	
+.btn-facebook button:hover{
+	color:#eaeaea;
+}
+.btn-facebook span {
+	margin-right:5px;
+}	
+.txt-or {
+	display:block;
+	font-size:15px;
+}
+.btn-yellow {
+	background-color:#ec6b2d!important;
+	color:#FFF!important;}
+
+.btn-yellow.activated {
+	background-color:#ec6b2d;
+	color:#FFF;}
+
+
+.btn-login button:hover{color:#eaeaea;}
+.login-section {padding-top:0px;}
+.line-or {
+	border-bottom:1px solid #666;}	
+	
+	
+
+
+
+
+
+
+
+
+
+@media (min-width: 320px) and (max-width: 600px) {
+
+
+
+.padding-neel {
+	padding:0 !important;}
+
+}
+
+.custom-button-small{
+	font-weight: bold;
+}
+
+
+.list .item.item-accordion {
+  line-height: 38px;
+  padding-top: 0;
+  padding-bottom: 0;
+  transition: 0.09s all linear;
+}
+.list .item.item-accordion.ng-hide {
+  line-height: 0px;
+}
+.list .item.item-accordion.ng-hide-add,
+.list .item.item-accordion.ng-hide-remove {
+  display: block !important;
+}
+.outsideCircle {
+    display:inline-block;
+    line-height:0px;
+    border-radius:50%;
+    font-size:32px;
+    border:3px solid #80c379;    
+}
+.number-circle-container{
+	position:relative;float:left;width:65px;height:auto;margin:0 5px 0 0;text-align:center;
+}
+.numberCircle {
+    display: inline-block;
+    line-height: 0px;
+    border-radius: 50%;
+    font-size: 16px;
+    background: #377cb7;
+    margin: 3px;
+    color: #fff;
+}
+.numberCircle span {
+    display: inline-block;
+    padding-top: 50%;
+    padding-bottom: 50%;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.my-stars {position:relative;list-style: none!important;width: 65px!important; margin-bottom: 0px!important;}
+                                              .my-stars li {position:relative!important;display:inline-block!important;font-size:10px!important;width:12px!important;color:#ccc!important;}
+
+/* binary tree */
+ /*Now the CSS*/
+                    .tree2,.tree3 { width:320px;height:320px;margin:0 auto;border-bottom:3px solid #ccc; }
+                    .tree3 { width:320px;height: 150px;border-bottom:0; }
+                    .tree { width:320px;height:320px;margin:0 auto; }
+                    .tree2 { height:100px;text-align:center;border:0;padding-top:20px; }
+                    .tree ul li { font-size:10px!important; font-weight: bold!important; }
+                    .tree ul li a { background:#7fc37a; }
+                    
+                    .tree ul {
+                        padding-top: 20px; position: relative;
+                        padding-left:0!important;
+
+                        transition: all 0.5s;
+                        -webkit-transition: all 0.5s;
+                        -moz-transition: all 0.5s;
+                    }
+
+                    .tree li {
+                        float: left; text-align: center;
+                        list-style-type: none;
+                        position: relative;
+                        padding: 20px 2px 0 2px;
+                        
+                        transition: all 0.5s;
+                        -webkit-transition: all 0.5s;
+                        -moz-transition: all 0.5s;
+                    }
+
+                    /*We will use ::before and ::after to draw the connectors*/
+
+                    .tree li::before, .tree li::after{
+                        content: '';
+                        position: absolute; top: 0; right: 50%;
+                        border-top: 1px solid #ccc;
+                        width: 50%; height: 20px;
+                    }
+                    .tree li::after{
+                        right: auto; left: 50%;
+                        border-left: 1px solid #ccc;
+                    }
+
+                    /*We need to remove left-right connectors from elements without 
+                    any siblings*/
+                    .tree li:only-child::after, .tree li:only-child::before {
+                        display: none;
+                    }
+
+                    /*Remove space from the top of single children*/
+                    .tree li:only-child{ padding-top: 0;}
+
+                    /*Remove left connector from first child and 
+                    right connector from last child*/
+                    .tree li:first-child::before, .tree li:last-child::after{
+                        border: 0 none;
+                    }
+                    /*Adding back the vertical connector to the last nodes*/
+                    .tree li:last-child::before{
+                        border-right: 1px solid #ccc;
+                        border-radius: 0 5px 0 0;
+                        -webkit-border-radius: 0 5px 0 0;
+                        -moz-border-radius: 0 5px 0 0;
+                    }
+                    .tree li:first-child::after{
+                        border-radius: 5px 0 0 0;
+                        -webkit-border-radius: 5px 0 0 0;
+                        -moz-border-radius: 5px 0 0 0;
+                    }
+
+                    /*Time to add downward connectors from parents*/
+                    .tree ul ul::before{
+                        content: '';
+                        position: absolute; top: 0; left: 50%;
+                        border-left: 1px solid #ccc;
+                        width: 0; height: 20px;
+                    }
+
+                    .tree li a{
+                        border: 1px solid #7fc37a;
+                        padding: 5px 9px;
+                        text-decoration: none;
+                        color: #fff;
+                        font-family: arial, verdana, tahoma;
+                        /*font-size: 11px;*/
+                        display: inline-block;
+                        
+                        /*
+                        border-radius: 5px;
+                        -webkit-border-radius: 5px;
+                        -moz-border-radius: 5px;
+                        
+                        transition: all 0.5s;
+                        -webkit-transition: all 0.5s;
+                        -moz-transition: all 0.5s;
+                        */
+                        border-radius: 100%;
+                        -webkit-border-radius: 100%;
+                        -moz-border-radius: 100%;
+                        
+                        transition: all 0.5s;
+                        -webkit-transition: all 0.5s;
+                        -moz-transition: all 0.5s;
+                    }
+
+                    /*Time for some hover effects*/
+                    /*We will apply the hover effect the the lineage of the element also*/
+                    .tree li a:hover, .tree li a:hover+ul li a {
+                        background: #c8e4f8; color: #000; border: 1px solid #94a0b4;
+                    }
+                    /*Connector styles on hover*/
+                    .tree li a:hover+ul li::after, 
+                    .tree li a:hover+ul li::before, 
+                    .tree li a:hover+ul::before, 
+                    .tree li a:hover+ul ul::before{
+                        border-color:  #94a0b4;
+                    }
+
+
+
+
+ .toggle_container.ng-hide-remove {
+  transition: 0.5s linear all;
+}
+.toggle_container.ng-hide-add{
+   /* transition: 0.5s linear all;*/
+}
+
+.toggle_container.ng-hide {
+  line-height: 0;
+  opacity: 0;
+}
+
+.toggle_container {
+  line-height: 20px;
+  opacity: 1;
+  
+}
+.right {
+    float: right;
+}
+.label-success {
+    background-color: #5cb85c;
+}
+.award {
+    float: right;
+    font-size: 11px;
+    padding: 3px 5px !important;
+    font-weight: 400;
+}
+.show-overflow{
+    overflow:visible!important;
+    text-overflow: string!important;
+    white-space: normal!important;
+}
+.callout-warning {
+    background-color: #fcf8f2;
+    border-color: #f0ad4e;
+}
+.callout {
+    border-left: 4px solid #f0ad4e;
+    border-radius: 0 3px 3px 0;
+    margin: 5px 0;
+    padding: 10px;
+    text-align: left;
+}
+.callout p:last-child {
+    margin: 0;
+    padding: 0;
+}
+#active-member-container ul {
+    list-style-type: none !important;
+}
+#active-member-container ul li{
+    list-style-type: none !important;
+}
+.achievements .star{
+        font-size:20px;
+        font-weight: 100;
+        color:#0072A1;
+        margin-left:0;
+    }
+    
+    .achievements .level{
+        background: url('../images/level.png') no-repeat 0 0;
+        background-size:18px 17px;
+        width:18px;
+        height: 17px;
+        display: inline-block;
+    }
+    .achievements .level-8{
+        background-image: url('../images/level-8.png');
+    }
+    .achievements .level-9{
+        background-image: url('../images/level-8.png');
+    }
+input[type=radio].with-font {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+.sflag-star{
+    cursor: pointer;
+    cursor: hand;
+}
+
+input[type=radio].with-font {
+      border: 0;
+      clip: rect(0 0 0 0);
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      width: 1px;
+  }
+      
+  input[type=radio].with-font ~ label:before {
+      font-family: FontAwesome;
+      display: inline-block;
+      content: "\f006";
+      letter-spacing: 10px;
+      font-size: 16px;
+      color: #535353;
+      width: 1.4em;
+  }
+       
+  input[type=radio].with-font:checked ~ label:before {
+      content: "\f005";
+      font-size: 16px;
+      color: #ffcc00;
+      letter-spacing: 5px;
+  }
+
+  input[type=radio].with-font:focus ~ label:before,
+  input[type=radio].with-font:focus ~ label {                
+      color: #ffcc00;
+  }
+
+  .ui-widget-header {background-image:none!important;background-color:#f2f2f2!important;border:0!important;color:#535353!important;}

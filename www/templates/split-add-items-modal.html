@@ -1,0 +1,39 @@
+<ion-modal-view>
+    <ion-header-bar align-title="center"  class="bar-dark sky-pos-green" cache-view="false">
+        <div class="buttons">
+            <button ng-click="closeAddItemsModal()" class="button button-icon button-clear icon ion-arrow-left-c" >
+                <span class="order-page-header-menu-text"></span>
+            </button>
+        </div>
+        <h1 class="title text-left order-header-title"  align-title="left" style="text-align:left;">Add Items</h1>
+
+    </ion-header-bar>
+    <ion-content style="background-color:#FFF;">
+
+
+        <div class="list">
+            <div ng-repeat="item in unassigned_items | filter:ngModel.txt" ng-click="selectProvisionItem($index)" class="item  item-icon-left item-button-right item-checkbox-right" >
+                <i class="icon"><img check-image ng-src="{{image_base_url}}{{item.ImageUrl}}" style="height:36px;width:36px;"></i>
+                <h3>{{item.ProvisionName}}</h3>
+                <small>Qty: {{item.Quantity}}, Price : ${{item.Price | number: 2 }}</small>
+                <span class="checkbox">
+                    <input id="chk" ng-model="assigned_items[$index]" ng-value="$index" type="checkbox">
+                    <label for="chk"></label>
+                </span>
+            </div>
+        </div>
+
+    </ion-content>
+
+    <div ng-show="!page_referer" style="margin-top:140px;" class="bar bar-footer sky-pos-light-green">
+        <div class="row">
+
+            <div class="col col-100">
+                <div style="text-align:center;width:100%">
+                    <button type="button" ng-click="changeItems()" style="width:70px;height:70px;border-radius:50px;color:#FFF;margin-top:-40px;" class="button sky-pos-light-green  ion-checkmark"><br>OK</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</ion-modal-view>

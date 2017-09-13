@@ -1,0 +1,39 @@
+<ion-modal-view>
+<ion-header-bar align-title="left" class="bar-positive sky-pos-green">
+    <div class="buttons buttons-right">
+      <button ng-click="closeChequePaymentModal()" class="button button-clear"><i class="ion-arrow-left-c"></i></button>
+      
+    </div>
+    <h1 class="title">Cheque Payment</h1>    
+    <div class="buttons buttons-right">
+      <button ng-click="closeChequePaymentModal()" class="button button-clear"><i class="ion-checkmark"></i></button>
+    </div>
+  </ion-header-bar>
+
+
+  <ion-content style="background-color:#FFF;">
+    
+    <div style="width:auto;" class="">
+	    
+		 <div class="list">
+		  <label class="item item-input item-floating-label">
+			<span class="input-label">Amount Due: </span>
+			<input type="number" disabled ng-model="payment_model.amount_due" placeholder="Amount Due">
+		  </label>
+		   <label class="item item-input item-floating-label">
+			<span class="input-label">Cheque Number: </span>
+			<input type="text"  ng-model="payment_model.cheque_number" placeholder="Cheque Number">
+		  </label>
+		   <label class="item item-input item-floating-label" style="padding-right:15px;">
+			     <button type="button" ng-click="takeCameraImage()" class="button button-block button-icon  ion-ios-camera sky-pos-light-green text-white " type="submit">&nbsp;TAKE A PHOTO</button> 
+            </label>
+
+             <img  id="check_img" ng-show="check_image!=''" ng-src="{{urlForImage(check_image)}}" class="check_img" style="max-height:150px;width:100%;" />
+			  
+		</div>
+</div>
+
+   
+          
+  </ion-content>
+</ion-modal-view>

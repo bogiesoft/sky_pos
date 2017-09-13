@@ -1,0 +1,66 @@
+<ion-modal-view>
+<ion-header-bar align-title="left" class="bar-positive sky-pos-green">
+    <div class="buttons buttons-right">
+      <button ng-click="closeAnalogPaymentModal()" class="button button-clear"><i class="ion-arrow-left-c"></i></button>
+      
+    </div>
+    <h1 class="title">Analog Payment</h1>    
+    <div class="buttons buttons-right">
+      <button ng-click="doPayment('analog')" class="button button-clear"><i class="ion-checkmark"></i></button>
+    </div>
+  </ion-header-bar>
+
+
+  <ion-content style="background-color:#FFF;">
+    
+    <div style="width:auto;" class="">
+	    
+		 <div class="list">
+		  <label class="item item-input ">
+			<span class="input-label"><i class="icon ion-android-star"></i> Amount Due: </span>
+			<label >${{payment_model.amount_due|number:2}}</label>
+		  </label>
+		   <label class="item item-input">
+			<span class="input-label"><i class="icon ion-android-star"></i> Receipt No. </span>
+			<label>{{order_data.OrderID}}</label>
+		  </label>
+		  
+		  <label class="item item-input item-fixed-label">
+			<span class="input-label"><i class="icon ion-android-star"></i> Card No. </span>
+			<input type="number"  ng-model="payment_model.card_number" required placeholder="Card No.">
+		  </label>
+		  
+		  <label class="item item-input">
+			<span class="input-label"><i class="icon ion-android-star"></i> REF# (*) </span>
+			<input type="text"  ng-model="payment_model.ref" required placeholder="REF#">
+		  </label>
+		  <label class="item item-input ">
+			<span class="input-label"><i class="icon ion-android-star"></i> Amount: </span>
+			<input type="number"  ng-model="payment_model.amount" placeholder="Amount">
+		  </label>
+
+		   <div  class="item discount_type_per">
+		  	  <div class="row">
+		  	  	 <div class="col"><button ng-click="payment_model.amount=1.0" type="button" style="padding-top:10px;padding-bottom:10px;" class="sky-pos-light-green text-white button-block">$1.00</button></div> 
+		  	  	 <div class="col"> <button ng-click="payment_model.amount=2.0" type="button" style="padding-top:10px;padding-bottom:10px;" class="sky-pos-light-green text-white button-block">$2.00</button></div> 
+		  	  	 <div class="col"> <button ng-click="payment_model.amount=5.0" style="padding-top:10px;padding-bottom:10px;" class="sky-pos-light-green text-white button-block">$5.00</button></div>
+		  	  </div>	
+		  	  <div class="row">
+		  	  	 <div class="col"><button ng-click="payment_model.amount=10.00" type="button" style="padding-top:10px;padding-bottom:10px;" class="sky-pos-light-green text-white button-block">$10.00</button></div> 
+		  	  	 <div class="col"> <button ng-click="payment_model.amount=20.0" type="button" style="padding-top:10px;padding-bottom:10px;" class="sky-pos-light-green text-white button-block">$20.00</button></div> 
+		  	  	 <div class="col"> <button ng-click="payment_model.amount=50.0" type="button" style="padding-top:10px;padding-bottom:10px;" class="sky-pos-light-green text-white button-block">$50.00</button></div>
+		  	  </div>
+		  	   <div class="row">
+		  	  	 <div class="col"><button ng-click="payment_model.amount=100.0" type="button" style="padding-top:10px;padding-bottom:10px;" class="sky-pos-light-green text-white button-block">$100.00</button></div> 
+		  	  	 <div class="col"> <button ng-click="payment_model.amount=payment_model.amount_due" type="button" style="padding-top:10px;padding-bottom:10px;background-color:#8b7a19;border-color:#8b7a19;" class="text-white button-block">Exact Amount</button></div> 
+		  	  	 <div class="col"> <button ng-click="payment_model.amount=''" type="button" style="padding-top:10px;padding-bottom:10px;background-color:#8b191b;border-color:#8b191b;" class="text-white button-block">Clear</button></div>
+		  	  </div>
+		  </div>  
+			  
+		</div>
+</div>
+
+   
+          
+  </ion-content>
+</ion-modal-view>

@@ -1,0 +1,21 @@
+<ion-modal-view>
+  <ion-content style="background-color:#FFF;">
+    <form ng-submit="doLogin()">
+      <div class="list">
+        <label class="item item-input">
+          <input type="text" placeholder="Name" ng-model="customer_delivery_info.name">
+        </label>
+        <label class="item item-input">
+          <input type="text" placeholder="Phone" ng-model="customer_delivery_info.phone">
+        </label>
+        <label class="item item-input">
+          <textarea placeholder="Address" ng-model="customer_delivery_info.address"></textarea>
+        </label>
+        <label class="item">
+          <button class="button button-block sky-pos-light-green text-white" type="submit">DONE</button>
+           <button class="button button-block sky-pos-light-green text-white" type="submit">CANCEL</button>
+        </label>
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view>

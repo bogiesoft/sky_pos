@@ -1,0 +1,27 @@
+<ion-modal-view>
+<ion-header-bar align-title="left" class="bar-positive sky-pos-green">
+    <div class="buttons buttons-right">
+      <button ng-click="closeOrderDetailsModal()" class="button button-clear"><i class="ion-arrow-left-c"></i></button>
+      
+    </div>
+    <h1 class="title">Order Items</h1>    
+    <div class="buttons buttons-right">
+      
+    </div>
+  </ion-header-bar>
+
+
+  <ion-content style="background-color:#FFF;">
+    <div style="width:auto;" class="">
+              <div class="list">
+                <div ng-repeat="item in order_data.OrderDetails " ng-click="selectProvisionItemOption($index)" class="item  item-button-right item-option-checkbox-right" >
+                  <div class="row"><div class="col"><strong>Item:</strong> {{item.ProvisionName}}</div></div>
+                  <div class="row"><div class="col"><strong>Qty:</strong> {{item.Quantity}}</div><div class="col"><strong>Price:</strong> ${{item.Price | number:2}}</div><div class="col"><strong>Amount:</strong> ${{item.Price*1 * item.Quantity*1 | number:2}}</div></div>
+                </div>
+              </div>
+          </div>
+
+   
+          
+  </ion-content>
+</ion-modal-view>

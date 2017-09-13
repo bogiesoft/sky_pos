@@ -1,0 +1,52 @@
+<ion-view view-title="{{pageTitle}}" hide-nav-bar="true" cache-view="false">
+
+  <div ng-include src="'templates/header.html'"></div>
+  <div class="bar bar-subheader ash-color-background sub-header">
+            <button class='button button-clear ion-ios7-arrow-left'></button>
+            <h2 class="title">Cash Back Details</h2>
+            <button class='button button-clear ion-ios7-arrow-right'></button>
+ </div>
+
+  <ion-content has-bouncing="false" scroll="true" class="has-header has-subheader has-footer">
+
+
+
+  <ion-list>
+        <div ng-repeat="group in cash_back_details_data">
+          <ion-item class="item-stable"
+                    ng-click="toggleGroup(group)"
+                    ng-class="{active: isGroupShown(group)}">
+              <i class="icon" ng-class="isGroupShown(group) ? 'ion-minus' : 'ion-plus'"></i>
+            &nbsp;
+            {{group.SaleDate}} <p style="float:right;" class="second-point">${{group.Amount}}</p>
+          </ion-item>
+          <ion-item class="item-accordion"
+                                      ng-show="isGroupShown(group)">
+           Transaction ID :  {{group.TransactionID}}
+          </ion-item>
+          <ion-item class="item-accordion"
+                                      ng-show="isGroupShown(group)">
+           Store Name :  {{group.StoreName}}
+          </ion-item>
+           <ion-item class="item-accordion"
+                                      ng-show="isGroupShown(group)">
+           Cash Back :  {{group.Cashback}}
+          </ion-item>
+           <ion-item class="item-accordion"
+                                      ng-show="isGroupShown(group)">
+           Cash Back Earning :  {{group.CashbackEarning}}
+          </ion-item>
+           <ion-item class="item-accordion"
+                                      ng-show="isGroupShown(group)">
+           Reason :  {{group.Reason}}
+          </ion-item>
+
+        </div>
+      </ion-list>
+
+  
+    </ion-content>
+
+ 
+</ion-view>
+

@@ -1,0 +1,93 @@
+<ion-view view-title="{{pageTitle}}" hide-nav-bar="true" cache-view="false">
+
+  <div ng-include src="'templates/header.html'"></div>
+  <div class="bar bar-subheader ash-color-background sub-header">
+            <button class='button button-clear ion-ios7-arrow-left'></button>
+            <h2 class="title">Credit Card</h2>
+            <button class='button button-clear ion-ios7-arrow-right'></button>
+ </div>
+ <form name="myForm" novalidate="" ng-submit="goToCardConfirmation(myForm)">
+  <ion-content has-bouncing="false" class="has-header has-subheader has-footer">
+
+
+    <div class="list list-inset list-borderless sm-list"  align="right">
+       <label class="item item-input item-stacked-label" style="padding:2px;">
+       <span class="input-label">Card No</span>
+       <input type="number" style="background-color:#eee; text-align:right;" ng-model="credit_card.card_no" name="card_no"  ng-class="{ 'has-error' : myForm.card_no.$error.required}" required  placeholder="">
+       </label>
+
+        <label class="item item-input item-stacked-label" style="padding-right:2px;">
+       <span class="input-label">Card's Holder</span>
+       <input type="text" style="background-color:#eee; text-align:right;" ng-model="credit_card.card_holder" name="card_holder" required   placeholder="">
+       </label>
+
+      <div class="row" style="margin:0px;padding:0px;">
+        <div class="col col-50" style="margin-left:0px;padding-left:0px;">
+
+       <label class="item item-input item-stacked-label" style="padding-right:10px;">
+       
+           <span class="input-label">Exp month</span>
+           <input type="number" style="background-color:#eee; text-align:right;" ng-model="credit_card.exp_month"  name="exp_month"  required placeholder="">
+          </label>
+            
+        </div>
+        <div class="col col-50" style="margin-right:0px;padding-right:0px;">
+           <label class="item item-input item-stacked-label" style="padding-right:10px;">
+           <span class="input-label">Exp year</span>
+           <input type="number" style="background-color:#eee; text-align:right;" ng-model="credit_card.exp_year" name="exp_year"  required placeholder="">
+            </label>
+       </div>
+       </div>
+      
+
+       <label class="item item-input item-stacked-label" style="padding-right:10px;">
+       <span class="input-label">CVV</span>
+       <input style="background-color:#eee; text-align:right;" type="number" placeholder="" ng-model="credit_card.cvv" name="cvv"   required>
+       </label>
+
+       <label class="item item-input item-stacked-label" style="padding-right:10px;">
+       <span class="input-label">Address Line</span>
+       <input style="background-color:#eee; text-align:right;" type="text" placeholder="" ng-model="credit_card.address_line" name="address_line"  required>
+       </label>
+
+       <label class="item item-input item-stacked-label" style="padding-right:10px;">
+       <span class="input-label">Zip Code</span>
+       <input style="background-color:#eee; text-align:right;" type="text" placeholder="" ng-model="credit_card.zip_code" name="zip_code"  required>
+       </label>
+
+
+       <label class="item item-input item-stacked-label" style="padding-right:10px;">
+       <span class="input-label">Amount Due</span>
+       <input type="number" style="background-color:#eee; text-align:right;"  ng-model="amount_due"   disabled="true" name="amount_due"  placeholder="">
+       </label>
+
+    </div>
+     <div ng-show="false" class="padding validation-error">
+          <p ng-show="myForm.card_no.$error.required">* card no. is required</p>
+          <p ng-show="myForm.card_holder.$error.required">* card holder's name is required</p>
+          <p ng-show="myForm.exp_month.$error.required">* expire month is required</p>
+          <p ng-show="myForm.exp_year.$error.required">* Expire year is required</p>
+          <p ng-show="myForm.cvv.$error.required">* CVV is required</p>
+          <p ng-show="myForm.address_line.$error.required">* Address is required</p>
+          <p ng-show="myForm.zip_code.$error.required">* Zip code is required</p>
+
+
+         <!-- <p ng-show="myForm.username.$invalid && !myForm.username.$pristine">* Username must be an email address</p> -->
+      </div>
+   <div class="row ash-color-background">
+       <div ng-click="clearFields()" style="border-right:#FFF 1px solid; text-align:center;" class="col col-50 hand-cursor"><span class="button-text">CLEAR</span></div>
+       <div ng-click="goToCardConfirmation(myForm)"  style="text-align:center;" class="col col-50 hand-cursor"><span ng-disabled="myForm.$invalid" class="button-text">CONTINUE</span></div>
+   </div> 
+    </ion-content>
+<!--
+   <div class="bar bar-footer ash-color-background">
+   <div class="row">
+       <div ng-click="clearFields()" style="border-right:#FFF 1px solid; text-align:center;" class="col col-50 hand-cursor"><span class="button-text">CLEAR</span></div>
+       <div ng-click="goToCardConfirmation(myForm)"  style="text-align:center;" class="col col-50 hand-cursor"><span ng-disabled="myForm.$invalid" class="button-text">CONTINUE</span></div>
+   </div> 
+ 
+</div>
+-->
+     </form>
+</ion-view>
+

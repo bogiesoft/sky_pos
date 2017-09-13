@@ -1,0 +1,45 @@
+<ion-view view-title="{{pageTitle}}" hide-nav-bar="true" cache-view="false">
+
+  <div ng-include src="'templates/header.html'"></div>
+  <div class="bar bar-subheader ash-color-background sub-header">
+            <button class='button button-clear ion-ios7-arrow-left'></button>
+            <h2 class="title">Your Cash Back</h2>
+            <button class='button button-clear ion-ios7-arrow-right'></button>
+ </div>
+
+  <ion-content has-bouncing="false" scroll="false" class="has-header has-subheader has-footer">
+
+
+    <div class="list list-inset list-borderless sm-list sm-list-confirmation" style="margin-top:5px;"  align="right">
+       <label class="item item-input item-stacked-label" style="padding:2px;">
+       <span class="input-label">You have sent</span>
+        <input style="background-color:#eee; text-align:right;" type="text" placeholder="" ng-model="cash_back_data.TotalSpend" currency name="TotalSpend"  disabled="true"  required>
+       </label>
+
+       <label class="item item-input item-stacked-label" style="padding-right:2px;">
+       <span class="input-label">You Cashback Earning</span>
+        <input style="background-color:#eee; text-align:right;" type="text" placeholder="" ng-model="cash_back_data.TotalCashBack" currency name="TotalCashBack"  disabled="true"  required>
+      
+       </label>
+       <label class="item item-input item-stacked-label" style="padding-right:2px;">
+       <span class="input-label">You have used</span>
+         <input style="background-color:#eee; text-align:right;" type="text" placeholder="" ng-model="cash_back_data.TotalUsed" currency name="TotalUsed"  disabled="true"  required>
+       </label>
+
+       <label class="item item-input item-stacked-label" style="padding-right:10px;">
+       <span class="input-label">Remaining Cashback Balance</span>
+         <input style="background-color:#eee; text-align:right;" type="text" placeholder="" ng-model="cash_back_data.Balance" currency name="Balance"  disabled="true"  required>
+       </label>
+        
+       <a ng-href="#/app/cashback-details" style="border-right:#FFF 1px solid; text-align:center;" class="button button-ash button-block"><span class="button-text">VIEW DETAILS</span></a>
+        <a ng-href="#/app/cashback-redeem" style="border-right:#FFF 1px solid; text-align:center;" class="button button-ash button-block"><span class="button-text">REDEEM</span></a>
+    </div>
+    
+   
+  
+    </ion-content>
+
+
+  
+</ion-view>
+

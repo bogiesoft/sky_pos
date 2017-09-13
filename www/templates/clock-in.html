@@ -1,0 +1,71 @@
+<ion-view view-title="{{pageTitle}}" hide-nav-bar="true" cache-view="false">
+ 
+<ion-header-bar align-title="left" class="bar-positive sky-pos-green">
+    <div class="buttons">
+      <button class="button button-clear"><i class="ion-arrow-left-c"></i></button>
+    </div>
+    <h1 class="title">Clock In</h1>    
+  </ion-header-bar>
+
+
+  <ion-content  has-bouncing="false" scroll="false" class="has-header">
+
+
+   
+    <div class="content padding-10">
+
+
+    <section id="skype-pos-clock-in-title">
+       <div class="row"> 
+        <div class="col col-50"><img style="max-width:16px;" src="../custom/Assets/clockInOut/ic_calendar_green.png"/>&nbsp;&nbsp;&nbsp;<span="current_date">{{date}}</span></div>
+        <div class="col col-50" align="right"><img style="max-width:16px;" src="../custom/Assets/clockInOut/ic_clock_green.png"/> &nbsp;&nbsp;&nbsp;<span="current_date">{{time}}</span></div>
+       </div> 
+        <div class="container text-center text-grey">
+            <div>
+                <span>PLEASE ENTER YOUR CODE</span>
+            </div>
+        </div>
+    </section>   
+
+<section id="login-pad" class="clock-in-pad" style="margin-top:0px;">
+<div class="main-wrap">
+  <div class="row">
+     <div class="col"><input disabled type="button" value="" name="pin1" ng-model="pins.pin1" class="number-pad-text {{pins.pin1 !=null ? 'number-pad-text-active' : ''}} "/></div>
+    <div class="col"><input disabled type="button" value=""  name="pin2" ng-model="pins.pin2" class="number-pad-text {{pins.pin2 !=null ? 'number-pad-text-active' : ''}}"/></div>
+    <div class="col"><input disabled type="button" value="" name="pin3" ng-model="pins.pin3" class="number-pad-text {{pins.pin3 !=null ? 'number-pad-text-active' : ''}}"/></div>
+    <div class="col"><input disabled type="button" value="" name="pin4" ng-model="pins.pin4" class="number-pad-text {{pins.pin4 !=null ? 'number-pad-text-active' : ''}}"/></div>
+  </div>
+    <div class="row row-numbers">
+      <button type="button" ng-click="padNumberClick(1)" class="col button">1</button>
+      <button type="button" ng-click="padNumberClick(2)" class="col button">2</button>
+      <button type="button" ng-click="padNumberClick(3)" class="col button">3</button>
+    </div>
+    <div class="row row-numbers">
+      <button type="button" ng-click="padNumberClick(4)" class="col button">4</button>
+      <button type="button" ng-click="padNumberClick(5)" class="col button">5</button>
+      <button type="button" ng-click="padNumberClick(6)" class="col button">6</button>
+    </div>
+    <div class="row row-numbers">
+      <button type="button" ng-click="padNumberClick(7)" class="col button">7</button>
+      <button type="button" ng-click="padNumberClick(8)" class="col button">8</button>
+      <button type="button" ng-click="padNumberClick(9)" class="col button">9</button>
+    </div>
+    <div class="row  row-numbers">
+      <button type="button" ng-click="padNumberClick(0)" class=" button col">0</button>
+      <button type="button" ng-click="clearAllPin()" class="col button">Clear</button>
+      <button type="button" ng-click="clearPin()" class="clear-number col button"></button>
+    </div>
+  </div>
+
+      
+  </section>
+  </div>  
+ 
+
+    </ion-content>
+    <div class="bar bar-footer sky-pos-light-green"> 
+      <div style="text-align:center;width:100%">
+       <button  type="button" style="width:50px;height:50px;border-radius:50px;color:#FFF;margin-top:-30px;" class="button sky-pos-light-green ion-checkmark"><br>OK</button>
+      </div> 
+</div>
+</ion-view>

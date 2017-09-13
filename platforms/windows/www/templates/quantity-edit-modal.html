@@ -1,0 +1,25 @@
+<ion-modal-view>
+
+
+
+  <ion-content style="background-color:#FFF;">
+    <form ng-submit="doLogin()">
+      <div class="list">
+        <label class="item item-input">
+          <input type="number" placeholder="Quantity" ng-model="quantity_edit_model.quantity">
+        </label>
+        
+        <div class="item_">
+          <div class="row"> 
+              <div class="col">  
+                <button type="button" ng-click="changeQuantity()" class="button button-block sky-pos-light-green text-white" type="submit">CHANGE</button> 
+              </div>
+              <div class="col">  
+                 <button type="button" ng-click="closeQuantityEditModal();" class="button button-block button-assertive text-white" type="submit">CANCEL</button>
+               </div>   
+        </div>
+        </div>
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view>

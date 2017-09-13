@@ -1,0 +1,65 @@
+<ion-view view-title="{{pageTitle}}" hide-nav-bar="true" cache-view="false">
+ 
+
+  <ion-content  has-bouncing="false" scroll="false" class="_has-header login-content">
+
+
+   
+    <div class="content padding-10">
+
+
+    <section id="skype-pos-login-title">
+        <div class="container text-center text-white">
+            <div>
+                <span>ACCESS BY CODE</span>
+            </div>
+        </div>
+    </section>   
+
+    <section id="login-pad" class="login-pad" style="margin-top:50px;">
+ <div class="main-wrap">
+  <div class="row">
+  <div class="col"><input disabled type="button" value="" name="pin1" ng-model="pins.pin1" class="number-pad-text {{pins.pin1 !=null ? 'number-pad-text-active' : ''}} "/></div>
+  <div class="col"><input disabled type="button" value=""  name="pin2" ng-model="pins.pin2" class="col number-pad-text {{pins.pin2 !=null ? 'number-pad-text-active' : ''}}"/></div>
+  <div class="col"><input disabled type="button" value="" name="pin3" ng-model="pins.pin3" class="col number-pad-text {{pins.pin3 !=null ? 'number-pad-text-active' : ''}}"/></div>
+  <div class="col"><input disabled type="button" value="" name="pin4" ng-model="pins.pin4" class="col number-pad-text {{pins.pin4 !=null ? 'number-pad-text-active' : ''}}"/></div>
+</div>
+  <div class="row row-numbers">
+  <button type="button" ng-click="padNumberClick(1)" class="col button">1</button>
+  <button type="button" ng-click="padNumberClick(2)" class="col button">2</button>
+  <button type="button" ng-click="padNumberClick(3)" class="col button">3</button>
+</div>
+<div class="row row-numbers">
+  <button type="button" ng-click="padNumberClick(4)" class="col button">4</button>
+  <button type="button" ng-click="padNumberClick(5)" class="col button">5</button>
+  <button type="button" ng-click="padNumberClick(6)" class="col button">6</button>
+</div>
+<div class="row row-numbers">
+  <button type="button" ng-click="padNumberClick(7)" class="col button">7</button>
+  <button type="button" ng-click="padNumberClick(8)" class="col button">8</button>
+  <button type="button" ng-click="padNumberClick(9)" class="col button">9</button>
+</div>
+<div class="row  row-numbers">
+  <button type="button" ng-click="login()" class="email-login col button"></button>
+  <button type="button" ng-click="padNumberClick(0)" class=" button col">0</button>
+  <button type="button" ng-click="clearPin()" class="clear-number col button"></button>
+</div>
+</div>
+
+      
+    </section>
+  </div>  
+   <section id="clock-in-out">
+      <div class="row" style="padding:0px;margin:0px;">
+          <div style="padding:0px;margin:0px;" class="col col-40">
+               <a style="line-height: 17px;font-size:13px;padding:5px 0px" class="button button-block clock-in icon-right" ng-href="#/app/clock-in">CLOCK <br> IN</a>
+          </div>
+          <div class="col col-20">
+          </div>
+          <div style="padding:0px;margin:0px;" class="col col-40" align="right">
+               <a style="line-height: 17px;font-size:13px; padding:5px 0px" class="button button-block clock-out"  ng-href="#/app/clock-out">CLOCK <br> OUT</a>
+          </div>
+   </section>
+
+    </ion-content>
+</ion-view>

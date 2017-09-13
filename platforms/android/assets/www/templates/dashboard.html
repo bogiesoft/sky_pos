@@ -1,0 +1,46 @@
+<ion-view view-title="Dashboard" hide-nav-bar="true" cache-view="false">
+  <ion-header-bar align-title="left" class="bar-positive sky-pos-green">
+    <h1 class="title">Dashboard</h1>    
+  </ion-header-bar>
+
+  <ion-content scroll="false" has-bouncing="false" class="has-header">
+    <div style="clear:both;"></div>
+    <div class="list   option-list" style="margin-bottom:0px;" align="center">
+      <div class="item" style="font-size:12px;margin-bottom:0px;">
+          <div style="text-align:center;">
+                  <img src="custom/Assets/Dashboard/img_placeholder_dashboard.png" style="width:90%; max-width:300px;">
+          </div>
+          <div style="text-align:left;">
+                    <span class="strong">Image Title</span><br />Description of Item
+          </div>        
+       </div> 
+    </div>
+
+    <div style="position: absolute; bottom: 0px; width: 100%">
+      <div class="list  option-list text-white" style="margin-top:0∂px;">
+         <div ng-click="gotoPage('order')" class="item  item-icon-left item-icon-right sky-pos-light-green text-white">
+            <i class="icon"><img src="custom/Assets/Dashboard/ic_dashboard_order.png" style="height:30px;width:30px;"></i>
+            ORDER
+            <i class="icon"><a ><img src="custom/Assets/Dashboard/ic_right_angle_white.png" style="height:24px;width:24px;"></a></i>
+         </div>
+         <div ng-click="gotoPage('reservation')"  class="item  item-icon-left item-icon-right sky-pos-light-green text-white">
+            <i class="icon"><img src="custom/Assets/Dashboard/ic_dashboard_reservation.png" style="height:30px;width:30px;"></i>
+            RESERVATION
+            <i class="icon"><a><img src="custom/Assets/Dashboard/ic_right_angle_white.png" style="height:24px;width:24px;"></a></i>
+         </div>
+        <div ng-click="gotoPage('tips')"  class="item  item-icon-left item-icon-right sky-pos-light-green text-white">
+            <i class="icon"><img src="custom/Assets/Dashboard/ic_dashboard_order.png" style="height:30px;width:30px;"></i>
+            TIPS
+            <i class="icon"><a ><img src="custom/Assets/Dashboard/ic_right_angle_white.png" style="height:24px;width:24px;"></a></i>
+         </div>
+
+         <div ng-click="gotoPage('admin_tools')"  class="item  item-icon-left item-icon-right sky-pos-light-green text-white">
+            <i class="icon"><img src="custom/Assets/Dashboard/ic_dashboard_order.png" style="height:30px;width:30px;"></i>
+            ADMIN TOOLS
+            <i class="icon"><a><img src="custom/Assets/Dashboard/ic_right_angle_white.png" style="height:24px;width:24px;"></a></i>
+         </div>
+       </div>
+       </div> 
+  </ion-content>
+</ion-view>
+

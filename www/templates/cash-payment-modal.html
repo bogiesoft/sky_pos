@@ -1,0 +1,33 @@
+<ion-modal-view>
+
+
+
+  <ion-content style="background-color:#FFF;">
+    <form ng-submit="doLogin()">
+	 <div class="list">
+	  <label class="item item-input item-floating-label">
+		<span class="input-label">Amount Due: </span>
+		<input type="text" disabled ng-model="payment_model.amount_due" placeholder="Amount Due">
+	  </label>
+	  <label class="item item-input item-floating-label">
+		<span class="input-label">Amount</span>
+		<input type="number" ng-model="payment_model.amount" placeholder="Amount">
+	  </label>
+ 
+	</div>
+      <div class="list">
+        
+        <div class="item_">
+          <div class="row"> 
+              <div class="col">  
+                <button type="button" ng-click="doPayment('cash')" class="button button-block sky-pos-light-green text-white" type="submit">DONE</button> 
+              </div>
+              <div class="col">  
+                 <button type="button" ng-click="closeCashPaymentModal();" class="button button-block button-assertive text-white" type="submit">CANCEL</button>
+               </div>   
+        </div>
+        </div>
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view>

@@ -1,0 +1,38 @@
+<ion-modal-view>
+<ion-header-bar align-title="left" class="bar-positive sky-pos-green">
+    <div class="buttons buttons-right">
+      <button ng-click="closeDpPaymentModal()" class="button button-clear"><i class="ion-arrow-left-c"></i></button>
+      
+    </div>
+    <h1 class="title">Discount Promotion</h1>    
+    <div class="buttons buttons-right">
+      
+    </div>
+  </ion-header-bar>
+
+
+  <ion-content style="background-color:#FFF;">
+    
+    <div style="width:auto;" class="">
+	    
+		 <div class="list  option-list text-white" style="margin-top:0∂px;">
+         <div ng-click="showVipCardPaymentModal('vc')" class="item  item-icon-left item-icon-right sky-pos-light-green text-white text-center">
+            VIP CARD
+         </div>
+         <div ng-click="showNormalDiscountPaymentModal('nd')"  class="item  item-icon-left item-icon-right sky-pos-light-green text-white text-center">
+            NORMAL DISCOUNT
+         </div>
+        <div ng-click="showPromotinoalVoucherPaymentModal('pv')"  class="item  item-icon-left item-icon-right sky-pos-light-green text-white text-center">
+            PROMOTIONAL VOUCHER
+         </div>
+
+         <div ng-click="showCouponPaymentModal('coupon')"  class="item  item-icon-left item-icon-right sky-pos-light-green text-white text-center">
+            COUPON
+         </div>
+       </div>
+</div>
+
+   
+          
+  </ion-content>
+</ion-modal-view>

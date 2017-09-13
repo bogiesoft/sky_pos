@@ -1,0 +1,59 @@
+<ion-modal-view>
+<ion-header-bar align-title="left" class="bar-positive sky-pos-green">
+    <div class="buttons buttons-right">
+      <button ng-click="closePromotinoalVoucherPaymentModal()" class="button button-clear"><i class="ion-arrow-left-c"></i></button>  
+    </div>
+    <h1 class="title">Promotional Voucher</h1>    
+    <div class="buttons buttons-right">
+      <button type="button" ng-click="setPromotionVoucherDiscount()" class="button button-clear"><i class="ion-checkmark"></i></button>
+    </div>
+  </ion-header-bar>
+
+  <ion-content style="background-color:#FFF;">
+    <div style="width:auto;" class="">
+ 	 <div class="list">
+	  <label class="item item-input">
+		<span class="input-label"><i class="icon ion-android-star"></i> Order No. </span>
+		{{order_data.OrderID}}
+	  </label>
+
+	   <label class="item item-input ">
+		<span class="input-label"><i class="icon ion-android-star"></i> Discount </span>
+		${{order_data.Discount | number:2}}
+	  </label>
+	  
+	  <label class="item item-input ">
+		<span class="input-label"><i class="icon ion-android-star"></i> Original Total </span>
+		${{order_data.Total | number:2}}
+	  </label>
+	  
+	  <label class="item item-input">
+		<span class="input-label"><i class="icon ion-android-star"></i> Amount Due </span>
+		${{payment_model.amount_due | number:2}}
+	  </label>
+	   <label class="item item-input ">
+		<span class="input-label"><i class="icon ion-android-star"></i> Promotion Code: </span>
+		<input type="number"  ng-model="payment_model.promotion_code" placeholder="Promotion Code">
+	  </label>		
+	  <label class="item">
+         <button type="button" ng-click="verifyPromotionVoucher(payment_model.promotion_code)" class="button button-block sky-pos-light-green text-white">VERIFY PROMOTION CODE</button>
+      </label>		
+	  <label class="item item-input ">
+		<span class="input-label"><i class="icon ion-android-star"></i> Vendor/Advertising At: </span>
+		<input type="text" disabled="disabled"  ng-model="payment_model.vendor_or_advertising_at" placeholder="">
+	  </label>
+	  <label class="item item-input ">
+		<span class="input-label"><i class="icon ion-android-star"></i> Balance ($) </span>
+		<input type="number" disabled="disabled"  ng-model="payment_model.promotion_voucher_balance" placeholder="Balance ($)">
+	  </label>	
+	  <label class="item item-input ">
+		<span class="input-label"><i class="icon ion-android-star"></i> Amount ($) </span>
+		<input type="number"  ng-disabled="!payment_model.promotion_voucher_amount_enable"  ng-model="payment_model.promotional_voucher_amount" placeholder="">
+	  </label>		  
+	</div>
+</div>
+
+   
+          
+  </ion-content>
+</ion-modal-view>

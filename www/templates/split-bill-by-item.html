@@ -1,0 +1,117 @@
+<ion-view view-title="Order" hide-nav-bar="true" cache-view="false">
+  <ion-header-bar align-title="center"  class="bar-dark sky-pos-green" cache-view="false">
+    <div class="buttons">
+      <a href="#/app/bill" class="button button-icon button-clear icon ion-arrow-left-c" >
+        <span class="order-page-header-menu-text"></span>
+      </a>
+    </div>
+    <h1 class="title text-left order-header-title"  align-title="left" style="text-align:left;">Split Bill</h1>
+     
+</ion-header-bar>
+
+<ion-content scroll="true" class="has-header has-footer has-footer-provision-item">
+    <div>
+       <div class="row">
+          <div class="col">Original Order Id:</div><div class="col">{{order_data.OrderID}}</div>
+       </div>
+       <div class="row">
+          <div class="col">Table/Tag/Customer:</div><div class="col">{{order_data.OTable}}</div>
+       </div>
+       <div class="row">
+          <div class="col">Amount:</div><div class="col">${{order_data.OSum}}</div>
+       </div>
+        
+    </div>
+    <div class = "tabs-striped tabs-background-positive sky-pos-green  tabs-color-light ">
+       <div class = "tabs my-tabs sky-pos-light-green">
+         
+          <a ng-href="#/app/split-bill-by-total" class = "tab-item {{selected_tab=='by-total' ? 'active' : ''}}">
+             SPLIT BY TOTAL
+          </a>
+          <a  class = "tab-item {{selected_tab=='by-item' ? 'active' : ''}}">
+             SPLIT BY ITEMS
+          </a>
+       </div>
+    </div>
+    <div class="my-container" style="box-shadow: rgba(0,0,0,0.1) 5px 2px 5px;">
+          <div class="row">
+             <div class="col col-70">
+                 <div><input type="text" class="split-textbox" placeholder="Split By Customer" ng-model="itemCount" /></div>
+                 <div class="row">
+                      <div class="total">Items: {{orderTotal}}</div>
+                      <div class="assigned-total">Assigned Items: {{assignTotal}}</div>
+                 </div>
+                 
+             </div>
+             <div class="col col-30">
+                   <button type="button" ng-click="gotoSplitBillByTotal(itemCount)" style="border-radius:0px;line-height: 36px;font-size:14px;padding-top:2px;float: right;"  class="order-edit-button button icon-center  button-assertive sky-pos-light-green">
+                       <img src="custom/Assets/Bill/ic_split_scissors.png" style="width:18px;margin-top:5px;padding-top:2px;" /> Split
+                   </button>
+             </div>
+             
+          </div>
+          <div style="width:auto;" class="">
+              <div class="list">
+                <div ng-repeat="item in items | filter:ngModel.txt" ng-click="selectProvisionItem($index)" class="item  item-icon-left item-button-right item-checkbox-right" >
+                  <i class="icon"><img check-image ng-src="{{image_base_url}}{{item.ImageUrl}}" style="height:36px;width:36px;"></i>
+                  <h3>{{item.Name}}</h3>
+                     <small>Price : ${{item.Price | number: 2 }}</small>
+                     <span class="checkbox">
+                     <input id="chk" ng-model="provision_items[$index]"   ng-value="$index"  type="checkbox">
+                     <label for="chk"></label>
+                   </span>
+                </div>
+              </div>
+          </div>
+          <div class="order-splits">
+            <div class="split-item" ng-repeat="item in order_splits track by $index">
+                <div class="row">
+                    <div class="col">
+                        <div class="row">
+                            <div class="col">Customer Name:</div><div class="col">{{item.customerFirstName}} {{item.customerLastName}}</div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="row">
+                            <div class="col">Items:</div><div class="col">{{item.orderDetails.length}}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col">Total:</div><div class="col">${{item.total}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="row">
+                            <button type="button" ng-click="addItems($index)" ng-disabled="item.isChanged" style="border-radius:0px;line-height: 32px;font-size:14px;padding-top:2px;margin-right: 10px;" class="split-order-add-items button icon-center  button-assertive sky-pos-light-green ">
+                                <img src="custom/Assets/order/ic_add_items_white.png" style="width:18px;" /> Add Items
+                            </button>
+
+                            <button type="button" ng-click="editCustomer($index)" style="border-radius:0px;line-height: 32px;font-size:14px;padding-top:2px;margin-right: 10px;" class="split-order-edit-customer button icon-center  button-assertive sky-pos-light-green ">
+                                <img src="custom/Assets/splitBill/ic_edit_user_profile.png" style="width:18px;" /> Edit Customer
+                            </button>
+
+                            <button type="button" ng-click="showOrderDetails(item, $index)" style="border-radius:0px;line-height: 32px;font-size:14px;padding-top:2px;" class="split-order-details button icon-center  button-assertive sky-pos-light-green ">
+                                <img src="custom/Assets/splitBill/ic_detail_turn_over_page.png" style="width:18px;" /> Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
+  </ion-content>
+<div ng-show="!page_referer" style="margin-top:140px;" class="bar bar-footer sky-pos-light-green"> 
+  <div class="row">
+    
+     <div class="col col-100">  
+      <div style="text-align:center;width:100%">
+        <button type="button" ng-click="submitSplits()" style="width:70px;height:70px;border-radius:50px;color:#FFF;margin-top:-40px;" class="button sky-pos-light-green  ion-checkmark"><br>OK</button>
+      </div> 
+    </div>
+
+  </div>
+</div>
+  
+</ion-view>
+

@@ -1,0 +1,112 @@
+<ion-view view-title="Order" hide-nav-bar="true" cache-view="false">
+  
+ 
+
+  <ion-header-bar align-title="center"  class="bar-dark sky-pos-green" cache-view="false">
+  <div class="buttons">
+    <button  type="button" class="button button-icon button-clear ion-navicon" ng-click="toggleMenu()">
+    	<span class="order-page-header-menu-text">Menu</span>
+          </button>
+  </div>
+  <h1 class="title text-left order-header-title"  align-title="left" style="text-left"></h1>
+   <div ng-show="false" class="buttons">
+           <div class="searchBar"> <div class="searchTxt ng-hide" ng-show="ngModel.show">
+           	<div class="bgdiv"></div><div class="bgtxt"><input type="text" placeholder="Search..." ng-model="ngModel.txt" class="ng-pristine ng-valid"></div></div>
+      
+          <i class="order-header-icon icon  button-icon {{ngModel.show ? 'ion-close' : 'ion-search'}}  " ng-click="ngModel.txt='';ngModel.show=!ngModel.show"></i> </div>
+  </div>
+</ion-header-bar>
+
+
+
+    <ion-content scroll="true" has-bouncing="false" class="has-header ">
+    <div class = "tabs-striped tabs-background-positive sky-pos-green  tabs-color-light ">
+       <div class = "tabs my-tabs sky-pos-light-green">
+          <a ng-href="#/app/order" class = "tab-item {{selected_tab=='order' ? 'active' : ''}} ">
+             Order
+          </a>
+    		
+          <a  class = "tab-item {{selected_tab=='recall' ? 'active' : ''}}">
+             Recall
+          </a>
+    		
+          <a ng-href="#/app/bill"  class = "tab-item {{selected_tab=='bill' ? 'active' : ''}}">
+             Bill
+          </a>
+       </div>
+    </div>
+     
+     <div class="row"><div class="col col-33">Order No.</div><div class="col">: {{order_data.OrderID}}</div></div>
+     <div class="row"><div class="col col-33">Name</div><div class="col">: {{order_data.CustomerFirstName}}</div></div>
+     <div class="row"><div class="col col-33">Table</div><div class="col">: {{order_data.OTable}}</div></div>
+     <div class="row"><div class="col col-33">Order Type</div><div class="col">: {{order_data.OType}}</div></div>
+     
+     <div class="list" style="margin-bottom:90px;"> 
+     <div class="row sky-pos-light-green" style="color:#FFF;">
+          <div class="col col-33">Items</div>
+          <div class="col">Qty</div>
+          <div class="col">Price</div>
+          <div class="col">Amount</div>
+          <div class="col"></div>
+        </div>
+        <div style="overflow:hidden;" class="row item item-body " ng-repeat="data in order_details">
+          <div style="padding:0px"  class="col">
+         
+        
+
+          <div style="padding:0px"  class="row " id="my-row-{{$index}}">
+          <div class="col col-33"><h3>{{data.ProvisionName}}</h3></div>
+          <div class="col"><h3>{{data.Quantity}}</h3></div>
+          <div class="col"><h3>${{data.Price | number:2}}</h3></div>
+          <div class="col"><h3>${{data.Price*data.Quantity | number:2}}</h3></div>
+          <div class="col" style="text-align:right;"><h3><a style="cursor:pointer;cursor:hand;" class="" ng-click="setClass($event,$index)"><img check-image ng-src="custom/Assets/order/ic_vertical_ellipsis.png" style="height:30px;width:30px;"></a></h3></div>
+         </div>
+
+           <div style="position:absolute;padding:0px;margin:0px;top:0px;" id="my-button-{{$index}}" class=" button-shift-right">
+            <div>
+              <button  type="button" ng-click="openQuantityEditModal($index)" style="border-radius:0px;line-height: 30px;width:70px; height:100%;font-size:14px"  class="order-edit-button button icon-center  button-assertive sky-pos-green"> <img src="custom/Assets/order/ic_edit.png" style="width:18px;margin-top:5px;" /> <br />Edit</button>
+              <button  type="button" ng-click="removeOrderItem($index)" style="border-radius:0px;line-height: 30px;width:70px; font-size:14px;margin-left:-4px;" class="order-edit-button button icon-center  button-assertive"><img src="custom/Assets/order/ic_delete.png" style="width:18px;margin-top:5px;" /><br />Delete</button>
+            </div>
+          </div>
+
+
+     
+       </div>
+        </div>
+ </div>
+
+
+
+
+ 
+    </ion-content>
+
+<div style="margin-top:0px;" class="bar bar-footer sky-pos-light-green"> 
+  <div class="row">
+    <div ng-if="order_data.OType=='Dine In'" class="col ">  
+      <div style="text-align:center;width:100%">
+      <a ng-href="#/app/service-floor?page_referer=recall_order_edit" style="width:80px;height:80px;border-radius:50px;color:#FFF;margin-top:-50px;font-size:11px;padding:0px;" class="button sky-pos-light-green icon-order-change"><br>Change</a>
+      </div> 
+    </div>
+    <div class="col">  
+      <div style="text-align:center;width:100%">
+      <a ng-href="#/app/order?page_referer=recall_order_edit" style="width:80px;height:80px;border-radius:50px;color:#FFF;margin-top:-50px;font-size:11px;padding:0px;" class="button sky-pos-light-green icon-add-items"><br>Add Items</a>
+      </div> 
+    </div>
+    <div ng-if="order_data.OType=='Dine In'" class="col">  
+      <div style="text-align:center;width:100%">
+      <a ng-href="#/app/service-floor?page_referer=recall_merge_order" style="width:80px;height:80px;border-radius:50px;color:#FFF;margin-top:-50px;font-size:11px;padding:0px;" class="button sky-pos-light-green icon-order-merge"><br>Merge Order</a>
+      </div> 
+    </div>
+  <div class="col">  
+      <div style="text-align:center;width:100%">
+      <a href="#" ng-click="saveOrder()" style="width:80px;height:80px;border-radius:50px;color:#FFF;margin-top:-50px;font-size:11px;padding:0px;" class="button sky-pos-light-green icon-dine-in"><br>Update</a>
+      </div> 
+    </div>
+   
+
+  </div>
+</div>
+  
+</ion-view>
+

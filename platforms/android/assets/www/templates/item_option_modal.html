@@ -1,0 +1,42 @@
+<ion-modal-view>
+<ion-header-bar align-title="left" class="bar-positive sky-pos-green">
+    <div class="buttons buttons-right">
+      <button ng-show="false" ng-click="closeItemOptionModal()" class="button button-clear"><i class="ion-arrow-left-c"></i></button>
+      
+    </div>
+    <h1 class="title">Add Ingredients</h1>    
+    <div class="buttons buttons-right">
+      <button ng-click="ingredientSelectionDone()" class="button button-clear">Done</button>
+      
+    </div>
+  </ion-header-bar>
+
+
+  <ion-content style="background-color:#FFF;">
+    <div style="width:auto;" class="">
+              <div class="list">
+                <div ng-repeat="item in item_options " ng-click="selectProvisionItemOption($index)" class="item  item-button-right item-option-checkbox-right" >
+                  <h3>{{item.Name}}</h3>
+                    
+                     <span class="checkbox">
+                     <input id="chk" ng-model="provision_item_options[$index]"   ng-value="$index"  type="checkbox">
+                     <label for="chk"></label>
+                   </span>
+                </div>
+              </div>
+          </div>
+
+      <div style="width:95%;margin:auto; margin-top:15px;">
+          <div class="row">
+              <div  style="float:left;width:100%;margin-right:0px;" class="acol-90">
+                <input type="text" ng-model="new_item_option" value="" style="width:100%;border-bottom:2px solid #004227;">
+              </div>
+              <div style="float:right;" class="acol-5" style="text-align:center;"> <button ng-click="addNewItemOption(new_item_option)" style="padding-top:0px!important;" class="round-overlay-button bottom-right assertive button button-icon icon ion-ios7-search-strong light sky-pos-green">+</button>
+                
+              </div>
+                
+          </div>
+      </div>
+          
+  </ion-content>
+</ion-modal-view>

@@ -1,0 +1,56 @@
+<ion-view view-title="Order" hide-nav-bar="true" cache-view="false">
+  
+ 
+
+  <ion-header-bar align-title="center"  class="bar-dark sky-pos-green" cache-view="false">
+  <div class="buttons">
+    <button  type="button" class="button button-icon button-clear ion-navicon" ng-click="toggleMenu()">
+    	<span class="order-page-header-menu-text">Menu</span>
+          </button>
+  </div>
+  <h1 class="title text-left order-header-title"  align-title="left" style="text-left"></h1>
+   <div class="buttons">
+           <div class="searchBar"> <div class="searchTxt ng-hide" ng-show="ngModel.show">
+           	<div class="bgdiv"></div><div class="bgtxt"><input type="text" placeholder="Search..." ng-model="ngModel.txt" class="ng-pristine ng-valid"></div></div>
+      
+          <i class="order-header-icon icon  button-icon {{ngModel.show ? 'ion-close' : 'ion-search'}}  " ng-click="ngModel.txt='';ngModel.show=!ngModel.show"></i> </div>
+  </div>
+</ion-header-bar>
+
+
+
+    <ion-content scroll="true" has-bouncing="false" class="has-header ">
+    <div class = "tabs-striped tabs-background-positive sky-pos-green  tabs-color-light ">
+       <div class = "tabs my-tabs sky-pos-light-green">
+          <a  class = "tab-item {{selected_tab=='order' ? 'active' : ''}} ">
+             Order
+          </a>
+    		
+          <a ng-href="#/app/recall" class = "tab-item {{selected_tab=='recall' ? 'active' : ''}}">
+             Recall
+          </a>
+    		
+          <a ng-href="#/app/bill"  class = "tab-item {{selected_tab=='bill' ? 'active' : ''}}">
+             Bill
+          </a>
+       </div>
+    </div>
+    <div class="my-container" style="">
+          <div style="width:auto;" class="">
+              <div class="list">
+                <a ng-href="#/app/order-provision-item/{{item.Name}}{{page_referer ? '?page_referer='+page_referer : ''}}" ng-repeat="item in items | filter:ngModel.txt" ng-click="selectOption('gift_card')" class="item  item-icon-left" >
+                  <i class="icon"><img check-image ng-src="{{image_base_url}}{{item.ImageUrl}}" style="height:30px;width:30px;"></i>
+                   {{item.Name}}
+                </a>
+              </div>
+    	    </div>
+    </div>    
+
+
+
+ 
+    </ion-content>
+
+  
+</ion-view>
+

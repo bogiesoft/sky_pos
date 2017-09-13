@@ -1,0 +1,75 @@
+<ion-modal-view>
+<ion-header-bar align-title="left" class="bar-positive sky-pos-green">
+    <div class="buttons buttons-right">
+      <button ng-click="closeNormalDiscountPaymentModal()" class="button button-clear"><i class="ion-arrow-left-c"></i></button>
+      
+    </div>
+    <h1 class="title">Normal Discount Payment</h1>    
+    <div class="buttons buttons-right">
+      <button ng-click="closeCcPaymentModal()" class="button button-clear"><i class="ion-checkmark"></i></button>
+    </div>
+  </ion-header-bar>
+
+  <ion-content style="background-color:#FFF;">
+    <div style="width:auto;" class="">
+ 	 <div class="list item-in-payment">
+	  <label class="item item-input">
+		<span class="input-label"><i class="icon ion-android-star"></i> Order No. </span>
+		{{order_data.OrderID}}
+	  </label>
+
+	   <label class="item item-input ">
+		<span class="input-label"><i class="icon ion-android-star"></i> Discount </span>
+		${{order_data.Discount | number:2}}
+	  </label>
+	  
+	  <label class="item item-input ">
+		<span class="input-label"><i class="icon ion-android-star"></i> Original Total </span>
+		${{order_data.Total | number:2}}
+	  </label>
+	  
+	  <label class="item item-input">
+		<span class="input-label"><i class="icon ion-android-star"></i> Amount Due </span>
+		${{payment_model.amount_due | number:2}}
+	  </label>
+	 
+	  <div ng-click="payment_model.discount_type_per=true"  class="item item-input ">
+		<span  class="input-label">  <i class="icon  {{payment_model.discount_type_per ? 'ion-android-radio-button-on' : 'ion-android-radio-button-off'}}"></i> Percent(%)</span>
+		<input type="number" class="disabled" ng-disabled="!payment_model.discount_type_per" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/"  ng-model="payment_model.per_discount_amount" placeholder="Percent(%)">
+	  </div>		
+	  <div  class="item discount_type_per">
+	  	  <div class="row">
+	  	  	 <div class="col"><button ng-disabled="!payment_model.discount_type_per" ng-click="setNormaDiscount(5)" type="button" style="padding-top:10px;padding-bottom:10px;" class="sky-pos-light-green text-white button-block">5%</button></div> 
+	  	  	 <div class="col"> <button ng-disabled="!payment_model.discount_type_per" ng-click="setNormaDiscount(10)" type="button" style="padding-top:10px;padding-bottom:10px;" class="sky-pos-light-green text-white button-block">10%</button></div> 
+	  	  	 <div class="col"> <button ng-disabled="!payment_model.discount_type_per" ng-click="setNormaDiscount(15)" style="padding-top:10px;padding-bottom:10px;" class="sky-pos-light-green text-white button-block">15%</button></div>
+	  	  </div>	
+	  	  <div class="row">
+	  	  	 <div class="col"><button ng-disabled="!payment_model.discount_type_per" ng-click="setNormaDiscount(20)" type="button" style="padding-top:10px;padding-bottom:10px;" class="sky-pos-light-green text-white button-block">20%</button></div> 
+	  	  	 <div class="col"> <button ng-disabled="!payment_model.discount_type_per" ng-click="setNormaDiscount(25)" type="button" style="padding-top:10px;padding-bottom:10px;" class="sky-pos-light-green text-white button-block">25%</button></div> 
+	  	  	 <div class="col"> <button ng-disabled="!payment_model.discount_type_per" ng-click="setNormaDiscount(30)" type="button" style="padding-top:10px;padding-bottom:10px;" class="sky-pos-light-green text-white button-block">30%</button></div>
+	  	  </div>
+	  </div>  
+	   <div ng-click="payment_model.discount_type_per=false"  class="item item-input ">
+		<span  class="input-label">  <i class="icon  {{payment_model.discount_type_per ? 'ion-android-radio-button-off' : 'ion-android-radio-button-on'}}"></i> Amount($)</span>
+		<input type="number" class="disabled" ng-disabled="payment_model.discount_type_per" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" ng-model="payment_model.amt_discount_amount" placeholder="0.00">
+	  </div>			
+	  </label>		
+	  <div class="item discount_type_amt">
+	  	  <div class="row">
+	  	  	 <div class="col"><button ng-disabled="payment_model.discount_type_per" ng-click="setNormaDiscount(5)" type="button" style="padding-top:10px;padding-bottom:10px;" class="sky-pos-light-green text-white button-block">$5</button></div> 
+	  	  	 <div class="col"> <button ng-disabled="payment_model.discount_type_per" ng-click="setNormaDiscount(10)" type="button" style="padding-top:10px;padding-bottom:10px;" class="sky-pos-light-green text-white button-block">$10</button></div> 
+	  	  	 <div class="col"> <button ng-disabled="payment_model.discount_type_per" ng-click="setNormaDiscount(15)" style="padding-top:10px;padding-bottom:10px;" class="sky-pos-light-green text-white button-block">$15</button></div>
+	  	  </div>	
+	  	  <div class="row">
+	  	  	 <div class="col"><button ng-disabled="payment_model.discount_type_per" ng-click="setNormaDiscount(20)" type="button" style="padding-top:10px;padding-bottom:10px;" class="sky-pos-light-green text-white button-block">$20</button></div> 
+	  	  	 <div class="col"> <button ng-disabled="payment_model.discount_type_per" ng-click="setNormaDiscount(25)" type="button" style="padding-top:10px;padding-bottom:10px;" class="sky-pos-light-green text-white button-block">$25</button></div> 
+	  	  	 <div class="col"> <button ng-disabled="payment_model.discount_type_per" ng-click="setNormaDiscount(30)" type="button" style="padding-top:10px;padding-bottom:10px;" class="sky-pos-light-green text-white button-block">$30</button></div>
+	  	  </div>
+	  </div>  
+	</div>
+</div>
+
+   
+          
+  </ion-content>
+</ion-modal-view>

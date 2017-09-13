@@ -1,0 +1,95 @@
+<ion-view view-title="{{pageTitle}}" hide-nav-bar="true" cache-view="false">
+
+  <div ng-include src="'templates/header.html'"></div>
+  <div class="bar bar-subheader ash-color-background sub-header">
+            <button class='button button-clear ion-ios7-arrow-left'></button>
+            <h2 class="title">Custom Search</h2>
+            <button class='button button-clear ion-ios7-arrow-right'></button>
+ </div>
+
+  <ion-content class="has-header has-footer has-subheader">
+
+
+        <div class="item">
+            <ion-search-select title="Business Category" key-property="id" value-property="name" options="businessTypes.categories" option-selected="businessTypes.selected_category" class="disable-user-behavior">
+              <label class="item item-input-inset" style="border:none;padding: 0px;cursor: pointer;">
+                <div class="item-input-wrapper">
+                  <i class="icon ion-ios-search"></i>
+                  <input type="text" ng-model="businessTypes.selected_category.name" placeholder="Business Category" disabled="" class="ng-pristine ng-untouched ng-valid ng-empty">
+                </div>
+              </label>
+            </ion-search-select>
+          </div>
+
+          
+
+          <div class="item">
+            <ion-search-select title="Select Search Type" key-property="id" value-property="name" options="searchBy.searchByOptions" option-selected="searchBy.searchByOption" class="disable-user-behavior">
+              <label class="item item-input-inset" style="border:none;padding: 0px;cursor: pointer;">
+                <div class="item-input-wrapper">
+                  <i class="icon ion-ios-search"></i>
+                  <input type="text" ng-model="searchBy.searchByOption.name" placeholder="Select Search Type" disabled="" class="ng-pristine ng-untouched ng-valid ng-empty">
+                </div>
+              </label>
+            </ion-search-select>
+          </div>
+          
+      
+          <div ng-show="show_country" class="item select-country">
+            <ion-search-select title="Select Country" key-property="id" value-property="name" options="countryList.countries" option-selected="countryList.country" class="disable-user-behavior">
+              <label class="item item-input-inset" style="border:none;padding: 0px;cursor: pointer;">
+                <div class="item-input-wrapper">
+                  <i class="icon ion-ios-search"></i>
+                  <input type="text" ng-model="countryList.country.name" placeholder="Select Country" ng-change='change()'  disabled="" class="ng-pristine ng-untouched ng-valid ng-empty">
+                </div>
+              </label>
+            </ion-search-select>
+          </div>
+
+
+           <div ng-show="show_state" class="item select-state">
+            <ion-search-select title="Select State" key-property="id" value-property="name" options="stateList.states" option-selected="stateList.state" class="disable-user-behavior">
+              <label class="item item-input-inset" style="border:none;padding: 0px;cursor: pointer;">
+                <div class="item-input-wrapper">
+                  <i class="icon ion-ios-search"></i>
+                  <input type="text" ng-model="stateList.state.name" placeholder="Select State" disabled="" class="ng-pristine ng-untouched ng-valid ng-empty">
+                </div>
+              </label>
+            </ion-search-select>
+          </div>
+
+
+          <div ng-show="show_city" class="item select-city">
+            <ion-search-select title="Select City" key-property="id" value-property="name" options="cityList.cities" option-selected="cityList.city" class="disable-user-behavior">
+              <label class="item item-input-inset" style="border:none;padding: 0px;cursor: pointer;">
+                <div class="item-input-wrapper">
+                  <i class="icon ion-ios-search"></i>
+                  <input type="text" ng-model="cityList.city.name" placeholder="Select City" disabled="" class="ng-pristine ng-untouched ng-valid ng-empty">
+                </div>
+              </label>
+            </ion-search-select>
+          </div>
+           <div ng-show="show_zip_code" class="item zip-code">
+              <label class="item item-input-inset" style="border:none;padding: 0px;cursor: pointer;">
+                <div class="item-input-wrapper">
+                  <input type="text" ng-model="customSearch.zipCode" placeholder="Enter zip code" class="ng-pristine ng-untouched ng-valid ng-empty">
+                </div>
+              </label>
+          </div>
+          <div ng-show="show_search_value" class="item search-value">
+              <label class="item item-input-inset" style="border:none;padding: 0px;cursor: pointer;">
+                <div class="item-input-wrapper">
+                  <input type="number" ng-model="customSearch.searchValue" placeholder="Enter milage" class="ng-pristine ng-untouched ng-valid ng-empty">
+                </div>
+              </label>
+          </div>
+         
+         <div class="row">
+           <div ng-click="doCustomSearch(customSearch)"  style="text-align:center;" class="col col-100 hand-cursor"><span class="button button-block button-ash">SEARCH</span></div>
+        </div> 
+        
+    </ion-content>
+
+
+</ion-view>
+

@@ -1,0 +1,56 @@
+<ion-modal-view>
+<ion-header-bar align-title="left" class="bar-positive sky-pos-green">
+    <div class="buttons buttons-right">
+      <button ng-click="closeCouponPaymentModal()" class="button button-clear"><i class="ion-arrow-left-c"></i></button>
+      
+    </div>
+    <h1 class="title">Coupon Payment</h1>    
+    <div class="buttons buttons-right">
+      <button ng-click="closeCcPaymentModal()" class="button button-clear"><i class="ion-checkmark"></i></button>
+    </div>
+  </ion-header-bar>
+
+  <ion-content style="background-color:#FFF;">
+    <div style="width:auto;" class="">
+ 	 <div class="list">
+	  <label class="item item-input">
+		<span class="input-label"><i class="icon ion-android-star"></i> Order No. </span>
+		{{order_data.OrderID}}
+	  </label>
+
+	  <label class="item item-input ">
+		<span class="input-label"><i class="icon ion-android-star"></i> Discount </span>
+		${{order_data.Discount | number:2}}
+	  </label>
+	  
+	  <label class="item item-input ">
+		<span class="input-label"><i class="icon ion-android-star"></i> Original Total </span>
+		${{order_data.Total | number:2}}
+	  </label>
+	  
+	  <label class="item item-input">
+		<span class="input-label"><i class="icon ion-android-star"></i> Amount Due </span>
+		${{payment_model.amount_due | number:2}}
+	  </label>
+	  <label class="item item-input ">
+		<span class="input-label"><i class="icon ion-android-star"></i> Coupon Code: </span>
+		<input type="text"  ng-model="payment_model.coupon_code" placeholder="Coupon Code">
+	  </label>		
+	  <label class="item">
+         <button ng-click="verifyDiscountCoupon(payment_model.coupon_code)" class="button button-block sky-pos-light-green text-white">VERIFY COUPON CODE</button>
+      </label>		
+	  <label class="item item-input ">
+		<span class="input-label"><i class="icon ion-android-star"></i> Discount (%): </span>
+		<input type="text" class="disabled"  value="{{payment_model.coupon_discount}}%" placeholder="">
+	  </label>
+	  <label class="item item-input ">
+		<span class="input-label"><i class="icon ion-android-star"></i> Coupon Policy </span>
+		<input type="text" class="disabled"  ng-model="payment_model.coupon_policy" placeholder="">
+	  </label>		  
+	</div>
+</div>
+
+   
+          
+  </ion-content>
+</ion-modal-view>

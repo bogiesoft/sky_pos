@@ -1,0 +1,60 @@
+<ion-view view-title="Order" hide-nav-bar="true" cache-view="false">
+  
+ 
+
+  <ion-header-bar align-title="center"  class="bar-dark sky-pos-green" cache-view="false">
+  <div class="buttons">
+    <button type="button" class="button button-icon button-clear ion-navicon" ng-click="toggleMenu()">
+    	<span class="order-page-header-menu-text">Menu</span>
+          </button>
+  </div>
+  <h1 class="title text-left order-header-title"  align-title="left" style="text-left"></h1>
+   <div class="buttons">
+           <div class="searchBar"> <div class="searchTxt ng-hide" ng-show="ngModel.show">
+           	<div class="bgdiv"></div><div class="bgtxt"><input type="text" placeholder="Search..." ng-model="ngModel.txt" class="ng-pristine ng-valid"></div></div>
+      
+          <i class="order-header-icon icon  button-icon {{ngModel.show ? 'ion-close' : 'ion-search'}}  " ng-click="ngModel.txt='';ngModel.show=!ngModel.show"></i> </div>
+  </div>
+</ion-header-bar>
+
+    <ion-content scroll="true" class="has-header has-footer has-footer-provision-item">
+    <div class = "tabs-striped tabs-background-positive sky-pos-green  tabs-color-light ">
+       <div class = "tabs my-tabs sky-pos-light-green">
+          <a ng-href="#/app/order" class = "tab-item {{selected_tab=='order' ? 'active' : ''}} ">
+             Order
+          </a>
+    		
+          <a  class = "tab-item {{selected_tab=='recall' ? 'active' : ''}}">
+             Recall
+          </a>
+    		
+          <a ng-href="#/app/bill"  class = "tab-item {{selected_tab=='bill' ? 'active' : ''}}">
+             Bill
+          </a>
+       </div>
+    </div>
+    <div class="my-container" style="">
+
+          <div style="width:auto;" class="">
+              <div class="list recall-list">
+                <div ng-repeat="item in orders | filter:ngModel.txt" ng-click="gotoRecallEdit($index)" class="item  item-avatar item-button-right item-checkbox-right" >
+                  <img  ng-src="custom/Assets/recall/burger.png" style="height:45px;width:50px;max-width:50px;max-height:45px;">
+                  <h3 style="color:#607d8b;">{{item.OrderID}}</h3>
+                     <p class="table">Table : <span style="color:#8A4B08;">{{item.OTable}}</span></p>
+                     <p class="customer">Customer Name : {{item.CustomerFirstName}}</p>
+                     <span style="width:auto;white-space:wrap;" class="checkbox">
+                        <p style="white-space:wrap; text-align:right;color:#607d8b;" ng-bind-html="splitDate(item.ODate)"></p>
+                   </span>
+                </div>
+              </div>
+    	    </div>
+    </div>    
+
+
+
+ 
+    </ion-content>
+
+  
+</ion-view>
+

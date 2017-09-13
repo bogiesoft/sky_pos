@@ -1,0 +1,31 @@
+<ion-modal-view>
+
+
+
+  <ion-content style="background-color:#FFF;">
+    <form ng-submit="doLogin()">
+      <ion-list>
+  <ion-radio ng-model="order.serviceChargeType"  ng-value="'amt'">Amount</ion-radio>
+  <ion-radio ng-model="order.serviceChargeType" ng-value="'prct'">Percent</ion-radio>
+</ion-list>
+
+      <div class="list">
+        <label class="item item-input">
+          <input type="number" placeholder="Service Charge" ng-model="order.ServiceCharge">
+          <input type="hidden" ng-model="order.index"/>
+        </label>
+        
+        <div class="item_">
+          <div class="row"> 
+              <div class="col">  
+                <button type="button" ng-click="setServiceCharge()" class="button button-block sky-pos-light-green text-white" type="submit">CHANGE</button> 
+              </div>
+              <div class="col">  
+                 <button type="button" ng-click="closeServiceChargeModal();" class="button button-block button-assertive text-white" type="submit">CANCEL</button>
+               </div>   
+        </div>
+        </div>
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view>

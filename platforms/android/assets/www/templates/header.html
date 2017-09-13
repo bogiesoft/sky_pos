@@ -1,0 +1,10 @@
+<ion-header-bar align-title="center"  class="bar-dark" cache-view="false">
+  <div class="buttons">
+    <button class="button button-icon button-clear ion-navicon" ng-click="toggleMenu()">
+          </button>
+  </div>
+  <h1 class="title"><img src="img/logo-with-text.png" ></h1>
+  <div class="buttons">
+  	   <a ng-href=" {{(is_map==true) ? '#/app/near-by-store-map' : '#/app/near-by-store-list'}}" class="button button-icon button-clear {{(is_map==true) ? 'ion-location' : 'ion-grid'}}"></a>
+  </div>
+</ion-header-bar>

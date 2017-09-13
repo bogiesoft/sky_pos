@@ -1,0 +1,57 @@
+<ion-view view-title="Order" hide-nav-bar="true" cache-view="false">
+  <ion-header-bar align-title="center"  class="bar-dark sky-pos-green" cache-view="false">
+    <div class="buttons">
+      <button  type="button"  ng-click="goBack()" class="button button-icon button-clear icon ion-arrow-left-c" >
+      	<span class="order-page-header-menu-text"></span>
+      </button>
+    </div>
+    <h1 class="title text-left order-header-title"  align-title="left" style="left:52px;"> 
+      <select style="background-color:#004227;border:none;color:#FFF;" ng-model="dine_in_data.service_floor" ng-options="item.AreaName for item in floor_models" ng-change="loadTableByFloor()"></select>
+    </h1>
+    <div class="buttons">
+      <div class="searchBar"> 
+        <div style="width: calc(100% - 205px);" class="searchTxt ng-hide" ng-show="ngModel.show">
+           	<div class="bgdiv"></div>
+            <div class="bgtxt"><input type="text" placeholder="Search..." ng-model="ngModel.txt" class="ng-pristine ng-valid"></div>
+        </div>
+        <i class="order-header-icon icon  button-icon {{ngModel.show ? 'ion-close' : 'ion-search'}}  " ng-click="ngModel.txt='';ngModel.show=!ngModel.show"></i> 
+      </div> &nbsp; &nbsp;
+      <button type="button" ng-click="loadTables()"  class="order-header-icon button button-icon button-clear ion-refresh"></button>&nbsp; &nbsp;
+      <button type="button" ng-click="selectServiceFloorDone()"  class="order-header-icon button button-icon button-clear ion-checkmark"></button>
+    </div>
+  </ion-header-bar>
+    <ion-content scroll="true" has-bouncing="false" class="has-header ">
+      <div class="my-container" style="">
+          <div style="margin-top:10px; margin-bottom:10px;" class="list list-inset">
+            <label class="item item-input">
+              <input type="number" ng-model="dine_in_data.number_of_person" placeholder="# of person">
+            </label>
+            <label class="item item-input">
+              <input type="text" ng-model="dine_in_data.customer_phone" placeholder="Customer's Phone">
+            </label>
+            <label class="item item-input">
+              <input type="text" ng-model="dine_in_data.customer_name" placeholder="Customer's Name">
+            </label>
+          </div>
+
+          <div style="width:auto;" class="col col-100">
+        	  <div ng-repeat="table_list in splitted_table_list | filter: ngModel.txt" class="row service-floor-table"  style="cursor:pointer;cursor:hand;">
+      			    <div  class="box col col-50 service-floor-item" ng-repeat="table in table_list" ng-click="setSelectedTable(table)"  ng-class="{selected: table.TableCode === selected_table.TableCode}" >
+                    <div style="border-radius:5px;border:1px #CCC solid">
+                        <div class=" service-floor-item-header {{table.Status=='Occupied' ? 'occupied-service-floor-item-header' : 'sky-pos-light-green'}}" style="color:#FFF;text-align:center;line-height:32px;border-top-left-radius:5px;border-top-right-radius:5px;">{{table.Status}}</div>
+      			           	<div class="thumb" ng-click="gotoOrderCategoryItem(table.Category);">
+      				           	<img class="" style="width:60px; height:50px; margin:10px; float:left" check-image  ng-src="{{table.TableImage}}" alt-src="custom/Assets/order/tables.jpg" alt="{{table.TableCode}}" /> 
+                         	<div style="float:left;margin-top:20px;" class="">
+      				           		<div class="service-floor-item-text {{table.Status=='Occupied' ? 'occupied-service-floor-item-text' : ''}}" style="text-align:center;color:#009245">{{table.TableCode}}</div>
+      				           	</div>
+      			           	</div>
+                      </div>
+
+      			    </div>
+      			</div>
+      	</div>
+
+      </div>    
+    </ion-content>
+</ion-view>
+
