@@ -449,6 +449,25 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
 
         }
     };
+
+    $scope.slides = [{
+        'img': 'custom/Assets/Dashboard/img_placeholder_dashboard.png',
+        'title': 'Image Name 1',
+        'subtitle': 'Lorem ipsum dolor'
+    },{
+        'img': 'custom/Assets/Dashboard/img_placeholder_dashboard.png',
+        'title': 'Image Name 2',
+        'subtitle': 'Lorem ipsum dolor'
+    },{
+        'img': 'custom/Assets/Dashboard/img_placeholder_dashboard.png',
+        'title': 'Image Name 3',
+        'subtitle': 'Lorem ipsum dolor'
+    }];
+
+    $scope.options = {
+        loop: true,
+        speed: 500
+    };
 })
 .controller("OrderCtrl",function($rootScope,$scope,$http,$location,$ionicSideMenuDelegate,ProfileData,Utils, $ionicLoading,ProductData,$stateParams){
     

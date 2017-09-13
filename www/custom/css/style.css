@@ -115,6 +115,10 @@ body{
   background-color: #004227!important;
   border-color: #004227!important;
 }
+.sky-pos-dark-green{
+    background-color: #001d11 !important;
+    border-color: #001d11 !important;
+}
 .sky-pos-light-green{
   background-color: #009245!important;
   border-color: #009245!important; 
@@ -863,6 +867,9 @@ input[type="checkbox"]:checked + label:after {
 .split-textbox {
     border-bottom: 1px solid #009245 !important;
 }
+.split-textbox:focus {
+    border-bottom: 2px solid #009245 !important;
+}
 .split-textbox-label {
     margin-top: 15px;
 }
@@ -901,4 +908,26 @@ input[type="checkbox"]:checked + label:after {
 }
 .tip-payment-wrapper {
     padding: 10px 15px 25px 15px;
+}
+.payment-method-wrapper img {
+    width: 24px;
+    margin: 0 auto;
+}
+.payment-method-wrapper .col {
+    text-align: center;
+}
+.darkest-yellow {
+    background-color: #9D9402;
+}
+.dark-yellow {
+    background-color: #B4AA02;
+}
+.middle-yellow {
+    background-color: #CEC203;
+}
+.light-yellow {
+    background-color: #E6D903;
+}
+.lightest-yellow {
+    background-color: #FFF000;
 }

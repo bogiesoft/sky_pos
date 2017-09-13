@@ -16,6 +16,7 @@
 
         <div class="my-container" style="">
 
+            <!-- tip input -->
             <div class="tip-payment-wrapper">
                 <div class="row">
                     <div class="col-30 split-textbox-label">Receipt No#:</div>
@@ -36,6 +37,7 @@
                     </div>
                 </div>
             </div>
+            <!-- /tip input -->
 
             <!-- stuff -->
             <div style="overflow:hidden;margin-right:0px" class="row item item-body" ng-repeat="item in employees">
@@ -57,13 +59,33 @@
 
                     <div style="position:absolute;padding:0px;margin:0px;top:0px;" id="my-button-{{$index}}" class=" button-shift-right">
                         <div>
-                            <button  type="button" ng-click="gotoSplitBillByTotal($index)" style="border-radius:0px;line-height: 36px;width:70px; height:100%;font-size:14px;padding-top:2px;"  class="order-edit-button button icon-center  button-assertive sky-pos-light-green"> <img src="custom/Assets/Bill/ic_split_scissors.png" style="width:18px;margin-top:5px;padding-top:2px;" /> <br />Split</button>
-                            <button  type="button" ng-click="showServiceChargeModal($index)" style="padding:2px 5px;border-radius:0px;line-height: 36px;width:70px; font-size:12px;margin-left:-4px;white-space:nowrap;" class="order-edit-button button icon-center  button-assertive sky-pos-green"><img src="custom/Assets/Bill/ic_pay_wallet.png" style="width:18px;margin-top:5px;" /><br />Pay Now</button>
+                            <button  type="button" ng-click="gotoSplitBillByTotal($index)" style="border-radius:0px;line-height: 46px;width:70px; height:100%;font-size:14px;padding-top:2px;"  class="order-edit-button button icon-center  button-assertive sky-pos-green"> <img src="custom/Assets/Tips/ic_edit_staff_tip.png" style="width:25px;margin-top:16px;padding-top:2px;" /></button>
+                            <button  type="button" ng-click="showServiceChargeModal($index)" style="padding:2px 5px;border-radius:0px;line-height: 46px;width:70px; font-size:12px;margin-left:-4px;white-space:nowrap;" class="order-edit-button button icon-center  button-assertive sky-pos-dark-green"><img src="custom/Assets/Tips/ic_delete_staffs_white.png" style="width:24px;margin-top:15px;" /></button>
                         </div>
                     </div>
                 </div>
             </div>
             <!-- /stuff -->
+
+            <div class="payment-method-wrapper">
+                <div class="row">
+                    <div class="col darkest-yellow">
+                        <img ng-src="custom/Assets/Tips/ic_tip_payment_cash.png" alt="" class="">
+                    </div>
+                    <div class="col dark-yellow">
+                        <img ng-src="custom/Assets/Tips/ic_tip_payment_credit_card.png" alt="" class="">
+                    </div>
+                    <div class="col middle-yellow">
+                        <img ng-src="custom/Assets/Tips/ic_tip_payment_check.png" alt="" class="">
+                    </div>
+                    <div class="col light-yellow">
+                        <img ng-src="custom/Assets/Tips/ic_tip_payment_analog.png" alt="" class="">
+                    </div>
+                    <div class="col lightest-yellow">
+                        <img ng-src="custom/Assets/Tips/ic_tip_payment_gift.png" alt="" class="">
+                    </div>
+                </div>
+            </div>
         </div>
 
 
