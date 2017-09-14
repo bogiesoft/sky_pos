@@ -1,7 +1,7 @@
 <ion-view view-title="Order" hide-nav-bar="true" cache-view="false">
     <ion-header-bar align-title="left"  class="bar-dark sky-pos-green" cache-view="false">
         <div class="buttons">
-            <a href="#/app/tips" class="button button-icon button-clear icon ion-arrow-left-c" >
+            <a href="#/app/tips" class="button button-icon button-clear icon ion-arrow-left-c">
                 <span class="order-page-header-menu-text"></span>
             </a>
         </div>
@@ -12,7 +12,6 @@
     </ion-header-bar>
 
     <ion-content scroll="true" has-bouncing="false" class="has-header has-footer has-sub-header" style="background-color: #F3F3F3;">
-
 
         <div class="my-container" style="">
 
@@ -78,10 +77,10 @@
                     <div class="col dark-yellow">
                         <img ng-src="custom/Assets/Tips/ic_tip_payment_credit_card.png" alt="" class="">
                     </div>
-                    <div class="col middle-yellow">
+                    <div class="col middle-yellow" ng-click="showCheckPaymentModal()">
                         <img ng-src="custom/Assets/Tips/ic_tip_payment_check.png" alt="" class="">
                     </div>
-                    <div class="col light-yellow">
+                    <div class="col light-yellow" ng-click="showAnalogPaymentModal()">
                         <img ng-src="custom/Assets/Tips/ic_tip_payment_analog.png" alt="" class="">
                     </div>
                     <div class="col lightest-yellow">
@@ -136,7 +135,6 @@
             <!-- /tip list -->
 
         </div>
-
 
     </ion-content>
     <div style="margin-top:140px;" class="bar bar-footer sky-pos-light-green">

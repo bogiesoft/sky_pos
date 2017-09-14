@@ -3141,6 +3141,42 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
         'method': 'cash',
         'amount': 2.00
     }];
+
+    // Analog tips modal
+    /*******************/
+    $scope.analogPaymentModal=null;
+    $ionicModal.fromTemplateUrl('templates/tips/analog-tips-modal.html', {
+        scope: $scope
+    }).then(function(modal) {
+        $scope.analogPaymentModal = modal;
+    });
+    // Triggered in the login modal to close it
+    $scope.closeAnalogPaymentModal = function() {
+        $scope.analogPaymentModal.hide();
+    };
+    // Open the login modal
+    $scope.showAnalogPaymentModal = function(){
+        $scope.analogPaymentModal.show();
+    };
+    /***************************/
+
+    // Check tips modal
+    /*******************/
+    $scope.checkPaymentModal=null;
+    $ionicModal.fromTemplateUrl('templates/tips/check-tips-modal.html', {
+        scope: $scope
+    }).then(function(modal) {
+        $scope.checkPaymentModal = modal;
+    });
+    // Triggered in the login modal to close it
+    $scope.closeCheckPaymentModal = function() {
+        $scope.checkPaymentModal.hide();
+    };
+    // Open the login modal
+    $scope.showCheckPaymentModal = function(){
+        $scope.checkPaymentModal.show();
+    };
+    /***************************/
 })
 .controller("AdminToolsCtrl",function($rootScope,$scope,$http,$location,$ionicSideMenuDelegate,ProfileData,Utils){
     
