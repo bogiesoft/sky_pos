@@ -3,7 +3,7 @@
  * ionic 1.3.2
  * Developers:
  * Ionic: Md. Hasan Shahriar, Shahadat Hossain
- * Android: Arif Hasnat, Khairul Anam Chowdhury, Rakibul Russel
+ * Android: Arif Hasnat, Khairul Anam Chowdhury, Kazi Rakibul Hossain
  * .NET: Ashraf Ahmed, Parvez Alam, Ashikuzzaman Ashik
  * HTML & Design: Rakib Hasan, Abdus Salam
  ***************************************************************************/

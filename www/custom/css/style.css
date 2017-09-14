@@ -950,3 +950,15 @@ input[type="checkbox"]:checked + label:after {
     padding: 5px;
     border-bottom: 1px solid #DDD;
 }
+.tip-list img {
+    max-width: 32px;
+    margin: auto;
+}
+.tip-list .item {
+    line-height: 32px;
+    font-size: 11px;
+    padding: 10px;
+}
+.tip-list {
+    margin-bottom: 70px;
+}

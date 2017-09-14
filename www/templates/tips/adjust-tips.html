@@ -49,7 +49,7 @@
                                     <span class="customer">Employee Name {{item.name}}</span>
                                 </div>
                                 <div class="stuff-item my-item" style="float:right;margin-right:10px;">
-                                    <span class="customer">${{item.amount}}</span>
+                                    <span class="customer">${{item.amount | number: 2}}</span>
                                 </div>
                                 <span class="item-note">
                                     <p style="white-space:pre-wrap; text-align:right;color:#607d8b;" ng-bind-html="splitDate(data.ODate)"></p>
@@ -121,14 +121,14 @@
                 </div>
                 <div class="tip-list">
                     <div style="overflow:hidden;margin-right:0px" class="row item item-body" ng-repeat="item in tips" id="tip-row-{{$index}}">
-                        <div class="col-20" style="margin-left:10px;">
+                        <div class="col-20">
                             <img ng-src="custom/Assets/Tips/ic_tip_payment_{{item.method}}.png" alt="" class="img-responsive">
                         </div>
-                        <div class="col-30">
+                        <div class="col-50">
                             {{item.method | uppercase}}
                         </div>
-                        <div class="col-30 text-right">
-                            <span>${{item.amount}}</span>
+                        <div class="col-30">
+                            <span style="float: right;">${{item.amount | number: 2}}</span>
                         </div>
                     </div>
                 </div>
