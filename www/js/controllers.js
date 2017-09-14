@@ -42,7 +42,7 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
 
 })
 
-.controller("LoginCtrl",function($rootScope,$scope,$http,$location,$ionicHistory,$localStorage,$sessionStorage,$cordovaOauth,$ionicPopup,$ionicModal,$ionicLoading,ProfileData,$ionicSideMenuDelegate,Utils,StoreInfo){
+.controller("LoginCtrl",function($rootScope,$scope,$http,$location,$ionicHistory,$localStorage,$sessionStorage,$cordovaOauth,$ionicPopup,$ionicModal,$ionicLoading,ProfileData,$ionicSideMenuDelegate,Utils,StoreInfo,SpecialItems){
    
    $ionicSideMenuDelegate.canDragContent(false)
    
@@ -229,7 +229,8 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
               localStorage.setItem("Email",data.Data.AccessToken);
               ProfileData.setProperty(data.Data);
               data.StoreInfo.TaxRate = data.TaxRate;
-              StoreInfo.setProperty(data.StoreInfo);  
+              StoreInfo.setProperty(data.StoreInfo);
+              SpecialItems.setProperty(data.SpecialItems);
               $location.path("/app/dashboard").replace();
             }
             else
@@ -419,7 +420,7 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
      $scope.pinSet(number);  
    }
 })
-.controller("DashboardCtrl",function($rootScope,$scope,$http,$location,$ionicSideMenuDelegate,ProfileData,Utils){
+.controller("DashboardCtrl",function($rootScope,$scope,$http,$location,$ionicSideMenuDelegate,ProfileData,Utils,SpecialItems){
     
     $ionicSideMenuDelegate.canDragContent(false)
     Utils.checkLogin();
@@ -450,19 +451,7 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
         }
     };
 
-    $scope.slides = [{
-        'img': 'custom/Assets/Dashboard/img_placeholder_dashboard.png',
-        'title': 'Image Name 1',
-        'subtitle': 'Lorem ipsum dolor'
-    },{
-        'img': 'custom/Assets/Dashboard/img_placeholder_dashboard.png',
-        'title': 'Image Name 2',
-        'subtitle': 'Lorem ipsum dolor'
-    },{
-        'img': 'custom/Assets/Dashboard/img_placeholder_dashboard.png',
-        'title': 'Image Name 3',
-        'subtitle': 'Lorem ipsum dolor'
-    }];
+    $scope.slides = SpecialItems.getProperty();
 
     $scope.options = {
         loop: true,
@@ -3099,7 +3088,7 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
 })
 .controller("AdjustTipsCtrl",function($rootScope, $scope, $http, $location, $ionicSideMenuDelegate, ProfileData, Utils, $ionicLoading, $document, SweetAlert, $ionicModal, $state, OrderData){
 
-    $ionicSideMenuDelegate.canDragContent(false)
+    $ionicSideMenuDelegate.canDragContent(false);
     Utils.checkLogin();
 
     $scope.profile=ProfileData.getProperty();
@@ -3132,6 +3121,26 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
             my_button_element.addClass('button-shift-right').removeClass("button-shift-left");
     };
 
+    // tip list
+    $scope.tips = [{
+        'method': 'cash',
+        'amount': 2.00
+    },{
+        'method': 'credit_card',
+        'amount': 1.00
+    },{
+        'method': 'check',
+        'amount': 3.00
+    },{
+        'method': 'gift',
+        'amount': 5.00
+    },{
+        'method': 'analog',
+        'amount': 4.00
+    },{
+        'method': 'cash',
+        'amount': 2.00
+    }];
 })
 .controller("AdminToolsCtrl",function($rootScope,$scope,$http,$location,$ionicSideMenuDelegate,ProfileData,Utils){
     
@@ -3186,6 +3195,26 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
               } catch (e) {
              console.log(e); //storeInfo
            }
+        }
+    };
+})
+.service('SpecialItems', function (){
+    var specialItems=[];
+    return {
+        getProperty: function () {
+            try{
+                specialItems = angular.fromJson(localStorage.getItem('specialItems'));
+            } catch (e) {
+                console.log(e); //specialItems
+            }
+            return specialItems;
+        },
+        setProperty: function (value) {
+            try{
+                localStorage.setItem('specialItems', angular.toJson(value));
+            } catch (e) {
+                console.log(e); //specialItems
+            }
         }
     };
 })

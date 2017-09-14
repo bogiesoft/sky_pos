@@ -463,9 +463,7 @@ button.button-icon.round-overlay-button {
   background-attachment: scroll;
   */
   border: none!important;
-  margin-bottom: 3px;
-  
-
+  border-bottom: 2px solid #EEE !important;
 }
 .option-list .item-rating{
   /*
@@ -866,6 +864,8 @@ input[type="checkbox"]:checked + label:after {
 }
 .split-textbox {
     border-bottom: 1px solid #009245 !important;
+    background-color: transparent;
+    width: 100%;
 }
 .split-textbox:focus {
     border-bottom: 2px solid #009245 !important;
@@ -896,6 +896,10 @@ input[type="checkbox"]:checked + label:after {
 }
 
 /* Tips */
+.tip-pages .item {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
 .stuff-item {
     padding-top: 15px;
 }
@@ -909,12 +913,23 @@ input[type="checkbox"]:checked + label:after {
 .tip-payment-wrapper {
     padding: 10px 15px 25px 15px;
 }
+.stuff-wrapper {
+    min-height: 100px;
+}
 .payment-method-wrapper img {
-    width: 24px;
+    width: 34px;
     margin: 0 auto;
 }
 .payment-method-wrapper .col {
     text-align: center;
+}
+.payment-pics {
+    cursor: pointer;
+    padding: 0;
+}
+.payment-labels {
+    font-size: 11px;
+    padding: 0;
 }
 .darkest-yellow {
     background-color: #9D9402;
@@ -930,4 +945,8 @@ input[type="checkbox"]:checked + label:after {
 }
 .lightest-yellow {
     background-color: #FFF000;
+}
+.tip-list-header {
+    padding: 5px;
+    border-bottom: 1px solid #DDD;
 }

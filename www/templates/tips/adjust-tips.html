@@ -11,7 +11,7 @@
         </div>
     </ion-header-bar>
 
-    <ion-content scroll="true" has-bouncing="false" class="has-header has-footer has-sub-header">
+    <ion-content scroll="true" has-bouncing="false" class="has-header has-footer has-sub-header" style="background-color: #F3F3F3;">
 
 
         <div class="my-container" style="">
@@ -40,10 +40,11 @@
             <!-- /tip input -->
 
             <!-- stuff -->
-            <div style="overflow:hidden;margin-right:0px" class="row item item-body" ng-repeat="item in employees">
-                <div style="padding:0px"  class="col">
-                    <div style="padding:0px"  class="row recall-list" id="my-row-{{$index}}">
-                        <div class="col col-90">
+            <div class="stuff-wrapper">
+                <div style="overflow:hidden;margin-right:0px" class="row item item-body" ng-repeat="item in employees">
+                    <div style="padding:0px"  class="col">
+                        <div style="padding:0px"  class="row recall-list" id="my-row-{{$index}}">
+                            <div class="col col-90">
                                 <div class="stuff-item my-item" style="float:left;margin-left:10px;">
                                     <span class="customer">Employee Name {{item.name}}</span>
                                 </div>
@@ -53,22 +54,24 @@
                                 <span class="item-note">
                                     <p style="white-space:pre-wrap; text-align:right;color:#607d8b;" ng-bind-html="splitDate(data.ODate)"></p>
                                 </span>
+                            </div>
+                            <div class="col" style="text-align:right;"><h3><a style="cursor:pointer;cursor:hand;" class="" ng-click="setClass($event,$index)"><img check-image ng-src="custom/Assets/order/ic_vertical_ellipsis.png" style="height:30px;width:30px;"></a></h3></div>
                         </div>
-                        <div class="col" style="text-align:right;"><h3><a style="cursor:pointer;cursor:hand;" class="" ng-click="setClass($event,$index)"><img check-image ng-src="custom/Assets/order/ic_vertical_ellipsis.png" style="height:30px;width:30px;"></a></h3></div>
-                    </div>
 
-                    <div style="position:absolute;padding:0px;margin:0px;top:0px;" id="my-button-{{$index}}" class=" button-shift-right">
-                        <div>
-                            <button  type="button" ng-click="gotoSplitBillByTotal($index)" style="border-radius:0px;line-height: 46px;width:70px; height:100%;font-size:14px;padding-top:2px;"  class="order-edit-button button icon-center  button-assertive sky-pos-green"> <img src="custom/Assets/Tips/ic_edit_staff_tip.png" style="width:25px;margin-top:16px;padding-top:2px;" /></button>
-                            <button  type="button" ng-click="showServiceChargeModal($index)" style="padding:2px 5px;border-radius:0px;line-height: 46px;width:70px; font-size:12px;margin-left:-4px;white-space:nowrap;" class="order-edit-button button icon-center  button-assertive sky-pos-dark-green"><img src="custom/Assets/Tips/ic_delete_staffs_white.png" style="width:24px;margin-top:15px;" /></button>
+                        <div style="position:absolute;padding:0px;margin:0px;top:0px;" id="my-button-{{$index}}" class=" button-shift-right">
+                            <div>
+                                <button  type="button" ng-click="gotoSplitBillByTotal($index)" style="border-radius:0px;line-height: 46px;width:70px; height:100%;font-size:14px;padding-top:2px;"  class="order-edit-button button icon-center  button-assertive sky-pos-green"> <img src="custom/Assets/Tips/ic_edit_staff_tip.png" style="width:25px;margin-top:16px;padding-top:2px;" /></button>
+                                <button  type="button" ng-click="showServiceChargeModal($index)" style="padding:2px 5px;border-radius:0px;line-height: 46px;width:70px; font-size:12px;margin-left:-4px;white-space:nowrap;" class="order-edit-button button icon-center  button-assertive sky-pos-dark-green"><img src="custom/Assets/Tips/ic_delete_staffs_white.png" style="width:24px;margin-top:15px;" /></button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
             <!-- /stuff -->
 
+            <!-- payment methods -->
             <div class="payment-method-wrapper">
-                <div class="row">
+                <div class="row payment-pics">
                     <div class="col darkest-yellow">
                         <img ng-src="custom/Assets/Tips/ic_tip_payment_cash.png" alt="" class="">
                     </div>
@@ -85,7 +88,53 @@
                         <img ng-src="custom/Assets/Tips/ic_tip_payment_gift.png" alt="" class="">
                     </div>
                 </div>
+                <div class="row payment-labels">
+                    <div class="col">
+                        Cash Tips
+                    </div>
+                    <div class="col">
+                        Credit Tips
+                    </div>
+                    <div class="col">
+                        Check Tips
+                    </div>
+                    <div class="col">
+                        Analog Tips
+                    </div>
+                    <div class="col">
+                        Gift Tips
+                    </div>
+                </div>
             </div>
+            <!-- /payment methods -->
+
+            <div style="height:28px;padding-top:2px;" class="text-white row sky-pos-light-green">
+                <div class="col-70">Tips Information</div>
+                <div class="col-30">Total Tips: <span style="color:#E4F711;float: right;">$0.00</span></div>
+            </div>
+
+            <!-- tip list -->
+            <div class="tip-list-wrapper">
+                <div class="row tip-list-header">
+                    <div class="col-80">TIP BY</div>
+                    <div class="col-20"><span style="float: right;">AMOUNT</span></div>
+                </div>
+                <div class="tip-list">
+                    <div style="overflow:hidden;margin-right:0px" class="row item item-body" ng-repeat="item in tips" id="tip-row-{{$index}}">
+                        <div class="col-20" style="margin-left:10px;">
+                            <img ng-src="custom/Assets/Tips/ic_tip_payment_{{item.method}}.png" alt="" class="img-responsive">
+                        </div>
+                        <div class="col-30">
+                            {{item.method | uppercase}}
+                        </div>
+                        <div class="col-30 text-right">
+                            <span>${{item.amount}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /tip list -->
+
         </div>
 
 
