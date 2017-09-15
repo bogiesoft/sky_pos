@@ -2078,8 +2078,8 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
 	  $scope.order_data = OrderData.getProperty();
     // $scope.order_details = $scope.order_data.OrderDetails;
 	  $scope.payment_model={};
-  	$scope.payment_model.amount_due=$scope.order_data.Total;
-    $scope.payment_model.amount=$scope.order_data.Total;
+  	$scope.payment_model.amount_due=$scope.order_data.OSum;
+    $scope.payment_model.amount=$scope.order_data.OSum;
     $scope.payment_model.cheque_number='';
     $scope.payment_model.discount_type_per=true;
     $scope.payment_model.amt_discount_amount=0.00;
