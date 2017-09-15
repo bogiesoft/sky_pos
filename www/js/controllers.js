@@ -2075,11 +2075,11 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
     $scope.authenticationToken=localStorage.AccessToken;
     $scope.userId=localStorage.Id;
     $scope.selected_tab="bill";
-	  $scope.order_data = OrderData.getProperty();
+	$scope.order_data = OrderData.getProperty();
     // $scope.order_details = $scope.order_data.OrderDetails;
-	  $scope.payment_model={};
-  	$scope.payment_model.amount_due=$scope.order_data.OSum;
-    $scope.payment_model.amount=$scope.order_data.OSum;
+    $scope.payment_model={};
+  	$scope.payment_model.amount_due=parseFloat($scope.order_data.OSum*1)+parseFloat($scope.order_data.Tax*1)+parseFloat($scope.order_data.ServiceCharge*1)-parseFloat($scope.order_data.Discount*1);
+    $scope.payment_model.amount=$scope.payment_model.amount_due;
     $scope.payment_model.cheque_number='';
     $scope.payment_model.discount_type_per=true;
     $scope.payment_model.amt_discount_amount=0.00;
@@ -2087,7 +2087,7 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
     
     $scope.payment_request_model={};
 
-	  console.log($scope.order_data);
+    console.log($scope.order_data);
     $scope.Utils=Utils;
 	
 	$scope.doPayment=function(payment_type){
@@ -2214,7 +2214,7 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
           {
                 var alert= Utils.showAlert("Save Order",data.Message);
                 alert.then(function(res){
-                       $state.go("app.dashboard");
+                       $state.go("app.bill");
                 });
           }
           else
