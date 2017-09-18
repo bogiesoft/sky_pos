@@ -3150,11 +3150,11 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
     }).then(function(modal) {
         $scope.analogPaymentModal = modal;
     });
-    // Triggered in the login modal to close it
+    // Triggered in the analog modal to close it
     $scope.closeAnalogPaymentModal = function() {
         $scope.analogPaymentModal.hide();
     };
-    // Open the login modal
+    // Open the analog modal
     $scope.showAnalogPaymentModal = function(){
         $scope.analogPaymentModal.show();
     };
@@ -3168,13 +3168,67 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
     }).then(function(modal) {
         $scope.checkPaymentModal = modal;
     });
-    // Triggered in the login modal to close it
+    // Triggered in the check modal to close it
     $scope.closeCheckPaymentModal = function() {
         $scope.checkPaymentModal.hide();
     };
-    // Open the login modal
+    // Open the check modal
     $scope.showCheckPaymentModal = function(){
         $scope.checkPaymentModal.show();
+    };
+    /***************************/
+
+    // Credit tips modal
+    /*******************/
+    $scope.creditPaymentModal=null;
+    $ionicModal.fromTemplateUrl('templates/tips/credit-tips-modal.html', {
+        scope: $scope
+    }).then(function(modal) {
+        $scope.creditPaymentModal = modal;
+    });
+    // Triggered in the credit modal to close it
+    $scope.closeCreditPaymentModal = function() {
+        $scope.creditPaymentModal.hide();
+    };
+    // Open the credit modal
+    $scope.showCreditPaymentModal = function(){
+        $scope.creditPaymentModal.show();
+    };
+    /***************************/
+
+    // Another card tips modal
+    /*******************/
+    $scope.cardPaymentModal=null;
+    $ionicModal.fromTemplateUrl('templates/tips/card-tips-modal.html', {
+        scope: $scope
+    }).then(function(modal) {
+        $scope.cardPaymentModal = modal;
+    });
+    // Triggered in the card modal to close it
+    $scope.closeCardPaymentModal = function() {
+        $scope.cardPaymentModal.hide();
+    };
+    // Open the card modal
+    $scope.showCardPaymentModal = function(){
+        $scope.cardPaymentModal.show();
+    };
+    /***************************/
+
+    // Gift tips modal
+    /*******************/
+    $scope.giftPaymentModal=null;
+    $ionicModal.fromTemplateUrl('templates/tips/gift-tips-modal.html', {
+        scope: $scope
+    }).then(function(modal) {
+        $scope.giftPaymentModal = modal;
+    });
+    // Triggered in the gift modal to close it
+    $scope.closeGiftPaymentModal = function() {
+        $scope.giftPaymentModal.hide();
+    };
+    // Open the gift modal
+    $scope.showGiftPaymentModal = function(){
+        $scope.giftPaymentModal.show();
     };
     /***************************/
 })

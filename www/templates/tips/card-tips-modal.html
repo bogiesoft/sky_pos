@@ -1,0 +1,160 @@
+<ion-modal-view>
+<ion-header-bar align-title="left" class="bar-positive sky-pos-green">
+    <div class="buttons buttons-right">
+		<button ng-click="closeCardPaymentModal();showCreditPaymentModal();" class="button button-icon button-clear icon ion-arrow-left-c">
+			<span class="order-page-header-menu-text"></span>
+		</button>
+    </div>
+    <h1 class="title">Credit Card Tips</h1>
+    <div class="buttons buttons-right">
+      <button ng-click="doPayment('card')" class="button button-clear"><i class="ion-checkmark"></i></button>
+    </div>
+  </ion-header-bar>
+
+
+  <ion-content style="background-color:#DFDEDE;">
+	  <ion-tabs class="tabs-striped tabs-top tabs-background-positive sky-pos-green tabs-color-light tip-tabs">
+
+		  <ion-tab title="Manual Entry">
+			  <div class="list">
+
+				  <label class="item item-input item-fixed-label">
+					  <span class="input-label">Card No: </span>
+					  <input type="number" ng-model="payment_model.card_no" required placeholder="Card No">
+				  </label>
+
+				  <label class="item item-input item-fixed-label">
+					  <span class="input-label">Name on card: </span>
+					  <input type="text" ng-model="payment_model.card_username" required placeholder="Name on card">
+				  </label>
+
+				  <label class="item item-input item-fixed-label">
+					  <span class="input-label">Exp Month: </span>
+					  <input type="number" ng-model="payment_model.exp_month" required placeholder="Exp Month">
+				  </label>
+
+				  <label class="item item-input item-fixed-label">
+					  <span class="input-label">Exp Year: </span>
+					  <input type="number" ng-model="payment_model.exp_year" required placeholder="Exp Year">
+				  </label>
+
+				  <label class="item item-input ">
+					  <span class="input-label">CVV (3 digits on reverse): </span>
+					  <input type="number" ng-model="payment_model.cvv" required placeholder="CVV">
+				  </label>
+
+				  <label class="item item-input ">
+					  <span class="input-label">Tips Amount: </span>
+					  <input type="number" ng-model="payment_model.amount" required placeholder="Tips Amount">
+				  </label>
+			  </div>
+		  </ion-tab>
+
+		  <ion-tab title="Magnetic Card">
+			  <p class="txt-red">Please insert magnetic card on card reader</p>
+			  <div class="list">
+
+				  <label class="item item-input item-fixed-label">
+					  <span class="input-label">Card No: </span>
+					  <input type="number" ng-model="payment_model.card_no" required placeholder="Card No">
+				  </label>
+
+				  <label class="item item-input item-fixed-label">
+					  <span class="input-label">Name on card: </span>
+					  <input type="text" ng-model="payment_model.card_username" required placeholder="Name on card">
+				  </label>
+
+				  <label class="item item-input item-fixed-label">
+					  <span class="input-label">Exp Month: </span>
+					  <input type="number" ng-model="payment_model.exp_month" required placeholder="Exp Month">
+				  </label>
+
+				  <label class="item item-input item-fixed-label">
+					  <span class="input-label">Exp Year: </span>
+					  <input type="number" ng-model="payment_model.exp_year" required placeholder="Exp Year">
+				  </label>
+
+				  <label class="item item-input ">
+					  <span class="input-label">CVV (3 digits on reverse): </span>
+					  <input type="number" ng-model="payment_model.cvv" required placeholder="CVV">
+				  </label>
+
+				  <label class="item item-input ">
+					  <span class="input-label">Tips Amount: </span>
+					  <input type="number" ng-model="payment_model.amount" required placeholder="Tips Amount">
+				  </label>
+			  </div>
+		  </ion-tab>
+
+		  <ion-tab title="EMV Chip Card">
+			  <p class="txt-red">Please insert EMV CHIP card on card reader</p>
+			  <div class="list">
+
+				  <label class="item item-input item-fixed-label">
+					  <span class="input-label">Card No: </span>
+					  <input type="number" ng-model="payment_model.card_no" required placeholder="Card No">
+				  </label>
+
+				  <label class="item item-input item-fixed-label">
+					  <span class="input-label">Name on card: </span>
+					  <input type="text" ng-model="payment_model.card_username" required placeholder="Name on card">
+				  </label>
+
+				  <label class="item item-input item-fixed-label">
+					  <span class="input-label">Exp Month: </span>
+					  <input type="number" ng-model="payment_model.exp_month" required placeholder="Exp Month">
+				  </label>
+
+				  <label class="item item-input item-fixed-label">
+					  <span class="input-label">Exp Year: </span>
+					  <input type="number" ng-model="payment_model.exp_year" required placeholder="Exp Year">
+				  </label>
+
+				  <label class="item item-input ">
+					  <span class="input-label">CVV (3 digits on reverse): </span>
+					  <input type="number" ng-model="payment_model.cvv" required placeholder="CVV">
+				  </label>
+
+				  <label class="item item-input ">
+					  <span class="input-label">Tips Amount: </span>
+					  <input type="number" ng-model="payment_model.amount" required placeholder="Tips Amount">
+				  </label>
+			  </div>
+		  </ion-tab>
+
+	  </ion-tabs>
+
+	  <div class="item tips_change_amount">
+		  <div class="row">
+			  <div class="col"><button ng-click="payment_model.amount=1.0" type="button" style="padding-top:10px;padding-bottom:10px;" class="button-block">$1.00</button></div>
+			  <div class="col"> <button ng-click="payment_model.amount=2.0" type="button" style="padding-top:10px;padding-bottom:10px;" class="button-block">$2.00</button></div>
+			  <div class="col"> <button ng-click="payment_model.amount=5.0" style="padding-top:10px;padding-bottom:10px;" class="button-block">$5.00</button></div>
+		  </div>
+		  <div class="row">
+			  <div class="col"><button ng-click="payment_model.amount=10.00" type="button" style="padding-top:10px;padding-bottom:10px;" class="button-block">$10.00</button></div>
+			  <div class="col"> <button ng-click="payment_model.amount=20.0" type="button" style="padding-top:10px;padding-bottom:10px;" class="button-block">$20.00</button></div>
+			  <div class="col"> <button ng-click="payment_model.amount=50.0" type="button" style="padding-top:10px;padding-bottom:10px;" class="button-block">$50.00</button></div>
+		  </div>
+		  <div class="row">
+			  <div class="col"><button ng-click="payment_model.amount=100.0" type="button" style="padding-top:10px;padding-bottom:10px;" class="button-block">$100.00</button></div>
+			  <div class="col"> <button ng-click="payment_model.amount=1.0" type="button" style="padding-top:10px;padding-bottom:10px;" class="button-block green-btn">Exact Amount</button></div>
+			  <div class="col"> <button ng-click="payment_model.amount=''" type="button" style="padding-top:10px;padding-bottom:10px;" class="button-block">
+				  <img src="custom/Assets/clockInOut/ic_key_pad_clear_green.png" alt="" style="width: 34px;">
+			  </button></div>
+		  </div>
+	  </div>
+  </ion-content>
+
+	<div style="margin-top:140px;" class="bar bar-footer sky-pos-light-green">
+		<div class="row">
+
+			<div class="col col-100">
+				<div style="text-align:center;width:100%">
+					<button type="button" ng-click="closeCardPaymentModal()" style="width:70px;height:70px;border-radius:50px;color:#FFF;margin-top:-40px;" class="button sky-pos-light-green  ion-checkmark"><br>OK</button>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+</ion-modal-view>

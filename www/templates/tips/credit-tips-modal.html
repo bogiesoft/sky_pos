@@ -1,0 +1,91 @@
+<ion-modal-view>
+<ion-header-bar align-title="left" class="bar-positive sky-pos-green">
+    <div class="buttons buttons-right">
+		<button ng-click="closeCreditPaymentModal()" class="button button-icon button-clear icon ion-arrow-left-c">
+			<span class="order-page-header-menu-text"></span>
+		</button>
+    </div>
+    <h1 class="title">Credit Card Tips</h1>
+    <div class="buttons buttons-right">
+      <button ng-click="doPayment('analog')" class="button button-clear"><i class="ion-checkmark"></i></button>
+    </div>
+  </ion-header-bar>
+
+
+  <ion-content style="background-color:#DFDEDE;">
+    
+    <div style="width:auto;" class="">
+	    
+		 <div class="list">
+
+			<label class="item item-input item-fixed-label">
+			 <span class="input-label">Payment ID: </span>
+			 <input type="number" ng-model="payment_model.payment_id" required placeholder="Payment ID">
+			</label>
+
+			<label class="item item-input item-fixed-label">
+			<span class="input-label">Original sale: </span>
+			<input type="number" ng-model="payment_model.sale_amount" required placeholder="Original sale amount">
+			</label>
+
+			<label class="item item-input item-fixed-label">
+			 <span class="input-label">Original approve code: </span>
+			 <input type="number" ng-model="payment_model.approve_code" required placeholder="Original approve code">
+			</label>
+
+			<label class="item item-input ">
+			 <span class="input-label">Tips Amount: </span>
+			 <input type="number" ng-model="payment_model.amount" required placeholder="Tips Amount">
+			</label>
+
+			<label class="item item-input ">
+			 <span class="input-label">Final Amount: </span>
+			 <input type="number" ng-model="payment_model.final_amount" required placeholder="Final Amount">
+			</label>
+
+			 <label class="item item-input ">
+				 <span class="input-label">Finalized Status: </span>
+				 <input type="text" ng-model="payment_model.status" placeholder="Finalized Status">
+			 </label>
+
+		   <div  class="item tips_change_amount">
+		  	  <div class="row">
+		  	  	 <div class="col"><button ng-click="payment_model.amount=1.0" type="button" style="padding-top:10px;padding-bottom:10px;" class="button-block">$1.00</button></div>
+		  	  	 <div class="col"> <button ng-click="payment_model.amount=2.0" type="button" style="padding-top:10px;padding-bottom:10px;" class="button-block">$2.00</button></div>
+		  	  	 <div class="col"> <button ng-click="payment_model.amount=5.0" style="padding-top:10px;padding-bottom:10px;" class="button-block">$5.00</button></div>
+		  	  </div>	
+		  	  <div class="row">
+		  	  	 <div class="col"><button ng-click="payment_model.amount=10.00" type="button" style="padding-top:10px;padding-bottom:10px;" class="button-block">$10.00</button></div>
+		  	  	 <div class="col"> <button ng-click="payment_model.amount=20.0" type="button" style="padding-top:10px;padding-bottom:10px;" class="button-block">$20.00</button></div>
+		  	  	 <div class="col"> <button ng-click="payment_model.amount=50.0" type="button" style="padding-top:10px;padding-bottom:10px;" class="button-block">$50.00</button></div>
+		  	  </div>
+		  	   <div class="row">
+		  	  	 <div class="col"><button ng-click="payment_model.amount=100.0" type="button" style="padding-top:10px;padding-bottom:10px;" class="button-block">$100.00</button></div>
+		  	  	 <div class="col"> <button ng-click="payment_model.amount=1.0" type="button" style="padding-top:10px;padding-bottom:10px;" class="button-block green-btn">Exact Amount</button></div>
+		  	  	 <div class="col"> <button ng-click="payment_model.amount=''" type="button" style="padding-top:10px;padding-bottom:10px;" class="button-block">
+					 <img src="custom/Assets/clockInOut/ic_key_pad_clear_green.png" alt="" style="width: 34px;">
+				 </button></div>
+		  	  </div>
+		  </div>  
+			  
+		</div>
+</div>
+
+  </ion-content>
+	<div style="margin-top:140px;" class="bar bar-footer sky-pos-light-green">
+		<div class="row">
+			<div class="col">
+				<div style="text-align:center;width:100%">
+					<button type="button" ng-click="closeCreditPaymentModal()" style="width:70px;height:70px;border-radius:50px;color:#FFF;margin-top:-40px;" class="button sky-pos-light-green  ion-checkmark"><br>OK</button>
+				</div>
+			</div>
+			<div class="col">
+				<div class="text-white" style="text-align:center;width:100%">
+					<span>TIP AONTHER CARD</span><br>
+					<button  type="button" ng-click="showCardPaymentModal();closeCreditPaymentModal();" style="color:#FFF;margin-top:-65px;" class="button sky-pos-light-green icon-credit-card top"></button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</ion-modal-view>

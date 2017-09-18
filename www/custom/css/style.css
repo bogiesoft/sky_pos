@@ -666,6 +666,12 @@ input[type="checkbox"]:checked + label:after {
     background-position: center 5px;
    background-repeat: no-repeat;
 }
+.icon-credit-card{
+   background-image: url("../../custom/Assets/Dashboard/ic_pay_wallet.png");
+   background-size: 28px 28px;
+    background-position: center 5px;
+   background-repeat: no-repeat;
+}
 .icon-search-items{
     background-image: url("../../custom/Assets/Tips/ic_tip_search_receipt.png");
     background-size: 28px 28px;
@@ -970,6 +976,13 @@ input[type="checkbox"]:checked + label:after {
     background-color: #DEDEDE;
     color: #004227;
     font-size: 18px;
+    border-radius: 5px;
+}
+.tips_change_amount button:hover,
+.tips_change_amount button:focus,
+.tips_change_amount button:active {
+    background-color: #0F4D34;
+    color: #FFF;
 }
 .tips_change_amount .green-btn {
     background-color: #009345;
@@ -993,4 +1006,18 @@ input[type="checkbox"]:checked + label:after {
     width: 48px;
     margin: 0 auto;
     margin-top: 40px;
+}
+.txt-red {
+    color: #810a0a;
+    text-align: center;
+    margin: 10px;
+}
+.tip-tabs.tabs-striped.tabs-background-positive .tabs {
+    background-color: #004227;
+    top: -48px;
+}
+.tip-tabs.tabs-striped.tabs-background-positive .pane {
+    position: relative;
+    height: auto;
+    margin-top: 48px;
 }
