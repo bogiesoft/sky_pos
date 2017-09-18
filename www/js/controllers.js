@@ -2078,8 +2078,8 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
 	$scope.order_data = OrderData.getProperty();
     // $scope.order_details = $scope.order_data.OrderDetails;
     $scope.payment_model={};
-  	$scope.payment_model.amount_due=parseFloat($scope.order_data.OSum*1)+parseFloat($scope.order_data.Tax*1)+parseFloat($scope.order_data.ServiceCharge*1)-parseFloat($scope.order_data.Discount*1);
-    $scope.payment_model.amount=$scope.payment_model.amount_due;
+  	$scope.payment_model.amount_due = +($scope.order_data.OSum*1 + $scope.order_data.Tax*1 + $scope.order_data.ServiceCharge*1 - $scope.order_data.Discount*1).toFixed(2);
+    $scope.payment_model.amount= $scope.payment_model.amount_due;
     $scope.payment_model.cheque_number='';
     $scope.payment_model.discount_type_per=true;
     $scope.payment_model.amt_discount_amount=0.00;
