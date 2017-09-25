@@ -1043,7 +1043,54 @@ input[type="checkbox"]:checked + label:after {
     padding: 20px 10px !important;
     cursor: pointer;
 }
-.fat-item:focus,
-.fat-item:active {
+.tip-validate-wrapper .split-textbox-label{
+    font-size: 12px !important;
+}
+.tip-valid-receip .col-20{
+    padding-right: 10px !important;
+}
+.tip-valid-receipt{
+    padding: 10px 15px 25px 15px;
+    background: #fff;
+}
 
+/* settle tips */
+.drop-shadow {
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+    margin-bottom: 2px;
+}
+.margin-top {
+    padding-top: 12px !important;
+}
+.item-small {
+    font-size: 14px;
+}
+.text-green {
+    color: #009245;
+}
+.settle-tips-wrapper .col-20{
+    padding-right: 15px;
+}
+
+/*tips-report-wrapper*/
+.tips-report-wrapper{
+    background-color: #f7f7f7;
+    padding: 10px 15px 25px 15px;
+}
+
+.staff-tips-report{
+    background-color: #fff;
+    padding: 5px 15px 15px 15px;
+}
+.my-container .tips-details{
+    margin-top: 0px;
+    padding-right: 0;
+    background: #fff;
+    padding-bottom: 0px;
+}
+.tips-details .button{
+    color: #fff;
+    font-size: 30px;
+    text-align: center;
+    margin-left: 5px;
 }

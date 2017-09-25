@@ -223,6 +223,42 @@ angular.module('skypos', ['ionic', 'skypos.controllers','ngCordova','ngCordovaOa
       }
     }
   })
+  .state('app.report-tips', {
+    url: '/report-tips',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/tips/report-tips.html',
+        controller: 'ReportTipsCtrl'
+      }
+    }
+  })
+  .state('app.correct-tips', {
+    url: '/correct-tips',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/tips/correct-tips.html',
+        controller: 'CorrectTipsCtrl'
+      }
+    }
+  })
+  .state('app.finalize-tips', {
+    url: '/finalize-tips',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/tips/finalize-tips.html',
+        controller: 'FinalizeTipsCtrl'
+      }
+    }
+  })
+  .state('app.settle-tips', {
+    url: '/settle-tips',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/tips/settle-tips.html',
+        controller: 'SettleTipsCtrl'
+      }
+    }
+  })
   .state('app.admin_tools', {
     url: '/admin_tools',
     views: {

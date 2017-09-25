@@ -1,0 +1,81 @@
+<ion-view view-title="Order" hide-nav-bar="true" cache-view="false">
+    <ion-header-bar align-title="left"  class="bar-dark sky-pos-green" cache-view="false">
+        <div class="buttons">
+            <a href="#/app/tips" class="button button-icon button-clear icon ion-arrow-left-c">
+                <span class="order-page-header-menu-text"></span>
+            </a>
+        </div>
+        <h1 class="title text-left order-header-title"  align-title="left" style="text-align:left">Tips Settlement</h1>
+        <div class="buttons">
+            <button type="button" ng-click="settleTips()" class="order-header-icon button button-icon button-clear ion-search"></button>
+        </div>
+    </ion-header-bar>
+
+    <ion-content scroll="true" has-bouncing="false" class="has-header has-footer has-sub-header" style="background-color: #F3F3F3;">
+
+        <div class="my-container" style="">
+
+            <!-- valid data input -->
+            <div class="tip-validate-wrapper drop-shadow">
+                <div class="row">
+                    <div class="col-50 split-textbox-label"><i class="icon ion-android-star"></i> From Date:</div>
+                    <div class="col-40">
+                        <input class="split-textbox" type="date" ng-model="order_id" />
+                    </div>
+                    <div class="col-10">
+                        <button class="tip-payment small-btn" ng-click="from_date()">
+                            <i class="ion-calendar"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-50 split-textbox-label"><i class="icon ion-android-star"></i> To Date:</div>
+                    <div class="col-40">
+                        <input class="split-textbox" type="date" ng-model="order_id" />
+                    </div>
+                    <div class="col-10">
+                        <button class="tip-payment small-btn" ng-click="to_date()">
+                            <i class="ion-calendar"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="row split-textbox-label margin-top">
+                    <div class="col-50"><i class="icon ion-android-star"></i> Amount Settle:</div>
+                    <div class="col-30 text-center">1</div>
+                    <div class="col-20 text-right text-green">$2.00</div>
+                </div>
+
+            </div>
+            <!-- /valid data input -->
+
+            <div class="item item-body item-small">
+                <div class="row">
+                    <div class="col-100">Staff Name: <b>Alicia Green</b></div>
+                </div>
+
+                <div class="row">
+                    <div class="col-50">Date: <b>Feb 02, 2017</b></div>
+                    <div class="col-50 text-right">Amount: <b>$2.00</b></div>
+                </div>
+            </div>
+            <!-- /tip-valid-receipt input -->
+
+        </div>
+
+    </ion-content>
+
+    <div style="margin-top:140px;" class="bar bar-footer sky-pos-light-green">
+        <div class="row">
+
+            <div class="col col-100">
+                <div style="text-align:center;width:100%">
+                    <button type="button" ng-click="settleTips()" style="width:80px;height:80px;border-radius:50px;color:#FFF;margin-top:-40px;" class="button sky-pos-light-green  ion-checkmark"><br>TIPS SETTLE</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</ion-view>

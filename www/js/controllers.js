@@ -3324,6 +3324,101 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
     
     
 })
+.controller("ReportTipsCtrl",function($rootScope, $scope, $http, $location, $ionicSideMenuDelegate, ProfileData, Utils, $ionicLoading, $document, SweetAlert, $ionicModal, $state, OrderData){
+
+    $ionicSideMenuDelegate.canDragContent(false);
+    Utils.checkLogin();
+
+    $scope.profile=ProfileData.getProperty();
+    $scope.authenticationToken=localStorage.AccessToken;
+    $scope.userId=localStorage.Id;
+
+
+})
+.controller("CorrectTipsCtrl",function($rootScope, $scope, $http, $location, $ionicSideMenuDelegate, ProfileData, Utils, $ionicLoading, $document, SweetAlert, $ionicModal, $state, OrderData){
+
+    $ionicSideMenuDelegate.canDragContent(false);
+    Utils.checkLogin();
+
+    $scope.profile=ProfileData.getProperty();
+    $scope.authenticationToken=localStorage.AccessToken;
+    $scope.userId=localStorage.Id;
+
+    // tips list
+    $scope.tips = [{
+        'method': 'analog',
+        'amount': 2.00
+    },{
+        'method': 'gift',
+        'amount': 3.00
+    }];
+
+    // select provision item
+    $scope.selectProvisionItem=function(index){
+        $selected_items=[];
+        $clicked_item =$scope.items[index];
+        $scope.myOrderProvisionItem = {};
+        $scope.provision_items[index]=!$scope.provision_items[index]
+        // console.log($scope.provision_items);
+        if($scope.provision_items[index])
+        {
+            $scope.selected_provision_items.push($clicked_item );
+
+            $scope.myOrderProvisionItem.ID="";
+            $scope.myOrderProvisionItem.Quantity=1;
+            $scope.myOrderProvisionItem.Price=$clicked_item.Price;
+            $scope.myOrderProvisionItem.OrderID="";
+            $scope.myOrderProvisionItem.ProvisionName=$clicked_item.Name;
+
+
+            //  console.log($clicked_item.OptionsList.length);
+            if($clicked_item.OptionsList.length>0)
+            {
+                $scope.item_options = $clicked_item.OptionsList;
+                $scope.showItemOptionModal();
+                //Utils.showAlert("",$clicked_item.OptionsList.length);
+
+
+            }
+            else
+            {
+                $scope.orderDetails.push($scope.myOrderProvisionItem);
+            }
+        }
+        else
+        {
+            //$scope.selected_provision_items.pop($clicked_item );
+            $scope.selected_provision_items.splice( index, 1 );
+            // var order_details_index = $scope.orderDetails.indexOf($scope.myOrderProvisionItem);
+            $scope.orderDetails.splice( index, 1 );
+            $scope.myOrderProvisionItem={};
+        }
+        //  console.log($scope.selected_provision_items);
+    };
+
+})
+.controller("FinalizeTipsCtrl",function($rootScope, $scope, $http, $location, $ionicSideMenuDelegate, ProfileData, Utils, $ionicLoading, $document, SweetAlert, $ionicModal, $state, OrderData){
+
+    $ionicSideMenuDelegate.canDragContent(false);
+    Utils.checkLogin();
+
+    $scope.profile=ProfileData.getProperty();
+    $scope.authenticationToken=localStorage.AccessToken;
+    $scope.userId=localStorage.Id;
+
+
+})
+.controller("SettleTipsCtrl",function($rootScope, $scope, $http, $location, $ionicSideMenuDelegate, ProfileData, Utils, $ionicLoading, $document, SweetAlert, $ionicModal, $state, OrderData){
+
+    $ionicSideMenuDelegate.canDragContent(false);
+    Utils.checkLogin();
+
+    $scope.profile=ProfileData.getProperty();
+    $scope.authenticationToken=localStorage.AccessToken;
+    $scope.userId=localStorage.Id;
+
+
+})
 .controller("AdminToolsCtrl",function($rootScope,$scope,$http,$location,$ionicSideMenuDelegate,ProfileData,Utils){
     
     $ionicSideMenuDelegate.canDragContent(false);
