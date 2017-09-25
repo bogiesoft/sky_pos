@@ -113,6 +113,7 @@ body{
 }
 .sky-pos-green{
   background-color: #004227!important;
+  background-image: none;
   border-color: #004227!important;
 }
 .sky-pos-dark-green{
@@ -916,6 +917,15 @@ input[type="checkbox"]:checked + label:after {
     background: #EEE;
     font-size: 20px;
 }
+.receipt-serach-btn {
+    border: 0;
+    background-color: #009245;
+    border-radius: 50%;
+    padding: 3px 11px;
+    margin: 12px;
+    color: #FFF;
+    font-size: 22px;
+}
 .tip-payment-wrapper {
     padding: 10px 15px 25px 15px;
 }
@@ -1020,4 +1030,20 @@ input[type="checkbox"]:checked + label:after {
     position: relative;
     height: auto;
     margin-top: 48px;
+}
+.pane[hide-nav-bar="true"] .has-tabs-top {
+    top: 0;
+}
+
+/* validate tips */
+.tip-validate-wrapper{
+    padding: 10px 15px 25px 15px;
+}
+.fat-item {
+    padding: 20px 10px !important;
+    cursor: pointer;
+}
+.fat-item:focus,
+.fat-item:active {
+
 }

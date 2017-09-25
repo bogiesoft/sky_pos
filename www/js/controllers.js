@@ -3095,7 +3095,7 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
     $scope.authenticationToken=localStorage.AccessToken;
     $scope.userId=localStorage.Id;
 
-    // stuff list for tips
+    // stuff got tips
     $scope.employees = [{
         'name': 'A',
         'amount': 0.00
@@ -3121,7 +3121,7 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
             my_button_element.addClass('button-shift-right').removeClass("button-shift-left");
     };
 
-    // tip list
+    // tips list
     $scope.tips = [{
         'method': 'cash',
         'amount': 2.00
@@ -3141,6 +3141,51 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
         'method': 'cash',
         'amount': 2.00
     }];
+
+    // search receipts
+    $scope.receipts = [{
+        "OrderId": '4170106165228',
+        "CustomerFirstName": 'Hoang',
+        "CustomerLastName": 'Amy',
+        "OSum": '45.00'
+    },{
+        "OrderId": '4170106165228',
+        "CustomerFirstName": 'Hoang',
+        "CustomerLastName": 'Amy',
+        "OSum": '55.00'
+    },{
+        "OrderId": '4170106165228',
+        "CustomerFirstName": 'Hoang',
+        "CustomerLastName": 'Amy',
+        "OSum": '65.00'
+    }];
+
+    // whole stuff list
+    $scope.employees_list = [{
+        "EmployeeId": "1023",
+        "EmployeeFirstName": 'Hoang',
+        "EmployeeLastName": 'Amy'
+    },{
+        "EmployeeId": "1024",
+        "EmployeeFirstName": 'Jack',
+        "EmployeeLastName": 'Mae'
+    },{
+        "EmployeeId": "1025",
+        "EmployeeFirstName": 'Steve',
+        "EmployeeLastName": 'Jobs'
+    }];
+
+    // set receipt
+    $scope.setReceipt = function (id) {
+        $scope.order_id = id;
+        $scope.closeSearchReceiptModal();
+    };
+    
+    // add stuff
+    $scope.setEmployee = function (id) {
+        $scope.employee_id = id;
+        $scope.closeAddStuffModal();
+    };
 
     // Analog tips modal
     /*******************/
@@ -3231,6 +3276,53 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
         $scope.giftPaymentModal.show();
     };
     /***************************/
+
+    // Search Receipt modal
+    /*******************/
+    $scope.searchReceiptModal=null;
+    $ionicModal.fromTemplateUrl('templates/tips/search-receipt-modal.html', {
+        scope: $scope
+    }).then(function(modal) {
+        $scope.searchReceiptModal = modal;
+    });
+    // Triggered in the search modal to close it
+    $scope.closeSearchReceiptModal = function() {
+        $scope.searchReceiptModal.hide();
+    };
+    // Open the search modal
+    $scope.showSearchReceiptModal = function(){
+        $scope.searchReceiptModal.show();
+    };
+    /***************************/
+
+    // Add Stuff modal
+    /*******************/
+    $scope.addStuffModal=null;
+    $ionicModal.fromTemplateUrl('templates/tips/add-stuff-modal.html', {
+        scope: $scope
+    }).then(function(modal) {
+        $scope.addStuffModal = modal;
+    });
+    // Triggered in the search modal to close it
+    $scope.closeAddStuffModal = function() {
+        $scope.addStuffModal.hide();
+    };
+    // Open the search modal
+    $scope.showAddStuffModal = function(){
+        $scope.addStuffModal.show();
+    };
+    /***************************/
+})
+.controller("ValidateTipsCtrl",function($rootScope, $scope, $http, $location, $ionicSideMenuDelegate, ProfileData, Utils, $ionicLoading, $document, SweetAlert, $ionicModal, $state, OrderData){
+
+    $ionicSideMenuDelegate.canDragContent(false);
+    Utils.checkLogin();
+
+    $scope.profile=ProfileData.getProperty();
+    $scope.authenticationToken=localStorage.AccessToken;
+    $scope.userId=localStorage.Id;
+    
+    
 })
 .controller("AdminToolsCtrl",function($rootScope,$scope,$http,$location,$ionicSideMenuDelegate,ProfileData,Utils){
     

@@ -23,7 +23,7 @@
                         <input class="split-textbox" type="text" ng-model="order_id" />
                     </div>
                     <div class="col-10">
-                        <button class="tip-payment small-btn" ng-click="searchOrder()">
+                        <button class="tip-payment small-btn" ng-click="showSearchReceiptModal()">
                             <i class="ion-search"></i>
                         </button>
                     </div>
@@ -142,14 +142,14 @@
             <div class="col">
                 <div class="text-white" style="text-align:center;width:100%">
                     <span>Search Receipt</span><br>
-                    <a  type="button" ng-click="search_receipt();" style="color:#FFF;margin-top:-65px;" class="button sky-pos-light-green icon-search-items top"></a>
+                    <a  type="button" ng-click="showSearchReceiptModal();" style="color:#FFF;margin-top:-65px;" class="button sky-pos-light-green icon-search-items top"></a>
 
                 </div>
             </div>
             <div class="col">
                 <div class="text-white" style="text-align:center;width:100%">
                     <span>Add Stuff</span><br>
-                    <button  type="button" ng-click="add_stuff()" style="color:#FFF;margin-top:-65px;" class="button sky-pos-light-green icon-add-items top"></button>
+                    <button  type="button" ng-click="showAddStuffModal()" style="color:#FFF;margin-top:-65px;" class="button sky-pos-light-green icon-add-items top"></button>
                 </div>
             </div>
         </div>
