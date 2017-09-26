@@ -7,7 +7,7 @@
     </div>
     <h1 class="title">Analog Tips</h1>
     <div class="buttons buttons-right">
-      <button ng-click="doPayment('analog')" class="button button-clear"><i class="ion-checkmark"></i></button>
+      <button ng-click="doPayment('analog');closeAnalogPaymentModal();" class="button button-clear"><i class="ion-checkmark"></i></button>
     </div>
   </ion-header-bar>
 
@@ -67,7 +67,7 @@
 
 			<div class="col col-100">
 				<div style="text-align:center;width:100%">
-					<button type="button" ng-click="closeAnalogPaymentModal()" style="width:70px;height:70px;border-radius:50px;color:#FFF;margin-top:-40px;" class="button sky-pos-light-green  ion-checkmark"><br>OK</button>
+					<button type="button" ng-click="doPayment('analog');closeAnalogPaymentModal();" style="width:70px;height:70px;border-radius:50px;color:#FFF;margin-top:-40px;" class="button sky-pos-light-green  ion-checkmark"><br>OK</button>
 				</div>
 			</div>
 

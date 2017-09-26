@@ -3095,14 +3095,16 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
     $scope.authenticationToken=localStorage.AccessToken;
     $scope.userId=localStorage.Id;
 
+    // payment model
+    $scope.payment_model = {
+        'order_id': '1234',
+        'amount': 0,
+        'total_tips': 0
+    };
+
     // stuff got tips
-    $scope.employees = [{
-        'name': 'A',
-        'amount': 0.00
-    },{
-        'name': 'B',
-        'amount': 1.00
-    }];
+    $scope.employees = [];
+    $scope.current = 0;
 
     // set class to stuff
     $scope.setClass = function ($event,index){
@@ -3124,32 +3126,20 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
     // tips list
     $scope.tips = [{
         'method': 'cash',
-        'amount': 2.00
-    },{
-        'method': 'credit_card',
-        'amount': 1.00
-    },{
-        'method': 'check',
-        'amount': 3.00
-    },{
-        'method': 'gift',
-        'amount': 5.00
-    },{
-        'method': 'analog',
-        'amount': 4.00
-    },{
-        'method': 'cash',
-        'amount': 2.00
+        'amount': "5.00"
     }];
+    for(var i=0;i<$scope.tips.length;i++){
+        $scope.payment_model.total_tips += parseFloat($scope.tips[i].amount);
+    }
 
     // search receipts
     $scope.receipts = [{
-        "OrderId": '4170106165228',
+        "OrderId": '4170106165225',
         "CustomerFirstName": 'Hoang',
         "CustomerLastName": 'Amy',
         "OSum": '45.00'
     },{
-        "OrderId": '4170106165228',
+        "OrderId": '4170106165226',
         "CustomerFirstName": 'Hoang',
         "CustomerLastName": 'Amy',
         "OSum": '55.00'
@@ -3161,31 +3151,99 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
     }];
 
     // whole stuff list
-    $scope.employees_list = [{
-        "EmployeeId": "1023",
-        "EmployeeFirstName": 'Hoang',
-        "EmployeeLastName": 'Amy'
-    },{
-        "EmployeeId": "1024",
-        "EmployeeFirstName": 'Jack',
-        "EmployeeLastName": 'Mae'
-    },{
-        "EmployeeId": "1025",
-        "EmployeeFirstName": 'Steve',
-        "EmployeeLastName": 'Jobs'
-    }];
+    $scope.employees_list = [];
 
     // set receipt
     $scope.setReceipt = function (id) {
-        $scope.order_id = id;
+        $scope.payment_model.order_id = id;
         $scope.closeSearchReceiptModal();
     };
     
     // add stuff
     $scope.setEmployee = function (id) {
-        $scope.employee_id = id;
+        $scope.employees.push({
+            "id": "",
+            "employeeID": $scope.employees_list[id].EmployeeID,
+            "orderID": "",
+            "tipID": "",
+            "tipAmount": 0.0,
+            "tipDate": new Date().toUTCString(),
+            "tipType": "",
+            "employeename": $scope.employees_list[id].FirstName + " " + $scope.employees_list[id].LastName
+        });
         $scope.closeAddStuffModal();
     };
+
+    // edit tip for stuff
+    $scope.editTipAmount = function (index) {
+        $scope.current = index;
+        $scope.newPrice = $scope.employees[index].tipAmount;
+        $scope.showEditPriceModal();
+    };
+
+    // change tip amount
+    $scope.changePrice = function (amount) {
+        $scope.employees[$scope.current].tipAmount = amount;
+        $scope.closeEditPriceModal();
+    };
+
+    // remove stuff
+    $scope.removeEmployee = function (index) {
+        $scope.employees.splice(index, 1);
+    };
+
+    // do payment
+    $scope.doPayment = function (method) {
+        // check tip amount
+        if($scope.payment_model.amount > 0) {
+            $scope.tips.push({
+                'method': method,
+                'amount': $scope.payment_model.amount
+            });
+            $scope.payment_model.total_tips += parseFloat($scope.payment_model.amount);
+        }
+    };
+
+    // save tips
+    $scope.saveTips = function () {
+
+    };
+
+    // Edit Tips Amount modal
+    /*******************/
+    $scope.editTipsAmountModal=null;
+    $ionicModal.fromTemplateUrl('templates/split-bill-edit-price.html', {
+        scope: $scope
+    }).then(function(modal) {
+        $scope.editTipsAmountModal = modal;
+    });
+    // Triggered in the analog modal to close it
+    $scope.closeEditPriceModal = function() {
+        $scope.editTipsAmountModal.hide();
+    };
+    // Open the analog modal
+    $scope.showEditPriceModal = function(){
+        $scope.editTipsAmountModal.show();
+    };
+    /***************************/
+
+    // Cash tips modal
+    /*******************/
+    $scope.cashPaymentModal=null;
+    $ionicModal.fromTemplateUrl('templates/tips/cash-tips-modal.html', {
+        scope: $scope
+    }).then(function(modal) {
+        $scope.cashPaymentModal = modal;
+    });
+    // Triggered in the check modal to close it
+    $scope.closeCashPaymentModal = function() {
+        $scope.cashPaymentModal.hide();
+    };
+    // Open the check modal
+    $scope.showCashPaymentModal = function(){
+        $scope.cashPaymentModal.show();
+    };
+    /***************************/
 
     // Analog tips modal
     /*******************/
@@ -3310,6 +3368,38 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
     // Open the search modal
     $scope.showAddStuffModal = function(){
         $scope.addStuffModal.show();
+        $ionicLoading.show({
+            template: 'Loading...'
+        }).then(function(){
+            console.log("The loading indicator is now displayed");
+        });
+        var myJsonRequest = new Object();
+        myJsonRequest.limit = 50;
+
+        // load stuff
+        $http({
+            url: Utils.getApiURL("all_employee"),
+            method: "GET",
+            data: { },
+            headers: {'Content-Type': 'application/json','Authorization':'public 1234567890'}
+        }).success(function (data, status, headers, config){
+            if(data.Success)
+            {
+                $scope.employees_list = data.EmployeeModelList;
+                $ionicLoading.hide().then(function(){
+                    console.log("Employee list loaded.");
+                });
+            } else {
+                Utils.showAlert("Unable to Load", data.Message, true, 'error', false, 'OK', '', true, true);
+            }
+        }).error(function (data, status, headers, config) {
+            $ionicLoading.hide().then(function(){
+                console.error("Load failed.");
+            });
+        }).finally(function () {
+            $scope.loading = false;
+        });
+
     };
     /***************************/
 })
@@ -3353,47 +3443,13 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
         'amount': 3.00
     }];
 
-    // select provision item
-    $scope.selectProvisionItem=function(index){
-        $selected_items=[];
-        $clicked_item =$scope.items[index];
-        $scope.myOrderProvisionItem = {};
-        $scope.provision_items[index]=!$scope.provision_items[index]
-        // console.log($scope.provision_items);
-        if($scope.provision_items[index])
-        {
-            $scope.selected_provision_items.push($clicked_item );
-
-            $scope.myOrderProvisionItem.ID="";
-            $scope.myOrderProvisionItem.Quantity=1;
-            $scope.myOrderProvisionItem.Price=$clicked_item.Price;
-            $scope.myOrderProvisionItem.OrderID="";
-            $scope.myOrderProvisionItem.ProvisionName=$clicked_item.Name;
-
-
-            //  console.log($clicked_item.OptionsList.length);
-            if($clicked_item.OptionsList.length>0)
-            {
-                $scope.item_options = $clicked_item.OptionsList;
-                $scope.showItemOptionModal();
-                //Utils.showAlert("",$clicked_item.OptionsList.length);
-
-
-            }
-            else
-            {
-                $scope.orderDetails.push($scope.myOrderProvisionItem);
-            }
+    // select item
+    $scope.selectProvisionItem = function (index) {
+        if(typeof $scope.assigned_items[index] == 'undefined' || $scope.assigned_items[index] == false) {
+            $scope.assigned_items[index] = true;
+        } else {
+            $scope.assigned_items[index] = false;
         }
-        else
-        {
-            //$scope.selected_provision_items.pop($clicked_item );
-            $scope.selected_provision_items.splice( index, 1 );
-            // var order_details_index = $scope.orderDetails.indexOf($scope.myOrderProvisionItem);
-            $scope.orderDetails.splice( index, 1 );
-            $scope.myOrderProvisionItem={};
-        }
-        //  console.log($scope.selected_provision_items);
     };
 
 })
@@ -3845,7 +3901,19 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
             url.daily_report="Report/DailyReport";
             url.shift_report="Report/ShiftReport";
             url.receipt_reprint="Order/ReceiptReprint";
-            
+
+            url.search_receipts="Tips/SearchReceipts";
+            url.check_fully_paid="Tips/CheckIfOrderIsFullyPaid";
+            url.search_order="Tips/SearchOrder";
+            url.all_employee="Tips/AllEmployee";
+            url.save_pay_tip="Tips/SavePayTip";
+            url.search_tip_settlement="Tips/SearchTipSettlement";
+            url.save_tip_settlement="Tips/SaveTipSettle";
+            url.search_tip_finalize="Tips/SearchTipForFinalize";
+            url.save_finalize_tip="Tips/SaveFinalizeTip";
+            url.search_tip_validation="Tips/SearchTipValidation";
+            url.save_tip_validation="Tips/SaveTipValidation";
+
             if(method=='base_url' || method=='image_base_url')
               return  url[method];  
             else if(method!=undefined || method!=null)

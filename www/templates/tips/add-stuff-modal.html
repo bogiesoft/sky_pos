@@ -24,8 +24,8 @@
             <!-- /tip input -->
 
             <div class="list">
-                <div class="row item item-body fat-item" ng-repeat="item in employees_list | filter:employee_name" ng-click="setEmployee(item.EmployeeId)">
-                    <div class="col">{{item.EmployeeFirstName}} {{item.EmployeeLastName}}</div>
+                <div class="row item item-body fat-item" ng-repeat="item in employees_list | filter:employee_name" ng-click="setEmployee($index)">
+                    <div class="col">{{item.FirstName}} {{item.LastName}}</div>
                 </div>
             </div>
 
@@ -37,7 +37,7 @@
             <div class="col">
                 <div class="text-white" style="text-align:center;width:100%">
                     <span>Select</span><br>
-                    <a  type="button" ng-click="addSearchReceipt();" style="color:#FFF;margin-top:-65px;" class="button sky-pos-light-green ion-checkmark top"></a>
+                    <a  type="button" ng-click="closeAddStuffModal()" style="color:#FFF;margin-top:-65px;" class="button sky-pos-light-green ion-checkmark top"></a>
                 </div>
             </div>
         </div>

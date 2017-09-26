@@ -7,7 +7,7 @@
         </div>
         <h1 class="title text-left order-header-title"  align-title="left" style="text-align:left">Tip Adjustment</h1>
         <div class="buttons">
-            <button type="button" ng-click="adjustTips()" class="order-header-icon button button-icon button-clear ion-checkmark"></button>
+            <button type="button" ng-click="saveTips()" class="order-header-icon button button-icon button-clear ion-checkmark"></button>
         </div>
     </ion-header-bar>
 
@@ -20,7 +20,7 @@
                 <div class="row">
                     <div class="col-30 split-textbox-label">Receipt No#:</div>
                     <div class="col-60">
-                        <input class="split-textbox" type="text" ng-model="order_id" />
+                        <input class="split-textbox" type="text" ng-model="payment_model.order_id" />
                     </div>
                     <div class="col-10">
                         <button class="tip-payment small-btn" ng-click="showSearchReceiptModal()">
@@ -32,7 +32,7 @@
                 <div class="row">
                     <div class="col-30 split-textbox-label">Tip Amount:</div>
                     <div class="col-70">
-                        <input class="split-textbox" type="text" ng-model="tip_amount" />
+                        <input class="split-textbox" type="text" ng-model="payment_model.amount" />
                     </div>
                 </div>
             </div>
@@ -45,22 +45,19 @@
                         <div style="padding:0px"  class="row recall-list" id="my-row-{{$index}}">
                             <div class="col col-90">
                                 <div class="stuff-item my-item" style="float:left;margin-left:10px;">
-                                    <span class="customer">Employee Name {{item.name}}</span>
+                                    <span class="customer">{{item.employeename}}</span>
                                 </div>
                                 <div class="stuff-item my-item" style="float:right;margin-right:10px;">
-                                    <span class="customer">${{item.amount | number: 2}}</span>
+                                    <span class="customer">${{item.tipAmount | number: 2}}</span>
                                 </div>
-                                <span class="item-note">
-                                    <p style="white-space:pre-wrap; text-align:right;color:#607d8b;" ng-bind-html="splitDate(data.ODate)"></p>
-                                </span>
                             </div>
                             <div class="col" style="text-align:right;"><h3><a style="cursor:pointer;cursor:hand;" class="" ng-click="setClass($event,$index)"><img check-image ng-src="custom/Assets/order/ic_vertical_ellipsis.png" style="height:30px;width:30px;"></a></h3></div>
                         </div>
 
                         <div style="position:absolute;padding:0px;margin:0px;top:0px;" id="my-button-{{$index}}" class=" button-shift-right">
                             <div>
-                                <button  type="button" ng-click="gotoSplitBillByTotal($index)" style="border-radius:0px;line-height: 46px;width:70px; height:100%;font-size:14px;padding-top:2px;"  class="order-edit-button button icon-center  button-assertive sky-pos-green"> <img src="custom/Assets/Tips/ic_edit_staff_tip.png" style="width:25px;margin-top:16px;padding-top:2px;" /></button>
-                                <button  type="button" ng-click="showServiceChargeModal($index)" style="padding:2px 5px;border-radius:0px;line-height: 46px;width:70px; font-size:12px;margin-left:-4px;white-space:nowrap;" class="order-edit-button button icon-center  button-assertive sky-pos-dark-green"><img src="custom/Assets/Tips/ic_delete_staffs_white.png" style="width:24px;margin-top:15px;" /></button>
+                                <button  type="button" ng-click="editTipAmount($index)" style="border-radius:0px;line-height: 46px;width:70px; height:100%;font-size:14px;padding-top:2px;"  class="order-edit-button button icon-center  button-assertive sky-pos-green"> <img src="custom/Assets/Tips/ic_edit_staff_tip.png" style="width:25px;margin-top:16px;padding-top:2px;" /></button>
+                                <button  type="button" ng-click="removeEmployee($index)" style="padding:2px 5px;border-radius:0px;line-height: 46px;width:70px; font-size:12px;margin-left:-4px;white-space:nowrap;" class="order-edit-button button icon-center  button-assertive sky-pos-dark-green"><img src="custom/Assets/Tips/ic_delete_staffs_white.png" style="width:24px;margin-top:15px;" /></button>
                             </div>
                         </div>
                     </div>
@@ -71,7 +68,7 @@
             <!-- payment methods -->
             <div class="payment-method-wrapper">
                 <div class="row payment-pics">
-                    <div class="col darkest-yellow">
+                    <div class="col darkest-yellow" ng-click="showCashPaymentModal()">
                         <img ng-src="custom/Assets/Tips/ic_tip_payment_cash.png" alt="" class="">
                     </div>
                     <div class="col dark-yellow" ng-click="showCreditPaymentModal()">
@@ -109,7 +106,7 @@
 
             <div style="height:28px;padding-top:2px;" class="text-white row sky-pos-light-green">
                 <div class="col-70">Tips Information</div>
-                <div class="col-30">Total Tips: <span style="color:#E4F711;float: right;">$0.00</span></div>
+                <div class="col-30">Total Tips: <span style="color:#E4F711;float: right;">${{payment_model.total_tips}}</span></div>
             </div>
 
             <!-- tip list -->
