@@ -45,10 +45,10 @@
                         <div style="padding:0px"  class="row recall-list" id="my-row-{{$index}}">
                             <div class="col col-90">
                                 <div class="stuff-item my-item" style="float:left;margin-left:10px;">
-                                    <span class="customer">{{item.employeename}}</span>
+                                    <span class="customer">{{item.FirstName}} {{item.LastName}}</span>
                                 </div>
                                 <div class="stuff-item my-item" style="float:right;margin-right:10px;">
-                                    <span class="customer">${{item.tipAmount | number: 2}}</span>
+                                    <span class="customer">${{item.TipAmount | number: 2}}</span>
                                 </div>
                             </div>
                             <div class="col" style="text-align:right;"><h3><a style="cursor:pointer;cursor:hand;" class="" ng-click="setClass($event,$index)"><img check-image ng-src="custom/Assets/order/ic_vertical_ellipsis.png" style="height:30px;width:30px;"></a></h3></div>
@@ -118,13 +118,13 @@
                 <div class="tip-list">
                     <div style="overflow:hidden;margin-right:0px" class="row item item-body" ng-repeat="item in tips" id="tip-row-{{$index}}">
                         <div class="col-20">
-                            <img ng-src="custom/Assets/Tips/ic_tip_payment_{{item.method}}.png" alt="" class="img-responsive">
+                            <img ng-src="custom/Assets/Tips/ic_tip_payment_{{item.Method}}.png" alt="" class="img-responsive">
                         </div>
                         <div class="col-50">
-                            {{item.method | uppercase}}
+                            {{item.Method | uppercase}}
                         </div>
                         <div class="col-30">
-                            <span style="float: right;">${{item.amount | number: 2}}</span>
+                            <span style="float: right;">${{item.TipAmount | number: 2}}</span>
                         </div>
                     </div>
                 </div>

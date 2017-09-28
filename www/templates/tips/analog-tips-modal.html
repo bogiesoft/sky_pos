@@ -37,27 +37,27 @@
 			<input type="number" ng-model="payment_model.amount" placeholder="Amount">
 		  </label>
 
-		   <div  class="item tips_change_amount">
-		  	  <div class="row">
-		  	  	 <div class="col"><button ng-click="payment_model.amount=1.0" type="button" style="padding-top:10px;padding-bottom:10px;" class="button-block">$1.00</button></div>
-		  	  	 <div class="col"> <button ng-click="payment_model.amount=2.0" type="button" style="padding-top:10px;padding-bottom:10px;" class="button-block">$2.00</button></div>
-		  	  	 <div class="col"> <button ng-click="payment_model.amount=5.0" style="padding-top:10px;padding-bottom:10px;" class="button-block">$5.00</button></div>
-		  	  </div>	
-		  	  <div class="row">
-		  	  	 <div class="col"><button ng-click="payment_model.amount=10.00" type="button" style="padding-top:10px;padding-bottom:10px;" class="button-block">$10.00</button></div>
-		  	  	 <div class="col"> <button ng-click="payment_model.amount=20.0" type="button" style="padding-top:10px;padding-bottom:10px;" class="button-block">$20.00</button></div>
-		  	  	 <div class="col"> <button ng-click="payment_model.amount=50.0" type="button" style="padding-top:10px;padding-bottom:10px;" class="button-block">$50.00</button></div>
-		  	  </div>
-		  	   <div class="row">
-		  	  	 <div class="col"><button ng-click="payment_model.amount=100.0" type="button" style="padding-top:10px;padding-bottom:10px;" class="button-block">$100.00</button></div>
-		  	  	 <div class="col"> <button ng-click="payment_model.amount=1.0" type="button" style="padding-top:10px;padding-bottom:10px;" class="button-block green-btn">Exact Amount</button></div>
-		  	  	 <div class="col"> <button ng-click="payment_model.amount=''" type="button" style="padding-top:10px;padding-bottom:10px;" class="button-block">
-					 <img src="custom/Assets/clockInOut/ic_key_pad_clear_green.png" alt="" style="width: 34px;">
-				 </button></div>
-		  	  </div>
-		  </div>  
-			  
-		</div>
+			 <div  class="item tips_change_amount">
+				 <div class="row">
+					 <div class="col"><button ng-click="payment_model.amount=payment_model.osum*0.01" type="button" style="padding-top:10px;padding-bottom:10px;" class="button-block">1%</button></div>
+					 <div class="col"> <button ng-click="payment_model.amount=payment_model.osum*0.02" type="button" style="padding-top:10px;padding-bottom:10px;" class="button-block">2%</button></div>
+					 <div class="col"> <button ng-click="payment_model.amount=payment_model.osum*0.05" style="padding-top:10px;padding-bottom:10px;" class="button-block">5%</button></div>
+				 </div>
+				 <div class="row">
+					 <div class="col"><button ng-click="payment_model.amount=payment_model.osum*0.1" type="button" style="padding-top:10px;padding-bottom:10px;" class="button-block">10%</button></div>
+					 <div class="col"> <button ng-click="payment_model.amount=payment_model.osum*0.2" type="button" style="padding-top:10px;padding-bottom:10px;" class="button-block">20%</button></div>
+					 <div class="col"> <button ng-click="payment_model.amount=payment_model.osum*0.5" type="button" style="padding-top:10px;padding-bottom:10px;" class="button-block">50%</button></div>
+				 </div>
+				 <div class="row">
+					 <div class="col"><button ng-click="payment_model.amount=payment_model.osum" type="button" style="padding-top:10px;padding-bottom:10px;" class="button-block">100%</button></div>
+					 <div class="col"> <button ng-click="payment_model.amount=payment_model.osum*0.1" type="button" style="padding-top:10px;padding-bottom:10px;" class="button-block green-btn">Exact Amount</button></div>
+					 <div class="col"> <button ng-click="payment_model.amount=''" type="button" style="padding-top:10px;padding-bottom:10px;" class="button-block">
+						 <img src="custom/Assets/clockInOut/ic_key_pad_clear_green.png" alt="" style="width: 34px;">
+					 </button></div>
+				 </div>
+			 </div>
+
+		 </div>
 </div>
 
   </ion-content>

@@ -17,25 +17,23 @@
                 <div class="row">
                     <div class="col-40">
                         <div class="split-textbox-label">Receipt No</div>
-                        <input class="split-textbox" type="text" ng-model="receipt_id" />
+                        <input class="split-textbox" type="text" ng-model="order_id" />
                     </div>
                     <div class="col-40" style="padding: 0 5px">
                         <div class="split-textbox-label">Last Service</div>
-                        <input class="split-textbox" type="text" ng-model="last_service" />
+                        <input class="split-textbox" type="date" ng-model="order_date" />
                     </div>
                     <div class="col-20">
-                        <button class="receipt-serach-btn" ng-click="searchOrder()">
-                            <i class="ion-search"></i>
-                        </button>
+                        <i class="ion-search"></i>
                     </div>
                 </div>
             </div>
             <!-- /tip input -->
 
             <div class="list">
-                <div class="row item item-body fat-item" ng-repeat="item in receipts" ng-click="setReceipt(item.OrderId)">
-                    <div class="col-50">{{item.OrderId}}</div>
-                    <div class="col-30">{{item.CustomerFirstName}} {{item.CustomerLastName}}</div>
+                <div class="row item item-body fat-item" ng-repeat="item in receipts | filter:order_id | filter:order_date" ng-click="setReceipt($index)">
+                    <div class="col-50" data-date="{{item.OrderDate}}">{{item.OrderId}}</div>
+                    <div class="col-30">{{item.CustomerName}}</div>
                     <div class="col-20 text-right">{{item.OSum}}</div>
                 </div>
             </div>
