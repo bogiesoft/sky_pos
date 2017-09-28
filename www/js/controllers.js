@@ -2875,7 +2875,7 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
          $scope.order = {};
          $scope.order.NumOfOTable=$scope.reservation_model.selected_tables.length;
          $scope.order.Total=0;
-         $scope.order.EmployeeID = $scope.userId
+         $scope.order.EmployeeID = $scope.userId;
          $scope.order.OrderDetails = [];
          $scope.order.IsReservation=true;
          $scope.order.OrderID = $scope.reservation_model.booking_no;
@@ -3098,7 +3098,9 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
         'order_id': '',
         'amount': 0,
         'total_tips': 0,
-        'osum': 0
+        'osum': 0,
+        'selected': false,
+        'selected_order_id': ''
     };
 
     // stuff got tips
@@ -3135,8 +3137,10 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
     $scope.setReceipt = function (index) {
         $scope.payment_model.osum = $scope.receipts[index].OSum;
         $scope.payment_model.order_id = $scope.receipts[index].OrderId;
+        $scope.payment_model.selected_order_id = $scope.receipts[index].OrderId;
         $scope.employees = $scope.receipts[index].EmployeeTipsDetailsList;
         $scope.tips = $scope.receipts[index].OrderTipMethodDetails;
+        $scope.payment_model.selected = true;
 
         $scope.payment_model.total_tips = 0;
         for(var i=0;i<$scope.tips.length;i++){
@@ -3151,7 +3155,7 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
         $scope.employees.push({
             "Id": "",
             "EmployeeID": $scope.employees_list[id].EmployeeID,
-            "OrderID": $scope.payment_model.order_id,
+            "OrderID": $scope.payment_model.selected_order_id,
             "TipID": "",
             "TipAmount": 0.0,
             "TipDate": new Date().toUTCString(),
@@ -3188,7 +3192,7 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
                 "PaymentType": 1,
                 "Method": method,
                 "TipID": 0,
-                "OrderID": $scope.payment_model.order_id,
+                "OrderID": $scope.payment_model.selected_order_id,
                 'TipAmount': parseFloat($scope.payment_model.amount).toFixed(2),
                 "TipDate": new Date().toUTCString(),
                 "PaymentID": "",
@@ -3242,7 +3246,7 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
             data: {
                 "orderTipMethodDetails": $scope.tips,
                 "employeeTipsDetailsList": $scope.employees,
-                "orderId": $scope.payment_model.order_id,
+                "orderId": $scope.payment_model.selected_order_id,
                 "userID": $scope.userId
             },
             headers: {'Content-Type': 'application/json','Authorization':'public 1234567890'}
@@ -3300,7 +3304,11 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
     };
     // Open the check modal
     $scope.showCashPaymentModal = function(){
-        $scope.cashPaymentModal.show();
+        if($scope.payment_model.selected) {
+            $scope.cashPaymentModal.show();
+        } else {
+            Utils.showAlert("Error", 'Please select a receipt', true, 'error', false, 'OK', '', true, true);
+        }
     };
     /***************************/
 
@@ -3318,7 +3326,11 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
     };
     // Open the analog modal
     $scope.showAnalogPaymentModal = function(){
-        $scope.analogPaymentModal.show();
+        if($scope.payment_model.selected) {
+            $scope.analogPaymentModal.show();
+        } else {
+            Utils.showAlert("Error", 'Please select a receipt', true, 'error', false, 'OK', '', true, true);
+        }
     };
     /***************************/
 
@@ -3336,7 +3348,11 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
     };
     // Open the check modal
     $scope.showCheckPaymentModal = function(){
-        $scope.checkPaymentModal.show();
+        if($scope.payment_model.selected) {
+            $scope.checkPaymentModal.show();
+        } else {
+            Utils.showAlert("Error", 'Please select a receipt', true, 'error', false, 'OK', '', true, true);
+        }
     };
     /***************************/
 
@@ -3354,7 +3370,11 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
     };
     // Open the credit modal
     $scope.showCreditPaymentModal = function(){
-        $scope.creditPaymentModal.show();
+        if($scope.payment_model.selected) {
+            $scope.creditPaymentModal.show();
+        } else {
+            Utils.showAlert("Error", 'Please select a receipt', true, 'error', false, 'OK', '', true, true);
+        }
     };
     /***************************/
 
@@ -3372,7 +3392,11 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
     };
     // Open the card modal
     $scope.showCardPaymentModal = function(){
-        $scope.cardPaymentModal.show();
+        if($scope.payment_model.selected) {
+            $scope.cardPaymentModal.show();
+        } else {
+            Utils.showAlert("Error", 'Please select a receipt', true, 'error', false, 'OK', '', true, true);
+        }
     };
     /***************************/
 
@@ -3390,7 +3414,11 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
     };
     // Open the gift modal
     $scope.showGiftPaymentModal = function(){
-        $scope.giftPaymentModal.show();
+        if($scope.payment_model.selected) {
+            $scope.giftPaymentModal.show();
+        } else {
+            Utils.showAlert("Error", 'Please select a receipt', true, 'error', false, 'OK', '', true, true);
+        }
     };
     /***************************/
 
@@ -3408,6 +3436,11 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
     };
     // Open the search modal
     $scope.showSearchReceiptModal = function(){
+        if($scope.payment_model.order_id=="") {
+            Utils.showAlert("Error", "Please provide Receipt no", true, 'error', false, 'OK', '', true, true);
+            return;
+        }
+
         $scope.searchReceiptModal.show();
 
         $ionicLoading.show({
@@ -3962,9 +3995,9 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
         },
         getApiURL: function(method) {
             var url = {};
-            //url.base_url="http://restaurant.theskypos.com/api/";
+            url.base_url="http://restaurant.theskypos.com/api/";
             url.image_base_url="http://restaurant.theskypos.com";
-           url.base_url="https://5638d5d7.ngrok.io/api/";
+           //url.base_url="https://5638d5d7.ngrok.io/api/";
             url.registration = "api/Account/Register";
             url.login_email = "Auth/Login";
             url.login_access_code="Auth/AccessCode";
