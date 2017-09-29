@@ -3084,7 +3084,7 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
     
  
 })
-.controller("AdjustTipsCtrl",function($rootScope, $scope, $http, $location, $ionicSideMenuDelegate, ProfileData, Utils, $ionicLoading, $document, SweetAlert, $ionicModal, $state, OrderData){
+.controller("AdjustTipsCtrl",function($rootScope, $scope, $http, $location, $ionicSideMenuDelegate, ProfileData, Utils, $ionicLoading, $document, SweetAlert, $ionicModal, $state, OrderData, $cordovaCamera, $filter, $cordovaFile){
 
     $ionicSideMenuDelegate.canDragContent(false);
     Utils.checkLogin();
@@ -3099,6 +3099,8 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
         'amount': 0,
         'total_tips': 0,
         'osum': 0,
+        'check_number': '',
+        'driver_license': '',
         'selected': false,
         'selected_order_id': ''
     };
@@ -3200,6 +3202,7 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
                 "TipDate": new Date().toUTCString(),
                 "PaymentID": "",
                 "IsFinalize": true,
+                "CheckNo": "",
                 "CheckImage": "",
                 "DriverLicense": "",
                 "GiftCardNo": "",
@@ -3211,20 +3214,27 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
                 case 'cash':
                     tipObj.PaymentType = 1;
                     break;
+
                 case 'credit_card':
                     tipObj.PaymentType = 2;
                     break;
+
                 case 'check':
                     tipObj.PaymentType = 3;
+                    tipObj.CheckNo = $scope.payment_model.check_number;
+                    tipObj.DriverLicense = $scope.payment_model.driver_license;
                     $scope.check_image_base64 = $scope.draw();
                     tipObj.CheckImage = $scope.check_image_base64;
                     break;
+
                 case 'gift':
                     tipObj.PaymentType = 4;
                     break;
+
                 case 'analog':
                     tipObj.PaymentType = 5;
                     break;
+
                 default:
                     tipObj.PaymentType = 1;
             }
@@ -3296,10 +3306,7 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
         dataURI = dataURI.replace(/^data:image\/(png|jpg);base64,/, "");
         $scope.check_image_base64 =dataURI;
 
-        // console.log("check_image_base64 "+$scope.check_image_base64);
         return dataURI;
-
-
     };
 
     // take image from camera
