@@ -3107,6 +3107,9 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
     $scope.employees = [];
     $scope.current = 0;
 
+    $scope.check_image="";
+    $scope.check_image_base64="";
+
     // set class to stuff
     $scope.setClass = function ($event,index){
         var scope_var ="my-row-"+index;
@@ -3213,6 +3216,8 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
                     break;
                 case 'check':
                     tipObj.PaymentType = 3;
+                    $scope.check_image_base64 = $scope.draw();
+                    tipObj.CheckImage = $scope.check_image_base64;
                     break;
                 case 'gift':
                     tipObj.PaymentType = 4;
@@ -3270,6 +3275,117 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
         }).finally(function () {
             $scope.loading = false;
         });
+    };
+
+    // draw image into canvas
+    $scope.draw = function() {
+        // Draw frame
+        var dataURI;
+        var img = document.getElementById('check_img');//document.querySelector(".file-preview-image")
+        var canvas = document.createElement('canvas');
+        var width=200;
+        var height = (img.height/img.width)*width;
+
+
+        canvas.width = width;//img.width;
+        canvas.height = height;//img.height;
+        canvas.getContext('2d').drawImage(img, 0,0,width,height);
+        dataURI = canvas.toDataURL('image/png', 0.02);
+        dataURI=(dataURI=='data:,') ? '' : dataURI;
+        dataURI = dataURI.replace(/^data:image\/(png|jpg);base64,/, "");
+        dataURI = dataURI.replace(/^data:image\/(png|jpg);base64,/, "");
+        $scope.check_image_base64 =dataURI;
+
+        // console.log("check_image_base64 "+$scope.check_image_base64);
+        return dataURI;
+
+
+    };
+
+    // take image from camera
+    $scope.takeCameraImage = function() {
+        var options = {
+            destinationType : Camera.DestinationType.FILE_URI,
+            sourceType : Camera.PictureSourceType.CAMERA, // Camera.PictureSourceType.PHOTOLIBRARY
+            quality: 0.02,
+            targetWidth: 200,
+            targetHeight: 100,
+            encodingType: Camera.EncodingType.PNG,
+            popoverOptions: CameraPopoverOptions
+        };
+
+        $cordovaCamera.getPicture(options).then(function(imageData) {
+            // $scope.check_image_base64 = "data:image/png;base64," + imageData;
+            onImageSuccess(imageData);
+            function onImageSuccess(fileURI) {
+                createFileEntry(fileURI);
+            }
+
+            function createFileEntry(fileURI) {
+                window.resolveLocalFileSystemURL(fileURI, copyFile, fail);
+            }
+
+            function copyFile(fileEntry) {
+                var name = fileEntry.fullPath.substr(fileEntry.fullPath.lastIndexOf('/') + 1);
+                var newName = makeid() + name;
+                window.resolveLocalFileSystemURL(cordova.file.dataDirectory, function(fileSystem2) {
+                        fileEntry.copyTo(
+                            fileSystem2,
+                            newName,
+                            onCopySuccess,
+                            fail
+                        );
+                    },
+                    fail);
+            }
+
+            function onCopySuccess(entry) {
+                $scope.$apply(function () {
+                    $scope.check_image = entry.nativeURL;
+                    //console.log($scope.check_image);
+
+                    //$scope.check_image_base64 = Utils.toBase64Image($scope.check_image);
+                    // $scope.draw($scope.check_image);
+
+                    // console.log("toBase64Image  "+ $scope.check_image_base64);
+
+                    /*
+                     Utils.getFileContentAsBase64(entry.nativeURL,function(base64Image){
+                     $scope.check_image_base64 = base64Image;
+                     $scope.draw();
+                     });*/
+
+                });
+            }
+
+            function fail(error) {
+                console.log("fail: " + error.code);
+            }
+
+            function makeid() {
+                var text = "";
+                var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+                for (var i=0; i < 5; i++) {
+                    text += possible.charAt(Math.floor(Math.random() * possible.length));
+                }
+                return text;
+            }
+
+        }, function(err) {
+            console.log(err);
+        });
+    };
+
+    // URL for uploaded image
+    $scope.urlForImage = function(imageName) {
+        var trueOrigin="";
+        if(imageName)
+        {
+            var name = imageName.substr(imageName.lastIndexOf('/') + 1);
+            trueOrigin = cordova.file.dataDirectory + name;
+        }
+        return trueOrigin;
     };
 
     // Edit Tips Amount modal

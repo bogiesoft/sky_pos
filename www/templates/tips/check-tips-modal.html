@@ -18,10 +18,12 @@
 
 		<div class="row">
 			<div class="col-20">
-				<img class="img-responsive camera-img" src="custom/Assets/Tips/ic_camera_green.png" alt="">
+				<img class="img-responsive camera-img" src="custom/Assets/Tips/ic_camera_green.png" alt="" ng-click="takeCameraImage()">
 			</div>
 			<div class="col-80 img-preview-wrapper">
-				<div class="img-preview"></div>
+				<div class="img-preview">
+					<img id="check_img" ng-show="check_image!=''" ng-src="{{urlForImage(check_image)}}" class="check_img" style="max-height:150px;width:100%;" />
+				</div>
 			</div>
 		</div>
 	    
