@@ -25,8 +25,8 @@
       <file leaf-file-name="controllers.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/controllers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="402">
-              <caret line="3266" column="67" selection-start-line="3266" selection-start-column="67" selection-end-line="3266" selection-end-column="67" />
+            <state relative-caret-position="256">
+              <caret line="3204" column="41" selection-start-line="3204" selection-start-column="41" selection-end-line="3204" selection-end-column="41" />
               <folding>
                 <element signature="e#0#413#0" expanded="false" />
                 <element signature="e#586#701#0" expanded="false" />
@@ -80,6 +80,7 @@
                 <element signature="e#113234#113371#0" expanded="false" />
                 <element signature="e#113442#113548#0" expanded="false" />
                 <element signature="e#113616#113666#0" expanded="false" />
+                <element signature="e#113728#117136#0" expanded="false" />
                 <element signature="e#117190#118759#0" expanded="false" />
                 <element signature="e#118821#119580#0" expanded="false" />
                 <element signature="e#119653#122286#0" expanded="false" />
@@ -166,16 +167,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="gift-tips-modal.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/tips/gift-tips-modal.html">
+      <file leaf-file-name="settle-tips.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/tips/settle-tips.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3">
-              <caret line="19" column="38" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
-              <folding>
-                <element signature="n#div#0;n#ion-tab#1;n#ion-tabs#0;n#ion-content#0;n#ion-modal-view#0;n#!!top" expanded="false" />
-                <element signature="n#style#0;n#ol#0;n#div#0;n#div#0;n#ion-tab#2;n#ion-tabs#0;n#ion-content#0;n#ion-modal-view#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#div#1;n#div#0;n#ion-tab#2;n#ion-tabs#0;n#ion-content#0;n#ion-modal-view#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="288">
+              <caret line="43" column="64" selection-start-line="43" selection-start-column="64" selection-end-line="43" selection-end-column="64" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -202,11 +199,7 @@
         <option value="$PROJECT_DIR$/templates/tips/tip-report.html" />
         <option value="$PROJECT_DIR$/templates/tips.html" />
         <option value="$PROJECT_DIR$/js/app.js" />
-        <option value="$PROJECT_DIR$/templates/tips/validate-tips.html" />
         <option value="$PROJECT_DIR$/templates/tips/finalize-tips.html" />
-        <option value="$PROJECT_DIR$/templates/tips/settle-tips.html" />
-        <option value="$PROJECT_DIR$/templates/tips/correct-tips.html" />
-        <option value="$PROJECT_DIR$/templates/tips/report-tips.html" />
         <option value="$PROJECT_DIR$/templates/tips/add-stuff-modal.html" />
         <option value="$PROJECT_DIR$/templates/tips/search-receipt-modal.html" />
         <option value="$PROJECT_DIR$/templates/cheque-payment-modal.html" />
@@ -220,6 +213,10 @@
         <option value="$PROJECT_DIR$/templates/tips/adjust-tips.html" />
         <option value="$PROJECT_DIR$/templates/tips/gift-tips-modal.html" />
         <option value="$PROJECT_DIR$/js/controllers.js" />
+        <option value="$PROJECT_DIR$/templates/tips/validate-tips.html" />
+        <option value="$PROJECT_DIR$/templates/tips/report-tips.html" />
+        <option value="$PROJECT_DIR$/templates/tips/correct-tips.html" />
+        <option value="$PROJECT_DIR$/templates/tips/settle-tips.html" />
       </list>
     </option>
   </component>
@@ -413,15 +410,15 @@
       <workItem from="1506406559452" duration="12682000" />
       <workItem from="1506576600901" duration="16956000" />
       <workItem from="1506673619923" duration="6915000" />
-      <workItem from="1506934482994" duration="7151000" />
+      <workItem from="1506934482994" duration="8021000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="187372000" />
+    <option name="totallyTimeSpent" value="188242000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14055637" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -660,38 +657,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/tips/settle-tips.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="34" column="51" selection-start-line="34" selection-start-column="51" selection-end-line="34" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/tips/validate-tips.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="89" column="94" selection-start-line="89" selection-start-column="94" selection-end-line="89" selection-end-column="94" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/order-provision-item.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="594">
           <caret line="33" column="32" selection-start-line="33" selection-start-column="32" selection-end-line="33" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/tips/correct-tips.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="828">
-          <caret line="46" column="148" selection-start-line="46" selection-start-column="148" selection-end-line="46" selection-end-column="148" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/tips/report-tips.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2502">
-          <caret line="139" column="11" selection-start-line="139" selection-start-column="11" selection-end-line="139" selection-end-column="11" />
         </state>
       </provider>
     </entry>
@@ -792,10 +761,58 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/tips/check-tips-modal.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="24" column="92" selection-start-line="24" selection-start-column="92" selection-end-line="24" selection-end-column="92" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/tips/validate-tips.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="107">
+          <caret line="22" column="86" selection-start-line="22" selection-start-column="86" selection-end-line="22" selection-end-column="86" />
+          <folding>
+            <element signature="n#style#0;n#button#0;n#div#0;n#div#0;n#div#0;n#div#0;n#ion-view#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/tips/report-tips.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-330">
+          <caret line="20" column="67" selection-start-line="20" selection-start-column="67" selection-end-line="20" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/tips/gift-tips-modal.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3">
+          <caret line="19" column="38" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
+          <folding>
+            <element signature="n#div#0;n#ion-tab#1;n#ion-tabs#0;n#ion-content#0;n#ion-modal-view#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#ol#0;n#div#0;n#div#0;n#ion-tab#2;n#ion-tabs#0;n#ion-content#0;n#ion-modal-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#1;n#div#0;n#ion-tab#2;n#ion-tabs#0;n#ion-content#0;n#ion-modal-view#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/tips/correct-tips.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="71" column="57" selection-start-line="71" selection-start-column="57" selection-end-line="71" selection-end-column="57" />
+          <folding>
+            <element signature="n#style#0;n#div#4;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/controllers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="402">
-          <caret line="3266" column="67" selection-start-line="3266" selection-start-column="67" selection-end-line="3266" selection-end-column="67" />
+        <state relative-caret-position="256">
+          <caret line="3204" column="41" selection-start-line="3204" selection-start-column="41" selection-end-line="3204" selection-end-column="41" />
           <folding>
             <element signature="e#0#413#0" expanded="false" />
             <element signature="e#586#701#0" expanded="false" />
@@ -849,6 +866,7 @@
             <element signature="e#113234#113371#0" expanded="false" />
             <element signature="e#113442#113548#0" expanded="false" />
             <element signature="e#113616#113666#0" expanded="false" />
+            <element signature="e#113728#117136#0" expanded="false" />
             <element signature="e#117190#118759#0" expanded="false" />
             <element signature="e#118821#119580#0" expanded="false" />
             <element signature="e#119653#122286#0" expanded="false" />
@@ -934,23 +952,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/tips/check-tips-modal.html">
+    <entry file="file://$PROJECT_DIR$/templates/tips/settle-tips.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="24" column="92" selection-start-line="24" selection-start-column="92" selection-end-line="24" selection-end-column="92" />
+        <state relative-caret-position="288">
+          <caret line="43" column="64" selection-start-line="43" selection-start-column="64" selection-end-line="43" selection-end-column="64" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/tips/gift-tips-modal.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3">
-          <caret line="19" column="38" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
-          <folding>
-            <element signature="n#div#0;n#ion-tab#1;n#ion-tabs#0;n#ion-content#0;n#ion-modal-view#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#ol#0;n#div#0;n#div#0;n#ion-tab#2;n#ion-tabs#0;n#ion-content#0;n#ion-modal-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#1;n#div#0;n#ion-tab#2;n#ion-tabs#0;n#ion-content#0;n#ion-modal-view#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
