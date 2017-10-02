@@ -3113,7 +3113,8 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
         "RefNo": "",
         "SaleAmount": "",
         "FinalAmount": "",
-        "FinalStatus": ""
+        "FinalStatus": "",
+        "CardBalance": ""
     };
 
     // stuff got tips
@@ -3226,7 +3227,8 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
                 "RefNo": "",
                 "SaleAmount": "",
                 "FinalAmount": "",
-                "FinalStatus": ""
+                "FinalStatus": "",
+                "CardBalance": ""
             };
 
             switch (method){
@@ -3254,11 +3256,18 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
                     tipObj.CheckNo = $scope.payment_model.CheckNo;
                     tipObj.DriverLicense = $scope.payment_model.DriverLicense;
                     $scope.check_image_base64 = $scope.draw();
-                    tipObj.CheckImage = $scope.check_image_base64;
+                    tipObj.CheckImage = "data:image/png;base64," + $scope.check_image_base64;
                     break;
 
                 case 'gift':
                     tipObj.PaymentType = 4;
+                    tipObj.CardNo = $scope.payment_model.CardNo;
+                    tipObj.CardBalance = $scope.payment_model.CardBalance;
+                    $scope.check_image_base64 = $scope.draw();
+                    tipObj.CheckImage = "data:image/png;base64," + $scope.check_image_base64;
+                    tipObj.ExpireMonth = $scope.payment_model.ExpireMonth;
+                    tipObj.ExpireYear = $scope.payment_model.ExpireYear;
+                    tipObj.Cvv = $scope.payment_model.Cvv;
                     break;
 
                 case 'analog':

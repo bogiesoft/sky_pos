@@ -18,10 +18,12 @@
 		  <ion-tab title="Barcode Card">
 			  <div class="row">
 				  <div class="col-20">
-					  <img class="img-responsive camera-img" src="custom/Assets/Tips/ic_camera_green.png" alt="">
+					  <img class="img-responsive camera-img" src="custom/Assets/Tips/ic_camera_green.png" alt="" ng-click="takeCameraImage()">
 				  </div>
 				  <div class="col-80 img-preview-wrapper">
-					  <div class="img-preview"></div>
+					  <div class="img-preview">
+						  <img id="check_img" ng-show="check_image!=''" ng-src="{{urlForImage(check_image)}}" class="check_img" style="max-height:150px;width:100%;" />
+					  </div>
 				  </div>
 			  </div>
 
@@ -79,13 +81,13 @@
 			  <br/>
 			  <div class="row">
 				  <div class="col-60">
-					  <ol>
+					  <ol style="margin-left: 15px;">
 						  <li>1. Turn on NFC active</li>
 						  <li>2. Tag your card beside the tablet</li>
 					  </ol>
 				  </div>
 				  <div class="col-40">
-					  <img src="custom/Assets/Dashboard/ic_pay_wallet.png" alt="" class="img-responsive">
+					  <img style="background-color: #0F4D34;padding: 10px;width: 50px;float: right;margin-right: 15px;margin-bottom: 15px;" src="custom/Assets/Dashboard/ic_pay_wallet.png" alt="" class="img-responsive">
 				  </div>
 			  </div>
 
