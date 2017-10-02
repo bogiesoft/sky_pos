@@ -40,8 +40,8 @@
                     <div style="border-radius:5px;border:1px #CCC solid">
                         <div class=" service-floor-item-header {{table.Status=='Occupied' ? 'occupied-service-floor-item-header' : 'sky-pos-light-green'}}" style="color:#FFF;text-align:center;line-height:32px;border-top-left-radius:5px;border-top-right-radius:5px;">{{table.Status}}</div>
       			           	<div class="thumb" ng-click="gotoOrderCategoryItem(table.Category);">
-      				           	<img class="" style="width:60px; height:50px; margin:10px; float:left" check-image  ng-src="{{table.TableImage}}" alt-src="custom/Assets/order/tables.jpg" alt="{{table.TableCode}}" /> 
-                         	<div style="float:left;margin-top:20px;" class="">
+      				           	<img class="" style="width:calc(100% - 20px); height:auto; margin:10px; float:left" check-image  ng-src="{{table.TableImage}}" alt-src="custom/Assets/order/tables.jpg" alt="{{table.TableCode}}" />
+                         	<div style="float:left;margin-left: 10px;" class="">
       				           		<div class="service-floor-item-text {{table.Status=='Occupied' ? 'occupied-service-floor-item-text' : ''}}" style="text-align:center;color:#009245">{{table.TableCode}}</div>
       				           	</div>
       			           	</div>

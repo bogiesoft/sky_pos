@@ -5,16 +5,21 @@
 
   <ion-content scroll="false" has-bouncing="false" class="has-header">
     <div style="clear:both;"></div>
-    <div class="list   option-list" style="margin-bottom:0px;" align="center">
-      <div class="item" style="font-size:12px;margin-bottom:0px;">
-          <div style="text-align:center;">
-                  <img src="custom/Assets/Dashboard/img_placeholder_dashboard.png" style="width:90%; max-width:300px;">
+
+  <ion-slides  options="options" slider="data.slider">
+      <ion-slide-page ng-repeat="item in slides">
+          <div class="box">
+              <div class="slide-item" style="font-size:12px;margin-bottom:0;">
+                  <div style="text-align:center;">
+                      <img src="{{item.ImageUrl}}" style="width:100%; max-width:380px;">
+                  </div>
+                  <div style="text-align:left;padding: 5px 15px;">
+                      <span class="strong">{{item.Title}}</span><br />{{item.Description}}
+                  </div>
+              </div>
           </div>
-          <div style="text-align:left;">
-                    <span class="strong">Image Title</span><br />Description of Item
-          </div>        
-       </div> 
-    </div>
+      </ion-slide-page>
+  </ion-slides>
 
     <div style="position: absolute; bottom: 0px; width: 100%">
       <div class="list  option-list text-white" style="margin-top:0∂px;">

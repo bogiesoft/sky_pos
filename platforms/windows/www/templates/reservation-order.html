@@ -1,0 +1,97 @@
+<ion-view view-title="Order" hide-nav-bar="true" cache-view="false">
+  <ion-header-bar align-title="left"  class="bar-dark sky-pos-green" cache-view="false">
+   
+    <h1 class="title text-left order-header-title"  align-title="left" style="text-left">Reservation</h1>
+     <div class="buttons">
+      <button type="button" ng-click="doReservation()" class="order-header-icon button button-icon button-clear ion-checkmark"></button>
+    </div>
+</ion-header-bar>
+
+<ion-content scroll="true" has-bouncing="false" class="has-header has-footer has-sub-header">
+ 
+   
+    <div class="my-container" style="">
+      <div style="height:28px;padding-top:2px;" class = "text-white text-center my-tabs sky-pos-light-green">
+         Customer Information
+      </div>
+           
+      <div class="list" style="margin-bottom:0px;">
+       
+        
+        <label class="item item-input display-block" >
+        <span class="input-label"><i class="icon ion-android-star"></i> Customer Name: </span>
+        <input type="text"  ng-model="reservation_model.customer_name" placeholder="Customer Name">
+        </label>
+        
+        <label class="item item-input display-block">
+        <span class="input-label"><i class="icon ion-android-star"></i> Customer Phone: </span>
+        <input type="text"  ng-model="reservation_model.customer_phone" placeholder="Customer Phone">
+        </label>
+        
+        
+         <label class="item item-input display-block">
+        <span class="input-label"><i class="icon ion-android-star"></i> Address: </span>
+        <input type="text"  ng-model="reservation_model.address" placeholder="Address">
+        </label>
+        
+    </div>
+
+    <div style="height:28px;padding-top:2px;" class = "text-white text-center my-tabs sky-pos-light-green">
+       Booking Information
+      </div>   
+    </div>    
+
+
+<div class="list">
+        <label class="item item-input display-block">
+        <span class="input-label"><i class="icon ion-android-star"></i> Booking No: </span>
+        <input type="text" disabled ng-model="reservation_model.booking_no" placeholder="Booking Number">
+        </label>
+         <label class="item item-input display-block">
+        <span class="input-label"><i class="icon ion-android-star"></i> Select Date: </span> <span style="float:right;margin-right:15px;margin-top:-30px;"><img src="custom/Assets/Reservation/ic_calendar_date.png" style="width:25px"></span>
+        <input type="date" ng-model="reservation_model.reservation_date" placeholder="Select Date">
+        </label>
+        
+        <label class="item item-input display-block">
+        <span class="input-label"><i class="icon ion-android-star"></i> Select Time: </span> <span style="float:right;margin-right:15px;margin-top:-30px;"><img src="custom/Assets/Reservation/ic_clock_time.png" style="width:25px"></span>
+         
+        <input type="time"  ng-model="reservation_model.reservation_time" placeholder="Select Time">
+        </label>
+        
+        <label class="item item-input display-block">
+        <span class="input-label"><i class="icon ion-android-star"></i> Number of Persons: </span>
+        <input type="number"  ng-model="reservation_model.number_of_person" placeholder="Number of Persons">
+        </label>
+        <div class="text-center" style="margin-top:10px;">Selected Tables</div>
+        <ul class="table-scroll family-icon-scroller"> 
+          <li class="text-center reservation_selected_table family-icon" style=" margin:10px; padding-right:10px; height:70px;width:100px;" ng-repeat="table in reservation_model.selected_tables"> 
+                   <img ng-click="removeClickedTable($index)" class="" style="width:16px; height:16px; float:right;cursor:pointer;cursor:hand;" src="custom/Assets/Reservation/ic_trash_black.png" />
+                        <img class="" style="width:60px; height:50px;" check-image  ng-src="{{table.TableImage}}" alt-src="custom/Assets/Reservation/ic_table_reservation.png" alt="{{table.TableCode}}" /> 
+                        <br /> {{table.TableCode}}  
+          </li> 
+        </ul>
+        <br><br><br>
+    </div>
+
+
+  </ion-content>
+<div style="margin-top:140px;" class="bar bar-footer sky-pos-light-green"> 
+  <div class="row">
+    <div class="col">  
+      <div class="text-white" style="text-align:center;width:100%">
+         <span>Select Table</span><br>
+       <a  type="button" ng-click="select_table();" style="color:#FFF;margin-top:-65px;" class="button sky-pos-light-green icon-select-table top"></a>
+
+      </div> 
+    </div>
+     <div class="col">  
+      <div class="text-white" style="text-align:center;width:100%">
+        <span>Select Customer</span><br>
+        <button  type="button" ng-click="showCustomerSelectModal()" style="color:#FFF;margin-top:-65px;" class="button sky-pos-light-green icon-select-customer top"></button>
+      </div> 
+    </div>  
+  </div>
+</div>
+  
+</ion-view>
+

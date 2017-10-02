@@ -1,0 +1,126 @@
+<ion-view view-title="Order" hide-nav-bar="true" cache-view="false">
+    <ion-header-bar align-title="left"  class="bar-dark sky-pos-green" cache-view="false">
+        <div class="buttons">
+            <a href="#/app/tips" class="button button-icon button-clear icon ion-arrow-left-c">
+                <span class="order-page-header-menu-text"></span>
+            </a>
+        </div>
+        <h1 class="title text-left order-header-title"  align-title="left" style="text-align:left">Correcting Tips Adjustment</h1>
+        <div class="buttons">
+            <button type="button" ng-click="adjustTips()" class="order-header-icon button button-icon button-clear ion-checkmark"></button>
+        </div>
+    </ion-header-bar>
+
+    <ion-content scroll="true" has-bouncing="false" class="has-header has-footer has-sub-header" style="background-color: #F3F3F3;">
+
+        <div class="my-container" style="">
+
+            <!-- tip input -->
+            <div class="tip-payment-wrapper">
+                <div class="row">
+                    <div class="col-30 split-textbox-label">Order ID:</div>
+                    <div class="col-60">
+                        <input class="split-textbox" type="text" ng-model="order_id" />
+                    </div>
+                    <div class="col-10">
+                        <button class="tip-payment small-btn" ng-click="showSearchReceiptModal()">
+                            <i class="ion-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- /tip input -->
+
+            <div style="height:28px;padding-top:2px;" class="text-white row sky-pos-light-green">
+                <div class="col-70">Tips Information</div>
+                <div class="col-30">Total Tips: <span style="color:#E4F711;float: right;">$0.00</span></div>
+            </div>
+
+            <!-- tip list -->
+            <div class="tip-list-wrapper">
+                <div class="row tip-list-header">
+                    <div class="col-20"></div>
+                    <div class="col-60">TIP BY</div>
+                    <div class="col-20"><span style="float: right;">AMOUNT</span></div>
+                </div>
+                <div class="tip-list">
+                    <div style="overflow:hidden;margin-right:0px" class="row item item-body" ng-repeat="item in tips" id="tip-row-{{$index}}" ng-click="selectProvisionItem($index)">
+                        <div class="col-20">
+                            <span class="checkbox">
+                                <input id="chk" ng-model="provision_items[$index]" ng-value="$index" type="checkbox">
+                                <label for="chk"></label>
+                            </span>
+                        </div>
+                        <div class="col-20">
+                            <img ng-src="custom/Assets/Tips/ic_tip_payment_{{item.method}}.png" alt="" class="img-responsive">
+                        </div>
+                        <div class="col-30">
+                            {{item.method | uppercase}}
+                        </div>
+                        <div class="col-30">
+                            <span style="float: right;">${{item.amount | number: 2}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /tip list -->
+
+            <!-- edit tips -->
+            <div style="height:28px;padding-top:2px;" class="text-white row sky-pos-light-green">
+                <div class="col">Edit Tips</div>
+            </div>
+            <div class="list">
+                <label class="item item-input item-fixed-label">
+                    <span class="input-label">Payment ID: </span>
+                    <input type="number" ng-model="payment_model.payment_id" required placeholder="Payment ID">
+                </label>
+
+                <label class="item item-input item-fixed-label">
+                    <span class="input-label">Original sale: </span>
+                    <input type="number" ng-model="payment_model.sale_amount" required placeholder="Original sale amount">
+                </label>
+
+                <label class="item item-input item-fixed-label">
+                    <span class="input-label">Original approve code: </span>
+                    <input type="number" ng-model="payment_model.approve_code" required placeholder="Original approve code">
+                </label>
+
+                <label class="item item-input ">
+                    <span class="input-label">Tips Amount: </span>
+                    <input type="number" ng-model="payment_model.amount" required placeholder="Tips Amount">
+                </label>
+
+                <label class="item item-input ">
+                    <span class="input-label">Final Amount: </span>
+                    <input type="number" ng-model="payment_model.final_amount" required placeholder="Final Amount">
+                </label>
+
+                <label class="item item-input ">
+                    <span class="input-label">Finalized Status: </span>
+                    <input type="text" ng-model="payment_model.status" placeholder="Finalized Status">
+                </label>
+            </div>
+            <!-- /edit tips -->
+
+        </div>
+
+    </ion-content>
+    <div style="margin-top:140px;" class="bar bar-footer sky-pos-light-green">
+        <div class="row">
+            <div class="col">
+                <div class="text-white" style="text-align:center;width:100%">
+                    <span>Save</span><br>
+                    <a  type="button" ng-click="saveTips();" style="color:#FFF;margin-top:-65px;" class="button sky-pos-light-green top"></a>
+
+                </div>
+            </div>
+            <div class="col">
+                <div class="text-white" style="text-align:center;width:100%">
+                    <span>Delete</span><br>
+                    <button type="button" ng-click="removeTips()" style="color:#FFF;margin-top:-65px;" class="button sky-pos-light-green ion-trash-a top"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</ion-view>

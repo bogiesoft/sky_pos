@@ -1,0 +1,23 @@
+<ion-modal-view>
+
+	<ion-content style="background-color:#FFF;">
+		<form>
+			<div class="list">
+				<label class="item item-input">
+					<input type="text" placeholder="Amount" ng-model="newPrice">
+				</label>
+
+				<div class="item_">
+					<div class="row">
+						<div class="col">
+							<button type="submit" ng-click="changePrice(newPrice)" class="button button-block sky-pos-light-green text-white">CHANGE</button>
+						</div>
+						<div class="col">
+							<button type="button" ng-click="closeEditPriceModal();" class="button button-block button-assertive text-white">CANCEL</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</ion-content>
+</ion-modal-view>

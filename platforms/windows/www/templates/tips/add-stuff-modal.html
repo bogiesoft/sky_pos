@@ -1,0 +1,46 @@
+<ion-view view-title="Add Stuff" hide-nav-bar="true" cache-view="false">
+    <ion-header-bar align-title="left"  class="bar-dark sky-pos-green" cache-view="false">
+        <div class="buttons">
+            <button ng-click="closeAddStuffModal()" class="button button-icon button-clear icon ion-arrow-left-c">
+                <span class="order-page-header-menu-text"></span>
+            </button>
+        </div>
+        <h1 class="title text-left order-header-title"  align-title="left" style="text-align:left">Add Stuff</h1>
+    </ion-header-bar>
+
+    <ion-content scroll="true" has-bouncing="false" class="has-header has-footer has-sub-header" style="background-color: #F3F3F3;">
+
+        <div class="my-container" style="">
+
+            <!-- tip input -->
+            <div class="tip-payment-wrapper">
+                <div class="row">
+                    <div class="col">
+                        <div class="split-textbox-label">Search Employee</div>
+                        <input class="split-textbox" type="text" ng-model="employee_name" />
+                    </div>
+                </div>
+            </div>
+            <!-- /tip input -->
+
+            <div class="list">
+                <div class="row item item-body fat-item" ng-repeat="item in employees_list | filter:employee_name" ng-click="setEmployee($index)">
+                    <div class="col">{{item.FirstName}} {{item.LastName}}</div>
+                </div>
+            </div>
+
+        </div>
+
+    </ion-content>
+    <div style="margin-top:140px;" class="bar bar-footer sky-pos-light-green">
+        <div class="row">
+            <div class="col">
+                <div class="text-white" style="text-align:center;width:100%">
+                    <span>Select</span><br>
+                    <a  type="button" ng-click="closeAddStuffModal()" style="color:#FFF;margin-top:-65px;" class="button sky-pos-light-green ion-checkmark top"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</ion-view>

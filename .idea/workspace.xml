@@ -1,0 +1,746 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="bd5e5fd4-bb73-4ffe-9bff-f7b85ef52fc0" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/windows/WinJS/css/ui-dark.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/windows/WinJS/css/ui-light.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/windows/WinJS/fonts/Symbols.ttf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/windows/WinJS/js/WinJS.intellisense-setup.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/windows/WinJS/js/WinJS.intellisense.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/windows/WinJS/js/WinJS.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/windows/WinJS/js/en-US/ui.strings.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/windows/cordova/lib/exec.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/windows/cordova/lib/spawn.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/windows/cordova/node_modules/nopt/examples/my-program.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/windows/cordova/node_modules/nopt/test/basic.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/windows/cordova/node_modules/q/CONTRIBUTING.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/windows/cordova/node_modules/q/benchmark/compare-with-callbacks.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/platforms/windows/cordova/node_modules/q/benchmark/scenarios.js" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/.gradle/2.14.1/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/platforms/android/.gradle/2.14.1/taskArtifacts/cache.properties.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/.gradle/2.14.1/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/platforms/android/.gradle/2.14.1/taskArtifacts/fileHashes.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/.gradle/2.14.1/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/platforms/android/.gradle/2.14.1/taskArtifacts/fileSnapshots.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/.gradle/2.14.1/taskArtifacts/fileSnapshotsToTreeSnapshotsIndex.bin" afterPath="$PROJECT_DIR$/platforms/android/.gradle/2.14.1/taskArtifacts/fileSnapshotsToTreeSnapshotsIndex.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/.gradle/2.14.1/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/platforms/android/.gradle/2.14.1/taskArtifacts/taskArtifacts.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/.gradle/2.14.1/tasks/_CordovaLib_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/platforms/android/.gradle/2.14.1/tasks/_CordovaLib_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/.gradle/2.14.1/tasks/_CordovaLib_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/platforms/android/.gradle/2.14.1/tasks/_CordovaLib_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/.gradle/2.14.1/tasks/_CordovaLib_compileReleaseJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/platforms/android/.gradle/2.14.1/tasks/_CordovaLib_compileReleaseJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/.gradle/2.14.1/tasks/_CordovaLib_compileReleaseJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/platforms/android/.gradle/2.14.1/tasks/_CordovaLib_compileReleaseJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/.gradle/2.14.1/tasks/_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/platforms/android/.gradle/2.14.1/tasks/_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/.gradle/2.14.1/tasks/_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" afterPath="$PROJECT_DIR$/platforms/android/.gradle/2.14.1/tasks/_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/.gradle/2.14.1/tasks/_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/platforms/android/.gradle/2.14.1/tasks/_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/build/intermediates/bundles/debug/classes.jar" afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/build/intermediates/bundles/debug/classes.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/build/intermediates/bundles/release/classes.jar" afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/build/intermediates/bundles/release/classes.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/build/intermediates/classes/debug/org/apache/cordova/CordovaBridge.class" afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/build/intermediates/classes/debug/org/apache/cordova/CordovaBridge.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/build/intermediates/classes/debug/org/apache/cordova/CordovaPlugin.class" afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/build/intermediates/classes/debug/org/apache/cordova/CordovaPlugin.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/build/intermediates/classes/debug/org/apache/cordova/CordovaResourceApi.class" afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/build/intermediates/classes/debug/org/apache/cordova/CordovaResourceApi.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/build/intermediates/classes/debug/org/apache/cordova/Whitelist$URLPattern.class" afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/build/intermediates/classes/debug/org/apache/cordova/Whitelist$URLPattern.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/build/intermediates/classes/release/org/apache/cordova/CordovaBridge.class" afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/build/intermediates/classes/release/org/apache/cordova/CordovaBridge.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/build/intermediates/classes/release/org/apache/cordova/CordovaPlugin.class" afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/build/intermediates/classes/release/org/apache/cordova/CordovaPlugin.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/build/intermediates/classes/release/org/apache/cordova/CordovaResourceApi.class" afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/build/intermediates/classes/release/org/apache/cordova/CordovaResourceApi.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/build/intermediates/classes/release/org/apache/cordova/Whitelist$URLPattern.class" afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/build/intermediates/classes/release/org/apache/cordova/Whitelist$URLPattern.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/build/outputs/aar/CordovaLib-debug.aar" afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/build/outputs/aar/CordovaLib-debug.aar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/build/outputs/aar/CordovaLib-release.aar" afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/build/outputs/aar/CordovaLib-release.aar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.xml" afterPath="$PROJECT_DIR$/config.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ionic.config.json" afterPath="$PROJECT_DIR$/ionic.config.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/build/intermediates/bundles/debug/AndroidManifest.xml" afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/build/intermediates/bundles/debug/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/build/intermediates/bundles/release/AndroidManifest.xml" afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/build/intermediates/bundles/release/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/build/intermediates/incremental/mergeDebugAssets/merger.xml" afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/build/intermediates/incremental/mergeDebugAssets/merger.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/build/intermediates/incremental/mergeDebugJniLibFolders/merger.xml" afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/build/intermediates/incremental/mergeDebugJniLibFolders/merger.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/build/intermediates/incremental/mergeDebugShaders/merger.xml" afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/build/intermediates/incremental/mergeDebugShaders/merger.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/build/intermediates/incremental/mergeReleaseAssets/merger.xml" afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/build/intermediates/incremental/mergeReleaseAssets/merger.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/build/intermediates/incremental/mergeReleaseJniLibFolders/merger.xml" afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/build/intermediates/incremental/mergeReleaseJniLibFolders/merger.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/build/intermediates/incremental/mergeReleaseShaders/merger.xml" afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/build/intermediates/incremental/mergeReleaseShaders/merger.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/build/intermediates/incremental/packageDebugResources/compile-file-map.properties" afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/build/intermediates/incremental/packageDebugResources/compile-file-map.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/build/intermediates/incremental/packageDebugResources/merger.xml" afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/build/intermediates/incremental/packageDebugResources/merger.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/build/intermediates/incremental/packageReleaseResources/compile-file-map.properties" afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/build/intermediates/incremental/packageReleaseResources/compile-file-map.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/build/intermediates/incremental/packageReleaseResources/merger.xml" afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/build/intermediates/incremental/packageReleaseResources/merger.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/build/intermediates/manifests/aapt/debug/AndroidManifest.xml" afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/build/intermediates/manifests/aapt/debug/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/CordovaLib/build/intermediates/manifests/aapt/release/AndroidManifest.xml" afterPath="$PROJECT_DIR$/platforms/android/CordovaLib/build/intermediates/manifests/aapt/release/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/custom/css/style.css" afterPath="$PROJECT_DIR$/platforms/android/assets/www/custom/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/index.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/js/angular-moment.min.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/js/angular-moment.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/js/app.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/js/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/js/controllers.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/js/controllers.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/js/moment.min.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/js/moment.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/js/ng-cordova-oauth.min.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/js/ng-cordova-oauth.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/js/ng-cordova.min.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/js/ng-cordova.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/js/ng-map.min.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/js/ng-map.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/templates/admin_tools.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/templates/admin_tools.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/templates/analog-payment-modal.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/templates/analog-payment-modal.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/templates/bill.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/templates/bill.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/templates/card-payment-confirmation.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/templates/card-payment-confirmation.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/templates/card-payment.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/templates/card-payment.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/templates/cash-payment-modal.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/templates/cash-payment-modal.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/templates/cashback-details.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/templates/cashback-details.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/templates/cc-payment-modal.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/templates/cc-payment-modal.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/templates/check-payment.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/templates/check-payment.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/templates/cheque-payment-modal.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/templates/cheque-payment-modal.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/templates/clock-in.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/templates/clock-in.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/templates/clock-out.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/templates/clock-out.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/templates/coupon-payment-modal.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/templates/coupon-payment-modal.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/templates/custom-search.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/templates/custom-search.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/templates/customer-delivery-info-modal.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/templates/customer-delivery-info-modal.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/templates/dashboard.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/templates/dashboard.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/templates/dp-payment-modal.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/templates/dp-payment-modal.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/templates/forgot-password.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/templates/forgot-password.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/templates/header.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/templates/header.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/templates/item_option_modal.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/templates/item_option_modal.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/templates/login.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/templates/login.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/templates/login_modal.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/templates/login_modal.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/templates/menu.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/templates/menu.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/templates/multiple-select.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/templates/multiple-select.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/templates/my-account.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/templates/my-account.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/templates/normal-discount-payment-modal.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/templates/normal-discount-payment-modal.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/templates/order-category-item.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/templates/order-category-item.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/templates/order-details-modal.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/templates/order-details-modal.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/templates/order-edit.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/templates/order-edit.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/templates/order-provision-item.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/templates/order-provision-item.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/templates/order.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/templates/order.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/templates/payment.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/templates/payment.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/templates/promotional-voucher-payment-modal.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/templates/promotional-voucher-payment-modal.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/templates/quantity-edit-modal.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/templates/quantity-edit-modal.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/templates/recall-order-edit.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/templates/recall-order-edit.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/templates/recall.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/templates/recall.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/templates/registration.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/templates/registration.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/templates/reservation-order.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/templates/reservation-order.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/templates/reservation.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/templates/reservation.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/templates/search-select.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/templates/search-select.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/templates/service-charge-modal.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/templates/service-charge-modal.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/templates/service-floor.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/templates/service-floor.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/templates/tips.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/templates/tips.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/templates/untitled.js" afterPath="$PROJECT_DIR$/platforms/android/assets/www/templates/untitled.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/android/assets/www/templates/vip-card-payment-modal.html" afterPath="$PROJECT_DIR$/platforms/android/assets/www/templates/vip-card-payment-modal.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/SkyPos/SkyPos-Info.plist" afterPath="$PROJECT_DIR$/platforms/ios/SkyPos/SkyPos-Info.plist" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/custom/css/style.css" afterPath="$PROJECT_DIR$/platforms/ios/www/custom/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/index.html" afterPath="$PROJECT_DIR$/platforms/ios/www/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/js/angular-moment.min.js" afterPath="$PROJECT_DIR$/platforms/ios/www/js/angular-moment.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/js/app.js" afterPath="$PROJECT_DIR$/platforms/ios/www/js/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/js/controllers.js" afterPath="$PROJECT_DIR$/platforms/ios/www/js/controllers.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/js/moment.min.js" afterPath="$PROJECT_DIR$/platforms/ios/www/js/moment.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/js/ng-cordova-oauth.min.js" afterPath="$PROJECT_DIR$/platforms/ios/www/js/ng-cordova-oauth.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/js/ng-cordova.min.js" afterPath="$PROJECT_DIR$/platforms/ios/www/js/ng-cordova.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/js/ng-map.min.js" afterPath="$PROJECT_DIR$/platforms/ios/www/js/ng-map.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/templates/admin_tools.html" afterPath="$PROJECT_DIR$/platforms/ios/www/templates/admin_tools.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/templates/bill.html" afterPath="$PROJECT_DIR$/platforms/ios/www/templates/bill.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/templates/card-payment-confirmation.html" afterPath="$PROJECT_DIR$/platforms/ios/www/templates/card-payment-confirmation.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/templates/card-payment.html" afterPath="$PROJECT_DIR$/platforms/ios/www/templates/card-payment.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/templates/cash-payment-modal.html" afterPath="$PROJECT_DIR$/platforms/ios/www/templates/cash-payment-modal.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/templates/cashback-details.html" afterPath="$PROJECT_DIR$/platforms/ios/www/templates/cashback-details.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/templates/cc-payment-modal.html" afterPath="$PROJECT_DIR$/platforms/ios/www/templates/cc-payment-modal.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/templates/check-payment.html" afterPath="$PROJECT_DIR$/platforms/ios/www/templates/check-payment.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/templates/cheque-payment-modal.html" afterPath="$PROJECT_DIR$/platforms/ios/www/templates/cheque-payment-modal.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/templates/clock-in.html" afterPath="$PROJECT_DIR$/platforms/ios/www/templates/clock-in.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/templates/clock-out.html" afterPath="$PROJECT_DIR$/platforms/ios/www/templates/clock-out.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/templates/coupon-payment-modal.html" afterPath="$PROJECT_DIR$/platforms/ios/www/templates/coupon-payment-modal.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/templates/custom-search.html" afterPath="$PROJECT_DIR$/platforms/ios/www/templates/custom-search.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/templates/customer-delivery-info-modal.html" afterPath="$PROJECT_DIR$/platforms/ios/www/templates/customer-delivery-info-modal.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/templates/dashboard.html" afterPath="$PROJECT_DIR$/platforms/ios/www/templates/dashboard.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/templates/dp-payment-modal.html" afterPath="$PROJECT_DIR$/platforms/ios/www/templates/dp-payment-modal.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/templates/forgot-password.html" afterPath="$PROJECT_DIR$/platforms/ios/www/templates/forgot-password.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/templates/header.html" afterPath="$PROJECT_DIR$/platforms/ios/www/templates/header.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/templates/item_option_modal.html" afterPath="$PROJECT_DIR$/platforms/ios/www/templates/item_option_modal.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/templates/login.html" afterPath="$PROJECT_DIR$/platforms/ios/www/templates/login.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/templates/login_modal.html" afterPath="$PROJECT_DIR$/platforms/ios/www/templates/login_modal.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/templates/menu.html" afterPath="$PROJECT_DIR$/platforms/ios/www/templates/menu.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/templates/multiple-select.html" afterPath="$PROJECT_DIR$/platforms/ios/www/templates/multiple-select.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/templates/my-account.html" afterPath="$PROJECT_DIR$/platforms/ios/www/templates/my-account.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/templates/normal-discount-payment-modal.html" afterPath="$PROJECT_DIR$/platforms/ios/www/templates/normal-discount-payment-modal.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/templates/order-category-item.html" afterPath="$PROJECT_DIR$/platforms/ios/www/templates/order-category-item.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/templates/order-details-modal.html" afterPath="$PROJECT_DIR$/platforms/ios/www/templates/order-details-modal.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/templates/order-edit.html" afterPath="$PROJECT_DIR$/platforms/ios/www/templates/order-edit.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/templates/order-provision-item.html" afterPath="$PROJECT_DIR$/platforms/ios/www/templates/order-provision-item.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/templates/order.html" afterPath="$PROJECT_DIR$/platforms/ios/www/templates/order.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/templates/payment.html" afterPath="$PROJECT_DIR$/platforms/ios/www/templates/payment.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/templates/promotional-voucher-payment-modal.html" afterPath="$PROJECT_DIR$/platforms/ios/www/templates/promotional-voucher-payment-modal.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/templates/quantity-edit-modal.html" afterPath="$PROJECT_DIR$/platforms/ios/www/templates/quantity-edit-modal.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/templates/recall-order-edit.html" afterPath="$PROJECT_DIR$/platforms/ios/www/templates/recall-order-edit.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/templates/recall.html" afterPath="$PROJECT_DIR$/platforms/ios/www/templates/recall.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/templates/registration.html" afterPath="$PROJECT_DIR$/platforms/ios/www/templates/registration.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/templates/reservation.html" afterPath="$PROJECT_DIR$/platforms/ios/www/templates/reservation.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/templates/search-select.html" afterPath="$PROJECT_DIR$/platforms/ios/www/templates/search-select.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/templates/service-charge-modal.html" afterPath="$PROJECT_DIR$/platforms/ios/www/templates/service-charge-modal.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/templates/service-floor.html" afterPath="$PROJECT_DIR$/platforms/ios/www/templates/service-floor.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/templates/tips.html" afterPath="$PROJECT_DIR$/platforms/ios/www/templates/tips.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/templates/untitled.js" afterPath="$PROJECT_DIR$/platforms/ios/www/templates/untitled.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/ios/www/templates/vip-card-payment-modal.html" afterPath="$PROJECT_DIR$/platforms/ios/www/templates/vip-card-payment-modal.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/platforms.json" afterPath="$PROJECT_DIR$/platforms/platforms.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/CordovaApp.Phone.jsproj" afterPath="$PROJECT_DIR$/platforms/windows/CordovaApp.Phone.jsproj" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/CordovaApp.Windows.jsproj" afterPath="$PROJECT_DIR$/platforms/windows/CordovaApp.Windows.jsproj" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/CordovaApp.Windows10.jsproj" afterPath="$PROJECT_DIR$/platforms/windows/CordovaApp.Windows10.jsproj" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/CordovaApp.Windows80.jsproj" afterPath="$PROJECT_DIR$/platforms/windows/CordovaApp.Windows80.jsproj" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/CordovaApp.projitems" afterPath="$PROJECT_DIR$/platforms/windows/CordovaApp.projitems" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/CordovaApp.shproj" afterPath="$PROJECT_DIR$/platforms/windows/CordovaApp.shproj" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/CordovaApp.sln" afterPath="$PROJECT_DIR$/platforms/windows/CordovaApp.sln" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/VERSION" afterPath="$PROJECT_DIR$/platforms/windows/VERSION" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/config.xml" afterPath="$PROJECT_DIR$/platforms/windows/config.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/cordova/build" afterPath="$PROJECT_DIR$/platforms/windows/cordova/build" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/cordova/clean" afterPath="$PROJECT_DIR$/platforms/windows/cordova/clean" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/cordova/lib/ConfigParser.js" afterPath="$PROJECT_DIR$/platforms/windows/cordova/lib/ConfigParser.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/cordova/lib/MSBuildTools.js" afterPath="$PROJECT_DIR$/platforms/windows/cordova/lib/MSBuildTools.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/cordova/lib/Version.js" afterPath="$PROJECT_DIR$/platforms/windows/cordova/lib/Version.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/cordova/lib/build.js" afterPath="$PROJECT_DIR$/platforms/windows/cordova/lib/build.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/cordova/lib/package.js" afterPath="$PROJECT_DIR$/platforms/windows/cordova/lib/package.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/cordova/lib/prepare.js" afterPath="$PROJECT_DIR$/platforms/windows/cordova/lib/prepare.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/cordova/lib/run.js" afterPath="$PROJECT_DIR$/platforms/windows/cordova/lib/run.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/cordova/lib/target-list.js" afterPath="$PROJECT_DIR$/platforms/windows/cordova/lib/target-list.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/cordova/lib/utils.js" afterPath="$PROJECT_DIR$/platforms/windows/cordova/lib/utils.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/cordova/log.bat" afterPath="$PROJECT_DIR$/platforms/windows/cordova/log.bat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/cordova/node_modules/.bin/nopt" afterPath="$PROJECT_DIR$/platforms/windows/cordova/node_modules/.bin/nopt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/cordova/node_modules/.bin/nopt.cmd" afterPath="$PROJECT_DIR$/platforms/windows/cordova/node_modules/.bin/nopt.cmd" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/cordova/node_modules/.bin/shjs" afterPath="$PROJECT_DIR$/platforms/windows/cordova/node_modules/.bin/shjs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/cordova/node_modules/.bin/shjs.cmd" afterPath="$PROJECT_DIR$/platforms/windows/cordova/node_modules/.bin/shjs.cmd" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/cordova/node_modules/elementtree/CHANGES.md" afterPath="$PROJECT_DIR$/platforms/windows/cordova/node_modules/elementtree/CHANGES.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/cordova/node_modules/elementtree/README.md" afterPath="$PROJECT_DIR$/platforms/windows/cordova/node_modules/elementtree/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/cordova/node_modules/elementtree/lib/elementtree.js" afterPath="$PROJECT_DIR$/platforms/windows/cordova/node_modules/elementtree/lib/elementtree.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/cordova/node_modules/elementtree/node_modules/sax/package.json" afterPath="$PROJECT_DIR$/platforms/windows/cordova/node_modules/elementtree/node_modules/sax/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/cordova/node_modules/elementtree/package.json" afterPath="$PROJECT_DIR$/platforms/windows/cordova/node_modules/elementtree/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/cordova/node_modules/node-uuid/LICENSE.md" afterPath="$PROJECT_DIR$/platforms/windows/cordova/node_modules/node-uuid/LICENSE.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/cordova/node_modules/node-uuid/README.md" afterPath="$PROJECT_DIR$/platforms/windows/cordova/node_modules/node-uuid/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/cordova/node_modules/node-uuid/component.json" afterPath="$PROJECT_DIR$/platforms/windows/cordova/node_modules/node-uuid/component.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/cordova/node_modules/node-uuid/package.json" afterPath="$PROJECT_DIR$/platforms/windows/cordova/node_modules/node-uuid/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/cordova/node_modules/node-uuid/uuid.js" afterPath="$PROJECT_DIR$/platforms/windows/cordova/node_modules/node-uuid/uuid.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/cordova/node_modules/nopt/LICENSE" afterPath="$PROJECT_DIR$/platforms/windows/cordova/node_modules/nopt/LICENSE" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/cordova/node_modules/nopt/README.md" afterPath="$PROJECT_DIR$/platforms/windows/cordova/node_modules/nopt/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/cordova/node_modules/nopt/node_modules/abbrev/LICENSE" afterPath="$PROJECT_DIR$/platforms/windows/cordova/node_modules/nopt/node_modules/abbrev/LICENSE" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/cordova/node_modules/nopt/node_modules/abbrev/package.json" afterPath="$PROJECT_DIR$/platforms/windows/cordova/node_modules/nopt/node_modules/abbrev/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/cordova/node_modules/nopt/node_modules/abbrev/test.js" afterPath="$PROJECT_DIR$/platforms/windows/cordova/node_modules/nopt/node_modules/abbrev/test.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/cordova/node_modules/nopt/package.json" afterPath="$PROJECT_DIR$/platforms/windows/cordova/node_modules/nopt/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/cordova/node_modules/q/README.md" afterPath="$PROJECT_DIR$/platforms/windows/cordova/node_modules/q/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/cordova/node_modules/q/package.json" afterPath="$PROJECT_DIR$/platforms/windows/cordova/node_modules/q/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/cordova/node_modules/q/q.js" afterPath="$PROJECT_DIR$/platforms/windows/cordova/node_modules/q/q.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/cordova/node_modules/shelljs/.travis.yml" afterPath="$PROJECT_DIR$/platforms/windows/cordova/node_modules/shelljs/.travis.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/cordova/node_modules/shelljs/README.md" afterPath="$PROJECT_DIR$/platforms/windows/cordova/node_modules/shelljs/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/cordova/node_modules/shelljs/make.js" afterPath="$PROJECT_DIR$/platforms/windows/cordova/node_modules/shelljs/make.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/cordova/node_modules/shelljs/package.json" afterPath="$PROJECT_DIR$/platforms/windows/cordova/node_modules/shelljs/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/cordova/node_modules/shelljs/shell.js" afterPath="$PROJECT_DIR$/platforms/windows/cordova/node_modules/shelljs/shell.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/cordova/node_modules/shelljs/src/cp.js" afterPath="$PROJECT_DIR$/platforms/windows/cordova/node_modules/shelljs/src/cp.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/cordova/node_modules/shelljs/src/exec.js" afterPath="$PROJECT_DIR$/platforms/windows/cordova/node_modules/shelljs/src/exec.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/cordova/node_modules/shelljs/src/rm.js" afterPath="$PROJECT_DIR$/platforms/windows/cordova/node_modules/shelljs/src/rm.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/cordova/run" afterPath="$PROJECT_DIR$/platforms/windows/cordova/run" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/cordova/version" afterPath="$PROJECT_DIR$/platforms/windows/cordova/version" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/cordova/version.bat" afterPath="$PROJECT_DIR$/platforms/windows/cordova/version.bat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/package.phone.appxmanifest" afterPath="$PROJECT_DIR$/platforms/windows/package.phone.appxmanifest" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/package.windows.appxmanifest" afterPath="$PROJECT_DIR$/platforms/windows/package.windows.appxmanifest" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/package.windows10.appxmanifest" afterPath="$PROJECT_DIR$/platforms/windows/package.windows10.appxmanifest" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/package.windows80.appxmanifest" afterPath="$PROJECT_DIR$/platforms/windows/package.windows80.appxmanifest" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/platform_www/cordova-js-src/exec.js" afterPath="$PROJECT_DIR$/platforms/windows/platform_www/cordova-js-src/exec.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/platform_www/cordova-js-src/platform.js" afterPath="$PROJECT_DIR$/platforms/windows/platform_www/cordova-js-src/platform.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/platform_www/cordova.js" afterPath="$PROJECT_DIR$/platforms/windows/platform_www/cordova.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/platform_www/cordova_plugins.js" afterPath="$PROJECT_DIR$/platforms/windows/platform_www/cordova_plugins.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/platform_www/plugins/cordova-plugin-camera/src/windows/CameraProxy.js" afterPath="$PROJECT_DIR$/platforms/windows/platform_www/plugins/cordova-plugin-camera/src/windows/CameraProxy.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/platform_www/plugins/cordova-plugin-camera/www/Camera.js" afterPath="$PROJECT_DIR$/platforms/windows/platform_www/plugins/cordova-plugin-camera/www/Camera.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/platform_www/plugins/cordova-plugin-camera/www/CameraConstants.js" afterPath="$PROJECT_DIR$/platforms/windows/platform_www/plugins/cordova-plugin-camera/www/CameraConstants.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/platform_www/plugins/cordova-plugin-camera/www/CameraPopoverHandle.js" afterPath="$PROJECT_DIR$/platforms/windows/platform_www/plugins/cordova-plugin-camera/www/CameraPopoverHandle.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/platform_www/plugins/cordova-plugin-camera/www/CameraPopoverOptions.js" afterPath="$PROJECT_DIR$/platforms/windows/platform_www/plugins/cordova-plugin-camera/www/CameraPopoverOptions.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/platform_www/plugins/cordova-plugin-console/www/console-via-logger.js" afterPath="$PROJECT_DIR$/platforms/windows/platform_www/plugins/cordova-plugin-console/www/console-via-logger.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/platform_www/plugins/cordova-plugin-console/www/logger.js" afterPath="$PROJECT_DIR$/platforms/windows/platform_www/plugins/cordova-plugin-console/www/logger.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/platform_www/plugins/cordova-plugin-device/src/windows/DeviceProxy.js" afterPath="$PROJECT_DIR$/platforms/windows/platform_www/plugins/cordova-plugin-device/src/windows/DeviceProxy.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/platform_www/plugins/cordova-plugin-device/www/device.js" afterPath="$PROJECT_DIR$/platforms/windows/platform_www/plugins/cordova-plugin-device/www/device.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/platform_www/plugins/cordova-plugin-statusbar/src/windows/StatusBarProxy.js" afterPath="$PROJECT_DIR$/platforms/windows/platform_www/plugins/cordova-plugin-statusbar/src/windows/StatusBarProxy.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/platform_www/plugins/cordova-plugin-statusbar/www/statusbar.js" afterPath="$PROJECT_DIR$/platforms/windows/platform_www/plugins/cordova-plugin-statusbar/www/statusbar.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/platform_www/plugins/ionic-plugin-keyboard/src/windows/KeyboardProxy.js" afterPath="$PROJECT_DIR$/platforms/windows/platform_www/plugins/ionic-plugin-keyboard/src/windows/KeyboardProxy.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/windows.json" afterPath="$PROJECT_DIR$/platforms/windows/windows.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/www/cordova-js-src/exec.js" afterPath="$PROJECT_DIR$/platforms/windows/www/cordova-js-src/exec.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/www/cordova-js-src/platform.js" afterPath="$PROJECT_DIR$/platforms/windows/www/cordova-js-src/platform.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/www/cordova.js" afterPath="$PROJECT_DIR$/platforms/windows/www/cordova.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/www/cordova_plugins.js" afterPath="$PROJECT_DIR$/platforms/windows/www/cordova_plugins.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/www/custom/css/style.css" afterPath="$PROJECT_DIR$/platforms/windows/www/custom/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/www/index.html" afterPath="$PROJECT_DIR$/platforms/windows/www/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/www/js/angular-moment.min.js" afterPath="$PROJECT_DIR$/platforms/windows/www/js/angular-moment.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/www/js/app.js" afterPath="$PROJECT_DIR$/platforms/windows/www/js/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/www/js/controllers.js" afterPath="$PROJECT_DIR$/platforms/windows/www/js/controllers.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/www/js/moment.min.js" afterPath="$PROJECT_DIR$/platforms/windows/www/js/moment.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/www/js/ng-cordova-oauth.min.js" afterPath="$PROJECT_DIR$/platforms/windows/www/js/ng-cordova-oauth.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/www/js/ng-cordova.min.js" afterPath="$PROJECT_DIR$/platforms/windows/www/js/ng-cordova.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/www/js/ng-map.min.js" afterPath="$PROJECT_DIR$/platforms/windows/www/js/ng-map.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/www/plugins/cordova-plugin-camera/src/windows/CameraProxy.js" afterPath="$PROJECT_DIR$/platforms/windows/www/plugins/cordova-plugin-camera/src/windows/CameraProxy.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/www/plugins/cordova-plugin-camera/www/Camera.js" afterPath="$PROJECT_DIR$/platforms/windows/www/plugins/cordova-plugin-camera/www/Camera.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/www/plugins/cordova-plugin-camera/www/CameraConstants.js" afterPath="$PROJECT_DIR$/platforms/windows/www/plugins/cordova-plugin-camera/www/CameraConstants.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/www/plugins/cordova-plugin-camera/www/CameraPopoverHandle.js" afterPath="$PROJECT_DIR$/platforms/windows/www/plugins/cordova-plugin-camera/www/CameraPopoverHandle.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/www/plugins/cordova-plugin-camera/www/CameraPopoverOptions.js" afterPath="$PROJECT_DIR$/platforms/windows/www/plugins/cordova-plugin-camera/www/CameraPopoverOptions.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/www/plugins/cordova-plugin-console/www/console-via-logger.js" afterPath="$PROJECT_DIR$/platforms/windows/www/plugins/cordova-plugin-console/www/console-via-logger.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/www/plugins/cordova-plugin-console/www/logger.js" afterPath="$PROJECT_DIR$/platforms/windows/www/plugins/cordova-plugin-console/www/logger.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/www/plugins/cordova-plugin-device/src/windows/DeviceProxy.js" afterPath="$PROJECT_DIR$/platforms/windows/www/plugins/cordova-plugin-device/src/windows/DeviceProxy.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/www/plugins/cordova-plugin-device/www/device.js" afterPath="$PROJECT_DIR$/platforms/windows/www/plugins/cordova-plugin-device/www/device.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/www/plugins/cordova-plugin-statusbar/src/windows/StatusBarProxy.js" afterPath="$PROJECT_DIR$/platforms/windows/www/plugins/cordova-plugin-statusbar/src/windows/StatusBarProxy.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/www/plugins/cordova-plugin-statusbar/www/statusbar.js" afterPath="$PROJECT_DIR$/platforms/windows/www/plugins/cordova-plugin-statusbar/www/statusbar.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/www/plugins/ionic-plugin-keyboard/src/windows/KeyboardProxy.js" afterPath="$PROJECT_DIR$/platforms/windows/www/plugins/ionic-plugin-keyboard/src/windows/KeyboardProxy.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/www/templates/admin_tools.html" afterPath="$PROJECT_DIR$/platforms/windows/www/templates/admin_tools.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/www/templates/bill.html" afterPath="$PROJECT_DIR$/platforms/windows/www/templates/bill.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/www/templates/card-payment-confirmation.html" afterPath="$PROJECT_DIR$/platforms/windows/www/templates/card-payment-confirmation.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/www/templates/card-payment.html" afterPath="$PROJECT_DIR$/platforms/windows/www/templates/card-payment.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/www/templates/cash-payment-modal.html" afterPath="$PROJECT_DIR$/platforms/windows/www/templates/cash-payment-modal.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/www/templates/cashback-details.html" afterPath="$PROJECT_DIR$/platforms/windows/www/templates/cashback-details.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/www/templates/cc-payment-modal.html" afterPath="$PROJECT_DIR$/platforms/windows/www/templates/cc-payment-modal.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/www/templates/check-payment.html" afterPath="$PROJECT_DIR$/platforms/windows/www/templates/check-payment.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/www/templates/cheque-payment-modal.html" afterPath="$PROJECT_DIR$/platforms/windows/www/templates/cheque-payment-modal.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/www/templates/clock-in.html" afterPath="$PROJECT_DIR$/platforms/windows/www/templates/clock-in.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/www/templates/clock-out.html" afterPath="$PROJECT_DIR$/platforms/windows/www/templates/clock-out.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/www/templates/coupon-payment-modal.html" afterPath="$PROJECT_DIR$/platforms/windows/www/templates/coupon-payment-modal.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/www/templates/custom-search.html" afterPath="$PROJECT_DIR$/platforms/windows/www/templates/custom-search.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/www/templates/customer-delivery-info-modal.html" afterPath="$PROJECT_DIR$/platforms/windows/www/templates/customer-delivery-info-modal.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/www/templates/dashboard.html" afterPath="$PROJECT_DIR$/platforms/windows/www/templates/dashboard.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/www/templates/dp-payment-modal.html" afterPath="$PROJECT_DIR$/platforms/windows/www/templates/dp-payment-modal.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/www/templates/forgot-password.html" afterPath="$PROJECT_DIR$/platforms/windows/www/templates/forgot-password.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/www/templates/header.html" afterPath="$PROJECT_DIR$/platforms/windows/www/templates/header.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/www/templates/item_option_modal.html" afterPath="$PROJECT_DIR$/platforms/windows/www/templates/item_option_modal.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/www/templates/login.html" afterPath="$PROJECT_DIR$/platforms/windows/www/templates/login.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/www/templates/login_modal.html" afterPath="$PROJECT_DIR$/platforms/windows/www/templates/login_modal.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/www/templates/menu.html" afterPath="$PROJECT_DIR$/platforms/windows/www/templates/menu.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/www/templates/multiple-select.html" afterPath="$PROJECT_DIR$/platforms/windows/www/templates/multiple-select.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/www/templates/my-account.html" afterPath="$PROJECT_DIR$/platforms/windows/www/templates/my-account.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/www/templates/normal-discount-payment-modal.html" afterPath="$PROJECT_DIR$/platforms/windows/www/templates/normal-discount-payment-modal.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/www/templates/order-category-item.html" afterPath="$PROJECT_DIR$/platforms/windows/www/templates/order-category-item.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/www/templates/order-details-modal.html" afterPath="$PROJECT_DIR$/platforms/windows/www/templates/order-details-modal.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/www/templates/order-edit.html" afterPath="$PROJECT_DIR$/platforms/windows/www/templates/order-edit.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/www/templates/order-provision-item.html" afterPath="$PROJECT_DIR$/platforms/windows/www/templates/order-provision-item.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/www/templates/order.html" afterPath="$PROJECT_DIR$/platforms/windows/www/templates/order.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/www/templates/payment.html" afterPath="$PROJECT_DIR$/platforms/windows/www/templates/payment.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/www/templates/promotional-voucher-payment-modal.html" afterPath="$PROJECT_DIR$/platforms/windows/www/templates/promotional-voucher-payment-modal.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/www/templates/quantity-edit-modal.html" afterPath="$PROJECT_DIR$/platforms/windows/www/templates/quantity-edit-modal.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/www/templates/recall-order-edit.html" afterPath="$PROJECT_DIR$/platforms/windows/www/templates/recall-order-edit.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/www/templates/recall.html" afterPath="$PROJECT_DIR$/platforms/windows/www/templates/recall.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/www/templates/registration.html" afterPath="$PROJECT_DIR$/platforms/windows/www/templates/registration.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/www/templates/reservation.html" afterPath="$PROJECT_DIR$/platforms/windows/www/templates/reservation.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/www/templates/search-select.html" afterPath="$PROJECT_DIR$/platforms/windows/www/templates/search-select.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/www/templates/service-charge-modal.html" afterPath="$PROJECT_DIR$/platforms/windows/www/templates/service-charge-modal.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/www/templates/service-floor.html" afterPath="$PROJECT_DIR$/platforms/windows/www/templates/service-floor.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/www/templates/tips.html" afterPath="$PROJECT_DIR$/platforms/windows/www/templates/tips.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/www/templates/untitled.js" afterPath="$PROJECT_DIR$/platforms/windows/www/templates/untitled.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/windows/www/templates/vip-card-payment-modal.html" afterPath="$PROJECT_DIR$/platforms/windows/www/templates/vip-card-payment-modal.html" />
+    </list>
+    <ignored path="sky_pos-master.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="sky_pos-master" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="config.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/config.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-894">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GradleLocalSettings">
+    <option name="externalProjectsViewState">
+      <projects_view />
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/config.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="Scope" currentSubView="Project Files" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="External Dependencies">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="sky_pos-master">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="AndroidView">
+        <subPane />
+      </pane>
+      <pane id="ProjectPane" />
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
+    <property name="settings.editor.selected.configurable" value="preferences.general" />
+    <property name="settings.editor.splitter.proportion" value="0.2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android App">
+      <module name="" />
+      <option name="DEPLOY" value="true" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ENABLE_ADVANCED_PROFILING" value="true" />
+        <option name="SUPPORT_LIB_ENABLED" value="true" />
+        <option name="INSTRUMENTATION_ENABLED" value="true" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
+      <module name="" />
+      <option name="TESTING_TYPE" value="0" />
+      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="EXTRA_OPTIONS" value="" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ENABLE_ADVANCED_PROFILING" value="true" />
+        <option name="SUPPORT_LIB_ENABLED" value="true" />
+        <option name="INSTRUMENTATION_ENABLED" value="true" />
+      </Profilers>
+      <method />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="GradleRunConfiguration" factoryName="Gradle">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list />
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <method />
+    </configuration>
+    <configuration default="true" type="JarApplication" factoryName="JAR Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="Java Scratch" factoryName="Java Scratch">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="SCRATCH_FILE_ID" value="0" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+      <method />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="TestNGTestDiscovery" factoryName="TestNG Test Discovery" changeList="All">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method />
+    </configuration>
+    <configuration name="&lt;template&gt;" type="Applet" default="true" selected="false">
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+    </configuration>
+    <configuration name="&lt;template&gt;" type="JUnit" default="true" selected="false">
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+    </configuration>
+    <configuration name="&lt;template&gt;" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" default="true" selected="false">
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="bd5e5fd4-bb73-4ffe-9bff-f7b85ef52fc0" name="Default" comment="" />
+      <created>1506925540174</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1506925540174</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19791667" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/config.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-894">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

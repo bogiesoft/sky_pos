@@ -24,6 +24,11 @@
                     </m3:ShowNameOnTiles>
                 </m3:DefaultTile>
                 <m3:SplashScreen Image="images\SplashScreenPhone.png" />
+                <m3:InitialRotationPreference>
+                    <m3:Rotation Preference="portrait" />
+                    <m3:Rotation Preference="landscape" />
+                    <m3:Rotation Preference="landscapeFlipped" />
+                </m3:InitialRotationPreference>
             </m3:VisualElements>
         </Application>
     </Applications>

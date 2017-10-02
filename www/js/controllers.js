@@ -3099,10 +3099,21 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
         'amount': 0,
         'total_tips': 0,
         'osum': 0,
-        'check_number': '',
-        'driver_license': '',
         'selected': false,
-        'selected_order_id': ''
+        'selected_order_id': '',
+        "CheckNo": "",
+        "DriverLicense": "",
+        "GiftCardNo": "",
+        "CardNo": "",
+        "AccountName": "",
+        "ExpireYear": "",
+        "ExpireMonth": "",
+        "Cvv": "",
+        "ApprovalCode": "",
+        "RefNo": "",
+        "SaleAmount": "",
+        "FinalAmount": "",
+        "FinalStatus": ""
     };
 
     // stuff got tips
@@ -3207,7 +3218,15 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
                 "DriverLicense": "",
                 "GiftCardNo": "",
                 "CardNo": "",
-                "ApprovalCode": ""
+                "AccountName": "",
+                "ExpireYear": "",
+                "ExpireMonth": "",
+                "Cvv": "",
+                "ApprovalCode": "",
+                "RefNo": "",
+                "SaleAmount": "",
+                "FinalAmount": "",
+                "FinalStatus": ""
             };
 
             switch (method){
@@ -3217,12 +3236,23 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
 
                 case 'credit_card':
                     tipObj.PaymentType = 2;
+                    tipObj.PaymentID = $scope.payment_model.PaymentID;
+                    tipObj.SaleAmount = $scope.payment_model.SaleAmount;
+                    tipObj.ApprovalCode = $scope.payment_model.ApprovalCode;
+                    tipObj.FinalAmount = $scope.payment_model.FinalAmount;
+                    tipObj.FinalStatus = $scope.payment_model.FinalStatus;
+
+                    tipObj.CardNo = $scope.payment_model.CardNo;
+                    tipObj.AccountName = $scope.payment_model.AccountName;
+                    tipObj.ExpireMonth = $scope.payment_model.ExpireMonth;
+                    tipObj.ExpireYear = $scope.payment_model.ExpireYear;
+                    tipObj.Cvv = $scope.payment_model.Cvv;
                     break;
 
                 case 'check':
                     tipObj.PaymentType = 3;
-                    tipObj.CheckNo = $scope.payment_model.check_number;
-                    tipObj.DriverLicense = $scope.payment_model.driver_license;
+                    tipObj.CheckNo = $scope.payment_model.CheckNo;
+                    tipObj.DriverLicense = $scope.payment_model.DriverLicense;
                     $scope.check_image_base64 = $scope.draw();
                     tipObj.CheckImage = $scope.check_image_base64;
                     break;
@@ -3233,6 +3263,8 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
 
                 case 'analog':
                     tipObj.PaymentType = 5;
+                    tipObj.CardNo = $scope.payment_model.CardNo;
+                    tipObj.RefNo = $scope.payment_model.RefNo;
                     break;
 
                 default:

@@ -50,20 +50,6 @@ module.exports = [
         "runs": true
     },
     {
-        "file": "plugins/cordova-plugin-statusbar/www/statusbar.js",
-        "id": "cordova-plugin-statusbar.statusbar",
-        "pluginId": "cordova-plugin-statusbar",
-        "clobbers": [
-            "window.StatusBar"
-        ]
-    },
-    {
-        "file": "plugins/cordova-plugin-statusbar/src/windows/StatusBarProxy.js",
-        "id": "cordova-plugin-statusbar.StatusBarProxy",
-        "pluginId": "cordova-plugin-statusbar",
-        "runs": true
-    },
-    {
         "file": "plugins/cordova-plugin-console/www/logger.js",
         "id": "cordova-plugin-console.logger",
         "pluginId": "cordova-plugin-console",
@@ -78,6 +64,20 @@ module.exports = [
         "clobbers": [
             "console"
         ]
+    },
+    {
+        "file": "plugins/cordova-plugin-statusbar/www/statusbar.js",
+        "id": "cordova-plugin-statusbar.statusbar",
+        "pluginId": "cordova-plugin-statusbar",
+        "clobbers": [
+            "window.StatusBar"
+        ]
+    },
+    {
+        "file": "plugins/cordova-plugin-statusbar/src/windows/StatusBarProxy.js",
+        "id": "cordova-plugin-statusbar.StatusBarProxy",
+        "pluginId": "cordova-plugin-statusbar",
+        "runs": true
     },
     {
         "file": "plugins/cordova-plugin-device/www/device.js",
@@ -98,14 +98,6 @@ module.exports = [
 ];
 module.exports.metadata = 
 // TOP OF METADATA
-{
-    "cordova-plugin-compat": "1.1.0",
-    "cordova-plugin-camera": "2.3.1",
-    "ionic-plugin-keyboard": "2.2.1",
-    "cordova-plugin-statusbar": "2.2.0",
-    "cordova-plugin-console": "1.0.4",
-    "cordova-plugin-whitelist": "1.3.0",
-    "cordova-plugin-device": "1.1.3"
-}
+{}
 // BOTTOM OF METADATA
 });

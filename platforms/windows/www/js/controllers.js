@@ -1,15 +1,20 @@
+/**************************************************************************
+ * The Sky POS
+ * ionic 1.3.2
+ * Developers:
+ * Ionic: Md. Hasan Shahriar, Shahadat Hossain
+ * Android: Arif Hasnat, Khairul Anam Chowdhury, Kazi Rakibul Hossain
+ * .NET: Ashraf Ahmed, Parvez Alam, Ashikuzzaman Ashik
+ * HTML & Design: Rakib Hasan, Abdus Salam
+ ***************************************************************************/
+
 var app = angular.module('skypos.controllers', ['ngStorage','jkAngularRatingStars','angularMoment','ngSweetAlert'])
-
-
 
 app.config(["$httpProvider", function ($httpProvider) {
      $httpProvider.defaults.transformResponse.push(function(responseData){
         return responseData;
     });
 }])
-
-
-
 
 app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuDelegate,$location,ProfileData) {
   
@@ -37,7 +42,7 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
 
 })
 
-.controller("LoginCtrl",function($rootScope,$scope,$http,$location,$ionicHistory,$localStorage,$sessionStorage,$cordovaOauth,$ionicPopup,$ionicModal,$ionicLoading,ProfileData,$ionicSideMenuDelegate,Utils,StoreInfo){
+.controller("LoginCtrl",function($rootScope,$scope,$http,$location,$ionicHistory,$localStorage,$sessionStorage,$cordovaOauth,$ionicPopup,$ionicModal,$ionicLoading,ProfileData,$ionicSideMenuDelegate,Utils,StoreInfo,SpecialItems){
    
    $ionicSideMenuDelegate.canDragContent(false)
    
@@ -224,7 +229,8 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
               localStorage.setItem("Email",data.Data.AccessToken);
               ProfileData.setProperty(data.Data);
               data.StoreInfo.TaxRate = data.TaxRate;
-              StoreInfo.setProperty(data.StoreInfo);  
+              StoreInfo.setProperty(data.StoreInfo);
+              SpecialItems.setProperty(data.SpecialItems);
               $location.path("/app/dashboard").replace();
             }
             else
@@ -250,7 +256,6 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
     });
 
 })
-
 .controller("ClockInCtrl",function($rootScope,$scope,$http,$location,$ionicHistory,$timeout,$cordovaOauth,$ionicPopup,$ionicLoading,ProfileData,$ionicSideMenuDelegate,Utils){
       $ionicSideMenuDelegate.canDragContent(false)
 
@@ -415,7 +420,7 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
      $scope.pinSet(number);  
    }
 })
-.controller("DashboardCtrl",function($rootScope,$scope,$http,$location,$ionicSideMenuDelegate,ProfileData,Utils){
+.controller("DashboardCtrl",function($rootScope,$scope,$http,$location,$ionicSideMenuDelegate,ProfileData,Utils,SpecialItems){
     
     $ionicSideMenuDelegate.canDragContent(false)
     Utils.checkLogin();
@@ -444,6 +449,13 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
             break;    
 
         }
+    };
+
+    $scope.slides = SpecialItems.getProperty();
+
+    $scope.options = {
+        loop: true,
+        speed: 500
     };
 })
 .controller("OrderCtrl",function($rootScope,$scope,$http,$location,$ionicSideMenuDelegate,ProfileData,Utils, $ionicLoading,ProductData,$stateParams){
@@ -997,15 +1009,16 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
               data: JSON.stringify(myJsonRequest),
               headers: {'Content-Type': 'application/json','Authorization':''+profile_data.AccessToken,'Access-Control-Allow-Origin':'*'}
             }).success(function (data, status, headers, config){
+              $ionicLoading.hide().then(function(){
+                     console.log("The loading indicator is now hidden");
+                    }); 
               if(data.Success)
                {
                    var alert= Utils.showAlert("Save Order",data.Message);
                    alert.then(function(res){
                        $state.go("app.dashboard");
                      });
-                    $ionicLoading.hide().then(function(){
-                     console.log("The loading indicator is now hidden");
-                    });  
+                     
                }
                else
                {
@@ -1027,7 +1040,7 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
  
     };
 })
-.controller("ServiceFloorCtrl",function($rootScope,$scope,$http,$location,$ionicSideMenuDelegate,ProfileData,Utils,$ionicLoading,FloorModel,OrderData,$state,$ionicHistory,$stateParams){
+.controller("ServiceFloorCtrl",function($rootScope,$scope,$http,$location,$ionicSideMenuDelegate,ProfileData,Utils,$ionicLoading,FloorModel,OrderData,ReservationData,$state,$ionicHistory,$stateParams){
     
     $ionicSideMenuDelegate.canDragContent(false)
     Utils.checkLogin();
@@ -1041,7 +1054,7 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
     $scope.dine_in_data={};
     $scope.splitted_table_list=[];
     $scope.vaccant_table_list=[];
-    $scope.selected_table={};
+    $scope.selected_tables=[];
     $scope.page_referer = $stateParams.page_referer;
     console.log($stateParams);
     var current_order = OrderData.getProperty();
@@ -1052,15 +1065,49 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
       $scope.dine_in_data.customer_name = current_order.CustomerFirstName || "";
       $scope.dine_in_data.TableCode = current_order.OTable || "";
     }
+    if($scope.page_referer=='reservation')
+    {
+      var reservation = ReservationData.getProperty();
+      $scope.reservation_model=reservation;
+      $scope.selected_tables = reservation.selected_tables || [];
+      console.log($scope.selected_tables);
+    } 
+    
+    $scope.indexOfTableCode = function(table_list,table){
+      var ret_var =-1;
+      for(i=0;i<table_list.length;i++){
+         table = angular.fromJson(table);
+         if(table_list[i].TableCode==table.TableCode){
+           ret_var = i;
+           break;
+         }  
+      }
+      return ret_var;
+    }
 
     $scope.setSelectedTable = function(table)
     {
-        $scope.selected_table = table;
+        if($scope.page_referer=='reservation')
+        {
+            table = angular.fromJson(angular.toJson(table));
+            //var index =$scope.selected_tables.indexOf(table);  
+            var index =$scope.indexOfTableCode($scope.selected_tables,table);
+            if(index<=-1)
+              $scope.selected_tables.push(table);
+            else
+              $scope.selected_tables.splice(index, 1);
+        }  
+        else
+        {
+            $scope.selected_tables =[];
+            $scope.selected_tables.push(table);
+        }
         //console.log(table);
     }
 
     $scope.loadTableByFloor=function(){
       $scope.table_list=$scope.dine_in_data.service_floor.TableList;
+     // console.log($scope.table_list[0].TableCode);
       $scope.vaccant_table_list=[];
       if($scope.table_list.length>0)
       {
@@ -1092,9 +1139,13 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
         });
         var myJsonRequest = new Object();
             myJsonRequest.limit  =50;  
-
+        var url = Utils.getApiURL("area_wise_table_list");
+        if($scope.page_referer=='reservation')
+        {
+          url = Utils.getApiURL('available_tables_for_reservation')+"?reservationDate="+$scope.reservation_model.reservation_date_time;
+        }
         $http({
-            url: Utils.getApiURL("area_wise_table_list"),
+            url: url,
             method: "GET",
               headers: {'Content-Type': 'application/json','Authorization':'public 1234567890'}
         }).success(function (data, status, headers, config){
@@ -1131,38 +1182,50 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
      $scope.loadTables();
 
     $scope.selectServiceFloorDone=function(){
-        var order = OrderData.getProperty();
-       
-        order.NumPeople=$scope.dine_in_data.number_of_person || "";
-        order.CustomerPhone=$scope.dine_in_data.customer_phone || "";
-        order.CustomerFirstName=$scope.dine_in_data.customer_name || "";
-        var table = $scope.selected_table.TableCode || "";
-        if(!table)
+        if($scope.selected_tables.length<=0)
         {
           Utils.showAlert("Select Table","Please select a table",true,"warning");
           return;
         }
-        order.OTable=table;
-        
-
-
-        OrderData.setProperty(order);
-        if($scope.page_referer=='recall_order_edit'){
-          $state.go("app.recall-order-edit");
-        }
-        else if($scope.page_referer=='recall_merge_order'){
-
-            $scope.sendOrderMergeRequest(order);
+        if($scope.page_referer=='reservation'){
+          //console.log($scope.selected_tables);
+          var reservation_data = ReservationData.getProperty() || {};
+          reservation_data.selected_tables = $scope.selected_tables;
+          ReservationData.setProperty(reservation_data);
+        //  console.log( ReservationData.getProperty());
+           $ionicHistory.goBack();
         }
         else
-          $state.go("app.order-edit");
-       //  $location.path("/app/order-edit").replace();
+        {  
+          var order = OrderData.getProperty();
+         
+          order.NumPeople=$scope.dine_in_data.number_of_person || "";
+          order.CustomerPhone=$scope.dine_in_data.customer_phone || "";
+          order.CustomerFirstName=$scope.dine_in_data.customer_name || "";
+
+          var table = $scope.selected_tables[0].TableCode || "";
+          if(!table)
+          {
+            Utils.showAlert("Select Table","Please select a table",true,"warning");
+            return;
+          }
+          order.OTable=table;
+          OrderData.setProperty(order);
+          if($scope.page_referer=='recall_order_edit'){
+            $state.go("app.recall-order-edit");
+          }
+          else if($scope.page_referer=='recall_merge_order'){
+
+              $scope.sendOrderMergeRequest(order);
+          }
+          else
+            $state.go("app.order-edit");
+         //  $location.path("/app/order-edit").replace();
+       }  
        
     }
 
-    $scope.goBack=function(){
-      $ionicHistory.goBack();
-    }
+   
 
     $scope.sendOrderMergeRequest=function(order){
         var profile_data=ProfileData.getProperty();
@@ -1190,8 +1253,7 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
                     alert.then(function(res) {
                      $state.go("app.recall");
                    });
-
-                    
+        
              }
              else
              {
@@ -1210,39 +1272,14 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
           // Hide loading spinner whether our call succeeded or failed.
           $scope.loading = false;
         });
-    }  
-})
-.controller("ReservationCtrl",function($rootScope,$scope,$http,$location,$ionicSideMenuDelegate,ProfileData,Utils){
-    
-    $ionicSideMenuDelegate.canDragContent(false)
-    Utils.checkLogin();
-
-    $scope.profile=ProfileData.getProperty();
-    $scope.authenticationToken=localStorage.AccessToken;
-    $scope.userId=localStorage.Id;
-    
-
-})
-.controller("TipsCtrl",function($rootScope,$scope,$http,$location,$ionicSideMenuDelegate,ProfileData,Utils){
-    
-    $ionicSideMenuDelegate.canDragContent(false)
-    Utils.checkLogin();
-
-    $scope.profile=ProfileData.getProperty();
-    $scope.authenticationToken=localStorage.AccessToken;
-    $scope.userId=localStorage.Id;
-    
- 
-})
-.controller("AdminToolsCtrl",function($rootScope,$scope,$http,$location,$ionicSideMenuDelegate,ProfileData,Utils){
-    
-    $ionicSideMenuDelegate.canDragContent(false)
-    Utils.checkLogin();
-
-    $scope.profile=ProfileData.getProperty();
-    $scope.authenticationToken=localStorage.AccessToken;
-    $scope.userId=localStorage.Id;
-   
+    }
+     $scope.goBack=function(){
+      $ionicHistory.goBack();
+    }
+    $ionicHistory.nextViewOptions({
+      disableBack: false
+    });
+      
 })
 .controller("RecallCtrl",function($rootScope,$scope,$http,$location,$ionicSideMenuDelegate,ProfileData,Utils,$ionicLoading,OrderData,$state){
     
@@ -1412,7 +1449,7 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
              {
                  var alert= Utils.showAlert("Save Order",data.Message);
                    
-                    alert.then(function(res) {
+                    alert.then(function(res){
                      $state.go("app.dashboard");
                    });
                     
@@ -1452,70 +1489,70 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
     $scope.order.serviceChargeType="amt";
 
     
-        $scope.setClass = function ($event,index){
+    $scope.setClass = function ($event,index){
        var scope_var ="my-row-"+index;
        var my_row_element = angular.element($document[0].querySelector('#my-row-'+index));
        var my_button_element = angular.element($document[0].querySelector('#my-button-'+index));
-       
+
        if(my_row_element.hasClass('shift-left'))
           my_row_element.removeClass('shift-left').addClass("shift-right");
        else
         my_row_element.addClass('shift-left').removeClass("shift-right");
-       
+
        if(my_button_element.hasClass('button-shift-right'))
           my_button_element.removeClass('button-shift-right').addClass("button-shift-left");
        else
         my_button_element.addClass('button-shift-right').removeClass("button-shift-left");
     };
 
-     $scope.orders=[];
+    $scope.orders=[];
 
-     $scope.loadOrders=function(){
-         $ionicLoading.show({
-          template: 'Loading...'
-        }).then(function(){
-           console.log("The loading indicator is now displayed");
-        });
-        var myJsonRequest = new Object();
-            myJsonRequest.limit  = 50;  
-        $http({
-            url: Utils.getApiURL("recall_orders")+"?employeeId="+$scope.userId+"&status=1&isLoadChild=true",
-            method: "GET",
-              headers: {'Content-Type': 'application/json','Authorization':'public 1234567890'}
-        }).success(function (data, status, headers, config){
-            if(data.Success)
-             {
-                console.log(data);
-                  $scope.orders =  angular.fromJson(data.Data);
-                   // console.log($scope.dine_in_data.service_floor); 
-                 //  var d =  angular.fromJson(data.Data);
-                   // $scope.categories = Utils.chunk(d ,2);
-                    
-                  $ionicLoading.hide().then(function(){
-                   console.log("The loading indicator is now hidden");
-                });  
-             }
-             else
-             {
-               Utils.showAlert("Orders",data.Message);
-             }
-        }).error(function (data, status, headers, config) {
+    $scope.loadOrders=function(){
+     $ionicLoading.show({
+      template: 'Loading...'
+    }).then(function(){
+       console.log("The loading indicator is now displayed");
+    });
+    var myJsonRequest = new Object();
+        myJsonRequest.limit  = 50;
+    $http({
+        url: Utils.getApiURL("recall_orders")+"?employeeId="+$scope.userId+"&status=1&isLoadChild=true",
+        method: "GET",
+          headers: {'Content-Type': 'application/json','Authorization':'public 1234567890'}
+    }).success(function (data, status, headers, config){
+        if(data.Success)
+         {
+            console.log(data);
+              $scope.orders =  angular.fromJson(data.Data);
+               // console.log($scope.dine_in_data.service_floor);
+             //  var d =  angular.fromJson(data.Data);
+               // $scope.categories = Utils.chunk(d ,2);
+
               $ionicLoading.hide().then(function(){
                console.log("The loading indicator is now hidden");
             });
-
-        }).finally(function () {
-          // Hide loading spinner whether our call succeeded or failed.
-          $scope.loading = false;
+         }
+         else
+         {
+           Utils.showAlert("Orders",data.Message);
+         }
+    }).error(function (data, status, headers, config) {
+          $ionicLoading.hide().then(function(){
+           console.log("The loading indicator is now hidden");
         });
-   }
 
-     $scope.loadOrders();
-   
-   $scope.splitDate = function(date) {
+    }).finally(function () {
+      // Hide loading spinner whether our call succeeded or failed.
+      $scope.loading = false;
+    });
+    };
+
+    $scope.loadOrders();
+
+    $scope.splitDate = function(date) {
       return date.split("T").join("<br />");
-    }
-    
+    };
+
     $scope.serviceChargeModal=null;
     $ionicModal.fromTemplateUrl('templates/service-charge-modal.html', {
      scope: $scope
@@ -1526,19 +1563,20 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
 
      // Triggered in the login modal to close it
     $scope.closeServiceChargeModal = function() {
-     
+
       $scope.serviceChargeModal.hide();
        $state.go("app.payment");
     };
 
-    // Open the login modal
+    // show service change modal
     $scope.showServiceChargeModal = function(index){
        $scope.order.order_index=index;
-	   OrderData.setProperty($scope.orders[index]);
-	   console.log(OrderData.getProperty());
+       OrderData.setProperty($scope.orders[index]);
+       console.log(OrderData.getProperty());
       $scope.serviceChargeModal.show();
     };
-    
+
+    // set service charge
     $scope.setServiceCharge=function(){
         var service_charge=$scope.order.ServiceCharge;
          if(!service_charge)
@@ -1551,15 +1589,484 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
            var amount = $scope.orders[$scope.order.order_index].OSum;
            service_charge =  amount * (service_charge/100);
         }
-        
-        $scope.orders[$scope.order.order_index].ServiceCharge = service_charge.toFixed(2);   
+
+        $scope.orders[$scope.order.order_index].ServiceCharge = service_charge.toFixed(2);
         $scope.closeServiceChargeModal();
-		OrderData.setProperty($scope.orders[$scope.order.order_index]);
+        OrderData.setProperty($scope.orders[$scope.order.order_index]);
         $state.go("app.payment");
     };
-   
+
+    // split by total customer
+    $scope.gotoSplitBillByTotal = function(index){
+       $scope.order.order_index=index;
+       OrderData.setProperty($scope.orders[index]);
+       console.log(OrderData.getProperty());
+       $state.go("app.split-bill-by-total");
+    };
+
 })
-.controller("PaymentCtrl",function($rootScope,$scope,$http,$location,$ionicSideMenuDelegate,ProfileData,Utils,$ionicLoading,$document,SweetAlert,$ionicModal,OrderData,$cordovaCamera,$filter, $cordovaFile){
+.controller("SplitBillByTotalCtrl", function ($rootScope, $scope, $http, $location, $ionicSideMenuDelegate, ProfileData, Utils, $ionicLoading, $document, SweetAlert, $ionicModal, $state, OrderData){
+    
+    $ionicSideMenuDelegate.canDragContent(false);
+    Utils.checkLogin();
+
+    $scope.profile=ProfileData.getProperty();
+    $scope.authenticationToken=localStorage.AccessToken;
+    $scope.userId=localStorage.Id;
+    $scope.selected_tab='by-total';
+    $scope.order={};
+	$scope.order_splits = [];
+	$scope.order_data = OrderData.getProperty() || {};
+    $scope.orderTotal = $scope.order_data.OSum;
+    $scope.assignTotal = $scope.orderTotal;
+    $scope.editIndex = 0;
+    $scope.trackUnchanged = 0;
+    $scope.trackPrice = 0.0;
+
+    // split button
+	$scope.gotoSplitBillByTotal = function (count) {
+		var num = parseInt(count);
+        $scope.trackUnchanged = num;
+        $scope.trackPrice = 0.0;
+		var subTotal = +(($scope.orderTotal / count).toFixed(2));
+		$scope.order_splits = [];
+        var trackTotal = 0;
+		for (var i = 0; i < num; i++) {
+            if(i == num - 1) {
+                subTotal = ($scope.orderTotal - trackTotal).toFixed(2);
+            }
+            trackTotal += subTotal;
+			$scope.order_splits.push({
+				'orderID': $scope.order_data.OrderID + (i+1),
+				'customerFirstName': $scope.order_data.CustomerFirstName,
+				'total': subTotal,
+				'oTable': $scope.order_data.OTable,
+				'tax': 0,
+				'tip': $scope.order_data.Tip,
+				'subTotal': subTotal,
+                'employeeID': $scope.UserId,
+                'oType': $scope.order_data.OType,
+                'oDate': $scope.order_data.ODate,
+                "status": $scope.order_data.Status,
+                "customerPhone": $scope.order_data.CustomerPhone,
+                "customerID": $scope.order_data.CustomerID,
+                "customerLastName": $scope.order_data.CustomerLastName,
+                "customerAddress": $scope.order_data.CustomerAddress,
+                "numOfOTable": $scope.order_data.NumOfOTable,
+                "numPeople": $scope.order_data.NumPeople,
+                "isReservation": $scope.order_data.IsReservation,
+                "reservationType": $scope.order_data.ReservationType,
+                "oSum": subTotal,
+                "discount": $scope.order_data.Discount,
+                "coupon": $scope.order_data.Coupon,
+                "accountKind": $scope.order_data.AccountKind,
+                "totalRec": $scope.order_data.TotalRec,
+                "driverID": $scope.order_data.DriverID,
+                "serviceCharge": $scope.order_data.ServiceCharge,
+                "togoCharge": $scope.order_data.TogoCharge,
+                "orderDetails": $scope.order_data.OrderDetails,
+                "isChanged": false
+            });
+
+		}
+        //$('.order-splits > div button.split-order-edit-price').prop('disabled', false);
+	};
+
+    // edit price modal
+    $scope.editPriceModal=null;
+    $ionicModal.fromTemplateUrl('templates/split-bill-edit-price.html', {
+        scope: $scope
+    }).then(function(modal) {
+        $scope.editPriceModal = modal;
+    });
+
+    // edit customer modal
+    $scope.editCustomerModal=null;
+    $ionicModal.fromTemplateUrl('templates/split-bill-edit-customer.html', {
+        scope: $scope
+    }).then(function(modal) {
+        $scope.editCustomerModal = modal;
+    });
+
+    // close edit price modal
+    $scope.closeEditPriceModal = function() {
+        $scope.editPriceModal.hide();
+        $state.go("app.split-bill-by-total");
+    };
+
+    // close edit customer modal
+    $scope.closeEditCustomerModal = function() {
+        $scope.editCustomerModal.hide();
+        $state.go("app.split-bill-by-total");
+    };
+
+    // edit price click
+	$scope.editPrice = function (index) {
+        $scope.editIndex = index;
+        $scope.editPriceModal.show();
+	};
+
+    // edit customer
+    $scope.editCustomer = function (index) {
+        $scope.editIndex = index;
+        $scope.editCustomerModal.show();
+    };
+
+    // change price click
+    $scope.changePrice = function (new_price) {
+        var newPrice = parseFloat(new_price).toFixed(2);
+        $scope.tmpTotal = Number($scope.trackPrice) + Number(newPrice);
+
+        if($scope.tmpTotal > $scope.orderTotal) {
+            $scope.closeEditPriceModal();
+            Utils.showAlert("Unable to Change price", "Price is higher than Order total.", true, 'error', false, 'OK', '', true, true);
+        } else if($scope.trackUnchanged == 1) {
+            $scope.closeEditPriceModal();
+            Utils.showAlert("Unable to Change price", "Split has minimum price.", true, 'error', false, 'OK', '', true, true);
+        } else {
+            // change new price to current split
+            $scope.order_splits[$scope.editIndex].subTotal = newPrice;
+            $scope.order_splits[$scope.editIndex].total = newPrice;
+            $scope.order_splits[$scope.editIndex].oSum = newPrice;
+            $scope.order_splits[$scope.editIndex].isChanged = true;
+
+            // get remained price
+            var splitLength = $scope.order_splits.length;
+            $scope.trackPrice = Number($scope.trackPrice) + Number(newPrice);
+            $scope.trackUnchanged--;
+            var priceLeft = $scope.orderTotal - $scope.trackPrice;
+
+            // Escape divided by error
+            var tmp = 0;
+            if(priceLeft > 0 ){
+                tmp = +(( priceLeft / $scope.trackUnchanged).toFixed(2));
+            }
+            // console.log('Price Tracker:' + $scope.trackPrice);
+            // console.log('Change Tracker:' + $scope.trackUnchanged);
+            // console.log('Price Left:' + priceLeft);
+            // console.log('New price:' + tmp);
+
+            // split remained price to all unchanged
+            var lastPriceLeft = $scope.trackPrice;
+            var lastChecker = 0;
+            for(var i=0;i<splitLength;i++){
+                if(!$scope.order_splits[i].isChanged){
+                    lastChecker++;
+                    if(lastChecker == $scope.trackUnchanged){
+                        $scope.order_splits[i].subTotal = +($scope.orderTotal - lastPriceLeft).toFixed(2);
+                        $scope.order_splits[i].total = $scope.order_splits[i].subTotal;
+                        $scope.order_splits[i].oSum = $scope.order_splits[i].subTotal;
+                    } else {
+                        $scope.order_splits[i].subTotal = tmp;
+                        $scope.order_splits[i].total = $scope.order_splits[i].subTotal;
+                        $scope.order_splits[i].oSum = $scope.order_splits[i].subTotal;
+                        lastPriceLeft += tmp;
+                    }
+                    // console.log('i: '+i+' tmp: '+tmp+' lastChecker: '+lastChecker+' lastPriceLeft: '+lastPriceLeft);
+                }
+            }
+
+            $scope.order_splits[$scope.editIndex].isChanged = true;
+            //$('.order-splits > div:nth-child('+ ($scope.editIndex + 1 ) +') button.split-order-edit-price').attr('disabled', true);
+            $scope.closeEditPriceModal();
+        }
+    };
+
+    // change customer click
+    $scope.changeCustomer = function (newCustomer) {
+        $scope.order_splits[$scope.editIndex].customerFirstName = newCustomer.fname;
+        $scope.order_splits[$scope.editIndex].customerLastName = newCustomer.lname;
+        $scope.order_splits[$scope.editIndex].customerPhone = newCustomer.phone;
+
+        $scope.closeEditCustomerModal();
+    };
+
+    // submit splits
+    $scope.submitSplits = function () {
+      if($scope.orderTotal != $scope.assignTotal) {
+          Utils.showAlert("Unable to Split", "Assigned total must be equal to Order total.", true, 'error', false, 'OK', '', true, true);
+      } else {
+          $ionicLoading.show({
+              template: 'Loading...'
+          }).then(function(){
+              console.log("The loading indicator is now displayed");
+          });
+          var myJsonRequest = new Object();
+          myJsonRequest.limit = 50;
+
+          $http({
+              url: Utils.getApiURL("split_order"),
+              method: "POST",
+              data: {'orderID': $scope.order_data.OrderID, 'splitOrders': $scope.order_splits },
+              headers: {'Content-Type': 'application/json','Authorization':'public 1234567890'}
+          }).success(function (data, status, headers, config){
+              if(data.Success)
+              {
+                  $ionicLoading.hide().then(function(){
+                      console.log("The loading indicator is now hidden");
+                  });
+
+                  Utils.showAlert("Success", data.Message, true, 'success', false, 'OK', '', true, true);
+                  $state.go("app.recall");
+              }
+              else
+              {
+                  Utils.showAlert("Unable to Split", data.Message, true, 'error', false, 'OK', '', true, true);
+              }
+          }).error(function (data, status, headers, config) {
+              $ionicLoading.hide().then(function(){
+                  console.log("The loading indicator is now hidden");
+              });
+              Utils.showAlert("Unable to Split", data.Message, true, 'error', false, 'OK', '', true, true);
+          }).finally(function () {
+              // Hide loading spinner whether our call succeeded or failed.
+              $scope.loading = false;
+          });
+          //Utils.showAlert("Ready to Split", "Good.", true, 'success', false, 'OK', '', true, true);
+      }
+    };
+
+})
+.controller("SplitBillByItemCtrl",function($rootScope, $scope, $http, $location, $ionicSideMenuDelegate, ProfileData, Utils, $ionicLoading, $document, SweetAlert, $ionicModal, $state, OrderData){
+    
+    $ionicSideMenuDelegate.canDragContent(false);
+    Utils.checkLogin();
+
+    function cleanArray(N) {
+        return Array.apply(null, {length: N}).map(function(element, index) { return false; });
+    };
+
+    $scope.profile=ProfileData.getProperty();
+    $scope.authenticationToken=localStorage.AccessToken;
+    $scope.userId=localStorage.Id;
+    $scope.selected_tab='by-item';
+    $scope.order={};
+    $scope.order_data = OrderData.getProperty() || {};
+    //console.log($scope.order_data);
+    $scope.unassigned_items = $scope.order_data.OrderDetails;
+    var N = $scope.unassigned_items.length;
+    $scope.assigned_items = cleanArray(N);
+    $scope.orderTotal = N;
+    $scope.assignTotal = 0;
+    $scope.editIndex = 0;
+    $scope.trackUnchanged = 0;
+    $scope.trackPrice = 0.0;
+    $scope.current = {};
+    $scope.order_splits = [];
+
+    // split button
+    $scope.gotoSplitBillByTotal = function (num) {
+
+        if(num > $scope.orderTotal || num==1){
+            Utils.showAlert("Unable to Split", "Check number of customers.", true, 'error', false, 'OK', '', true, true);
+            return false;
+        }
+
+        $scope.order_splits = [];
+        $scope.unassigned_items = $scope.order_data.OrderDetails;
+        $scope.assigned_items = cleanArray(N);
+        $scope.assignTotal = 0;
+        for (var i = 0; i < num; i++) {
+            $scope.order_splits.push({
+                'orderID': $scope.order_data.OrderID + (i+1),
+                'customerFirstName': $scope.order_data.CustomerFirstName,
+                'total': 0.0,
+                'oTable': $scope.order_data.OTable,
+                'tax': $scope.order_data.Tax,
+                'tip': $scope.order_data.Tip,
+                'subTotal': 0.0,
+                'employeeID': $scope.UserId,
+                'oType': $scope.order_data.OType,
+                'oDate': $scope.order_data.ODate,
+                "status": $scope.order_data.Status,
+                "customerPhone": $scope.order_data.CustomerPhone,
+                "customerID": $scope.order_data.CustomerID,
+                "customerLastName": $scope.order_data.CustomerLastName,
+                "customerAddress": $scope.order_data.CustomerAddress,
+                "numOfOTable": $scope.order_data.NumOfOTable,
+                "numPeople": $scope.order_data.NumPeople,
+                "isReservation": $scope.order_data.IsReservation,
+                "reservationType": $scope.order_data.ReservationType,
+                "oSum": 0.0,
+                "discount": $scope.order_data.Discount,
+                "coupon": $scope.order_data.Coupon,
+                "accountKind": $scope.order_data.AccountKind,
+                "totalRec": $scope.order_data.TotalRec,
+                "driverID": $scope.order_data.DriverID,
+                "serviceCharge": $scope.order_data.ServiceCharge,
+                "togoCharge": $scope.order_data.TogoCharge,
+                "orderDetails": [],
+                "isChanged": false
+            });
+
+        }
+        //$('.order-splits > div button.split-order-add-items').prop('disabled', false);
+    };
+
+    // edit customer modal
+    $scope.editCustomerModal=null;
+    $ionicModal.fromTemplateUrl('templates/split-bill-edit-customer.html', {
+        scope: $scope
+    }).then(function(modal) {
+        $scope.editCustomerModal = modal;
+    });
+
+    // edit customer
+    $scope.editCustomer = function (index) {
+        $scope.editIndex = index;
+        $scope.editCustomerModal.show();
+    };
+
+    // close edit customer modal
+    $scope.closeEditCustomerModal = function() {
+        $scope.editCustomerModal.hide();
+        $state.go("app.split-bill-by-item");
+    };
+
+    // change customer click
+    $scope.changeCustomer = function (newCustomer) {
+        $scope.order_splits[$scope.editIndex].customerFirstName = newCustomer.fname;
+        $scope.order_splits[$scope.editIndex].customerLastName = newCustomer.lname;
+        $scope.order_splits[$scope.editIndex].customerPhone = newCustomer.phone;
+
+        $scope.closeEditCustomerModal();
+    };
+
+    // order details modal
+    $scope.orderDetailsModal=null;
+    $ionicModal.fromTemplateUrl('templates/split-bill-order-details.html', {
+        scope: $scope
+    }).then(function(modal) {
+        $scope.orderDetailsModal = modal;
+    });
+
+    // order details
+    $scope.showOrderDetails = function (item, index) {
+        $scope.current = item;
+        $scope.editIndex = index;
+        $scope.orderDetailsModal.show();
+    };
+
+    // close order details modal
+    $scope.closeOrderDetailsModal = function() {
+        $scope.orderDetailsModal.hide();
+        $state.go("app.split-bill-by-item");
+    };
+
+    // add items modal
+    $scope.addItemsModal=null;
+    $ionicModal.fromTemplateUrl('templates/split-add-items-modal.html', {
+        scope: $scope
+    }).then(function(modal) {
+        $scope.addItemsModal = modal;
+    });
+
+    // edit items
+    $scope.addItems = function (index) {
+        $scope.editIndex = index;
+        $scope.addItemsModal.show();
+    };
+
+    // select item
+    $scope.selectProvisionItem = function (index) {
+        if(typeof $scope.assigned_items[index] == 'undefined' || $scope.assigned_items[index] == false) {
+            $scope.assigned_items[index] = true;
+        } else {
+            $scope.assigned_items[index] = false;
+        }
+    };
+
+    // change items click
+    $scope.changeItems = function () {
+        var sum = 0;
+        var tmp = [];
+        for(var i = 0; i < $scope.assigned_items.length; i++){
+            if($scope.assigned_items[i]){
+                $scope.order_splits[$scope.editIndex].orderDetails.push($scope.unassigned_items[i]);
+                sum += $scope.unassigned_items[i].Price * $scope.unassigned_items[i].Quantity;
+            } else {
+                tmp.push($scope.unassigned_items[i]);
+            }
+        }
+
+        $scope.unassigned_items = tmp;
+        $scope.order_splits[$scope.editIndex].total = Number(sum).toFixed(2);
+        $scope.order_splits[$scope.editIndex].subTotal = $scope.order_splits[$scope.editIndex].total;
+        $scope.order_splits[$scope.editIndex].oSum = $scope.order_splits[$scope.editIndex].total;
+        $scope.assigned_items = cleanArray($scope.unassigned_items.length);
+        $scope.assignTotal = $scope.orderTotal - $scope.unassigned_items.length;
+        $scope.order_splits[$scope.editIndex].isChanged = true;
+        //$('.order-splits > div:nth-child('+ ($scope.editIndex + 1 ) +') button.split-order-add-items').attr('disabled', true);
+        $scope.closeAddItemsModal();
+    };
+
+    // close edit items modal
+    $scope.closeAddItemsModal = function() {
+        $scope.addItemsModal.hide();
+        $state.go("app.split-bill-by-item");
+    };
+
+    // re-assign items
+    $scope.reAssign = function () {
+        $scope.unassigned_items = $scope.unassigned_items.concat($scope.order_splits[$scope.editIndex].orderDetails);
+        $scope.order_splits[$scope.editIndex].orderDetails = [];
+        $scope.assigned_items = cleanArray($scope.unassigned_items.length);
+        $scope.assignTotal = $scope.orderTotal - $scope.unassigned_items.length;
+        $scope.order_splits[$scope.editIndex].total = 0;
+        $scope.order_splits[$scope.editIndex].subTotal = $scope.order_splits[$scope.editIndex].total;
+        $scope.order_splits[$scope.editIndex].oSum = $scope.order_splits[$scope.editIndex].total;
+        $scope.order_splits[$scope.editIndex].isChanged = false;
+        $scope.closeOrderDetailsModal();
+        //$('.order-splits > div:nth-child('+ ($scope.editIndex + 1 ) +') button.split-order-add-items').attr('disabled', false);
+    };
+
+    // submit splits
+    $scope.submitSplits = function () {
+        if($scope.orderTotal != $scope.assignTotal) {
+            Utils.showAlert("Unable to Split", "Please assign all items.", true, 'error', false, 'OK', '', true, true);
+        } else {
+            $ionicLoading.show({
+                template: 'Loading...'
+            }).then(function(){
+                console.log("The loading indicator is now displayed");
+            });
+            var myJsonRequest = new Object();
+            myJsonRequest.limit = 50;
+
+            $http({
+                url: Utils.getApiURL("split_order"),
+                method: "POST",
+                data: {'orderID': $scope.order_data.OrderID, 'splitOrders': $scope.order_splits },
+                headers: {'Content-Type': 'application/json','Authorization':'public 1234567890'}
+            }).success(function (data, status, headers, config){
+                if(data.Success)
+                {
+                    $ionicLoading.hide().then(function(){
+                        console.log("The loading indicator is now hidden");
+                    });
+
+                    Utils.showAlert("Success", data.Message, true, 'success', false, 'OK', '', true, true);
+                    $state.go("app.recall");
+                }
+                else
+                {
+                    Utils.showAlert("Unable to Split", data.Message, true, 'error', false, 'OK', '', true, true);
+                }
+            }).error(function (data, status, headers, config) {
+                $ionicLoading.hide().then(function(){
+                    console.log("The loading indicator is now hidden");
+                });
+                Utils.showAlert("Unable to Split", data.Message, true, 'error', false, 'OK', '', true, true);
+            }).finally(function () {
+                // Hide loading spinner whether our call succeeded or failed.
+                $scope.loading = false;
+            });
+            //Utils.showAlert("Ready to Split", "Good.", true, 'success', false, 'OK', '', true, true);
+        }
+    };
+
+})
+.controller("PaymentCtrl",function($rootScope,$scope,$http,$location,$ionicSideMenuDelegate,ProfileData,Utils,$ionicLoading,$document,SweetAlert,$ionicModal,OrderData,$cordovaCamera,$filter, $cordovaFile,$state){
     
     $ionicSideMenuDelegate.canDragContent(false);
     Utils.checkLogin();
@@ -1568,11 +2075,11 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
     $scope.authenticationToken=localStorage.AccessToken;
     $scope.userId=localStorage.Id;
     $scope.selected_tab="bill";
-	  $scope.order_data = OrderData.getProperty();
+	$scope.order_data = OrderData.getProperty();
     // $scope.order_details = $scope.order_data.OrderDetails;
-	  $scope.payment_model={};
-  	$scope.payment_model.amount_due=$scope.order_data.Total;
-    $scope.payment_model.amount=$scope.order_data.Total;
+    $scope.payment_model={};
+  	$scope.payment_model.amount_due = +($scope.order_data.OSum*1 + $scope.order_data.Tax*1 + $scope.order_data.ServiceCharge*1 - $scope.order_data.Discount*1).toFixed(2);
+    $scope.payment_model.amount= $scope.payment_model.amount_due;
     $scope.payment_model.cheque_number='';
     $scope.payment_model.discount_type_per=true;
     $scope.payment_model.amt_discount_amount=0.00;
@@ -1580,7 +2087,7 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
     
     $scope.payment_request_model={};
 
-	  console.log($scope.order_data);
+    console.log($scope.order_data);
     $scope.Utils=Utils;
 	
 	$scope.doPayment=function(payment_type){
@@ -1609,35 +2116,82 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
       Utils.showAlert("Payment","Please enter amount");
       return;
     }
+    $scope.payment_request_model.OrderId=$scope.order_data.OrderID || '';
+    $scope.payment_request_model.UserId=$scope.order_data.EmployeeID || '';
+    $scope.payment_request_model.ServiceCharge=$scope.order_data.ServiceCharge;
+    $scope.payment_request_model.Discount=$scope.order_data.Discount;
+    $scope.payment_request_model.VoucherAmount = $scope.payment_model.promotional_voucher_amount || 0;
+    $scope.payment_request_model.ClaimCode=$scope.payment_model.claim_code || '';
 
     if(payment_type=="cash")
     {
         $scope.payment_request_model.Amount = $scope.payment_model.amount;
-        $scope.payment_request_model.paymentTopic = "CashPay";
-        $scope.payment_request_model.Discount=$scope.order_data.Discount;
-        $scope.payment_request_model.VoucherAmount = $scope.payment_model.promotional_voucher_amount || 0;
-        $scope.payment_request_model.ClaimCode=$scope.payment_model.claim_code || '';
-        $scope.payment_request_model.OrderId=$scope.order_data.OrderID || '';
-        $scope.payment_request_model.UserId=$scope.order_data.EmployeeID || '';
-        $scope.payment_request_model.ServiceCharge=$scope.order_data.ServiceCharge;
-
-        
-           
-        console.log($scope.payment_request_model);
-        console.log($scope.payment_model);
-        return;
+        $scope.payment_request_model.PaymentTopic = "CashPay";
     }
-    else if(payment_type=="check"){
-         
+    else if(payment_type=="cheque"){
+        $scope.payment_request_model.Amount = $scope.payment_model.amount;
+        $scope.payment_request_model.PaymentTopic = "CheckPay"; 
+        $scope.check_image_base64 = $scope.draw();
+        $scope.payment_request_model.UploadImage=$scope.check_image_base64;
+        $scope.payment_request_model.UploadImageType="png";
+        $scope.payment_request_model.ChequeNumber=$scope.payment_model.cheque_number;
+
+        if(!$scope.payment_model.cheque_number)
+        {
+          Utils.showAlert("Payment","Please enter cheque number");
+          return;
+        }
+      
+        if(!$scope.check_image_base64)
+        {
+          Utils.showAlert("Payment","Please take check image");
+          return;
+        }
     }
     else if(payment_type=="cc"){
+      $scope.payment_request_model.Amount = $scope.payment_model.amount;
+      $scope.payment_request_model.PaymentTopic = "CreditPay"; 
+       if(!$scope.payment_model.card_number)
+      {
+        Utils.showAlert("Payment","Please enter card number");
+        return;
+      }
+      if(!$scope.payment_model.card_holder)
+      {
+        Utils.showAlert("Payment","Please enter card holder");
+        return;
+      }
+      if(!$scope.payment_model.card_cvv)
+      {
+        Utils.showAlert("Payment","Please enter CVV");
+        return;
+      }
+      $scope.payment_request_model.CardHolderName=$scope.payment_model.card_holder;
+      $scope.payment_request_model.CardNumber=$scope.payment_model.card_number;
+      $scope.payment_request_model.Ccv=$scope.payment_model.card_cvv;
+      $scope.payment_request_model.ExpiryDate=$scope.payment_model.exp_month+"/"+$scope.payment_model.exp_year;
+    }
+    else if(payment_type=="analog")
+    {
+      $scope.payment_request_model.Amount = $scope.payment_model.amount;
+      if(!$scope.payment_model.card_number)
+      {
+        Utils.showAlert("Payment","Please enter card number");
+        return;
+      }
+       if(!$scope.payment_model.ref)
+      {
+        Utils.showAlert("Payment","Please enter ref no.");
+        return;
+      }
+     
+      $scope.payment_request_model.PaymentTopic = "AnalogPay"; 
+      $scope.payment_request_model.CardNumber=$scope.payment_model.card_number; 
+      $scope.payment_request_model.ReferenceNumber=$scope.payment_model.ref; 
+      $scope.payment_request_model.ReceiptNo=$scope.order_data.OrderID; 
 
     }
-    else if(payment_type=="analog"){
-
-    }
-
-  return;
+ 
     
     myJsonRequest = $scope.payment_request_model;
      
@@ -1649,28 +2203,22 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
      
       $http({
           url: Utils.getApiURL("payment"),
-          method: "GET",
           method: "POST",
           data: JSON.stringify(myJsonRequest),
           headers: {'Content-Type': 'application/json','Authorization':'public 1234567890'}
       }).success(function (data, status, headers, config){
-          if(data.Success)
-           {
-              console.log(data);
-              return;
-                $scope.orders =  angular.fromJson(data.Data);
-                 // console.log($scope.dine_in_data.service_floor); 
-               //  var d =  angular.fromJson(data.Data);
-                 // $scope.categories = Utils.chunk(d ,2);
-                  
-                $ionicLoading.hide().then(function(){
+           $ionicLoading.hide().then(function(){
                  console.log("The loading indicator is now hidden");
-              });  
-           }
-           else
-           {
-             Utils.showAlert("Orders",data.Message);
-           }
+            });  
+          if(data.Success)
+          {
+                var alert= Utils.showAlert("Save Order",data.Message);
+                $state.go("app.bill");
+          }
+          else
+          {
+            Utils.showAlert("Payment",data.Message);
+          }
       }).error(function (data, status, headers, config) {
             $ionicLoading.hide().then(function(){
              console.log("The loading indicator is now hidden");
@@ -1988,6 +2536,23 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
 	/***************************/
 
   /*******************/
+  $scope.analogPaymentModal=null;
+  $ionicModal.fromTemplateUrl('templates/analog-payment-modal.html', {
+    scope: $scope
+  }).then(function(modal) {
+    $scope.analogPaymentModal = modal;
+  });
+    // Triggered in the login modal to close it
+  $scope.closeAnalogPaymentModal = function() {
+    $scope.analogPaymentModal.hide();
+  };
+  // Open the login modal
+  $scope.showAnalogPaymentModal = function(){
+    $scope.analogPaymentModal.show();
+  };
+  /***************************/
+
+  /*******************/
   $scope.discountPromotionPaymentModal=null;
   $ionicModal.fromTemplateUrl('templates/dp-payment-modal.html', {
     scope: $scope
@@ -2086,9 +2651,10 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
 
     var date = new Date();
 
-    $scope.current_year = date.getFullYear();
-    var start = $scope.current_year - 0; // Minus 10 years from current year
-    var end = $scope.current_year + 20; // Plus 10 years to current year
+    $scope.exp_year = date.getFullYear();
+
+    var start = $scope.exp_year - 0; // Minus 10 years from current year
+    var end = $scope.exp_year + 20; // Plus 10 years to current year
     $scope.yearArray = [];
 
     for(var i=start;i<=end;i++)
@@ -2096,12 +2662,11 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
     $scope.yearArray.push(i);
     }
 
-    $scope.changeInYear = function () {
-    date.setFullYear($scope.current_year);
-    $scope.budgetYear = date;
+    $scope.changeInYear = function (year) {
+     $scope.payment_model.exp_year = year;
     }
 
-    $scope.current_month = date.getMonth();
+    $scope.exp_month = date.getMonth();
     var start = 1; // Minus 1 years from current year
     var end = 12; // Plus 10 years to current year
     $scope.monthArray = [];
@@ -2111,9 +2676,8 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
       $scope.monthArray.push(i);
     }
 
-    $scope.changeInMonth = function () {
-    date.setFullYear($scope.current_year);
-    $scope.budgetYear = date;
+    $scope.changeInMonth = function (month) {
+      $scope.payment_model.exp_month = month;
     }
     
 
@@ -2125,28 +2689,24 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
     $scope.draw = function() {
      // Draw frame
       var dataURI;
-     var img = document.getElementById('check_img');//document.querySelector(".file-preview-image")
-      //img.src=image_data;
-
-      //console.log("check_img "+image_data);
-      
-      console.log("img "+img.src+" w "+img.width+" h "+img.height);
+      var img = document.getElementById('check_img');//document.querySelector(".file-preview-image")
       var canvas = document.createElement('canvas');
       var width=60;
       var height = (img.height/img.width)*width; 
 
-      console.log("img source "+img.src+" w "+img.width+" h "+img.height);
-      console.log("img new "+img.src+" w "+width+" h "+height);
-
-      //var  (original height / original width) x new width = new height;
+    
       canvas.width = width;//img.width;
       canvas.height = height;//img.height;
       canvas.getContext('2d').drawImage(img, 0,0,width,height);
       dataURI = canvas.toDataURL('image/png', 0.02);
+      dataURI=(dataURI=='data:,') ? '' : dataURI;
+      dataURI = dataURI.replace(/^data:image\/(png|jpg);base64,/, "");
+      dataURI = dataURI.replace(/^data:image\/(png|jpg);base64,/, "");
       $scope.check_image_base64 =dataURI;
-       dataURI = dataURI.replace(/^data:image\/(png|jpg);base64,/, "");
+
+     // console.log("check_image_base64 "+$scope.check_image_base64);
       return dataURI;
-      console.log("check_image_base64 "+$scope.check_image_base64);
+     
    
     }
 
@@ -2249,17 +2809,964 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
      //  $scope.showAlert("trueOrigin",trueOrigin);
       return trueOrigin;
     }
+})
+.controller("ReservationCtrl",function($rootScope,$scope,$http,$location,$ionicSideMenuDelegate,ProfileData,Utils){
+    
+    $ionicSideMenuDelegate.canDragContent(false)
+    Utils.checkLogin();
 
+    $scope.profile=ProfileData.getProperty();
+    $scope.authenticationToken=localStorage.AccessToken;
+    $scope.userId=localStorage.Id;
 
+    
+
+})
+.controller("ReservationOrderCtrl",function($rootScope,$scope,$http,$location,$ionicSideMenuDelegate,ProfileData,Utils,$ionicModal,$ionicLoading,FloorModel,$ionicHistory,ReservationData,$state){
+    
+    $ionicSideMenuDelegate.canDragContent(false)
+    Utils.checkLogin();
+
+    $scope.profile=ProfileData.getProperty();
+    $scope.authenticationToken=localStorage.AccessToken;
+    $scope.userId=localStorage.Id;
+    $scope.reservation_model=ReservationData.getProperty() || {};
+
+    if($scope.reservation_model.reservation_date)
+    $scope.reservation_model.reservation_date= new Date($scope.reservation_model.reservation_date);
+    if($scope.reservation_model.reservation_time)
+    $scope.reservation_model.reservation_time= new Date($scope.reservation_model.reservation_time);
+    $scope.customers=[];
+    $scope.selected_customer={};
+
+    $scope.doReservation=function(){
+        
+         if(!$scope.reservation_model.customer_name)
+         {
+            Utils.showAlert("Reservation","Please enter customer name");
+            return;
+         } 
+         if(!$scope.reservation_model.customer_phone)
+         {
+            Utils.showAlert("Reservation","Please enter customer phone");
+            return;
+         } 
+         if(!$scope.reservation_model.address)
+         {
+            Utils.showAlert("Reservation","Please enter customer address");
+            return;
+         } 
+         if($scope.reservation_model.selected_tables.length<=0)
+         {
+            Utils.showAlert("Reservation","Please select table");
+            return;
+         } 
+
+        var profile_data=ProfileData.getProperty();
+        //   console.log(JSON.stringify( $scope.reservation_model));
+         var customer_name_parts=$scope.reservation_model.customer_name.split(" ");
+         var first_name=customer_name_parts[0] || "";
+         var last_name=(customer_name_parts.length>1) ? customer_name_parts[1] : "";
+         var reserved_tables=[];
+         for(var i=0;i<$scope.reservation_model.selected_tables.length;i++)
+         {
+           reserved_tables.push($scope.reservation_model.selected_tables[i].TableCode);
+         }
+         $scope.order = {};
+         $scope.order.NumOfOTable=$scope.reservation_model.selected_tables.length;
+         $scope.order.Total=0;
+         $scope.order.EmployeeID = $scope.userId;
+         $scope.order.OrderDetails = [];
+         $scope.order.IsReservation=true;
+         $scope.order.OrderID = $scope.reservation_model.booking_no;
+         $scope.order.Status=1;
+         $scope.order.ODate =  $scope.reservation_model.reservation_date_time;
+         $scope.order.OType="Reservation";
+         $scope.order.CustomerPhone = $scope.reservation_model.customer_phone;
+         $scope.order.CustomerAddress =$scope.reservation_model.address;
+         $scope.order.CustomerFirstName = first_name;
+         $scope.order.CustomerLastName = last_name;
+         $scope.order.Discount =0;
+         $scope.order.TotalRec=0;
+         $scope.order.OSum = 0;
+         $scope.order.NumPeople = $scope.reservation_model.number_of_person;
+         $scope.order.Tax = 0;
+         $scope.order.OTable = reserved_tables.join(',');
+         $scope.order.ServiceCharge = 0; 
+         
+     
+
+          myJsonRequest = $scope.order;
  
+          $ionicLoading.show({
+            template: 'Loading...'
+          }).then(function(){
+             console.log("The loading indicator is now displayed");
+          });
+         
+          $http({
+              url: Utils.getApiURL("save_order"),
+              method: "POST",
+              data: JSON.stringify(myJsonRequest),
+               headers: {'Content-Type': 'application/json','Authorization':''+profile_data.AccessToken,'Access-Control-Allow-Origin':'*'}
+          }).success(function (data, status, headers, config){
+               $ionicLoading.hide().then(function(){
+                     console.log("The loading indicator is now hidden");
+                });  
+              if(data.Success)
+              {
+                    var alert= Utils.showAlert("Reservation",data.Message);
+                    alert.then(function(res){
+                           $scope.reservation_model={};
+                           ReservationData.setProperty($scope.reservation_model);
+                           $state.go("app.dashboard");
+                    });
+              }
+              else
+              {
+                Utils.showAlert("Payment",data.Message);
+              }
+          }).error(function (data, status, headers, config) {
+                $ionicLoading.hide().then(function(){
+                 console.log("The loading indicator is now hidden");
+              });
 
-      // console.log($scope.gift_card_data); 
+          }).finally(function () {
+            // Hide loading spinner whether our call succeeded or failed.
+            $scope.loading = false;
+        }); 
+        
 
-        $scope.requestForCheckPayment = function(){
-
-        $scope.check_image_base64 = $scope.draw(); //return;  
-	      };
        
+        // $state.go("app.reservation");
+    };
+    
+    $scope.setSelectedCustomer=function(customer){
+      $scope.selected_customer=customer;
+     
+    };
+    
+    $scope.assignCustomer=function(customer){
+      $scope.reservation_model.customer_name = $scope.selected_customer.FirstName+" "+$scope.selected_customer.LastName;
+      $scope.reservation_model.customer_phone = $scope.selected_customer.Phone;
+      $scope.reservation_model.address = $scope.selected_customer.Address;
+
+      ReservationData.setProperty($scope.reservation_model);
+      $scope.closeCustomerSelectModal();
+    //  console.log($scope.selected_customer);
+    };
+
+    $scope.removeClickedTable = function(index){
+        
+        $scope.reservation_model.selected_tables.splice( index, 1 );
+    };
+
+    $scope.goBack=function(){
+      $ionicHistory.goBack();
+    }
+     $scope.toUTCDate = function(date){
+      var _utc = new Date(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate(),  date.getUTCHours(), date.getUTCMinutes(), date.getUTCSeconds());
+      return _utc;
+    };
+    $scope.generateBookingId = function(){
+        var currentTime = $scope.toUTCDate(new Date());
+        var currentTime = moment(currentTime, 'YYYY/MM/DD');
+        var booking_id=currentTime.format('DD')+""+currentTime.format('MM')+""+currentTime.format('YYYY')+currentTime.format('HH')+""+currentTime.format('mm')+""+currentTime.format('ss');
+        return booking_id;
+    };
+
+   if(!$scope.reservation_model.booking_no) 
+      $scope.reservation_model.booking_no = $scope.generateBookingId();
+
+    $ionicHistory.nextViewOptions({
+      disableBack: false
+    });
+   //  console.log($scope.reservation_model);
+    
+
+    $scope.select_table=function(){
+      if(!$scope.reservation_model.reservation_date)
+      {
+        Utils.showAlert("Reservation","Please select date");
+        return;
+      }
+      if(!$scope.reservation_model.reservation_time)
+      {
+        Utils.showAlert("Reservation","Please select date");
+        return;
+      }
+      var reservation_date_time=$scope.reservation_model.reservation_date +" "+$scope.reservation_model.reservation_time;
+      var current_date = $scope.toUTCDate(new Date($scope.reservation_model.reservation_date));
+      var current_time = $scope.toUTCDate(new Date($scope.reservation_model.reservation_time));
+      var current_date_moment = moment(current_date); 
+      var current_time_moment = moment(current_time); 
+      var reservation_date_time=current_date_moment.format('YYYY')+"-"+current_date_moment.format('MM')+"-"+current_date_moment.format('DD')+"T"+current_time_moment.format('HH')+":"+current_time_moment.format('mm')+":"+current_time_moment.format('ss');
+      $scope.reservation_model.reservation_date_time=reservation_date_time;
+      ReservationData.setProperty($scope.reservation_model);
+      // $location.path("/app/service-floor?page_referer=reservation").replace();
+      $state.go('app.service-floor', { page_referer: 'reservation'});
+    };
+
+    $scope.customerSelectModal=null;
+    $ionicModal.fromTemplateUrl('templates/customer-select-modal.html', {
+      scope: $scope
+     }).then(function(modal) {
+      $scope.customerSelectModal = modal;
+     });
+
+    // Open the login modal
+    $scope.showCustomerSelectModal = function(){
+      $scope.customerSelectModal.show();
+    };
+      // Triggered in  modal to close it
+    $scope.closeCustomerSelectModal = function() {
+      $scope.customerSelectModal.hide();
+    };
+
+     $scope.serarchCustomer=function(){
+          var myJsonRequest = new Object();  
+
+          var customer_phone = $scope.reservation_model.customer_search_phone || "";
+          var customer_name = $scope.reservation_model.customer_search_name || "";
+
+          var customer_name_parts=customer_name.split(" ");
+          var first_name=customer_name_parts[0];
+          var last_name=(customer_name_parts.length>1) ? customer_name_parts[1] : "";
+        //  myJsonRequest.fname = first_name;
+        //  myJsonRequest.lname = last_name; 
+         
+         $ionicLoading.show({
+            template: 'Loading...'
+          }).then(function(){
+             console.log("The loading indicator is now displayed");
+          });
+         
+          $http({
+              url: Utils.getApiURL("search_customers")+"?phone="+customer_phone+"&fname="+first_name+"&lname="+last_name,
+              method: "GET",
+           //   data: JSON.stringify(myJsonRequest),
+              headers: {'Content-Type': 'application/json','Authorization':'public 1234567890'}
+          }).success(function (data, status, headers, config){
+               $ionicLoading.hide().then(function(){
+                     console.log("The loading indicator is now hidden");
+                });  
+              if(data.Success)
+               {
+                   $scope.customers=data.Data;
+                   console.log(data);     
+               }
+               else
+               {
+                 Utils.showAlert("Search Customer",data.Message,false,"warning");
+               }
+          }).error(function (data, status, headers, config) {
+                $ionicLoading.hide().then(function(){
+                 console.log("The loading indicator is now hidden");
+              });
+
+          }).finally(function () {
+            // Hide loading spinner whether our call succeeded or failed.
+            $scope.loading = false;
+        }); 
+
+  };
+
+   
+})
+.controller("TipsCtrl",function($rootScope, $scope, $http, $location, $ionicSideMenuDelegate, ProfileData, Utils, $ionicLoading, $document, SweetAlert, $ionicModal, $state, OrderData){
+    
+    $ionicSideMenuDelegate.canDragContent(false)
+    Utils.checkLogin();
+
+    $scope.profile=ProfileData.getProperty();
+    $scope.authenticationToken=localStorage.AccessToken;
+    $scope.userId=localStorage.Id;
+    
+ 
+})
+.controller("AdjustTipsCtrl",function($rootScope, $scope, $http, $location, $ionicSideMenuDelegate, ProfileData, Utils, $ionicLoading, $document, SweetAlert, $ionicModal, $state, OrderData, $cordovaCamera, $filter, $cordovaFile){
+
+    $ionicSideMenuDelegate.canDragContent(false);
+    Utils.checkLogin();
+
+    $scope.profile=ProfileData.getProperty();
+    $scope.authenticationToken=localStorage.AccessToken;
+    $scope.userId=localStorage.Id;
+
+    // payment model
+    $scope.payment_model = {
+        'order_id': '',
+        'amount': 0,
+        'total_tips': 0,
+        'osum': 0,
+        'selected': false,
+        'selected_order_id': '',
+        "CheckNo": "",
+        "DriverLicense": "",
+        "GiftCardNo": "",
+        "CardNo": "",
+        "AccountName": "",
+        "ExpireYear": "",
+        "ExpireMonth": "",
+        "Cvv": "",
+        "ApprovalCode": "",
+        "RefNo": "",
+        "SaleAmount": "",
+        "FinalAmount": "",
+        "FinalStatus": ""
+    };
+
+    // stuff got tips
+    $scope.employees = [];
+    $scope.current = 0;
+
+    $scope.check_image="";
+    $scope.check_image_base64="";
+
+    // set class to stuff
+    $scope.setClass = function ($event,index){
+        var scope_var ="my-row-"+index;
+        var my_row_element = angular.element($document[0].querySelector('#my-row-'+index));
+        var my_button_element = angular.element($document[0].querySelector('#my-button-'+index));
+
+        if(my_row_element.hasClass('shift-left'))
+            my_row_element.removeClass('shift-left').addClass("shift-right");
+        else
+            my_row_element.addClass('shift-left').removeClass("shift-right");
+
+        if(my_button_element.hasClass('button-shift-right'))
+            my_button_element.removeClass('button-shift-right').addClass("button-shift-left");
+        else
+            my_button_element.addClass('button-shift-right').removeClass("button-shift-left");
+    };
+
+    // tips list
+    $scope.tips = [];
+
+    // search receipts
+    $scope.receipts = [];
+
+    // whole stuff list
+    $scope.employees_list = [];
+
+    // set receipt
+    $scope.setReceipt = function (index) {
+        $scope.payment_model.osum = $scope.receipts[index].OSum;
+        $scope.payment_model.order_id = $scope.receipts[index].OrderId;
+        $scope.payment_model.selected_order_id = $scope.receipts[index].OrderId;
+        $scope.employees = $scope.receipts[index].EmployeeTipsDetailsList;
+        $scope.tips = $scope.receipts[index].OrderTipMethodDetails;
+        $scope.payment_model.selected = true;
+
+        $scope.payment_model.total_tips = 0;
+        for(var i=0;i<$scope.tips.length;i++){
+            $scope.payment_model.total_tips += parseFloat($scope.tips[i].TipAmount);
+        }
+
+        $scope.closeSearchReceiptModal();
+    };
+    
+    // add stuff
+    $scope.setEmployee = function (id) {
+        $scope.employees.push({
+            "Id": "",
+            "EmployeeID": $scope.employees_list[id].EmployeeID,
+            "OrderID": $scope.payment_model.selected_order_id,
+            "TipID": "",
+            "TipAmount": 0.0,
+            "TipDate": new Date().toUTCString(),
+            "TipType": "",
+            "FirstName": $scope.employees_list[id].FirstName,
+            "LastName": $scope.employees_list[id].LastName
+        });
+        $scope.closeAddStuffModal();
+    };
+
+    // edit tip for stuff
+    $scope.editTipAmount = function (index) {
+        $scope.current = index;
+        $scope.newPrice = $scope.employees[index].TipAmount;
+        $scope.showEditPriceModal();
+    };
+
+    // change tip amount
+    $scope.changePrice = function (amount) {
+        $scope.employees[$scope.current].TipAmount = amount;
+        $scope.closeEditPriceModal();
+    };
+
+    // remove stuff
+    $scope.removeEmployee = function (index) {
+        $scope.employees.splice(index, 1);
+    };
+
+    // do payment
+    $scope.doPayment = function (method) {
+        // check tip amount
+        if($scope.payment_model.amount > 0) {
+            var tipObj = {
+                "PaymentType": 1,
+                "Method": method,
+                "TipID": 0,
+                "OrderID": $scope.payment_model.selected_order_id,
+                'TipAmount': parseFloat($scope.payment_model.amount).toFixed(2),
+                "TipDate": new Date().toUTCString(),
+                "PaymentID": "",
+                "IsFinalize": true,
+                "CheckNo": "",
+                "CheckImage": "",
+                "DriverLicense": "",
+                "GiftCardNo": "",
+                "CardNo": "",
+                "AccountName": "",
+                "ExpireYear": "",
+                "ExpireMonth": "",
+                "Cvv": "",
+                "ApprovalCode": "",
+                "RefNo": "",
+                "SaleAmount": "",
+                "FinalAmount": "",
+                "FinalStatus": ""
+            };
+
+            switch (method){
+                case 'cash':
+                    tipObj.PaymentType = 1;
+                    break;
+
+                case 'credit_card':
+                    tipObj.PaymentType = 2;
+                    tipObj.PaymentID = $scope.payment_model.PaymentID;
+                    tipObj.SaleAmount = $scope.payment_model.SaleAmount;
+                    tipObj.ApprovalCode = $scope.payment_model.ApprovalCode;
+                    tipObj.FinalAmount = $scope.payment_model.FinalAmount;
+                    tipObj.FinalStatus = $scope.payment_model.FinalStatus;
+
+                    tipObj.CardNo = $scope.payment_model.CardNo;
+                    tipObj.AccountName = $scope.payment_model.AccountName;
+                    tipObj.ExpireMonth = $scope.payment_model.ExpireMonth;
+                    tipObj.ExpireYear = $scope.payment_model.ExpireYear;
+                    tipObj.Cvv = $scope.payment_model.Cvv;
+                    break;
+
+                case 'check':
+                    tipObj.PaymentType = 3;
+                    tipObj.CheckNo = $scope.payment_model.CheckNo;
+                    tipObj.DriverLicense = $scope.payment_model.DriverLicense;
+                    $scope.check_image_base64 = $scope.draw();
+                    tipObj.CheckImage = $scope.check_image_base64;
+                    break;
+
+                case 'gift':
+                    tipObj.PaymentType = 4;
+                    break;
+
+                case 'analog':
+                    tipObj.PaymentType = 5;
+                    tipObj.CardNo = $scope.payment_model.CardNo;
+                    tipObj.RefNo = $scope.payment_model.RefNo;
+                    break;
+
+                default:
+                    tipObj.PaymentType = 1;
+            }
+
+            $scope.tips.push(tipObj);
+            $scope.payment_model.total_tips += parseFloat($scope.payment_model.amount);
+        }
+    };
+
+    // save tips
+    $scope.saveTips = function () {
+        $ionicLoading.show({
+            template: 'Loading...'
+        }).then(function(){
+            console.log("The loading indicator is now displayed");
+        });
+        var myJsonRequest = new Object();
+        myJsonRequest.limit = 50;
+
+        // save tips
+        $http({
+            url: Utils.getApiURL("save_pay_tip"),
+            method: "POST",
+            data: {
+                "orderTipMethodDetails": $scope.tips,
+                "employeeTipsDetailsList": $scope.employees,
+                "orderId": $scope.payment_model.selected_order_id,
+                "userID": $scope.userId
+            },
+            headers: {'Content-Type': 'application/json','Authorization':'public 1234567890'}
+        }).success(function (data, status, headers, config){
+            if(data.Success)
+            {
+                $ionicLoading.hide().then(function(){
+                    Utils.showAlert("Saved", data.Message, true, 'success', false, 'OK', '', true, true);
+                    $state.go('app.tips');
+                });
+            } else {
+
+                $ionicLoading.hide().then(function(){
+                    Utils.showAlert("Error", data.Message, true, 'error', false, 'OK', '', true, true);
+                });
+            }
+        }).error(function (data, status, headers, config) {
+            $ionicLoading.hide().then(function(){
+                Utils.showAlert("Error", data.Message, true, 'error', false, 'OK', '', true, true);
+            });
+        }).finally(function () {
+            $scope.loading = false;
+        });
+    };
+
+    // draw image into canvas
+    $scope.draw = function() {
+        // Draw frame
+        var dataURI;
+        var img = document.getElementById('check_img');//document.querySelector(".file-preview-image")
+        var canvas = document.createElement('canvas');
+        var width=200;
+        var height = (img.height/img.width)*width;
+
+
+        canvas.width = width;//img.width;
+        canvas.height = height;//img.height;
+        canvas.getContext('2d').drawImage(img, 0,0,width,height);
+        dataURI = canvas.toDataURL('image/png', 0.02);
+        dataURI=(dataURI=='data:,') ? '' : dataURI;
+        dataURI = dataURI.replace(/^data:image\/(png|jpg);base64,/, "");
+        dataURI = dataURI.replace(/^data:image\/(png|jpg);base64,/, "");
+        $scope.check_image_base64 =dataURI;
+
+        return dataURI;
+    };
+
+    // take image from camera
+    $scope.takeCameraImage = function() {
+        var options = {
+            destinationType : Camera.DestinationType.FILE_URI,
+            sourceType : Camera.PictureSourceType.CAMERA, // Camera.PictureSourceType.PHOTOLIBRARY
+            quality: 0.02,
+            targetWidth: 200,
+            targetHeight: 100,
+            encodingType: Camera.EncodingType.PNG,
+            popoverOptions: CameraPopoverOptions
+        };
+
+        $cordovaCamera.getPicture(options).then(function(imageData) {
+            // $scope.check_image_base64 = "data:image/png;base64," + imageData;
+            onImageSuccess(imageData);
+            function onImageSuccess(fileURI) {
+                createFileEntry(fileURI);
+            }
+
+            function createFileEntry(fileURI) {
+                window.resolveLocalFileSystemURL(fileURI, copyFile, fail);
+            }
+
+            function copyFile(fileEntry) {
+                var name = fileEntry.fullPath.substr(fileEntry.fullPath.lastIndexOf('/') + 1);
+                var newName = makeid() + name;
+                window.resolveLocalFileSystemURL(cordova.file.dataDirectory, function(fileSystem2) {
+                        fileEntry.copyTo(
+                            fileSystem2,
+                            newName,
+                            onCopySuccess,
+                            fail
+                        );
+                    },
+                    fail);
+            }
+
+            function onCopySuccess(entry) {
+                $scope.$apply(function () {
+                    $scope.check_image = entry.nativeURL;
+                    //console.log($scope.check_image);
+
+                    //$scope.check_image_base64 = Utils.toBase64Image($scope.check_image);
+                    // $scope.draw($scope.check_image);
+
+                    // console.log("toBase64Image  "+ $scope.check_image_base64);
+
+                    /*
+                     Utils.getFileContentAsBase64(entry.nativeURL,function(base64Image){
+                     $scope.check_image_base64 = base64Image;
+                     $scope.draw();
+                     });*/
+
+                });
+            }
+
+            function fail(error) {
+                console.log("fail: " + error.code);
+            }
+
+            function makeid() {
+                var text = "";
+                var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+                for (var i=0; i < 5; i++) {
+                    text += possible.charAt(Math.floor(Math.random() * possible.length));
+                }
+                return text;
+            }
+
+        }, function(err) {
+            console.log(err);
+        });
+    };
+
+    // URL for uploaded image
+    $scope.urlForImage = function(imageName) {
+        var trueOrigin="";
+        if(imageName)
+        {
+            var name = imageName.substr(imageName.lastIndexOf('/') + 1);
+            trueOrigin = cordova.file.dataDirectory + name;
+        }
+        return trueOrigin;
+    };
+
+    // Edit Tips Amount modal
+    /*******************/
+    $scope.editTipsAmountModal=null;
+    $ionicModal.fromTemplateUrl('templates/split-bill-edit-price.html', {
+        scope: $scope
+    }).then(function(modal) {
+        $scope.editTipsAmountModal = modal;
+    });
+    // Triggered in the analog modal to close it
+    $scope.closeEditPriceModal = function() {
+        $scope.editTipsAmountModal.hide();
+    };
+    // Open the analog modal
+    $scope.showEditPriceModal = function(){
+        $scope.editTipsAmountModal.show();
+    };
+    /***************************/
+
+    // Cash tips modal
+    /*******************/
+    $scope.cashPaymentModal=null;
+    $ionicModal.fromTemplateUrl('templates/tips/cash-tips-modal.html', {
+        scope: $scope
+    }).then(function(modal) {
+        $scope.cashPaymentModal = modal;
+    });
+    // Triggered in the check modal to close it
+    $scope.closeCashPaymentModal = function() {
+        $scope.cashPaymentModal.hide();
+    };
+    // Open the check modal
+    $scope.showCashPaymentModal = function(){
+        if($scope.payment_model.selected) {
+            $scope.cashPaymentModal.show();
+        } else {
+            Utils.showAlert("Error", 'Please select a receipt', true, 'error', false, 'OK', '', true, true);
+        }
+    };
+    /***************************/
+
+    // Analog tips modal
+    /*******************/
+    $scope.analogPaymentModal=null;
+    $ionicModal.fromTemplateUrl('templates/tips/analog-tips-modal.html', {
+        scope: $scope
+    }).then(function(modal) {
+        $scope.analogPaymentModal = modal;
+    });
+    // Triggered in the analog modal to close it
+    $scope.closeAnalogPaymentModal = function() {
+        $scope.analogPaymentModal.hide();
+    };
+    // Open the analog modal
+    $scope.showAnalogPaymentModal = function(){
+        if($scope.payment_model.selected) {
+            $scope.analogPaymentModal.show();
+        } else {
+            Utils.showAlert("Error", 'Please select a receipt', true, 'error', false, 'OK', '', true, true);
+        }
+    };
+    /***************************/
+
+    // Check tips modal
+    /*******************/
+    $scope.checkPaymentModal=null;
+    $ionicModal.fromTemplateUrl('templates/tips/check-tips-modal.html', {
+        scope: $scope
+    }).then(function(modal) {
+        $scope.checkPaymentModal = modal;
+    });
+    // Triggered in the check modal to close it
+    $scope.closeCheckPaymentModal = function() {
+        $scope.checkPaymentModal.hide();
+    };
+    // Open the check modal
+    $scope.showCheckPaymentModal = function(){
+        if($scope.payment_model.selected) {
+            $scope.checkPaymentModal.show();
+        } else {
+            Utils.showAlert("Error", 'Please select a receipt', true, 'error', false, 'OK', '', true, true);
+        }
+    };
+    /***************************/
+
+    // Credit tips modal
+    /*******************/
+    $scope.creditPaymentModal=null;
+    $ionicModal.fromTemplateUrl('templates/tips/credit-tips-modal.html', {
+        scope: $scope
+    }).then(function(modal) {
+        $scope.creditPaymentModal = modal;
+    });
+    // Triggered in the credit modal to close it
+    $scope.closeCreditPaymentModal = function() {
+        $scope.creditPaymentModal.hide();
+    };
+    // Open the credit modal
+    $scope.showCreditPaymentModal = function(){
+        if($scope.payment_model.selected) {
+            $scope.creditPaymentModal.show();
+        } else {
+            Utils.showAlert("Error", 'Please select a receipt', true, 'error', false, 'OK', '', true, true);
+        }
+    };
+    /***************************/
+
+    // Another card tips modal
+    /*******************/
+    $scope.cardPaymentModal=null;
+    $ionicModal.fromTemplateUrl('templates/tips/card-tips-modal.html', {
+        scope: $scope
+    }).then(function(modal) {
+        $scope.cardPaymentModal = modal;
+    });
+    // Triggered in the card modal to close it
+    $scope.closeCardPaymentModal = function() {
+        $scope.cardPaymentModal.hide();
+    };
+    // Open the card modal
+    $scope.showCardPaymentModal = function(){
+        if($scope.payment_model.selected) {
+            $scope.cardPaymentModal.show();
+        } else {
+            Utils.showAlert("Error", 'Please select a receipt', true, 'error', false, 'OK', '', true, true);
+        }
+    };
+    /***************************/
+
+    // Gift tips modal
+    /*******************/
+    $scope.giftPaymentModal=null;
+    $ionicModal.fromTemplateUrl('templates/tips/gift-tips-modal.html', {
+        scope: $scope
+    }).then(function(modal) {
+        $scope.giftPaymentModal = modal;
+    });
+    // Triggered in the gift modal to close it
+    $scope.closeGiftPaymentModal = function() {
+        $scope.giftPaymentModal.hide();
+    };
+    // Open the gift modal
+    $scope.showGiftPaymentModal = function(){
+        if($scope.payment_model.selected) {
+            $scope.giftPaymentModal.show();
+        } else {
+            Utils.showAlert("Error", 'Please select a receipt', true, 'error', false, 'OK', '', true, true);
+        }
+    };
+    /***************************/
+
+    // Search Receipt modal
+    /*******************/
+    $scope.searchReceiptModal=null;
+    $ionicModal.fromTemplateUrl('templates/tips/search-receipt-modal.html', {
+        scope: $scope
+    }).then(function(modal) {
+        $scope.searchReceiptModal = modal;
+    });
+    // Triggered in the search modal to close it
+    $scope.closeSearchReceiptModal = function() {
+        $scope.searchReceiptModal.hide();
+    };
+    // Open the search modal
+    $scope.showSearchReceiptModal = function(){
+        if($scope.payment_model.order_id=="") {
+            Utils.showAlert("Error", "Please provide Receipt no", true, 'error', false, 'OK', '', true, true);
+            return;
+        }
+
+        $scope.searchReceiptModal.show();
+
+        $ionicLoading.show({
+            template: 'Loading...'
+        }).then(function(){
+            console.log("The loading indicator is now displayed");
+        });
+        var myJsonRequest = new Object();
+        myJsonRequest.limit = 50;
+
+        // load stuff
+        $http({
+            url: Utils.getApiURL("search_receipts")+"?orderId="+$scope.payment_model.order_id,
+            method: "GET",
+            data: { },
+            headers: {'Content-Type': 'application/json','Authorization':'public 1234567890'}
+        }).success(function (data, status, headers, config){
+            if(data.Success)
+            {
+                $scope.receipts = data.searchReceiptsData;
+                $ionicLoading.hide().then(function(){
+                    console.log("Receipt list loaded.");
+                });
+            } else {
+                $scope.closeSearchReceiptModal();
+                $ionicLoading.hide().then(function(){
+                    Utils.showAlert("Unable to Load", data.Message, true, 'error', false, 'OK', '', true, true);
+                });
+            }
+        }).error(function (data, status, headers, config) {
+            $ionicLoading.hide().then(function(){
+                Utils.showAlert("Unable to Load", data.Message, true, 'error', false, 'OK', '', true, true);
+                $scope.closeSearchReceiptModal();
+            });
+        }).finally(function () {
+            $scope.loading = false;
+        });
+    };
+    /***************************/
+
+    // Add Stuff modal
+    /*******************/
+    $scope.addStuffModal=null;
+    $ionicModal.fromTemplateUrl('templates/tips/add-stuff-modal.html', {
+        scope: $scope
+    }).then(function(modal) {
+        $scope.addStuffModal = modal;
+    });
+    // Triggered in the search modal to close it
+    $scope.closeAddStuffModal = function() {
+        $scope.addStuffModal.hide();
+    };
+    // Open the search modal
+    $scope.showAddStuffModal = function(){
+        $scope.addStuffModal.show();
+        $ionicLoading.show({
+            template: 'Loading...'
+        }).then(function(){
+            console.log("The loading indicator is now displayed");
+        });
+        var myJsonRequest = new Object();
+        myJsonRequest.limit = 50;
+
+        // load stuff
+        $http({
+            url: Utils.getApiURL("all_employee"),
+            method: "GET",
+            data: { },
+            headers: {'Content-Type': 'application/json','Authorization':'public 1234567890'}
+        }).success(function (data, status, headers, config){
+            if(data.Success)
+            {
+                $scope.employees_list = data.EmployeeModelList;
+                $ionicLoading.hide().then(function(){
+                    console.log("Employee list loaded.");
+                });
+            } else {
+                Utils.showAlert("Unable to Load", data.Message, true, 'error', false, 'OK', '', true, true);
+            }
+        }).error(function (data, status, headers, config) {
+            $ionicLoading.hide().then(function(){
+                console.error("Load failed.");
+            });
+        }).finally(function () {
+            $scope.loading = false;
+        });
+
+    };
+    /***************************/
+})
+.controller("ValidateTipsCtrl",function($rootScope, $scope, $http, $location, $ionicSideMenuDelegate, ProfileData, Utils, $ionicLoading, $document, SweetAlert, $ionicModal, $state, OrderData){
+
+    $ionicSideMenuDelegate.canDragContent(false);
+    Utils.checkLogin();
+
+    $scope.profile=ProfileData.getProperty();
+    $scope.authenticationToken=localStorage.AccessToken;
+    $scope.userId=localStorage.Id;
+    
+    
+})
+.controller("ReportTipsCtrl",function($rootScope, $scope, $http, $location, $ionicSideMenuDelegate, ProfileData, Utils, $ionicLoading, $document, SweetAlert, $ionicModal, $state, OrderData){
+
+    $ionicSideMenuDelegate.canDragContent(false);
+    Utils.checkLogin();
+
+    $scope.profile=ProfileData.getProperty();
+    $scope.authenticationToken=localStorage.AccessToken;
+    $scope.userId=localStorage.Id;
+
+
+})
+.controller("CorrectTipsCtrl",function($rootScope, $scope, $http, $location, $ionicSideMenuDelegate, ProfileData, Utils, $ionicLoading, $document, SweetAlert, $ionicModal, $state, OrderData){
+
+    $ionicSideMenuDelegate.canDragContent(false);
+    Utils.checkLogin();
+
+    $scope.profile=ProfileData.getProperty();
+    $scope.authenticationToken=localStorage.AccessToken;
+    $scope.userId=localStorage.Id;
+
+    // tips list
+    $scope.tips = [{
+        'method': 'analog',
+        'amount': 2.00
+    },{
+        'method': 'gift',
+        'amount': 3.00
+    }];
+
+    // select item
+    $scope.selectProvisionItem = function (index) {
+        if(typeof $scope.assigned_items[index] == 'undefined' || $scope.assigned_items[index] == false) {
+            $scope.assigned_items[index] = true;
+        } else {
+            $scope.assigned_items[index] = false;
+        }
+    };
+
+})
+.controller("FinalizeTipsCtrl",function($rootScope, $scope, $http, $location, $ionicSideMenuDelegate, ProfileData, Utils, $ionicLoading, $document, SweetAlert, $ionicModal, $state, OrderData){
+
+    $ionicSideMenuDelegate.canDragContent(false);
+    Utils.checkLogin();
+
+    $scope.profile=ProfileData.getProperty();
+    $scope.authenticationToken=localStorage.AccessToken;
+    $scope.userId=localStorage.Id;
+
+
+})
+.controller("SettleTipsCtrl",function($rootScope, $scope, $http, $location, $ionicSideMenuDelegate, ProfileData, Utils, $ionicLoading, $document, SweetAlert, $ionicModal, $state, OrderData){
+
+    $ionicSideMenuDelegate.canDragContent(false);
+    Utils.checkLogin();
+
+    $scope.profile=ProfileData.getProperty();
+    $scope.authenticationToken=localStorage.AccessToken;
+    $scope.userId=localStorage.Id;
+
+
+})
+.controller("AdminToolsCtrl",function($rootScope,$scope,$http,$location,$ionicSideMenuDelegate,ProfileData,Utils){
+    
+    $ionicSideMenuDelegate.canDragContent(false);
+    Utils.checkLogin();
+
+    $scope.profile=ProfileData.getProperty();
+    $scope.authenticationToken=localStorage.AccessToken;
+    $scope.userId=localStorage.Id;
+   
 })
 
 .service('ProfileData', function (){
@@ -2280,7 +3787,7 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
              value["Email"]=localStorage.getItem('Email');
              value["IsCashBack"]=localStorage.getItem('IsCashBack'); 
              try{
-             localStorage.setItem('profileData', angular.toJson(value));
+                localStorage.setItem('profileData', angular.toJson(value));
               } catch (e) {
              console.log(e); //dealData
            }
@@ -2304,6 +3811,26 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
               } catch (e) {
              console.log(e); //storeInfo
            }
+        }
+    };
+})
+.service('SpecialItems', function (){
+    var specialItems=[];
+    return {
+        getProperty: function () {
+            try{
+                specialItems = angular.fromJson(localStorage.getItem('specialItems'));
+            } catch (e) {
+                console.log(e); //specialItems
+            }
+            return specialItems;
+        },
+        setProperty: function (value) {
+            try{
+                localStorage.setItem('specialItems', angular.toJson(value));
+            } catch (e) {
+                console.log(e); //specialItems
+            }
         }
     };
 })
@@ -2343,6 +3870,26 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
              localStorage.setItem('productData', angular.toJson(value));
               } catch (e) {
              console.log(e); //ProductData
+           }
+        }
+    };
+})
+.service('ReservationData', function (){
+    var reservationData=[];
+    return {
+        getProperty: function () {
+            try{
+            reservationData = angular.fromJson(localStorage.getItem('reservationData'));
+             } catch (e) {
+             console.log(e); //reservationData
+           }
+            return reservationData;
+        },
+        setProperty: function (value) {
+             try{
+             localStorage.setItem('reservationData', angular.toJson(value));
+              } catch (e) {
+             console.log(e); //reservationData
            }
         }
     };
@@ -2400,9 +3947,9 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
                 $scope.OpenModalFromTemplate($scope.searchSelect.templateUrl);
             }, $element);
 
-            $scope.saveOption = function () {
+            $scope.saveOption = function (){
               if(!!$scope.searchSelect.keyProperty && !!$scope.searchSelect.valueProperty){
-                for (var i = 0; i < $scope.options.length; i++) {
+                for (var i = 0; i < $scope.options.length; i++){
                     var currentOption = $scope.options[i];
                     if(currentOption[$scope.searchSelect.keyProperty] == $scope.searchSelect.option){
                       $scope.optionSelected = currentOption;
@@ -2566,7 +4113,6 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
           //  this.showAlert("",(deferred.promise) ? 't' : "f");
             return deferred.promise;
         },
-
         toBase64Image: function (img_path) {
             var q = $q.defer();
             window.imageResizer.resizeImage(function (success_resp) {
@@ -2583,8 +4129,7 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
          
             return q.promise;
         },
-
-       getFileContentAsBase64: function (path,callback){
+        getFileContentAsBase64: function (path,callback){
             window.resolveLocalFileSystemURL(path, gotFile, fail);
                     
             function fail(e) {
@@ -2603,12 +4148,11 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
                    });
             }
         },
-        getApiURL: function(method)
-        {
-            var url = {}; 
+        getApiURL: function(method) {
+            var url = {};
             url.base_url="http://restaurant.theskypos.com/api/";
             url.image_base_url="http://restaurant.theskypos.com";
-            //url.base_url="http://d568b164.ngrok.io/api/";
+           //url.base_url="https://5638d5d7.ngrok.io/api/";
             url.registration = "api/Account/Register";
             url.login_email = "Auth/Login";
             url.login_access_code="Auth/AccessCode";
@@ -2640,7 +4184,19 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
             url.daily_report="Report/DailyReport";
             url.shift_report="Report/ShiftReport";
             url.receipt_reprint="Order/ReceiptReprint";
-            
+
+            url.search_receipts="Tips/SearchReceipts";
+            url.check_fully_paid="Tips/CheckIfOrderIsFullyPaid";
+            url.search_order="Tips/SearchOrder";
+            url.all_employee="Tips/AllEmployee";
+            url.save_pay_tip="Tips/SavePayTip";
+            url.search_tip_settlement="Tips/SearchTipSettlement";
+            url.save_tip_settlement="Tips/SaveTipSettle";
+            url.search_tip_finalize="Tips/SearchTipForFinalize";
+            url.save_finalize_tip="Tips/SaveFinalizeTip";
+            url.search_tip_validation="Tips/SearchTipValidation";
+            url.save_tip_validation="Tips/SaveTipValidation";
+
             if(method=='base_url' || method=='image_base_url')
               return  url[method];  
             else if(method!=undefined || method!=null)
@@ -2650,9 +4206,8 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
               return url;
         },
         showAlert : function(title,message,sweet,alert_type,show_cancel_button,confirm_button_text,cancel_button_text,close_on_confirm,close_on_cancel) {
-           var sweet = sweet || false;
-           if(sweet)
-           {
+          var sweet = sweet || false;
+          if(sweet) {
                 SweetAlert.swal({
                    title: title || 'The SkyPOS',
                    text: message || 'It might taste good',
@@ -2663,9 +4218,7 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
                    cancelButtonText: cancel_button_text || "No, cancel plx!",
                    closeOnConfirm: close_on_confirm || false,
                    closeOnCancel: close_on_cancel || false });
-           }
-           else
-           {
+          } else {
                var alertPopup = $ionicPopup.alert({
                  title: title || 'The SkyPOS',
                  template: message || 'It might taste good',
@@ -2679,23 +4232,22 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
                });
                return alertPopup;
           }
-         },
-        isTestMode : function()
-        {
+        },
+        isTestMode : function() {
            return true;
         },
-        isLoggedIn : function(){
+        isLoggedIn : function() {
             var profile=ProfileData.getProperty();
             var access_token=localStorage.AccessToken;
             var user_id=localStorage.Id;
 
-            if(this.isNullOrEmpty(profile) || this.isNullOrEmpty(access_token)  || this.isNullOrEmpty(user_id) )
+            if(this.isNullOrEmpty(profile) || this.isNullOrEmpty(access_token)  || this.isNullOrEmpty(user_id))
             {
               return false
             } 
             else return true;
         },
-         checkLogin : function(){
+        checkLogin : function(){
             
             if(!this.isLoggedIn())
             {
@@ -2703,8 +4255,7 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
             }
 
          },
-        isNullOrEmpty : function(data_string)
-        {
+        isNullOrEmpty : function(data_string) {
             return (data_string==null || data_string==undefined || data_string == "" || !data_string || 0 === data_string.length)
         },
         chunk : function (arr, size) {
@@ -2717,7 +4268,6 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
         numberFormat :function(number,decimal){
                 return parseFloat($filter('number')(number, decimal));
         }
-
     };
 })
 .directive('backImg', function(){
@@ -2747,8 +4297,7 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
 })
 .directive('numberFormat', function () {
      return function (scope, element, attrs) {
-     attrs.$observe('value', function(actual_value) {
-
+     attrs.$observe('value', function(actual_value){
        var value = $filter('number')(actual_value, 2);
        attrs.$set('value',value);
        console.log(value);
@@ -2756,24 +4305,33 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
     })
  }
 })
-.directive('formatMyDate', function () {
-  return function (scope, element, attrs) {
-     attrs.$observe('value', function(actual_value) {
-
-       var dt = moment(actual_value, "YYYY-MM-DD").format( attrs.dataDateFormat); 
-       attrs.$set('data-date',dt);
-      // console.log(dt);
-     //   element.val("value = "+ actual_value);
-    })
+.directive('formatMyDate', function (){
+  return function (scope, element, attrs){
+      attrs.$observe('value', function(actual_value) {
+      var dt = moment(actual_value, "YYYY-MM-DD").format( attrs.dataDateFormat); 
+      attrs.$set('data-date',dt);
+     })
  }
 })
-
- .filter('jsonDate', ['$filter', function ($filter) {
+.filter('jsonDate', ['$filter', function ($filter) {
     return function (input, format) {
         input =  moment(input).format('YYYY-MM-DD'); //new Date(input,'yyyy-MM-dd HH:mm:ss Z');
-     //   console.log(input);
+        //console.log(input);
         return input;
        // return (input)  ? $filter('date')(parseInt(input.substr(6)), format) : '';
     };
  }])
-;
+.filter('containTable', function() {
+  return function (array, needle) {
+   // console.log(angular.toJson(needle));
+    var ret_var = false;
+    for(i=0;i<array.length;i++){
+         table = angular.fromJson(needle);
+         if(array[i].TableCode==needle.TableCode){
+           ret_var = true;
+           break;
+         }  
+      }
+    return ret_var;
+  };
+});

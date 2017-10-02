@@ -4,7 +4,7 @@ body{
 
 }
 .login-content{
-   background-image: url(../Assets/Login/bgd_login.png);
+   background-image: url('../Assets/Login/bgd_login.png');
     background-position: right bottom, left top;
     background-repeat: no-repeat, repeat;
     background-size: cover;
@@ -34,7 +34,7 @@ body{
      padding: 0px!important;
 }
 #login-pad .login-star{
-    background-image: url(../Assets/Login/ic_asterisk_dark_green.png);
+    background-image: url('../Assets/Login/ic_asterisk_dark_green.png');
   
 }
 #login-pad .number-pad-text{
@@ -48,7 +48,7 @@ body{
   border-color: transparent;
 }
 .number-pad-text-active{
-  background-image: url(../Assets/Login/ic_asterisk_dark_green.png);
+  background-image: url('../Assets/Login/ic_asterisk_dark_green.png');
      background-position: center center;
     background-repeat: no-repeat, repeat;
     background-size: 20px;
@@ -56,7 +56,7 @@ body{
 }
 #login-pad  .email-login{
   
-  background-image: url(../Assets/Login/ic_email_white.png);
+  background-image: url('../Assets/Login/ic_email_white.png');
    background-position:center;
     background-repeat: no-repeat, repeat;
     background-size: 25px;
@@ -67,7 +67,7 @@ body{
     background-size: 25px;
 }
 .login-pad .clear-number{
-  background-image: url(../Assets/Login/ic_cancel_white.png);
+  background-image: url('../Assets/Login/ic_cancel_white.png');
 }
 #login-pad .last-col button{
   margin:0px 23px;
@@ -75,14 +75,14 @@ body{
 
 .clock-in{
   border-radius: 0px 50px 50px 0px!important;
-   background-image: url(../Assets/clockInOut/ic_sand_clock_dark_green.png);
+   background-image: url('../Assets/clockInOut/ic_sand_clock_dark_green.png');
     background-repeat: no-repeat, repeat;
     background-position: right 15px center;
     background-size: 25px;
 }
 .clock-out{
   border-radius: 50px 0px 0px 50px!important;
-  background-image: url(../Assets/clockInOut/ic_sand_clock_maroon.png);
+  background-image: url('../Assets/clockInOut/ic_sand_clock_maroon.png');
     background-repeat: no-repeat, repeat;
     background-position: left 15px center;
     background-size: 25px;
@@ -104,16 +104,21 @@ body{
   color: #004227!important;
 }
 .clock-in-pad .clear-number{
-  background-image: url(../Assets/clockInOut/ic_key_pad_clear_green.png);
+  background-image: url('../Assets/clockInOut/ic_key_pad_clear_green.png');
    
 }
 .clock-in-pad .clear-number:hover{
-  background-image: url(../Assets/clockInOut/ic_key_pad_clear_inverse.png);
+  background-image: url('../Assets/clockInOut/ic_key_pad_clear_inverse.png');
    
 }
 .sky-pos-green{
   background-color: #004227!important;
+  background-image: none;
   border-color: #004227!important;
+}
+.sky-pos-dark-green{
+    background-color: #001d11 !important;
+    border-color: #001d11 !important;
 }
 .sky-pos-light-green{
   background-color: #009245!important;
@@ -275,8 +280,7 @@ h1.title img{
 }     
 .sub-header h2{
   color: #FFFFFF!important;  
-  text-align: left!important;   
-  font-weight: 19px!important;
+  text-align: left!important;
   margin-left: 15px!important; 
 }
 
@@ -320,7 +324,7 @@ h1.title img{
     font-size: 50px;
   }
  .top-block{
-  float: righ`t;
+  /*float: right;*/
   width: auto;
   position: absolute;
   top: 10px;
@@ -367,9 +371,11 @@ span.inner {
       text-decoration: line-through;
   }
 
- .thumb{
-  position: relative;
- }
+    .thumb {
+        position: relative;
+        min-height: 175px;
+        background-color: #EEE;
+    }
  .row-50 {
   min-height: 50%;
   max-height: 50%;
@@ -458,9 +464,7 @@ button.button-icon.round-overlay-button {
   background-attachment: scroll;
   */
   border: none!important;
-  margin-bottom: 3px;
-  
-
+  border-bottom: 2px solid #EEE !important;
 }
 .option-list .item-rating{
   /*
@@ -503,8 +507,8 @@ a{
   font-weight: bold;
 }
 .has-error{
-    border: 1px solid!important;
-    border-color:  #a94442!important;
+    border: 1px solid !important;
+    border-color: #a94442 !important;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
 }
 .thumb img.active{
@@ -606,16 +610,20 @@ ion-content{
 }
 
 .item-checkbox-right .checkbox{
+  pointer-events: none;
   position: absolute;
   top:20px;
   right: 16px;
-  height:30px;width:30px;
+  height:30px;
+  width:30px;
 }
 .item-option-checkbox-right .checkbox{
+  pointer-events: none;
   position: absolute;
   top:10px;
   right: 16px;
-  height:30px;width:30px;
+  height:30px;
+  width:30px;
 }
 input[type="checkbox"] {
   display: none;
@@ -659,6 +667,18 @@ input[type="checkbox"]:checked + label:after {
     background-position: center 5px;
    background-repeat: no-repeat;
 }
+.icon-credit-card{
+   background-image: url("../../custom/Assets/Dashboard/ic_pay_wallet.png");
+   background-size: 28px 28px;
+    background-position: center 5px;
+   background-repeat: no-repeat;
+}
+.icon-search-items{
+    background-image: url("../../custom/Assets/Tips/ic_tip_search_receipt.png");
+    background-size: 28px 28px;
+    background-position: center 5px;
+    background-repeat: no-repeat;
+}
 .icon-dine-in{
    background-image: url("../../custom/Assets/order/ic_right_angle_white.png");  
    background-size: 26px 26px;
@@ -681,6 +701,18 @@ input[type="checkbox"]:checked + label:after {
    background-image: url("../../custom/Assets/recall/ic_merge_order.png");  
    background-size: 28px 28px;
     background-position: center 5px;
+   background-repeat: no-repeat;
+}
+.icon-select-customer{
+   background-image: url("../../custom/Assets/Reservation/ic_buddy_profile.png");  
+   background-size: 22px 22px;
+   background-position: center 5px;
+   background-repeat: no-repeat;
+}
+.icon-select-table{
+   background-image: url("../../custom/Assets/Reservation/ic_table_select.png");  
+   background-size: 32px 32px;
+   background-position: center 5px;
    background-repeat: no-repeat;
 }
 .header .col {
@@ -787,4 +819,279 @@ input[type="checkbox"]:checked + label:after {
 }
 .item-in-payment .icon{
   font-size: 16px!important;
+}
+.top {
+    border-top-left-radius: 90px;
+    border-top-right-radius: 90px;
+    height: 45px;
+    width: 90px;
+}
+.display-block{
+  display: block!important;
+}
+.reservation_selected_table{
+  border-right:1px solid #009245!important;
+}
+.table-scroll{
+   -webkit-overflow-scrolling: touch;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+.table-scroll a{
+  display: block;
+}
+.table-scroll a:last-child 
+{
+  border-right: none!important;
+}
+.selected-customer{
+  background-color: #ffbb33;
+}
+.family-icon-scroller {
+    height: 130px;
+    -webkit-overflow-scrolling: touch;
+    padding: 15px 15px 12px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    list-style: none;
+}
+
+.family-icon {
+    display: inline-block;
+    vertical-align: top;
+    height: 70px;
+    white-space: normal;
+    margin: 0 10px
+}
+
+.split-item {
+    border-top: 1px solid #d8d8d8;
+}
+.split-textbox {
+    border-bottom: 1px solid #009245 !important;
+    background-color: transparent;
+    width: 100%;
+}
+.split-textbox:focus {
+    border-bottom: 2px solid #009245 !important;
+}
+.split-textbox-label {
+    margin-top: 15px;
+}
+.col-30 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 30%;
+    -moz-box-flex: 0;
+    -moz-flex: 0 0 30%;
+    -ms-flex: 0 0 30%;
+    flex: 0 0 30%;
+    max-width: 30%;
+}
+.col-70 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 70%;
+    -moz-box-flex: 0;
+    -moz-flex: 0 0 70%;
+    -ms-flex: 0 0 70%;
+    flex: 0 0 70%;
+    max-width: 70%;
+}
+.assigned-total {
+    margin-left: 15px;
+}
+
+/* Tips */
+.tip-pages .item {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.stuff-item {
+    padding-top: 15px;
+}
+.small-btn {
+    padding: 2px 8px;
+    border: 0;
+    border-radius: 0;
+    background: #EEE;
+    font-size: 20px;
+}
+.receipt-serach-btn {
+    border: 0;
+    background-color: #009245;
+    border-radius: 50%;
+    padding: 3px 11px;
+    margin: 12px;
+    color: #FFF;
+    font-size: 22px;
+}
+.tip-payment-wrapper {
+    padding: 10px 15px 25px 15px;
+}
+.stuff-wrapper {
+    min-height: 100px;
+}
+.payment-method-wrapper img {
+    width: 34px;
+    margin: 0 auto;
+}
+.payment-method-wrapper .col {
+    text-align: center;
+}
+.payment-pics {
+    cursor: pointer;
+    padding: 0;
+}
+.payment-labels {
+    font-size: 11px;
+    padding: 0;
+}
+.darkest-yellow {
+    background-color: #9D9402;
+}
+.dark-yellow {
+    background-color: #B4AA02;
+}
+.middle-yellow {
+    background-color: #CEC203;
+}
+.light-yellow {
+    background-color: #E6D903;
+}
+.lightest-yellow {
+    background-color: #FFF000;
+}
+.tip-list-header {
+    padding: 5px;
+    border-bottom: 1px solid #DDD;
+}
+.tip-list img {
+    max-width: 32px;
+    margin: auto;
+}
+.tip-list .item {
+    line-height: 32px;
+    font-size: 11px;
+    padding: 10px;
+}
+.tip-list {
+    margin-bottom: 70px;
+}
+.tips_change_amount {
+    background-color: #DEDEDE;
+}
+.tips_change_amount button {
+    border: 0;
+    background-color: #DEDEDE;
+    color: #004227;
+    font-size: 18px;
+    border-radius: 5px;
+}
+.tips_change_amount button:hover,
+.tips_change_amount button:focus,
+.tips_change_amount button:active {
+    background-color: #0F4D34;
+    color: #FFF;
+}
+.tips_change_amount .green-btn {
+    background-color: #009345;
+    color: #FFF;
+    border-radius: 5px;
+}
+.img-preview-wrapper {
+    padding: 10px;
+}
+.img-preview {
+    background-color: #EEE;
+    border-radius: 5px;
+    width: 100%;
+    height: 100px;
+    border: 1px solid #0F4D34;
+    overflow: hidden;
+}
+.img-responsive {
+    max-width: 100%;
+}
+.camera-img {
+    width: 48px;
+    margin: 0 auto;
+    margin-top: 40px;
+}
+.txt-red {
+    color: #810a0a;
+    text-align: center;
+    margin: 10px;
+}
+.tip-tabs.tabs-striped.tabs-background-positive .tabs {
+    background-color: #004227;
+    top: -48px;
+}
+.tip-tabs.tabs-striped.tabs-background-positive .pane {
+    position: relative;
+    height: auto;
+    margin-top: 48px;
+}
+.pane[hide-nav-bar="true"] .has-tabs-top {
+    top: 0;
+}
+
+/* validate tips */
+.tip-validate-wrapper{
+    padding: 10px 15px 25px 15px;
+}
+.fat-item {
+    padding: 20px 10px !important;
+    cursor: pointer;
+}
+.tip-validate-wrapper .split-textbox-label{
+    font-size: 12px !important;
+}
+.tip-valid-receip .col-20{
+    padding-right: 10px !important;
+}
+.tip-valid-receipt{
+    padding: 10px 15px 25px 15px;
+    background: #fff;
+}
+
+/* settle tips */
+.drop-shadow {
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+    margin-bottom: 2px;
+}
+.margin-top {
+    padding-top: 12px !important;
+}
+.item-small {
+    font-size: 14px;
+}
+.text-green {
+    color: #009245;
+}
+.settle-tips-wrapper .col-20{
+    padding-right: 15px;
+}
+
+/*tips-report-wrapper*/
+.tips-report-wrapper{
+    background-color: #f7f7f7;
+    padding: 10px 15px 25px 15px;
+}
+
+.staff-tips-report{
+    background-color: #fff;
+    padding: 5px 15px 15px 15px;
+}
+.my-container .tips-details{
+    margin-top: 0px;
+    padding-right: 0;
+    background: #fff;
+    padding-bottom: 0px;
+}
+.tips-details .button{
+    color: #fff;
+    font-size: 30px;
+    text-align: center;
+    margin-left: 5px;
 }

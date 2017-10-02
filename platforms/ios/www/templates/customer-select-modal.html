@@ -1,0 +1,52 @@
+<ion-modal-view>
+
+
+<ion-header-bar align-title="center"  class="bar-dark sky-pos-green" cache-view="false">
+    <div class="buttons">
+      <button  type="button"  ng-click="closeCustomerSelectModal()" class="button button-icon button-clear icon ion-arrow-left-c" >
+        <span class="order-page-header-menu-text"></span>
+      </button>
+    </div>
+    <h1 class="title text-left order-header-title"  align-title="left" style="left:52px;"> 
+     Search Custmoer</select>
+    </h1>
+    <div class="buttons">
+      <button type="button" ng-click="assignCustomer()"  class="order-header-icon button button-icon button-clear ion-checkmark"></button>
+    </div>
+  </ion-header-bar>
+
+  <ion-content style="background-color:#FFF;">
+    <form ng-submit="doLogin()">
+     
+
+       <div class="list" style="margin-bottom:0px;">
+      <label class="item item-input display-block">
+      <span class="input-label"><i class="icon ion-android-star"></i> Phone </span>
+      <input type="tel" ng-model="reservation_model.customer_search_phone" placeholder="Phone">
+      </label>
+       <label class="item item-input display-block">
+      <span class="input-label"><i class="icon ion-android-star"></i> Name: </span>
+      <input type="text"  ng-model="reservation_model.customer_search_name" placeholder="Name">
+      </label>
+        
+        <div class="item_">
+          <div class="row"> 
+              <div class="col text-right" >  
+                <button type="button" ng-click="serarchCustomer()" class="button  sky-pos-light-green text-white" type="submit">SEARCH CUSTOMER</button> 
+              </div>
+        </div>
+        </div>
+
+
+      </div>
+       <div class="list recall-list">
+        <div ng-repeat="customer in customers" ng-click="setSelectedCustomer(customer)" class="item {{(customer==selected_customer) ? 'selected-customer' : ''}}" >
+            <p class="table"><span style="color:#000;font-weight:bold">Name:</span> <span style="color:#78909c;">{{customer.FirstName}} {{customer.LastName}}</span></p>
+             <p class="customer"><span style="color:#000;font-weight:bold">Phone:</span> {{customer.Phone}}</p>
+           </span>
+        </div>
+      </div>
+
+    </form>
+  </ion-content>
+</ion-modal-view>

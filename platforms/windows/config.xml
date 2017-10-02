@@ -24,7 +24,6 @@
     <access launch-external="yes" origin="sms:*" />
     <access launch-external="yes" origin="market:*" />
     <access origin="*" />
-    <icon src="resources/android/icon/drawable-xhdpi-icon.png" />
     <preference name="webviewbounce" value="false" />
     <preference name="UIWebViewBounce" value="false" />
     <preference name="DisallowOverscroll" value="true" />
@@ -34,4 +33,5 @@
     <preference name="BackupWebStorage" value="none" />
     <preference name="SplashScreen" value="screen" />
     <preference name="windows-target-version" value="10.0" />
+    <icon src="resources/android/icon/drawable-xhdpi-icon.png" />
 </widget>

@@ -1,0 +1,62 @@
+<ion-view view-title="Order" hide-nav-bar="true" cache-view="false">
+    <ion-header-bar align-title="left"  class="bar-dark sky-pos-green" cache-view="false">
+        <div class="buttons">
+            <a href="#/app/tips" class="button button-icon button-clear icon ion-arrow-left-c">
+                <span class="order-page-header-menu-text"></span>
+            </a>
+        </div>
+        <h1 class="title text-left order-header-title"  align-title="left" style="text-align:left">Finalize Tips (For Credit Only)</h1>
+        <div class="buttons">
+            <button type="button" ng-click="adjustTips()" class="order-header-icon button button-icon button-clear ion-search"></button>
+        </div>
+    </ion-header-bar>
+
+    <ion-content scroll="true" has-bouncing="false" class="has-header has-footer has-sub-header" style="background-color: #F3F3F3;">
+
+        <div class="my-container" style="">
+
+            <div class="tip-valid-receipt settle-tips-wrapper drop-shadow item-small">
+                <div class="row">
+                    <div class="col-100 split-textbox-label">Payment ID:</div>
+                </div>
+
+                <div class="row">
+                    <div class="col-30">Order ID:</div>
+                    <div class="col-20 text-right">0</div>
+                    <div class="col-30">Tips Adjusted:</div>
+                    <div class="col-20 text-right">0</div>
+                </div>
+
+                <div class="row">
+                    <div class="col-30">Sale Amount:</div>
+                    <div class="col-20 text-right">0</div>
+                    <div class="col-30">Final Amount:</div>
+                    <div class="col-20 text-right">0</div>
+                </div>
+
+                <div class="row">
+                    <div class="col-30">Approve Code:</div>
+                    <div class="col-20 text-right">0</div>
+                    <div class="col-30">Finalize Status:</div>
+                    <div class="col-20 text-right">0</div>
+                </div>
+            </div>
+            <!-- /tip-valid-receipt input -->
+
+        </div>
+
+    </ion-content>
+
+    <div style="margin-top:140px;" class="bar bar-footer sky-pos-light-green">
+        <div class="row">
+
+            <div class="col col-100">
+                <div style="text-align:center;width:100%">
+                    <button type="button" ng-click="closeAnalogPaymentModal()" style="width:70px;height:70px;border-radius:50px;color:#FFF;margin-top:-40px;" class="button sky-pos-light-green  ion-checkmark"><br>FINALIZE</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</ion-view>

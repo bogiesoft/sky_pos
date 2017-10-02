@@ -139,6 +139,26 @@ angular.module('skypos', ['ionic', 'skypos.controllers','ngCordova','ngCordovaOa
     }
   })
   
+  .state('app.split-bill-by-total', {
+    url: '/split-bill-by-total',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/split-bill-by-total.html',
+        controller: 'SplitBillByTotalCtrl'
+      }
+    }
+  })
+
+  .state('app.split-bill-by-item', {
+    url: '/split-bill-by-item',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/split-bill-by-item.html',
+        controller: 'SplitBillByItemCtrl'
+      }
+    }
+  })
+
   .state('app.service-floor', {
     url: '/service-floor?page_referer',
     views: {
@@ -182,6 +202,60 @@ angular.module('skypos', ['ionic', 'skypos.controllers','ngCordova','ngCordovaOa
       'menuContent': {
         templateUrl: 'templates/tips.html',
         controller: 'TipsCtrl'
+      }
+    }
+  })
+  .state('app.adjust-tips', {
+    url: '/adjust-tips',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/tips/adjust-tips.html',
+        controller: 'AdjustTipsCtrl'
+      }
+    }
+  })
+  .state('app.validate-tips', {
+    url: '/validate-tips',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/tips/validate-tips.html',
+        controller: 'ValidateTipsCtrl'
+      }
+    }
+  })
+  .state('app.report-tips', {
+    url: '/report-tips',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/tips/report-tips.html',
+        controller: 'ReportTipsCtrl'
+      }
+    }
+  })
+  .state('app.correct-tips', {
+    url: '/correct-tips',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/tips/correct-tips.html',
+        controller: 'CorrectTipsCtrl'
+      }
+    }
+  })
+  .state('app.finalize-tips', {
+    url: '/finalize-tips',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/tips/finalize-tips.html',
+        controller: 'FinalizeTipsCtrl'
+      }
+    }
+  })
+  .state('app.settle-tips', {
+    url: '/settle-tips',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/tips/settle-tips.html',
+        controller: 'SettleTipsCtrl'
       }
     }
   })

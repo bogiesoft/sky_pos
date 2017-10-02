@@ -1,29 +1,36 @@
 <?xml version='1.0' encoding='utf-8'?>
 <Package IgnorableNamespaces="uap mp" xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10">
-    <Identity Name="269b2220-1918-11e7-b13d-5368b0543b13" Publisher="CN=$username$" Version="1.0.0.0" />
+    <Identity Name="com.theskypos.skypos" Publisher="CN=$username$" Version="0.0.1.0" />
     <mp:PhoneIdentity PhoneProductId="269b2220-1918-11e7-b13d-5368b0543b13" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
     <Properties>
-        <DisplayName>CPBankIonic</DisplayName>
-        <PublisherDisplayName>$username$</PublisherDisplayName>
+        <DisplayName>SkyPos</DisplayName>
+        <PublisherDisplayName>DSB</PublisherDisplayName>
         <Logo>images\StoreLogo.png</Logo>
     </Properties>
     <Dependencies>
-        <TargetDeviceFamily MaxVersionTested="10.0.0.0" MinVersion="0.0.0.0" Name="Windows.Universal" />
+        <TargetDeviceFamily MaxVersionTested="10.0.10240.0" MinVersion="10.0.10240.0" Name="Windows.Universal" />
     </Dependencies>
     <Resources>
         <Resource Language="x-generate" />
     </Resources>
     <Applications>
-        <Application Id="com.dsb.skypos" StartPage="www/index.html">
-            <uap:VisualElements BackgroundColor="#464646" Description="CordovaApp" DisplayName="CPBankIonic" Square150x150Logo="images\Square150x150Logo.png" Square44x44Logo="images\Square44x44Logo.png">
+        <Application Id="com.theskypos.skypos" StartPage="ms-appx-web:///www/index.html">
+            <uap:VisualElements BackgroundColor="#464646" Description="CordovaApp" DisplayName="SkyPos" Square150x150Logo="images\Square150x150Logo.png" Square44x44Logo="images\Square44x44Logo.png">
                 <uap:SplashScreen Image="images\splashscreen.png" />
-                <uap:DefaultTile ShortName="CPBankIonic" Square310x310Logo="images\Square310x310Logo.png" Square71x71Logo="images\Square71x71Logo.png" Wide310x150Logo="images\Wide310x150Logo.png" />
+                <uap:DefaultTile ShortName="SkyPos" Square310x310Logo="images\Square310x310Logo.png" Square71x71Logo="images\Square71x71Logo.png" Wide310x150Logo="images\Wide310x150Logo.png" />
+                <uap:InitialRotationPreference>
+                    <uap:Rotation Preference="portrait" />
+                    <uap:Rotation Preference="landscape" />
+                    <uap:Rotation Preference="landscapeFlipped" />
+                </uap:InitialRotationPreference>
             </uap:VisualElements>
+            <uap:ApplicationContentUriRules>
+                <uap:Rule Match="ms-appx-web:///" Type="include" WindowsRuntimeAccess="all" />
+            </uap:ApplicationContentUriRules>
         </Application>
     </Applications>
     <Capabilities>
         <Capability Name="internetClient" />
         <DeviceCapability Name="webcam" />
-        <DeviceCapability Name="microphone" />
     </Capabilities>
 </Package>

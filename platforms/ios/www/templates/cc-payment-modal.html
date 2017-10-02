@@ -6,7 +6,7 @@
     </div>
     <h1 class="title">Credit Card Payment</h1>    
     <div class="buttons buttons-right">
-      <button ng-click="closeCcPaymentModal()" class="button button-clear"><i class="ion-checkmark"></i></button>
+      <button ng-click="doPayment('cc')" class="button button-clear"><i class="ion-checkmark"></i></button>
     </div>
   </ion-header-bar>
 
@@ -32,21 +32,21 @@
 		  
 		  <label class="item item-input item-floating-label">
 			<span class="input-label"><i class="icon ion-android-star"></i> Card's Holder: </span>
-			<input type="number"  ng-model="payment_model.card_holder" placeholder="Card's Holder">
+			<input type="text"  ng-model="payment_model.card_holder" placeholder="Card's Holder">
 		  </label>
 		  
 		  <label class="item item-inputa item-floating-label__">
 		   	 <div class="row" style="margin-left:0px;padding-left:0px;margin-top:0px;padding-top:0px;">
 		   	 	<div class="col" style="margin-left:0px;padding-left:0px;margin-top:0px;padding-top:0px;"><span class="input-label"><i class="icon ion-android-star"></i> Month: </span>
-					<select ng-options="item as item for item in monthArray" ng-model="current_month" ng-change="changeInMonth()"  ng-required="true">
+					<select ng-options="item as item for item in monthArray" ng-model="exp_month" ng-change="changeInMonth(exp_month)"   ng-required="true">
 						<option value="">Select</option>
 					</select>
 				</div>	
 		     	<div class="col" >
 
 					<span class="input-label"><i class="icon ion-android-star"></i> Year: </span>
-					<select ng-options="item as item for item in yearArray" ng-model="current_year" ng-change="changeInYear()"  ng-required="true">
-							<option value="">Select</option>
+					<select ng-options="item as item for item in yearArray" ng-model="exp_year" ng-change="changeInYear(exp_year)"  ng-required="true">
+							<option value=""> </option>
 					</select>
 				</div>		
                </div>

@@ -1,0 +1,140 @@
+<ion-view view-title="Order" hide-nav-bar="true" cache-view="false">
+    <ion-header-bar align-title="left"  class="bar-dark sky-pos-green" cache-view="false">
+        <div class="buttons">
+            <a href="#/app/tips" class="button button-icon button-clear icon ion-arrow-left-c">
+                <span class="order-page-header-menu-text"></span>
+            </a>
+        </div>
+        <h1 class="title text-left order-header-title"  align-title="left" style="text-align:left">TIPS REPORT</h1>
+
+    </ion-header-bar>
+
+    <ion-content scroll="true" has-bouncing="false" class="has-header has-footer has-sub-header" style="background-color: #F3F3F3;">
+
+        <div class="my-container" style="">
+
+            <!-- valid data input -->
+            <div class="tips-report-wrapper">
+                <div class="row">
+                    <div class="col-30 split-textbox-label">Form Date:</div>
+                    <div class="col-60">
+                        <input class="split-textbox" type="text" />
+                    </div>
+                    <div class="col-10" align="right">
+                        <button class="tip-payment small-btn" >
+                            <i class="ion-calendar"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-30 split-textbox-label">To Date:</div>
+                    <div class="col-60">
+                        <input class="split-textbox" type="text" />
+                    </div>
+                    <div class="col-10" align="right">
+                        <button class="tip-payment small-btn">
+                            <i class="ion-calendar" md="md-calendar"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-30 split-textbox-label">Waitstaff:</div>
+                    <div class="col-60">
+                        <input class="split-textbox" type="text" />
+                    </div>
+                    <div class="col-10" align="right">
+                        <button class="tip-payment small-btn" ng-click="searchOrder()">
+                            <i class="ion-search"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-30 split-textbox-label">Tips Total:</div>
+                    <div class="col-70">
+                        <input type="number" class="split-textbox" required placeholder="Total Tips">
+                    </div>
+                </div>
+            </div>
+            <!-- /valid data input -->
+
+            <div class="staff-tips-report">
+                <div class="row">
+                    <div class="col-100">Receipt No:</div>
+                </div>
+
+                <div class="row tip-valid-receip">
+                    <div class="col-30">Staff ID:</div>
+                    <div class="col-20" align="right"></div>
+                    <div class="col-20">Date:</div>
+                    <div class="col-30" align="right">Feb 02, 2017</div>
+                </div>
+
+                <div class="row tip-valid-receip">
+                    <div class="col-30">Tips:</div>
+                    <div class="col-20" align="right">0</div>
+                    <div class="col-30">Credit Card Tips:</div>
+                    <div class="col-20" align="right">0</div>
+                </div>
+            </div>
+            <!-- /tip-valid-receipt input -->
+
+            <div style="height:38px;padding-top:3px; font-size:20px;font-weight: 600;" class="text-white text-center row sky-pos-light-green">
+                <div class="col text-center">Tips Details</div>
+            </div>
+
+            <div class="row tips-details drop-shadow">
+                <div class="col-90">
+                    <div class="row">
+                        <div class="col-50">Date</div>
+                        <div class="col-50" align="right">Feb 2 2017</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-50">Tips:</div>
+                        <div class="col-50" align="right">0</div>
+                    </div>
+                </div>
+
+                <div class="col-10" style="background-color: #930000;">
+                    <div class="buttons">
+                        <button type="button"  class="button button-icon  ion-trash-b"></button>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+    </ion-content>
+
+    <div style="margin-top:0px;" class="bar bar-footer sky-pos-light-green">
+        <div class="row">
+            <div class="col">
+                <div style="text-align:center;width:100%">
+                    <a ng-href="#" style="width:80px;height:80px;border-radius:50px;color:#FFF;margin-top:-50px;font-size:16px;padding:0px;" class="button sky-pos-light-green ion-printer"><br>Report</a>
+                </div>
+            </div>
+            <div class="col">
+                <div style="text-align:center;width:100%">
+                    <a ng-href="#" style="width:80px;height:80px;border-radius:50px;color:#FFF;margin-top:-50px;font-size:16px;padding:0px;" class="button sky-pos-light-green ion-calculator"><br>Calculate</a>
+                </div>
+            </div>
+            <div class="col">
+                <div style="text-align:center;width:100%">
+                    <a ng-href="#/app/report-tips" style="width:80px;height:80px;border-radius:50px;color:#FFF;margin-top:-50px;font-size:16px;padding:0px;" class="button sky-pos-light-green ion-android-share"><br>Summary</a>
+                </div>
+            </div>
+            <div class="col">
+                <div style="text-align:center;width:100%">
+                    <a href="#" style="width:80px;height:80px;border-radius:50px;color:#FFF;margin-top:-50px;font-size:16px;padding:0px;" class="button sky-pos-light-green ion-printer"><br>Print</a>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+</ion-view>

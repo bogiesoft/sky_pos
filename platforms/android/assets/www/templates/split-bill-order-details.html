@@ -1,0 +1,58 @@
+<ion-modal-view>
+	<ion-header-bar align-title="center"  class="bar-dark sky-pos-green" cache-view="false">
+		<div class="buttons">
+			<button ng-click="closeOrderDetailsModal()" class="button button-icon button-clear icon ion-arrow-left-c" >
+				<span class="order-page-header-menu-text"></span>
+			</button>
+		</div>
+		<h1 class="title text-left order-header-title"  align-title="left" style="text-align:left;">Split Bill</h1>
+
+	</ion-header-bar>
+	<ion-content style="background-color:#FFF;">
+
+		<div class="order-details" style="margin: 5px;box-shadow: 0 0 2px 5px rgba(0,0,0,0.2);">
+			<div class="row">
+				<div class="col">Original Order Id:</div><div class="col">{{current.orderID}}</div>
+			</div>
+			<div class="row">
+				<div class="col">Customer:</div><div class="col">{{current.oTable}}</div>
+			</div>
+			<div class="row">
+				<div class="col">Total:</div><div class="col">{{current.total}}</div>
+			</div>
+			<div class="row">
+				<div class="col">Tax:</div><div class="col">{{current.tax}}</div>
+			</div>
+		</div>
+
+		<div class="list">
+			<div class="re-assign" ng-if="current.orderDetails.length">
+				<button type="button" ng-click="reAssign()" style="border-radius:0;line-height: 32px;font-size:14px;padding-top:2px;margin: 0 5px 5px 5px;" class="split-order-details button icon-center  button-assertive sky-pos-light-green ">
+					<img src="custom/Assets/splitBill/ic_split_undo.png" style="width:18px;" /> Re-assign
+				</button>
+			</div>
+
+			<div ng-repeat="item in current.orderDetails | filter:ngModel.txt" class="item item-icon-left item-button-right item-checkbox-right" >
+				<i class="icon"><img check-image ng-src="{{image_base_url}}{{item.ImageUrl}}" style="height:36px;width:36px;"></i>
+				<h3>{{item.ProvisionName}}</h3>
+				<small>Qty: {{item.Quantity}}, Price : ${{item.Price | number: 2 }}</small>
+				<div>
+					<small>Subtotal: ${{item.Quantity * item.Price | number: 2 }}</small>
+				</div>
+			</div>
+		</div>
+
+	</ion-content>
+
+	<div ng-show="!page_referer" style="margin-top:140px;" class="bar bar-footer sky-pos-light-green">
+		<div class="row">
+
+			<div class="col col-100">
+				<div style="text-align:center;width:100%">
+					<button type="button" ng-click="closeOrderDetailsModal()" style="width:70px;height:70px;border-radius:50px;color:#FFF;margin-top:-40px;" class="button sky-pos-light-green  ion-checkmark"><br>OK</button>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</ion-modal-view>

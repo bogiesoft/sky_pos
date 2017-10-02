@@ -22,7 +22,7 @@
   </ion-header-bar>
     <ion-content scroll="true" has-bouncing="false" class="has-header ">
       <div class="my-container" style="">
-          <div style="margin-top:10px; margin-bottom:10px;" class="list list-inset">
+          <div ng-show="page_referer!='reservation'" style="margin-top:10px; margin-bottom:10px;" class="list list-inset">
             <label class="item item-input">
               <input type="number" ng-model="dine_in_data.number_of_person" placeholder="# of person">
             </label>
@@ -36,12 +36,12 @@
 
           <div style="width:auto;" class="col col-100">
         	  <div ng-repeat="table_list in splitted_table_list | filter: ngModel.txt" class="row service-floor-table"  style="cursor:pointer;cursor:hand;">
-      			    <div  class="box col col-50 service-floor-item" ng-repeat="table in table_list" ng-click="setSelectedTable(table)"  ng-class="{selected: table.TableCode === selected_table.TableCode}" >
+      			    <div  class="box col col-50 service-floor-item {{ (selected_tables | containTable:table) ? 'selected' : ''}}" ng-repeat="table in table_list" ng-click="setSelectedTable(table)" >
                     <div style="border-radius:5px;border:1px #CCC solid">
                         <div class=" service-floor-item-header {{table.Status=='Occupied' ? 'occupied-service-floor-item-header' : 'sky-pos-light-green'}}" style="color:#FFF;text-align:center;line-height:32px;border-top-left-radius:5px;border-top-right-radius:5px;">{{table.Status}}</div>
       			           	<div class="thumb" ng-click="gotoOrderCategoryItem(table.Category);">
-      				           	<img class="" style="width:60px; height:50px; margin:10px; float:left" check-image  ng-src="{{table.TableImage}}" alt-src="custom/Assets/order/tables.jpg" alt="{{table.TableCode}}" /> 
-                         	<div style="float:left;margin-top:20px;" class="">
+      				           	<img class="" style="width:calc(100% - 20px); height:auto; margin:10px; float:left" check-image  ng-src="{{table.TableImage}}" alt-src="custom/Assets/order/tables.jpg" alt="{{table.TableCode}}" />
+                         	<div style="float:left;margin-left: 10px;" class="">
       				           		<div class="service-floor-item-text {{table.Status=='Occupied' ? 'occupied-service-floor-item-text' : ''}}" style="text-align:center;color:#009245">{{table.TableCode}}</div>
       				           	</div>
       			           	</div>

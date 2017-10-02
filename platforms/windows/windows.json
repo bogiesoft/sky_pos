@@ -18,19 +18,16 @@
         }
     },
     "installed_plugins": {
-        "cordova-plugin-compat": {
-            "PACKAGE_NAME": "CPBankIonic"
-        },
         "cordova-plugin-camera": {
             "PACKAGE_NAME": "CPBankIonic"
         },
         "ionic-plugin-keyboard": {
             "PACKAGE_NAME": "SkyPos"
         },
-        "cordova-plugin-statusbar": {
+        "cordova-plugin-console": {
             "PACKAGE_NAME": "SkyPos"
         },
-        "cordova-plugin-console": {
+        "cordova-plugin-statusbar": {
             "PACKAGE_NAME": "SkyPos"
         },
         "cordova-plugin-whitelist": {
@@ -38,6 +35,9 @@
         },
         "cordova-plugin-device": {
             "PACKAGE_NAME": "SkyPos"
+        },
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "CPBankIonic"
         }
     },
     "dependent_plugins": {},
@@ -92,20 +92,6 @@
             "runs": true
         },
         {
-            "file": "plugins/cordova-plugin-statusbar/www/statusbar.js",
-            "id": "cordova-plugin-statusbar.statusbar",
-            "pluginId": "cordova-plugin-statusbar",
-            "clobbers": [
-                "window.StatusBar"
-            ]
-        },
-        {
-            "file": "plugins/cordova-plugin-statusbar/src/windows/StatusBarProxy.js",
-            "id": "cordova-plugin-statusbar.StatusBarProxy",
-            "pluginId": "cordova-plugin-statusbar",
-            "runs": true
-        },
-        {
             "file": "plugins/cordova-plugin-console/www/logger.js",
             "id": "cordova-plugin-console.logger",
             "pluginId": "cordova-plugin-console",
@@ -120,6 +106,20 @@
             "clobbers": [
                 "console"
             ]
+        },
+        {
+            "file": "plugins/cordova-plugin-statusbar/www/statusbar.js",
+            "id": "cordova-plugin-statusbar.statusbar",
+            "pluginId": "cordova-plugin-statusbar",
+            "clobbers": [
+                "window.StatusBar"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-statusbar/src/windows/StatusBarProxy.js",
+            "id": "cordova-plugin-statusbar.StatusBarProxy",
+            "pluginId": "cordova-plugin-statusbar",
+            "runs": true
         },
         {
             "file": "plugins/cordova-plugin-device/www/device.js",
@@ -137,14 +137,5 @@
                 ""
             ]
         }
-    ],
-    "plugin_metadata": {
-        "cordova-plugin-compat": "1.1.0",
-        "cordova-plugin-camera": "2.3.1",
-        "ionic-plugin-keyboard": "2.2.1",
-        "cordova-plugin-statusbar": "2.2.0",
-        "cordova-plugin-console": "1.0.4",
-        "cordova-plugin-whitelist": "1.3.0",
-        "cordova-plugin-device": "1.1.3"
-    }
+    ]
 }
