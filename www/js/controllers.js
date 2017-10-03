@@ -3728,6 +3728,10 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
 })
 .controller("CorrectTipsCtrl",function($rootScope, $scope, $http, $location, $ionicSideMenuDelegate, ProfileData, Utils, $ionicLoading, $document, SweetAlert, $ionicModal, $state, OrderData){
 
+    function cleanArray(N) {
+        return Array.apply(null, {length: N}).map(function(element, index) { return false; });
+    };
+
     $ionicSideMenuDelegate.canDragContent(false);
     Utils.checkLogin();
 
@@ -3735,14 +3739,23 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
     $scope.authenticationToken=localStorage.AccessToken;
     $scope.userId=localStorage.Id;
 
+    // payment model
+    $scope.payment_model = {
+        'osum': 0,
+        'order_id': '',
+        'selected_order_id': '',
+        'selected': false,
+        'total_tips': 0.0
+    };
+
     // tips list
-    $scope.tips = [{
-        'method': 'analog',
-        'amount': 2.00
-    },{
-        'method': 'gift',
-        'amount': 3.00
-    }];
+    $scope.tips = [];
+
+    // receipts list
+    $scope.receipts = [];
+
+    // provision items
+    $scope.provision_items = [];
 
     // select item
     $scope.selectProvisionItem = function (index) {
@@ -3752,6 +3765,87 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
             $scope.assigned_items[index] = false;
         }
     };
+
+    // set receipt
+    $scope.setReceipt = function (index) {
+        $scope.payment_model.osum = $scope.receipts[index].OSum;
+        $scope.payment_model.order_id = $scope.receipts[index].OrderId;
+        $scope.payment_model.selected_order_id = $scope.receipts[index].OrderId;
+        $scope.tips = $scope.receipts[index].OrderTipMethodDetails;
+        $scope.provision_items = cleanArray($scope.tips.length);
+        $scope.payment_model.selected = true;
+
+        $scope.payment_model.total_tips = 0;
+        for(var i=0;i<$scope.tips.length;i++){
+            $scope.payment_model.total_tips += parseFloat($scope.tips[i].TipAmount);
+        }
+
+        $scope.closeSearchReceiptModal();
+    };
+
+    // remove tips
+    $scope.removeTips = function (index) {
+        $scope.tips.splice(index, 1);
+    };
+
+    // Search Receipt modal
+    /*******************/
+    $scope.searchReceiptModal=null;
+    $ionicModal.fromTemplateUrl('templates/tips/search-receipt-modal.html', {
+        scope: $scope
+    }).then(function(modal) {
+        $scope.searchReceiptModal = modal;
+    });
+    // Triggered in the search modal to close it
+    $scope.closeSearchReceiptModal = function() {
+        $scope.searchReceiptModal.hide();
+    };
+    // Open the search modal
+    $scope.showSearchReceiptModal = function(){
+        if($scope.payment_model.order_id=="") {
+            Utils.showAlert("Error", "Please provide Receipt no", true, 'error', false, 'OK', '', true, true);
+            return;
+        }
+
+        $scope.searchReceiptModal.show();
+
+        $ionicLoading.show({
+            template: 'Loading...'
+        }).then(function(){
+            console.log("The loading indicator is now displayed");
+        });
+        var myJsonRequest = new Object();
+        myJsonRequest.limit = 50;
+
+        // load stuff
+        $http({
+            url: Utils.getApiURL("search_receipts")+"?orderId="+$scope.payment_model.order_id,
+            method: "GET",
+            data: { },
+            headers: {'Content-Type': 'application/json','Authorization':'public 1234567890'}
+        }).success(function (data, status, headers, config){
+            if(data.Success)
+            {
+                $scope.receipts = data.searchReceiptsData;
+                $ionicLoading.hide().then(function(){
+                    console.log("Receipt list loaded.");
+                });
+            } else {
+                $scope.closeSearchReceiptModal();
+                $ionicLoading.hide().then(function(){
+                    Utils.showAlert("Unable to Load", data.Message, true, 'error', false, 'OK', '', true, true);
+                });
+            }
+        }).error(function (data, status, headers, config) {
+            $ionicLoading.hide().then(function(){
+                Utils.showAlert("Unable to Load", data.Message, true, 'error', false, 'OK', '', true, true);
+                $scope.closeSearchReceiptModal();
+            });
+        }).finally(function () {
+            $scope.loading = false;
+        });
+    };
+    /***************************/
 
 })
 .controller("FinalizeTipsCtrl",function($rootScope, $scope, $http, $location, $ionicSideMenuDelegate, ProfileData, Utils, $ionicLoading, $document, SweetAlert, $ionicModal, $state, OrderData){

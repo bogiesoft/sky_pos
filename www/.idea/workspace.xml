@@ -22,11 +22,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="controllers.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="controllers.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/controllers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="3267" column="58" selection-start-line="3267" selection-start-column="58" selection-end-line="3267" selection-end-column="58" />
+            <state relative-caret-position="306">
+              <caret line="3769" column="41" selection-start-line="3769" selection-start-column="41" selection-end-line="3769" selection-end-column="41" />
               <folding>
                 <element signature="e#0#413#0" expanded="false" />
                 <element signature="e#586#701#0" expanded="false" />
@@ -82,6 +82,7 @@
                 <element signature="e#113258#113395#0" expanded="false" />
                 <element signature="e#113466#113572#0" expanded="false" />
                 <element signature="e#113640#113690#0" expanded="false" />
+                <element signature="e#113752#117003#0" expanded="false" />
                 <element signature="e#117057#118626#0" expanded="false" />
                 <element signature="e#118688#119447#0" expanded="false" />
                 <element signature="e#119520#122153#0" expanded="false" />
@@ -133,52 +134,67 @@
                 <element signature="e#131867#131914#0" expanded="false" />
                 <element signature="e#132153#132380#0" expanded="false" />
                 <element signature="e#132571#132790#0" expanded="false" />
-                <element signature="e#132982#133666#0" expanded="false" />
-                <element signature="e#133235#133293#0" expanded="false" />
-                <element signature="e#133294#133350#0" expanded="false" />
-                <element signature="e#133859#134078#0" expanded="false" />
-                <element signature="e#134269#134488#0" expanded="false" />
-                <element signature="e#134603#134828#0" expanded="false" />
-                <element signature="e#134866#135658#0" expanded="false" />
-                <element signature="e#135693#136210#0" expanded="false" />
-                <element signature="e#136248#136797#0" expanded="false" />
-                <element signature="e#136833#137357#0" expanded="false" />
-                <element signature="e#137394#137922#0" expanded="false" />
-                <element signature="e#137963#138522#0" expanded="false" />
-                <element signature="e#138557#139091#0" expanded="false" />
-                <element signature="e#139194#141966#0" expanded="false" />
-                <element signature="e#142006#142259#0" expanded="false" />
-                <element signature="e#142311#143061#0" expanded="false" />
-                <element signature="e#143166#145799#0" expanded="false" />
-                <element signature="e#145932#146347#0" expanded="false" />
-                <element signature="e#146392#147044#0" expanded="false" />
-                <element signature="e#147102#147816#0" expanded="false" />
-                <element signature="e#150687#151838#0" expanded="false" />
-                <element signature="e#151872#151907#0" expanded="false" />
-                <element signature="e#151941#152298#0" expanded="false" />
-                <element signature="e#152331#152474#0" expanded="false" />
-                <element signature="e#152522#152663#0" expanded="false" />
-                <element signature="e#152702#152873#0" expanded="false" />
-                <element signature="e#152921#153003#0" expanded="false" />
-                <element signature="e#153046#153393#0" expanded="false" />
-                <element signature="e#153430#153756#0" expanded="false" />
-                <element signature="e#153797#154075#0" expanded="false" />
-                <element signature="e#154115#154343#0" expanded="false" />
-                <element signature="e#154396#154678#0" expanded="false" />
-                <element signature="e#154716#155041#0" expanded="false" />
+                <element signature="e#133012#133114#0" expanded="false" />
+                <element signature="e#133379#133515#0" expanded="false" />
+                <element signature="e#133732#133971#0" expanded="false" />
+                <element signature="e#134034#134669#0" expanded="false" />
+                <element signature="e#134732#134777#0" expanded="false" />
+                <element signature="e#134946#134975#0" expanded="false" />
+                <element signature="e#134998#135048#0" expanded="false" />
+                <element signature="e#135148#135197#0" expanded="false" />
+                <element signature="e#135274#136971#0" expanded="false" />
+                <element signature="e#137202#137421#0" expanded="false" />
+                <element signature="e#137612#137831#0" expanded="false" />
+                <element signature="e#137946#138171#0" expanded="false" />
+                <element signature="e#138209#139001#0" expanded="false" />
+                <element signature="e#139036#139553#0" expanded="false" />
+                <element signature="e#139591#140140#0" expanded="false" />
+                <element signature="e#140176#140700#0" expanded="false" />
+                <element signature="e#140737#141265#0" expanded="false" />
+                <element signature="e#141306#141865#0" expanded="false" />
+                <element signature="e#141900#142434#0" expanded="false" />
+                <element signature="e#142537#145309#0" expanded="false" />
+                <element signature="e#145349#145602#0" expanded="false" />
+                <element signature="e#145654#146404#0" expanded="false" />
+                <element signature="e#146509#149142#0" expanded="false" />
+                <element signature="e#149275#149690#0" expanded="false" />
+                <element signature="e#149735#150387#0" expanded="false" />
+                <element signature="e#150445#151159#0" expanded="false" />
+                <element signature="e#154030#155181#0" expanded="false" />
+                <element signature="e#155215#155250#0" expanded="false" />
+                <element signature="e#155284#155641#0" expanded="false" />
+                <element signature="e#155674#155817#0" expanded="false" />
+                <element signature="e#155865#156006#0" expanded="false" />
+                <element signature="e#156045#156216#0" expanded="false" />
+                <element signature="e#156264#156346#0" expanded="false" />
+                <element signature="e#156389#156736#0" expanded="false" />
+                <element signature="e#156773#157099#0" expanded="false" />
+                <element signature="e#157140#157418#0" expanded="false" />
+                <element signature="e#157458#157686#0" expanded="false" />
+                <element signature="e#157739#158021#0" expanded="false" />
+                <element signature="e#158059#158384#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="card-tips-modal.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/tips/card-tips-modal.html">
+      <file leaf-file-name="adjust-tips.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/tips/adjust-tips.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="94" column="71" selection-start-line="94" selection-start-column="51" selection-end-line="94" selection-end-column="71" />
+            <state relative-caret-position="399">
+              <caret line="126" column="94" selection-start-line="126" selection-start-column="94" selection-end-line="126" selection-end-column="94" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="correct-tips.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/tips/correct-tips.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="333">
+              <caret line="56" column="44" selection-start-line="56" selection-start-column="44" selection-end-line="56" selection-end-column="44" />
               <folding>
-                <element signature="n#div#0;n#ion-tab#0;n#ion-tabs#0;n#ion-content#0;n#ion-modal-view#0;n#!!top" expanded="false" />
-                <element signature="n#div#0;n#ion-tab#1;n#ion-tabs#0;n#ion-content#0;n#ion-modal-view#0;n#!!top" expanded="false" />
+                <element signature="n#style#0;n#div#4;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -218,14 +234,14 @@
         <option value="$PROJECT_DIR$/templates/tips/adjust-tips.html" />
         <option value="$PROJECT_DIR$/templates/tips/validate-tips.html" />
         <option value="$PROJECT_DIR$/templates/tips/report-tips.html" />
-        <option value="$PROJECT_DIR$/templates/tips/correct-tips.html" />
         <option value="$PROJECT_DIR$/templates/tips/settle-tips.html" />
         <option value="$PROJECT_DIR$/../platforms/android/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/../platforms/android/project.properties" />
-        <option value="$PROJECT_DIR$/js/controllers.js" />
         <option value="$PROJECT_DIR$/templates/tips/gift-tips-modal.html" />
         <option value="$PROJECT_DIR$/templates/tips/card-tips-modal.html" />
         <option value="$PROJECT_DIR$/templates/tips/barcode-card-modal.html" />
+        <option value="$PROJECT_DIR$/templates/tips/correct-tips.html" />
+        <option value="$PROJECT_DIR$/js/controllers.js" />
       </list>
     </option>
   </component>
@@ -434,12 +450,12 @@
       <workItem from="1506576600901" duration="16956000" />
       <workItem from="1506673619923" duration="6915000" />
       <workItem from="1506934482994" duration="8655000" />
-      <workItem from="1507011011674" duration="8593000" />
+      <workItem from="1507011011674" duration="10068000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="197469000" />
+    <option name="totallyTimeSpent" value="198944000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -681,13 +697,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/tips/search-receipt-modal.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="26" column="50" selection-start-line="26" selection-start-column="50" selection-end-line="26" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/tips/cash-tips-modal.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
@@ -710,13 +719,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/tips/adjust-tips.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="22" column="63" selection-start-line="22" selection-start-column="63" selection-end-line="22" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/tips/check-tips-modal.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
@@ -735,13 +737,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-330">
           <caret line="20" column="67" selection-start-line="20" selection-start-column="67" selection-end-line="20" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/tips/correct-tips.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="71" column="57" selection-start-line="71" selection-start-column="57" selection-end-line="71" selection-end-column="57" />
         </state>
       </provider>
     </entry>
@@ -803,10 +798,63 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/tips/barcode-card-modal.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-288">
+          <caret line="29" column="55" selection-start-line="29" selection-start-column="55" selection-end-line="29" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/tips/credit-tips-modal.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="9" column="46" selection-start-line="9" selection-start-column="42" selection-end-line="9" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/tips/card-tips-modal.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="94" column="71" selection-start-line="94" selection-start-column="51" selection-end-line="94" selection-end-column="71" />
+          <folding>
+            <element signature="n#div#0;n#ion-tab#0;n#ion-tabs#0;n#ion-content#0;n#ion-modal-view#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#ion-tab#1;n#ion-tabs#0;n#ion-content#0;n#ion-modal-view#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/tips/search-receipt-modal.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="26" column="50" selection-start-line="26" selection-start-column="50" selection-end-line="26" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/tips/adjust-tips.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="126" column="94" selection-start-line="126" selection-start-column="94" selection-end-line="126" selection-end-column="94" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/tips/correct-tips.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="56" column="44" selection-start-line="56" selection-start-column="44" selection-end-line="56" selection-end-column="44" />
+          <folding>
+            <element signature="n#style#0;n#div#4;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/controllers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="3267" column="58" selection-start-line="3267" selection-start-column="58" selection-end-line="3267" selection-end-column="58" />
+        <state relative-caret-position="306">
+          <caret line="3769" column="41" selection-start-line="3769" selection-start-column="41" selection-end-line="3769" selection-end-column="41" />
           <folding>
             <element signature="e#0#413#0" expanded="false" />
             <element signature="e#586#701#0" expanded="false" />
@@ -862,6 +910,7 @@
             <element signature="e#113258#113395#0" expanded="false" />
             <element signature="e#113466#113572#0" expanded="false" />
             <element signature="e#113640#113690#0" expanded="false" />
+            <element signature="e#113752#117003#0" expanded="false" />
             <element signature="e#117057#118626#0" expanded="false" />
             <element signature="e#118688#119447#0" expanded="false" />
             <element signature="e#119520#122153#0" expanded="false" />
@@ -913,66 +962,45 @@
             <element signature="e#131867#131914#0" expanded="false" />
             <element signature="e#132153#132380#0" expanded="false" />
             <element signature="e#132571#132790#0" expanded="false" />
-            <element signature="e#132982#133666#0" expanded="false" />
-            <element signature="e#133235#133293#0" expanded="false" />
-            <element signature="e#133294#133350#0" expanded="false" />
-            <element signature="e#133859#134078#0" expanded="false" />
-            <element signature="e#134269#134488#0" expanded="false" />
-            <element signature="e#134603#134828#0" expanded="false" />
-            <element signature="e#134866#135658#0" expanded="false" />
-            <element signature="e#135693#136210#0" expanded="false" />
-            <element signature="e#136248#136797#0" expanded="false" />
-            <element signature="e#136833#137357#0" expanded="false" />
-            <element signature="e#137394#137922#0" expanded="false" />
-            <element signature="e#137963#138522#0" expanded="false" />
-            <element signature="e#138557#139091#0" expanded="false" />
-            <element signature="e#139194#141966#0" expanded="false" />
-            <element signature="e#142006#142259#0" expanded="false" />
-            <element signature="e#142311#143061#0" expanded="false" />
-            <element signature="e#143166#145799#0" expanded="false" />
-            <element signature="e#145932#146347#0" expanded="false" />
-            <element signature="e#146392#147044#0" expanded="false" />
-            <element signature="e#147102#147816#0" expanded="false" />
-            <element signature="e#150687#151838#0" expanded="false" />
-            <element signature="e#151872#151907#0" expanded="false" />
-            <element signature="e#151941#152298#0" expanded="false" />
-            <element signature="e#152331#152474#0" expanded="false" />
-            <element signature="e#152522#152663#0" expanded="false" />
-            <element signature="e#152702#152873#0" expanded="false" />
-            <element signature="e#152921#153003#0" expanded="false" />
-            <element signature="e#153046#153393#0" expanded="false" />
-            <element signature="e#153430#153756#0" expanded="false" />
-            <element signature="e#153797#154075#0" expanded="false" />
-            <element signature="e#154115#154343#0" expanded="false" />
-            <element signature="e#154396#154678#0" expanded="false" />
-            <element signature="e#154716#155041#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/tips/barcode-card-modal.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-288">
-          <caret line="29" column="55" selection-start-line="29" selection-start-column="55" selection-end-line="29" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/tips/credit-tips-modal.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="9" column="46" selection-start-line="9" selection-start-column="42" selection-end-line="9" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/tips/card-tips-modal.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="94" column="71" selection-start-line="94" selection-start-column="51" selection-end-line="94" selection-end-column="71" />
-          <folding>
-            <element signature="n#div#0;n#ion-tab#0;n#ion-tabs#0;n#ion-content#0;n#ion-modal-view#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#ion-tab#1;n#ion-tabs#0;n#ion-content#0;n#ion-modal-view#0;n#!!top" expanded="false" />
+            <element signature="e#133012#133114#0" expanded="false" />
+            <element signature="e#133379#133515#0" expanded="false" />
+            <element signature="e#133732#133971#0" expanded="false" />
+            <element signature="e#134034#134669#0" expanded="false" />
+            <element signature="e#134732#134777#0" expanded="false" />
+            <element signature="e#134946#134975#0" expanded="false" />
+            <element signature="e#134998#135048#0" expanded="false" />
+            <element signature="e#135148#135197#0" expanded="false" />
+            <element signature="e#135274#136971#0" expanded="false" />
+            <element signature="e#137202#137421#0" expanded="false" />
+            <element signature="e#137612#137831#0" expanded="false" />
+            <element signature="e#137946#138171#0" expanded="false" />
+            <element signature="e#138209#139001#0" expanded="false" />
+            <element signature="e#139036#139553#0" expanded="false" />
+            <element signature="e#139591#140140#0" expanded="false" />
+            <element signature="e#140176#140700#0" expanded="false" />
+            <element signature="e#140737#141265#0" expanded="false" />
+            <element signature="e#141306#141865#0" expanded="false" />
+            <element signature="e#141900#142434#0" expanded="false" />
+            <element signature="e#142537#145309#0" expanded="false" />
+            <element signature="e#145349#145602#0" expanded="false" />
+            <element signature="e#145654#146404#0" expanded="false" />
+            <element signature="e#146509#149142#0" expanded="false" />
+            <element signature="e#149275#149690#0" expanded="false" />
+            <element signature="e#149735#150387#0" expanded="false" />
+            <element signature="e#150445#151159#0" expanded="false" />
+            <element signature="e#154030#155181#0" expanded="false" />
+            <element signature="e#155215#155250#0" expanded="false" />
+            <element signature="e#155284#155641#0" expanded="false" />
+            <element signature="e#155674#155817#0" expanded="false" />
+            <element signature="e#155865#156006#0" expanded="false" />
+            <element signature="e#156045#156216#0" expanded="false" />
+            <element signature="e#156264#156346#0" expanded="false" />
+            <element signature="e#156389#156736#0" expanded="false" />
+            <element signature="e#156773#157099#0" expanded="false" />
+            <element signature="e#157140#157418#0" expanded="false" />
+            <element signature="e#157458#157686#0" expanded="false" />
+            <element signature="e#157739#158021#0" expanded="false" />
+            <element signature="e#158059#158384#0" expanded="false" />
           </folding>
         </state>
       </provider>
