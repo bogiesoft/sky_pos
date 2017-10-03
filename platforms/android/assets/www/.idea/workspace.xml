@@ -22,11 +22,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="controllers.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="controllers.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/controllers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="402">
-              <caret line="3266" column="67" selection-start-line="3266" selection-start-column="67" selection-end-line="3266" selection-end-column="67" />
+            <state relative-caret-position="137">
+              <caret line="4163" column="47" selection-start-line="4163" selection-start-column="47" selection-end-line="4163" selection-end-column="47" />
               <folding>
                 <element signature="e#0#413#0" expanded="false" />
                 <element signature="e#586#701#0" expanded="false" />
@@ -80,6 +80,7 @@
                 <element signature="e#113234#113371#0" expanded="false" />
                 <element signature="e#113442#113548#0" expanded="false" />
                 <element signature="e#113616#113666#0" expanded="false" />
+                <element signature="e#113728#117136#0" expanded="false" />
                 <element signature="e#117190#118759#0" expanded="false" />
                 <element signature="e#118821#119580#0" expanded="false" />
                 <element signature="e#119653#122286#0" expanded="false" />
@@ -148,33 +149,19 @@
                 <element signature="e#145584#145999#0" expanded="false" />
                 <element signature="e#146044#146696#0" expanded="false" />
                 <element signature="e#146754#147468#0" expanded="false" />
-                <element signature="e#150339#151490#0" expanded="false" />
-                <element signature="e#151524#151559#0" expanded="false" />
-                <element signature="e#151593#151950#0" expanded="false" />
-                <element signature="e#151983#152126#0" expanded="false" />
-                <element signature="e#152174#152315#0" expanded="false" />
-                <element signature="e#152354#152525#0" expanded="false" />
-                <element signature="e#152573#152655#0" expanded="false" />
-                <element signature="e#152698#153045#0" expanded="false" />
-                <element signature="e#153082#153408#0" expanded="false" />
-                <element signature="e#153449#153727#0" expanded="false" />
-                <element signature="e#153767#153995#0" expanded="false" />
-                <element signature="e#154048#154330#0" expanded="false" />
-                <element signature="e#154368#154693#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="gift-tips-modal.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/tips/gift-tips-modal.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3">
-              <caret line="19" column="38" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
-              <folding>
-                <element signature="n#div#0;n#ion-tab#1;n#ion-tabs#0;n#ion-content#0;n#ion-modal-view#0;n#!!top" expanded="false" />
-                <element signature="n#style#0;n#ol#0;n#div#0;n#div#0;n#ion-tab#2;n#ion-tabs#0;n#ion-content#0;n#ion-modal-view#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#div#1;n#div#0;n#ion-tab#2;n#ion-tabs#0;n#ion-content#0;n#ion-modal-view#0;n#!!top" expanded="true" />
+                <element signature="e#150336#151487#0" expanded="false" />
+                <element signature="e#151521#151556#0" expanded="false" />
+                <element signature="e#151590#151947#0" expanded="false" />
+                <element signature="e#151980#152123#0" expanded="false" />
+                <element signature="e#152171#152312#0" expanded="false" />
+                <element signature="e#152351#152522#0" expanded="false" />
+                <element signature="e#152570#152652#0" expanded="false" />
+                <element signature="e#152695#153042#0" expanded="false" />
+                <element signature="e#153079#153405#0" expanded="false" />
+                <element signature="e#153446#153724#0" expanded="false" />
+                <element signature="e#153764#153992#0" expanded="false" />
+                <element signature="e#154045#154327#0" expanded="false" />
+                <element signature="e#154365#154690#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -202,11 +189,7 @@
         <option value="$PROJECT_DIR$/templates/tips/tip-report.html" />
         <option value="$PROJECT_DIR$/templates/tips.html" />
         <option value="$PROJECT_DIR$/js/app.js" />
-        <option value="$PROJECT_DIR$/templates/tips/validate-tips.html" />
         <option value="$PROJECT_DIR$/templates/tips/finalize-tips.html" />
-        <option value="$PROJECT_DIR$/templates/tips/settle-tips.html" />
-        <option value="$PROJECT_DIR$/templates/tips/correct-tips.html" />
-        <option value="$PROJECT_DIR$/templates/tips/report-tips.html" />
         <option value="$PROJECT_DIR$/templates/tips/add-stuff-modal.html" />
         <option value="$PROJECT_DIR$/templates/tips/search-receipt-modal.html" />
         <option value="$PROJECT_DIR$/templates/cheque-payment-modal.html" />
@@ -219,6 +202,10 @@
         <option value="$PROJECT_DIR$/custom/css/style.css" />
         <option value="$PROJECT_DIR$/templates/tips/adjust-tips.html" />
         <option value="$PROJECT_DIR$/templates/tips/gift-tips-modal.html" />
+        <option value="$PROJECT_DIR$/templates/tips/validate-tips.html" />
+        <option value="$PROJECT_DIR$/templates/tips/report-tips.html" />
+        <option value="$PROJECT_DIR$/templates/tips/correct-tips.html" />
+        <option value="$PROJECT_DIR$/templates/tips/settle-tips.html" />
         <option value="$PROJECT_DIR$/js/controllers.js" />
       </list>
     </option>
@@ -413,12 +400,12 @@
       <workItem from="1506406559452" duration="12682000" />
       <workItem from="1506576600901" duration="16956000" />
       <workItem from="1506673619923" duration="6915000" />
-      <workItem from="1506934482994" duration="7025000" />
+      <workItem from="1506934482994" duration="8525000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="187246000" />
+    <option name="totallyTimeSpent" value="188746000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -660,38 +647,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/tips/settle-tips.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="34" column="51" selection-start-line="34" selection-start-column="51" selection-end-line="34" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/tips/validate-tips.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="89" column="94" selection-start-line="89" selection-start-column="94" selection-end-line="89" selection-end-column="94" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/order-provision-item.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="594">
           <caret line="33" column="32" selection-start-line="33" selection-start-column="32" selection-end-line="33" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/tips/correct-tips.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="828">
-          <caret line="46" column="148" selection-start-line="46" selection-start-column="148" selection-end-line="46" selection-end-column="148" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/tips/report-tips.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2502">
-          <caret line="139" column="11" selection-start-line="139" selection-start-column="11" selection-end-line="139" selection-end-column="11" />
         </state>
       </provider>
     </entry>
@@ -792,10 +751,66 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/tips/check-tips-modal.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="24" column="92" selection-start-line="24" selection-start-column="92" selection-end-line="24" selection-end-column="92" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/tips/validate-tips.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="107">
+          <caret line="22" column="86" selection-start-line="22" selection-start-column="86" selection-end-line="22" selection-end-column="86" />
+          <folding>
+            <element signature="n#style#0;n#button#0;n#div#0;n#div#0;n#div#0;n#div#0;n#ion-view#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/tips/report-tips.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-330">
+          <caret line="20" column="67" selection-start-line="20" selection-start-column="67" selection-end-line="20" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/tips/gift-tips-modal.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3">
+          <caret line="19" column="38" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
+          <folding>
+            <element signature="n#div#0;n#ion-tab#1;n#ion-tabs#0;n#ion-content#0;n#ion-modal-view#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#ol#0;n#div#0;n#div#0;n#ion-tab#2;n#ion-tabs#0;n#ion-content#0;n#ion-modal-view#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#1;n#div#0;n#ion-tab#2;n#ion-tabs#0;n#ion-content#0;n#ion-modal-view#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/tips/correct-tips.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="71" column="57" selection-start-line="71" selection-start-column="57" selection-end-line="71" selection-end-column="57" />
+          <folding>
+            <element signature="n#style#0;n#div#4;n#div#0;n#ion-content#0;n#ion-view#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/tips/settle-tips.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="43" column="64" selection-start-line="43" selection-start-column="64" selection-end-line="43" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/controllers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="402">
-          <caret line="3266" column="67" selection-start-line="3266" selection-start-column="67" selection-end-line="3266" selection-end-column="67" />
+        <state relative-caret-position="137">
+          <caret line="4163" column="47" selection-start-line="4163" selection-start-column="47" selection-end-line="4163" selection-end-column="47" />
           <folding>
             <element signature="e#0#413#0" expanded="false" />
             <element signature="e#586#701#0" expanded="false" />
@@ -849,6 +864,7 @@
             <element signature="e#113234#113371#0" expanded="false" />
             <element signature="e#113442#113548#0" expanded="false" />
             <element signature="e#113616#113666#0" expanded="false" />
+            <element signature="e#113728#117136#0" expanded="false" />
             <element signature="e#117190#118759#0" expanded="false" />
             <element signature="e#118821#119580#0" expanded="false" />
             <element signature="e#119653#122286#0" expanded="false" />
@@ -917,39 +933,19 @@
             <element signature="e#145584#145999#0" expanded="false" />
             <element signature="e#146044#146696#0" expanded="false" />
             <element signature="e#146754#147468#0" expanded="false" />
-            <element signature="e#150339#151490#0" expanded="false" />
-            <element signature="e#151524#151559#0" expanded="false" />
-            <element signature="e#151593#151950#0" expanded="false" />
-            <element signature="e#151983#152126#0" expanded="false" />
-            <element signature="e#152174#152315#0" expanded="false" />
-            <element signature="e#152354#152525#0" expanded="false" />
-            <element signature="e#152573#152655#0" expanded="false" />
-            <element signature="e#152698#153045#0" expanded="false" />
-            <element signature="e#153082#153408#0" expanded="false" />
-            <element signature="e#153449#153727#0" expanded="false" />
-            <element signature="e#153767#153995#0" expanded="false" />
-            <element signature="e#154048#154330#0" expanded="false" />
-            <element signature="e#154368#154693#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/tips/check-tips-modal.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="24" column="92" selection-start-line="24" selection-start-column="92" selection-end-line="24" selection-end-column="92" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/tips/gift-tips-modal.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3">
-          <caret line="19" column="38" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
-          <folding>
-            <element signature="n#div#0;n#ion-tab#1;n#ion-tabs#0;n#ion-content#0;n#ion-modal-view#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#ol#0;n#div#0;n#div#0;n#ion-tab#2;n#ion-tabs#0;n#ion-content#0;n#ion-modal-view#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#1;n#div#0;n#ion-tab#2;n#ion-tabs#0;n#ion-content#0;n#ion-modal-view#0;n#!!top" expanded="true" />
+            <element signature="e#150336#151487#0" expanded="false" />
+            <element signature="e#151521#151556#0" expanded="false" />
+            <element signature="e#151590#151947#0" expanded="false" />
+            <element signature="e#151980#152123#0" expanded="false" />
+            <element signature="e#152171#152312#0" expanded="false" />
+            <element signature="e#152351#152522#0" expanded="false" />
+            <element signature="e#152570#152652#0" expanded="false" />
+            <element signature="e#152695#153042#0" expanded="false" />
+            <element signature="e#153079#153405#0" expanded="false" />
+            <element signature="e#153446#153724#0" expanded="false" />
+            <element signature="e#153764#153992#0" expanded="false" />
+            <element signature="e#154045#154327#0" expanded="false" />
+            <element signature="e#154365#154690#0" expanded="false" />
           </folding>
         </state>
       </provider>

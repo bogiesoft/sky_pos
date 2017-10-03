@@ -20,10 +20,10 @@
                 <div class="row">
                     <div class="col-50 split-textbox-label"><i class="icon ion-android-star"></i> From Date:</div>
                     <div class="col-40">
-                        <input class="split-textbox" type="date" ng-model="order_id" />
+                        <input class="split-textbox" type="date" ng-model="from_date" />
                     </div>
                     <div class="col-10">
-                        <button class="tip-payment small-btn" ng-click="from_date()">
+                        <button class="tip-payment small-btn">
                             <i class="ion-calendar"></i>
                         </button>
                     </div>
@@ -32,10 +32,10 @@
                 <div class="row">
                     <div class="col-50 split-textbox-label"><i class="icon ion-android-star"></i> To Date:</div>
                     <div class="col-40">
-                        <input class="split-textbox" type="date" ng-model="order_id" />
+                        <input class="split-textbox" type="date" ng-model="to_date" />
                     </div>
                     <div class="col-10">
-                        <button class="tip-payment small-btn" ng-click="to_date()">
+                        <button class="tip-payment small-btn">
                             <i class="ion-calendar"></i>
                         </button>
                     </div>
@@ -43,7 +43,9 @@
 
                 <div class="row split-textbox-label margin-top">
                     <div class="col-50"><i class="icon ion-android-star"></i> Amount Settle:</div>
-                    <div class="col-30 text-center">1</div>
+                    <div class="col-30 text-center">
+                        <input class="split-textbox" type="number" ng-model="amount_settle" />
+                    </div>
                     <div class="col-20 text-right text-green">$2.00</div>
                 </div>
 

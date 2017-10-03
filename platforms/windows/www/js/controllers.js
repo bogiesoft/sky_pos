@@ -4159,9 +4159,9 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
         },
         getApiURL: function(method) {
             var url = {};
-            url.base_url="http://restaurant.theskypos.com/api/";
+            //url.base_url="http://restaurant.theskypos.com/api/";
             url.image_base_url="http://restaurant.theskypos.com";
-           //url.base_url="https://5638d5d7.ngrok.io/api/";
+           url.base_url="http://localhost:20186/api/";
             url.registration = "api/Account/Register";
             url.login_email = "Auth/Login";
             url.login_access_code="Auth/AccessCode";
