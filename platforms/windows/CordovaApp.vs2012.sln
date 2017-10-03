@@ -20,6 +20,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # under the License.
 #
 Project("{262852C6-CD72-467D-83FE-5EEB1973A190}") = "CordovaApp.Windows8.0", "CordovaApp.Windows80.jsproj", "{EFFFAB2F-BFC5-4EDA-B545-45EF4995F55A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{01412F36-3781-4AF0-903C-ACEA7552C99C}={01412F36-3781-4AF0-903C-ACEA7552C99C}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinRTBarcodeReader", "E:\sky_pos-master\plugins\phonegap-plugin-barcodescanner\src\windows\lib\WinRTBarcodeReader.csproj", "{01412F36-3781-4AF0-903C-ACEA7552C99C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

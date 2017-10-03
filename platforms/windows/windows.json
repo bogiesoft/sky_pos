@@ -10,7 +10,7 @@
                     "/Package/Capabilities": [
                         {
                             "xml": "<DeviceCapability Name=\"webcam\" />",
-                            "count": 1
+                            "count": 2
                         }
                     ]
                 }
@@ -38,6 +38,9 @@
         },
         "cordova-plugin-compat": {
             "PACKAGE_NAME": "CPBankIonic"
+        },
+        "phonegap-plugin-barcodescanner": {
+            "PACKAGE_NAME": "SkyPos"
         }
     },
     "dependent_plugins": {},
@@ -133,6 +136,22 @@
             "file": "plugins/cordova-plugin-device/src/windows/DeviceProxy.js",
             "id": "cordova-plugin-device.DeviceProxy",
             "pluginId": "cordova-plugin-device",
+            "merges": [
+                ""
+            ]
+        },
+        {
+            "file": "plugins/phonegap-plugin-barcodescanner/www/barcodescanner.js",
+            "id": "phonegap-plugin-barcodescanner.BarcodeScanner",
+            "pluginId": "phonegap-plugin-barcodescanner",
+            "clobbers": [
+                "cordova.plugins.barcodeScanner"
+            ]
+        },
+        {
+            "file": "plugins/phonegap-plugin-barcodescanner/src/windows/BarcodeScannerProxy.js",
+            "id": "phonegap-plugin-barcodescanner.BarcodeScannerProxy",
+            "pluginId": "phonegap-plugin-barcodescanner",
             "merges": [
                 ""
             ]

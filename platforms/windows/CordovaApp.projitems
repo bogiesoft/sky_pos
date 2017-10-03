@@ -13,4 +13,7 @@
     </ItemGroup>
     <Import Condition="Exists('$(MSBuildThisFileDirectory)CordovaAppDebug.projitems') And '$(Configuration)'=='Debug'" Project="CordovaAppDebug.projitems" />
     <Import Condition="Exists('$(MSBuildThisFileDirectory)CordovaAppRelease.projitems') And '$(Configuration)'!='Debug'" Project="CordovaAppRelease.projitems" />
+    <ItemGroup>
+        <ProjectReference Include="E:\sky_pos-master\plugins\phonegap-plugin-barcodescanner\src\windows\lib\WinRTBarcodeReader.csproj" />
+    </ItemGroup>
 </Project>

@@ -17,13 +17,8 @@
 
 		  <ion-tab title="Barcode Card">
 			  <div class="row">
-				  <div class="col-20">
-					  <img class="img-responsive camera-img" src="custom/Assets/Tips/ic_camera_green.png" alt="" ng-click="takeCameraImage()">
-				  </div>
-				  <div class="col-80 img-preview-wrapper">
-					  <div class="img-preview">
-						  <img id="check_img" ng-show="check_image!=''" ng-src="{{urlForImage(check_image)}}" class="check_img" style="max-height:150px;width:100%;" />
-					  </div>
+				  <div class="col-60 text-right">
+					  <img class="img-responsive camera-img" src="custom/Assets/Tips/ic_camera_green.png" alt="" ng-click="scanBarcode()">
 				  </div>
 			  </div>
 
@@ -31,12 +26,12 @@
 
 				  <label class="item item-input item-fixed-label">
 					  <span class="input-label">Card No: </span>
-					  <input type="number" ng-model="payment_model.card_no" required placeholder="Card No">
+					  <input type="text" ng-model="payment_model.CardNo" required placeholder="Card No">
 				  </label>
 
 				  <label class="item item-input ">
 					  <span class="input-label">Card balance: </span>
-					  <input type="number" ng-model="payment_model.card_balance" required placeholder="Card balance">
+					  <input type="number" ng-model="payment_model.CardBalance" required placeholder="Card balance">
 				  </label>
 
 				  <label class="item item-input ">
@@ -52,22 +47,22 @@
 
 				  <label class="item item-input item-fixed-label">
 					  <span class="input-label">Card No: </span>
-					  <input type="number" ng-model="payment_model.card_no" required placeholder="Card No">
+					  <input type="number" ng-model="payment_model.CardNo" required placeholder="Card No">
 				  </label>
 
 				  <label class="item item-input item-fixed-label">
 					  <span class="input-label">Exp Month: </span>
-					  <input type="number" ng-model="payment_model.exp_month" required placeholder="Exp Month">
+					  <input type="number" ng-model="payment_model.ExpireMonth" required placeholder="Exp Month">
 				  </label>
 
 				  <label class="item item-input item-fixed-label">
 					  <span class="input-label">Exp Year: </span>
-					  <input type="number" ng-model="payment_model.exp_year" required placeholder="Exp Year">
+					  <input type="number" ng-model="payment_model.ExpireYear" required placeholder="Exp Year">
 				  </label>
 
 				  <label class="item item-input ">
 					  <span class="input-label">CVV (3 digits on reverse): </span>
-					  <input type="number" ng-model="payment_model.cvv" required placeholder="CVV">
+					  <input type="number" ng-model="payment_model.Cvv" required placeholder="CVV">
 				  </label>
 
 				  <label class="item item-input ">
@@ -95,12 +90,12 @@
 
 				  <label class="item item-input item-fixed-label">
 					  <span class="input-label">Card No: </span>
-					  <input type="number" ng-model="payment_model.card_no" required placeholder="Card No">
+					  <input type="number" ng-model="payment_model.CardNo" required placeholder="Card No">
 				  </label>
 
 				  <label class="item item-input ">
 					  <span class="input-label">Card balance: </span>
-					  <input type="number" ng-model="payment_model.card_balance" required placeholder="Card balance">
+					  <input type="number" ng-model="payment_model.CardBalance" required placeholder="Card balance">
 				  </label>
 
 				  <label class="item item-input ">

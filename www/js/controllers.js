@@ -3084,7 +3084,7 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
     
  
 })
-.controller("AdjustTipsCtrl",function($rootScope, $scope, $http, $location, $ionicSideMenuDelegate, ProfileData, Utils, $ionicLoading, $document, SweetAlert, $ionicModal, $state, OrderData, $cordovaCamera, $filter, $cordovaFile){
+.controller("AdjustTipsCtrl",function($rootScope, $scope, $http, $location, $ionicSideMenuDelegate, ProfileData, Utils, $ionicLoading, $document, SweetAlert, $ionicModal, $state, OrderData, $cordovaCamera, $filter, $cordovaFile, $cordovaBarcodeScanner){
 
     $ionicSideMenuDelegate.canDragContent(false);
     Utils.checkLogin();
@@ -3434,6 +3434,17 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
             trueOrigin = cordova.file.dataDirectory + name;
         }
         return trueOrigin;
+    };
+
+    // take barcode image
+    $scope.scanBarcode = function() {
+        $cordovaBarcodeScanner.scan().then(function(imageData) {
+            $scope.payment_model.CardNo = imageData.text;
+            console.log("Barcode Format -> " + imageData.format);
+            console.log("Cancelled -> " + imageData.cancelled);
+        }, function(error) {
+            Utils.showAlert("Error", "An error happened -> " + error, true, 'error', false, 'OK', '', true, true);
+        });
     };
 
     // Edit Tips Amount modal

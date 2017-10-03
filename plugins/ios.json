@@ -39,6 +39,10 @@
         },
         "ionic-plugin-keyboard": {
             "PACKAGE_NAME": "com.theskypos.skypos"
+        },
+        "phonegap-plugin-barcodescanner": {
+            "CAMERA_USAGE_DESCRIPTION": " ",
+            "PACKAGE_NAME": "com.theskypos.skypos"
         }
     },
     "dependent_plugins": {

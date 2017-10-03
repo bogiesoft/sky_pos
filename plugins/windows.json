@@ -24,6 +24,9 @@
         },
         "cordova-plugin-device": {
             "PACKAGE_NAME": "SkyPos"
+        },
+        "phonegap-plugin-barcodescanner": {
+            "PACKAGE_NAME": "SkyPos"
         }
     },
     "dependent_plugins": {
