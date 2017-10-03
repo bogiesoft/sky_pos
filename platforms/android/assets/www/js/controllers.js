@@ -3263,8 +3263,6 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
                     tipObj.PaymentType = 4;
                     tipObj.CardNo = $scope.payment_model.CardNo;
                     tipObj.CardBalance = $scope.payment_model.CardBalance;
-                    $scope.check_image_base64 = $scope.draw();
-                    tipObj.CheckImage = "data:image/png;base64," + $scope.check_image_base64;
                     tipObj.ExpireMonth = $scope.payment_model.ExpireMonth;
                     tipObj.ExpireYear = $scope.payment_model.ExpireYear;
                     tipObj.Cvv = $scope.payment_model.Cvv;
