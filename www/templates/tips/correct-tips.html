@@ -7,7 +7,7 @@
         </div>
         <h1 class="title text-left order-header-title"  align-title="left" style="text-align:left">Correcting Tips Adjustment</h1>
         <div class="buttons">
-            <button type="button" ng-click="adjustTips()" class="order-header-icon button button-icon button-clear ion-checkmark"></button>
+            <button type="button" ng-click="saveTips()" class="order-header-icon button button-icon button-clear ion-checkmark"></button>
         </div>
     </ion-header-bar>
 
@@ -40,8 +40,8 @@
             <div class="tip-list-wrapper">
                 <div class="row tip-list-header">
                     <div class="col-20"></div>
-                    <div class="col-60">TIP BY</div>
-                    <div class="col-20"><span style="float: right;">AMOUNT</span></div>
+                    <div class="col-50">TIP BY</div>
+                    <div class="col-30"><span style="float: right;">AMOUNT</span></div>
                 </div>
                 <div class="tip-list">
                     <div style="overflow:hidden;margin-right:0px" class="row item item-body" ng-repeat="item in receipt_data.OrderTipMethodDetails" id="tip-row-{{$index}}" ng-click="selectProvisionItem($index)">
@@ -110,7 +110,7 @@
             <div class="col">
                 <div class="text-white" style="text-align:center;width:100%">
                     <span>Save</span><br>
-                    <a  type="button" ng-click="saveTips();" style="color:#FFF;margin-top:-65px;" class="button sky-pos-light-green top"></a>
+                    <a type="button" ng-click="saveTips();" style="color:#FFF;margin-top:-65px;" class="button sky-pos-light-green top ion-checkmark"></a>
 
                 </div>
             </div>

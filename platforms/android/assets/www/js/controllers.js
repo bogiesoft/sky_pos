@@ -3748,11 +3748,10 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
         'total_tips': 0.0
     };
 
-    // tips list
-    $scope.tips = [];
+    // selected receipt data
+    $scope.receipt_data = {};
 
     // current tip
-    $scope.current_tip = {};
     $scope.current_tip_index = 0;
 
     // receipts list
@@ -3766,9 +3765,14 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
         if(typeof $scope.provision_items[index] == 'undefined' || $scope.provision_items[index] == false) {
             $scope.provision_items[index] = true;
             $scope.current_tip_index = index;
-            $scope.current_tip = $scope.tips[index];
+            for(var i=0;i<$scope.provision_items.length;i++){
+                if(i!==index){
+                    $scope.provision_items[i] = false;
+                }
+            }
         } else {
             $scope.provision_items[index] = false;
+            $scope.current_tip_index = 0;
         }
     };
 
@@ -3777,21 +3781,68 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
         $scope.payment_model.osum = $scope.receipts[index].OSum;
         $scope.payment_model.order_id = $scope.receipts[index].OrderId;
         $scope.payment_model.selected_order_id = $scope.receipts[index].OrderId;
-        $scope.tips = $scope.receipts[index].OrderTipMethodDetails;
-        $scope.provision_items = cleanArray($scope.tips.length);
+        $scope.receipt_data = $scope.receipts[index];
+        $scope.provision_items = cleanArray($scope.receipt_data.OrderTipMethodDetails.length);
         $scope.payment_model.selected = true;
 
         $scope.payment_model.total_tips = 0;
-        for(var i=0;i<$scope.tips.length;i++){
-            $scope.payment_model.total_tips += parseFloat($scope.tips[i].TipAmount);
+        for(var i=0;i<$scope.receipt_data.OrderTipMethodDetails.length;i++){
+            $scope.payment_model.total_tips += parseFloat($scope.receipt_data.OrderTipMethodDetails[i].TipAmount);
         }
 
         $scope.closeSearchReceiptModal();
     };
 
     // remove tips
-    $scope.removeTips = function (index) {
-        $scope.tips.splice(index, 1);
+    $scope.removeTips = function () {
+        $scope.receipt_data.OrderTipMethodDetails.splice($scope.current_tip_index, 1);
+        $scope.provision_items = cleanArray($scope.receipt_data.OrderTipMethodDetails.length);
+        $scope.current_tip_index = 0;
+    };
+
+    // save tips
+    $scope.saveTips = function () {
+        if(!$scope.payment_model.selected){
+            Utils.showAlert("Error", "Please select a receipt", true, 'error', false, 'OK', '', true, true);
+            return;
+        }
+
+        $ionicLoading.show({
+            template: 'Loading...'
+        }).then(function(){
+            console.log("The loading indicator is now displayed");
+        });
+        var myJsonRequest = new Object();
+        myJsonRequest.limit = 50;
+
+        $scope.receipt_data.userId = $scope.userId;
+
+        // save tips
+        $http({
+            url: Utils.getApiURL("save_pay_tip"),
+            method: "POST",
+            data: $scope.receipt_data,
+            headers: {'Content-Type': 'application/json','Authorization':'public 1234567890'}
+        }).success(function (data, status, headers, config){
+            if(data.Success)
+            {
+                $ionicLoading.hide().then(function(){
+                    Utils.showAlert("Saved", data.Message, true, 'success', false, 'OK', '', true, true);
+                    $state.go('app.tips');
+                });
+            } else {
+
+                $ionicLoading.hide().then(function(){
+                    Utils.showAlert("Error", data.Message, true, 'error', false, 'OK', '', true, true);
+                });
+            }
+        }).error(function (data, status, headers, config) {
+            $ionicLoading.hide().then(function(){
+                Utils.showAlert("Error", data.Message, true, 'error', false, 'OK', '', true, true);
+            });
+        }).finally(function () {
+            $scope.loading = false;
+        });
     };
 
     // Search Receipt modal

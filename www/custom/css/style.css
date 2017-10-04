@@ -1095,3 +1095,9 @@ input[type="checkbox"]:checked + label:after {
     text-align: center;
     margin-left: 5px;
 }
+
+/* correct-tips */
+.button.sky-pos-light-green.top::before {
+    font-size: 23px;
+    margin-top: 10px;
+}

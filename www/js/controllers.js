@@ -16,7 +16,7 @@ app.config(["$httpProvider", function ($httpProvider) {
     });
 }])
 
-app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuDelegate,$location,ProfileData) {
+app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuDelegate,$location,ProfileData, CustomAPI) {
   
   $scope.toggleMenu=function(){
       $ionicSideMenuDelegate.toggleLeft();
@@ -29,6 +29,9 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
   //$scope.$on('$ionicView.enter', function(e) {
   //});
 
+    if(CustomAPI.getProperty() == null){
+        CustomAPI.setProperty("http://restaurant.theskypos.com");
+    }
  
 
   $scope.doLogout=function(){
@@ -3794,13 +3797,18 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
     };
 
     // remove tips
-    $scope.removeTips = function (index) {
-        $scope.receipt_data.OrderTipMethodDetails.splice(index, 1);
+    $scope.removeTips = function () {
+        $scope.receipt_data.OrderTipMethodDetails.splice($scope.current_tip_index, 1);
+        $scope.provision_items = cleanArray($scope.receipt_data.OrderTipMethodDetails.length);
+        $scope.current_tip_index = 0;
     };
 
     // save tips
     $scope.saveTips = function () {
-        if(!$scope.payment_model.selected) return;
+        if(!$scope.payment_model.selected){
+            Utils.showAlert("Error", "Please select a receipt", true, 'error', false, 'OK', '', true, true);
+            return;
+        }
 
         $ionicLoading.show({
             template: 'Loading...'
@@ -3810,16 +3818,13 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
         var myJsonRequest = new Object();
         myJsonRequest.limit = 50;
 
+        $scope.receipt_data.userId = $scope.userId;
+
         // save tips
         $http({
             url: Utils.getApiURL("save_pay_tip"),
             method: "POST",
-            data: {
-                "orderTipMethodDetails": $scope.receipt_data.orderTipMethodDetails,
-                "employeeTipsDetailsList": $scope.receipt_data.employeeTipsDetailsList,
-                "orderId": $scope.receipt_data.orderId,
-                "userID": $scope.userId
-            },
+            data: $scope.receipt_data,
             headers: {'Content-Type': 'application/json','Authorization':'public 1234567890'}
         }).success(function (data, status, headers, config){
             if(data.Success)
@@ -3935,6 +3940,21 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
     $scope.userId=localStorage.Id;
    
 })
+.controller("AdminSettingsCtrl",function($rootScope,$scope,$http,$location,$ionicSideMenuDelegate,ProfileData,Utils, CustomAPI){
+
+    $ionicSideMenuDelegate.canDragContent(false);
+    Utils.checkLogin();
+
+    $scope.profile=ProfileData.getProperty();
+    $scope.authenticationToken=localStorage.AccessToken;
+    $scope.userId=localStorage.Id;
+
+    $scope.setURL = function (url) {
+        CustomAPI.setProperty(url);
+        Utils.showAlert("Success", "API URL saved", true, 'success', false, 'OK', '', true, true);
+    };
+
+})
 
 .service('ProfileData', function (){
     var profileData=[];
@@ -3997,6 +4017,26 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
                 localStorage.setItem('specialItems', angular.toJson(value));
             } catch (e) {
                 console.log(e); //specialItems
+            }
+        }
+    };
+})
+.service('CustomAPI', function (){
+    var CustomAPI = "http://restaurant.theskypos.com";
+    return {
+        getProperty: function () {
+            try{
+                CustomAPI = angular.fromJson(localStorage.getItem('CustomAPI'));
+            } catch (e) {
+                console.log(e); //CustomAPI
+            }
+            return CustomAPI;
+        },
+        setProperty: function (value) {
+            try{
+                localStorage.setItem('CustomAPI', angular.toJson(value));
+            } catch (e) {
+                console.log(e); //CustomAPI
             }
         }
     };
@@ -4262,7 +4302,7 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
     }
   };
 }])
-.factory('Utils', function($q,$ionicPopup,ProfileData,$location,SweetAlert,$filter) {
+.factory('Utils', function($q,$ionicPopup,ProfileData,$location,SweetAlert,$filter,CustomAPI) {
     return {
         isImage: function(src) {
 
@@ -4317,8 +4357,10 @@ app.controller('AppCtrl', function($scope, $ionicModal, $timeout,$ionicSideMenuD
         },
         getApiURL: function(method) {
             var url = {};
-            url.base_url="http://restaurant.theskypos.com/api/";
-            url.image_base_url="http://restaurant.theskypos.com";
+            
+            url.base_url= CustomAPI.getProperty() +"/api/";
+            url.image_base_url= CustomAPI.getProperty();
+            //url.image_base_url="http://restaurant.theskypos.com";
            //url.base_url="http://6c6b7871.ngrok.io/api/";
             url.registration = "api/Account/Register";
             url.login_email = "Auth/Login";
