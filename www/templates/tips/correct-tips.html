@@ -44,7 +44,7 @@
                     <div class="col-20"><span style="float: right;">AMOUNT</span></div>
                 </div>
                 <div class="tip-list">
-                    <div style="overflow:hidden;margin-right:0px" class="row item item-body" ng-repeat="item in tips" id="tip-row-{{$index}}" ng-click="selectProvisionItem($index)">
+                    <div style="overflow:hidden;margin-right:0px" class="row item item-body" ng-repeat="item in receipt_data.OrderTipMethodDetails" id="tip-row-{{$index}}" ng-click="selectProvisionItem($index)">
                         <div class="col-20">
                             <span class="checkbox">
                                 <input id="chk" ng-model="provision_items[$index]" ng-value="$index" type="checkbox">
@@ -55,7 +55,7 @@
                             <img ng-src="custom/Assets/Tips/ic_tip_payment_{{item.Method}}.png" alt="" class="img-responsive">
                         </div>
                         <div class="col-30">
-                            {{item.method | uppercase}}
+                            {{item.Method | uppercase}}
                         </div>
                         <div class="col-30">
                             <span style="float: right;">${{item.TipAmount | number: 2}}</span>
@@ -72,32 +72,32 @@
             <div class="list" style="margin-bottom: 50px;">
                 <label class="item item-input item-fixed-label">
                     <span class="input-label">Payment ID: </span>
-                    <input type="number" ng-model="payment_model.payment_id" required placeholder="Payment ID">
+                    <input type="number" ng-model="receipt_data.OrderTipMethodDetails[current_tip_index].PaymentID" placeholder="Payment ID">
                 </label>
 
                 <label class="item item-input item-fixed-label">
                     <span class="input-label">Original sale: </span>
-                    <input type="number" ng-model="payment_model.sale_amount" required placeholder="Original sale amount">
+                    <input type="number" ng-model="receipt_data.OrderTipMethodDetails[current_tip_index].SaleAmount" placeholder="Original sale amount">
                 </label>
 
                 <label class="item item-input item-fixed-label">
                     <span class="input-label">Original approve code: </span>
-                    <input type="number" ng-model="payment_model.approve_code" required placeholder="Original approve code">
+                    <input type="number" ng-model="receipt_data.OrderTipMethodDetails[current_tip_index].ApprovalCode" placeholder="Original approve code">
                 </label>
 
                 <label class="item item-input ">
                     <span class="input-label">Tips Amount: </span>
-                    <input type="number" ng-model="payment_model.amount" required placeholder="Tips Amount">
+                    <input type="number" ng-model="receipt_data.OrderTipMethodDetails[current_tip_index].TipAmount" required placeholder="Tips Amount">
                 </label>
 
                 <label class="item item-input ">
                     <span class="input-label">Final Amount: </span>
-                    <input type="number" ng-model="payment_model.final_amount" required placeholder="Final Amount">
+                    <input type="number" ng-model="receipt_data.OrderTipMethodDetails[current_tip_index].FinalAmount" placeholder="Final Amount">
                 </label>
 
                 <label class="item item-input ">
                     <span class="input-label">Finalized Status: </span>
-                    <input type="text" ng-model="payment_model.status" placeholder="Finalized Status">
+                    <input type="text" ng-model="receipt_data.OrderTipMethodDetails[current_tip_index].FinalStatus" placeholder="Finalized Status">
                 </label>
             </div>
             <!-- /edit tips -->

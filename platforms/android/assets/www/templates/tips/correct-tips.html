@@ -20,7 +20,7 @@
                 <div class="row">
                     <div class="col-30 split-textbox-label">Order ID:</div>
                     <div class="col-60">
-                        <input class="split-textbox" type="text" ng-model="order_id" />
+                        <input class="split-textbox" type="text" ng-model="payment_model.order_id" />
                     </div>
                     <div class="col-10">
                         <button class="tip-payment small-btn" ng-click="showSearchReceiptModal()">
@@ -33,7 +33,7 @@
 
             <div style="height:28px;padding-top:2px;" class="text-white row sky-pos-light-green">
                 <div class="col-70">Tips Information</div>
-                <div class="col-30">Total Tips: <span style="color:#E4F711;float: right;">$0.00</span></div>
+                <div class="col-30">Total Tips: <span style="color:#E4F711;float: right;">${{payment_model.total_tips  | number: 2}}</span></div>
             </div>
 
             <!-- tip list -->
@@ -52,13 +52,13 @@
                             </span>
                         </div>
                         <div class="col-20">
-                            <img ng-src="custom/Assets/Tips/ic_tip_payment_{{item.method}}.png" alt="" class="img-responsive">
+                            <img ng-src="custom/Assets/Tips/ic_tip_payment_{{item.Method}}.png" alt="" class="img-responsive">
                         </div>
                         <div class="col-30">
                             {{item.method | uppercase}}
                         </div>
                         <div class="col-30">
-                            <span style="float: right;">${{item.amount | number: 2}}</span>
+                            <span style="float: right;">${{item.TipAmount | number: 2}}</span>
                         </div>
                     </div>
                 </div>
