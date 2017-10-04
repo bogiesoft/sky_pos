@@ -1,0 +1,23 @@
+<ion-modal-view>
+
+    <ion-content style="background-color:#FFF;">
+        <form>
+            <div class="list">
+                <label class="item item-input">
+                    <input type="text" placeholder="API URL with http://" ng-model="api_url">
+                </label>
+
+                <div class="item_">
+                    <div class="row">
+                        <div class="col">
+                            <button type="submit" ng-click="setURL(api_url)" class="button button-block sky-pos-light-green text-white">CHANGE</button>
+                        </div>
+                        <div class="col">
+                            <a type="button" href="#/app/admin_tools" class="button button-block button-assertive text-white">BACK</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </ion-content>
+</ion-modal-view>

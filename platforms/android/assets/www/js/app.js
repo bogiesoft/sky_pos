@@ -268,6 +268,15 @@ angular.module('skypos', ['ionic', 'skypos.controllers','ngCordova','ngCordovaOa
       }
     }
   })
+  .state('app.admin_settings', {
+    url: '/admin_settings',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/admin/settings.html',
+        controller: 'AdminSettingsCtrl'
+      }
+    }
+  })
  
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/login');
